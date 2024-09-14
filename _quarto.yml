@@ -26,9 +26,9 @@ website:
         - text: "Import and format data in R"
           href: importing_data.qmd
         - text: "Simulating data"
-          href: como_simular_datos.qmd
-        - text: "Regresion models"
-          href: modelos_de_regresion.qmd
+          href: simulate_data.qmd
+        - text: "Regression models"
+          href: linear_regression.qmd
         # - text: "Estadística tradicional como regresión"
           # href: estadistica_tradicional_regresion.qmd
         - text: "Elegant graphs with ggplot2"
