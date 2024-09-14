@@ -22,14 +22,11 @@ format:
 
 Traditionally, statistical models have been taught as disconnected tools with no clear relationship between them. However, most of those common statistical models are just special cases of linear models. Hence, learning them as such can simplify things substantially. The course will focus on linear regression as the main tool for statistical inference. Students will be introduced to the basic elements of a linear regression model, its interpretation, as well as hands-on experience on building those models in R.
 
-
-
 ::: {.alert .alert-info}
 ### Objetives {.unnumbered .unlisted}
 
-- Use R as the main tool for stats
-- Understand statistical inference through a single modelling tool (broad sense linear models)
-- Get familiar with building linear models
-- Extend linear models to different data structures
-
+-   Use R as the main tool for stats
+-   Understand statistical inference through a single modelling tool (broad sense linear models)
+-   Get familiar with building linear models
+-   Extend linear models to different data structures
 :::

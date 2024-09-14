@@ -23,8 +23,8 @@ website:
         menu:
         - text: "R basics"
           href: r_basics.qmd
-        - text: "Import/export data in R"
-          href: importar_datos.qmd
+        - text: "Import and format data in R"
+          href: importing_data.qmd
         - text: "Simulating data"
           href: como_simular_datos.qmd
         - text: "Regresion models"
