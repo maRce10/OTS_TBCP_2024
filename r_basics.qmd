@@ -1,7 +1,5 @@
 ---
 title: <font size="7"><b>Basic elements of the R language</b></font>
-toc: true
-toc-depth: 3
 ---
 
 ```{r,echo=FALSE,message=FALSE}
@@ -324,7 +322,7 @@ str(l)
 All elements are of the same type:
 
 ```{r}
-m <- matrix(c(1, 2, 3, 11, 12, 13), nrow = 2)
+m <- matrix(c("a", "b", "c", "d", "e", "f"), nrow = 2)
 
 dim(m)
 
@@ -333,7 +331,7 @@ m
 class(m)
 
 
-m <- matrix(c(1, 2, 3, 11, 12, "13"), nrow = 2)
+m <- matrix(c("a", "b", "c", "d", "e", 1), nrow = 2)
 m
 
 
@@ -382,7 +380,7 @@ m <-
  
 
 ::: {.alert .alert-info}
-### Exercise 1
+## Exercise 1
 
 -   Create a numeric vector with 8 elements containing positive and negative numbers.
 
@@ -394,7 +392,7 @@ m <-
 
 -   Create a character matrix with 4 columns and 3 rows
 
--   What type of object is 'iris' and what are its dimensions (hint: `iris` is an object available by default in your environment)?
+-   What class of object is 'iris' and what are its dimensions (hint: `iris` is an object available by default in your environment)?
 
 -   Create a data frame with a numeric column, a character column and a factor column.
 :::
@@ -621,11 +619,11 @@ The use of external packages is the most useful feature of R since it allows to 
 We can explore the packages available for R at [the CRAN website](https://cran.r-project.org/) (click on the “packages” link).
 
 ::: {.alert .alert-info}
-### Exercise 2
+## Exercise 2
 
--   Search for a package you are interested in on CRAN.
+-   Search for a package you are interested in on CRAN
 
--   Install the package and upload it
+-   Install the package and load it
 
 -   Run the example code of one of its functions
 :::
@@ -638,7 +636,7 @@ Elements within objects can be called by indexing. To subset a vector simply cal
 
 ```{r}
 
-x <- c(1, 3, 4, 10, 15, 20, 50, 1, 6)
+x <- c("a", "b", "c", "d", "e", "a")
 
 x[1]
 
@@ -665,11 +663,35 @@ x[-c(1,3)]
 
  
 
-Arrays and data frames require 2 indices `[row, column]`:
+The position of the indices can also be given by a conditional evaluation. For instance, this code selects the elements in  `x` in which the value is "a":
 
 ```{r}
 
-m <- matrix(c(1, 2, 3, 11, 12, 13), nrow = 2)
+x[x == "a"]
+
+```
+Notice that there are two steps in this process. First we create a logical vector in which `TRUE` means that the condition is met and `FALSE` that is not:
+
+```{r}
+
+is_a <- x == "a"
+
+is_a
+```
+
+.. and then we use it to subset the data frame:
+
+```{r}
+
+x[is_a]
+
+```
+Conditional evaluations can also be used for numeric vectors (e.g. '>', '==') and to subset bidimensional objects based on columns or rows.
+
+Matrices and data frames require 2 indices `[row, column]`:
+
+```{r}
+m <- matrix(c("a", "b", "c", "d", "e", "f"), nrow = 2)
 
 m[1, ]
 
@@ -703,11 +725,15 @@ df[-1, ]
 df[, -1]
 
 df[-1, -1]
+```
 
+Data frames can also be subsetted using the name of the columns:
+```{r}
 df[,"provincia"]
 
 df[,c("provincia", "canton")]
 
+df$provincia
 ```
 
  
@@ -809,9 +835,9 @@ Variables and functions:
 
 ```{r, eval=F}
 
-  - Bien: dia_uno: dia_1, peso_promedio(),
+- GOOD: day_one: day_1, mean_weight(),
   
-  - Mal: diauno, dia1, primer.dia_delmes
+- BAD: dayone, day1, first_day.of.month
 ```
 
  
@@ -826,11 +852,11 @@ Variables and functions:
 
 ```{r, eval=F}
 
-  - Bien: 
+  - GOOD: 
           a <- rnorm(n = 10, sd = 10, mean = 1)
           total <- sum(x[1, ])
 
-  - Mal: 
+  - BAD: 
          a<-rnorm(n=10,sd=10,mean=1) 
          total <- sum(x[,1])  
          
@@ -846,7 +872,7 @@ Variables and functions:
 
 ```{r eval=F}
 
-  - Bien:
+  - GOOD:
               if (is.null(ylim)) {
               ylim <- c(0, 0.06)
             }
@@ -854,7 +880,7 @@ Variables and functions:
             if (is.null(ylim))
               ylim <- c(0, 0.06)
           
-  - Mal:
+  - BAD:
             
          if (is.null(ylim)) ylim <- c(0, 0.06)
                     

@@ -12,7 +12,7 @@ knitr::opts_chunk$set(eval = FALSE)
 
 ```
 
-1) Install R on the computer you will use during the course (https://cran.r-project.org/). I assume that you already have it installed, but try to update it if you have an R version < 4.0.0. You can find which R version you have by running this in the R console:
+1)  Install R on the computer you will use during the course [https://cran.r-project.org/](https://cran.r-project.org/). I assume that you already have it installed, but try to update it if you have an R version \< 4.0.0. You can find which R version you have by running this in the R console:
 
 ```{r}
 
@@ -20,13 +20,13 @@ version$version.string
 
 ```
 
-2) Install the RStudio interface (https://www.rstudio.com/products/rstudio/download/, choose the free version). Optional but advised.
+2)  Install the RStudio interface ([https://www.rstudio.com/products/rstudio/download/](https://www.rstudio.com/products/rstudio/download/), choose the free version). Optional but advised.
 
-3) Open RStudio and select the tab "Tools" then "Global Options" (last option). Select the "Code" option, then select the box for "Soft-wrap R source files".
+3)  Open RStudio and select the tab "Tools" then "Global Options" (last option). Select the "Code" option, then select the box for "Soft-wrap R source files".
 
-4) Also in Rstudio: Select the "Pane Layout" option and move "Source" to the top left pane and "Console" to the top right pane. For those of you unfamiliar with RStudio, the source is your script, where you save code in a physical file (usually .R script) and the console prints the output of the code you run from the source. You can write code in the console, but it will not be saved in a physical file. This layout allocates more screen space to the most useful panes. Hit "Apply" and "Ok".
+4)  Also in Rstudio: Select the "Pane Layout" option and move "Source" to the top left pane and "Console" to the top right pane. For those of you unfamiliar with RStudio, the source is your script, where you save code in a physical file (usually .R script) and the console prints the output of the code you run from the source. You can write code in the console, but it will not be saved in a physical file. This layout allocates more screen space to the most useful panes. Hit "Apply" and "Ok".
 
-5) Now in the R console in Rstudio run the following code to install the packages that will be used during the workshop:
+5)  Now in the R console in Rstudio run the following code to install the packages that will be used during the workshop:
 
 ```{r}
 
@@ -41,23 +41,17 @@ install.packages(c("ggplot2",
 
 ```
 
+ 
 
-&nbsp; 
-
-<div class="alert alert-warning">
-
-
+::: {.alert .alert-warning}
 **A few tips to ensure you will take full advantage of the course**:
 
-&nbsp; 
+ 
 
-  - Set aside a physical space, hopefully as isolated as possible from external stimuli
-  - Use headphones/earphones to avoid distractions from echoes or external noises
-  - Make sure you have everything you need before the start of the class
-  - Be ready a few minutes before the start of the class
-  - Try to focus as much as possible on the course, close other programs or unnecessary internet browser tabs (i.e. instagram, twitter, etc). This will also make your computer more efficient (less likely to slow down)
-  - Comment your code
-
-</div>
-
-
+-   Set aside a physical space, hopefully as isolated as possible from external stimuli
+-   Use headphones/earphones to avoid distractions from echoes or external noises
+-   Make sure you have everything you need before the start of the class
+-   Be ready a few minutes before the start of the class
+-   Try to focus as much as possible on the course, close other programs or unnecessary internet browser tabs (i.e. instagram, twitter, etc). This will also make your computer more efficient (less likely to slow down)
+-   Comment your code
+:::

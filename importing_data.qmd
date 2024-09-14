@@ -1,5 +1,5 @@
 ---
-title: "Importing and formatting data"
+title: <font size="7"><b>Importing and formatting data</b></font>
 ---
 
 ```{r,echo=FALSE,message=FALSE}
@@ -57,9 +57,7 @@ cols <- brewer.pal(10,"Spectral")
 
 ```
 
-
-
-<div class="alert alert-warning">
+::: {.alert .alert-warning}
 
 # Before importing data
 
@@ -83,10 +81,9 @@ There are a few habits for data entry that will make it easier to import data co
   
   - Don't even think about color-coding your data in excel
 
-</div>
+:::
 
-&nbsp;
- 
+
 # Importing data
 
 Importing data into `R` is a crucial and apparently simple step. However, given the diversity of data formats and operating systems, as well as the many possible sources of error, inputting data in `R` is not always that straightforward. Most issues are related with:
@@ -133,7 +130,7 @@ Some basic tips for setting the working directory:
 
  &nbsp; 
  
-<img src="suggest_folder.gif" alt="Color spectro" height="150" width="550">
+<img src="./images/suggest_folder.gif" alt="Color spectro" height="150" width="550">
 
 &nbsp;
 
@@ -211,7 +208,7 @@ The most commonly used function to import data in `R` is `read.table`. The docum
 ```
 &nbsp;
 
-<img src="input_data.png" alt="Color spectro" height="500" width="750">
+<img src="./images/input_data.png" alt="Color spectro" height="500" width="750">
 
 &nbsp;
 
@@ -418,42 +415,26 @@ You need to specify the file name (including extension) and the excel sheet (tab
 &nbsp;
 
 
-<div class="alert alert-info">
-
-<font size="5">Exercise 1</font> 
+::: {.alert .alert-info}
+### Exercise 1
 
 All default functions to input data into `R` have a counterpart to export the same type of data. The names of these other functions are similar to the ones for reading data, although they typically start with "write" or "save".
 
-</br>
-
 1.1 What are the names of the default functions for exporting the data formats we used above? (hint: try `apropos` to check which functions are available) 
-
-</br>
 
 1.2 Export the mammals data as a *.csv* file 
 
-</br>
-
 1.3 Export the mammals data again, this time excluding the row names
-
-</br>
 
 1.4 Read the *.csv* file using `read.table`
 
-</br>
-
 1.5 What other packages can import excel files into `R`?
-
-</br>
 
 1.6 Can you export an excel file or add data to an existing excel file from `R`? 
 
-</br> 
-
 1.7 Using the "clements_bird_list.csv" file, how would you tell `R` to read both "Rheiformes" and "Ostriches" as empty cells (while still reading empty cells as empty cells)? 
 
-</div>
-
+:::
 
 ```{r, eval = F, echo= F}
 
@@ -587,7 +568,7 @@ There are three interrelated rules to make a data set tidy:
 
 This figure shows the rules visually:
 
-<img src="tidy-1.png" alt="tidy data" height="500" width="750">
+<img src="./images/tidy-1.png" alt="tidy data" height="500" width="750">
 <font size="2">* Modified from <i>R for Data Science</i></font>
 &nbsp;
 
@@ -672,7 +653,7 @@ knitr::kable(g1, row.names = F, escape = FALSE) %>%
 
 We can visualize this formatting as follows:
 
-<img src="gather.png" alt="gather data" height="500" width="850">
+<img src="./images/gather.png" alt="gather data" height="500" width="850">
 <font size="2">* Modified from <i>R for Data Science</i></font>
 &nbsp;
 
@@ -787,7 +768,7 @@ knitr::kable(sp1, row.names = F, escape = FALSE) %>%
 
 which can be visualized as follows:
 
-<img src="spreading.png" alt="spreading data" height="500" width="850">
+<img src="./images/spreading.png" alt="spreading data" height="500" width="850">
 <font size="2">* Modified from <i>R for Data Science</i></font>
 &nbsp;
 
@@ -843,7 +824,7 @@ knitr::kable(table3, row.names = F, escape = FALSE) %>%
 
 Visually it does something like this:
 
-<img src="separate.png" alt="separate data" height="500" width="850">
+<img src="./images/separate.png" alt="separate data" height="500" width="850">
 <font size="2">* Modified from <i>R for Data Science</i></font>
 
 &nbsp;
@@ -945,7 +926,7 @@ str(g6)
 `unite()` is the inverse of `separate()`: combining multiple columns into a single column:
 
 
-<img src="unite.png" alt="unite data" height="500" width="850">
+<img src="./images/unite.png" alt="unite data" height="500" width="850">
 <font size="2">* Modified from <i>R for Data Science</i></font>
 
 &nbsp;
