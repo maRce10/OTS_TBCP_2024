@@ -1,0 +1,35 @@
+---
+date: ""
+toc: false
+format:
+  html:
+    code-tools: false
+---
+
+<center><font size="6"><b>Stats Workshop</b></font></center>
+
+<center><font size="5"><b><a href="https://tropicalstudies.org/">Organization For Tropical Studies</a><br></b></font></center>
+
+<i>
+
+<center><font size="4"><b><a href="https://marce10.github.io/">Marcelo Araya-Salas, PhD</a><br></b></font></center>
+
+</i>
+
+<center><font size="4">September, 2024</font></center>
+
+<center><img src="images/simpsons_paradox.gif" alt="acoustic measurements" width="400"/></center>
+
+Traditionally, statistical models have been taught as disconnected tools with no clear relationship between them. However, most of those common statistical models are just special cases of linear models. Hence, learning them as such can simplify things substantially. The course will focus on linear regression as the main tool for statistical inference. Students will be introduced to the basic elements of a linear regression model, its interpretation, as well as hands-on experience on building those models in R.
+
+
+
+::: {.alert .alert-info}
+### Objetives {.unnumbered .unlisted}
+
+- Use R as the main tool for stats
+- Understand statistical inference through a single modelling tool (broad sense linear models)
+- Get familiar with building linear models
+- Extend linear models to different data structures
+
+:::

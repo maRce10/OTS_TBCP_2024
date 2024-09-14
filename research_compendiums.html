@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.549">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Research compendiums (in R)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="research_compendiums_files/libs/clipboard/clipboard.min.js"></script>
+<script src="research_compendiums_files/libs/quarto-html/quarto.js"></script>
+<script src="research_compendiums_files/libs/quarto-html/popper.min.js"></script>
+<script src="research_compendiums_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="research_compendiums_files/libs/quarto-html/anchor.min.js"></script>
+<link href="research_compendiums_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="research_compendiums_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="research_compendiums_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="research_compendiums_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="research_compendiums_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contenidos</h2>
+   
+  <ul class="collapse">
+  <li><a href="#folder-structure-formats" id="toc-folder-structure-formats" class="nav-link active" data-scroll-target="#folder-structure-formats"><span class="header-section-number">0.1</span> Folder structure formats</a></li>
+  <li><a href="#r-packages-as-templates-for-compendiums" id="toc-r-packages-as-templates-for-compendiums" class="nav-link" data-scroll-target="#r-packages-as-templates-for-compendiums"><span class="header-section-number">0.2</span> R packages as templates for compendiums</a></li>
+  <li><a href="#r-packages-for-compendium-generation" id="toc-r-packages-for-compendium-generation" class="nav-link" data-scroll-target="#r-packages-for-compendium-generation"><span class="header-section-number">0.3</span> R Packages for Compendium Generation</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">0.4</span> References</a></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Research compendiums (in R)</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Código</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Mostrar todo el código</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Ocultar todo el código</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">Ver el código fuente</a></li></ul></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">14 de septiembre de 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="objectives" class="level1 unnumbered unlisted alert alert-info">
+<h1 class="unnumbered unlisted">Objectives</h1>
+<ul>
+<li><p>Get familiar with tools for organizing project directories and data</p></li>
+<li><p>Get experience on using compendiums for research data analysis</p></li>
+</ul>
+</section>
+<p>&nbsp;</p>
+<p>As data scientific analyses increase in complexity, so do the challenges of ensuring reproducibility in these analyses. Several proposals have emerged to try to solve reproducibility issues in computational data analysis.</p>
+<p>Unfortunately, this is further complicated by the lack of formal instruction in data handling and structuring for analysis that scientists (we) suffer from. This makes it almost inevitable that there is little consistency and even chaos in our data organization for research projects. This is an example of a “poorly structured” project (to use a euphemism):</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/proy_desorden.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>This (lack of) “structure” is impractical. Unfortunately, it is likely not an isolated case.</p>
+<p>In this tutorial, we will discuss some of the tools that have been developed to address these problems that have been developed in R.</p>
+<p>&nbsp;</p>
+<section id="folder-structure-formats" class="level2" data-number="0.1">
+<h2 data-number="0.1" class="anchored" data-anchor-id="folder-structure-formats"><span class="header-section-number">0.1</span> Folder structure formats</h2>
+<p>Here you will find a short and by no means exhaustive list of examples of folder structures for data analysis projects.</p>
+<p>&nbsp;</p>
+<section id="noble-format" class="level3" data-number="0.1.1">
+<h3 data-number="0.1.1" class="anchored" data-anchor-id="noble-format"><span class="header-section-number">0.1.1</span> “Noble” format</h3>
+<p>Noble (2009) proposes a specific data structure for bioinformatics data (although it could be adapted to other needs):</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/noble2009.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>This structure, however, uses folders with dates to keep the chronological order of the analysis, something that should be documented with a version control system (i.e., Git). Therefore, it is not very functional.</p>
+<p>&nbsp;</p>
+</section>
+<section id="r-dir-format" class="level3" data-number="0.1.2">
+<h3 data-number="0.1.2" class="anchored" data-anchor-id="r-dir-format"><span class="header-section-number">0.1.2</span> “R-dir” format</h3>
+<p>In <a href="https://r-dir.com/blog/2013/11/folder-structure-for-data-analysis.html">this blog</a> the following format is proposed:</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>  analysis_r<span class="sc">-</span>dir<span class="sc">/</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="er">|</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    ├── code<span class="sc">/</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    │   ├── processed       </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    │   └── raw  </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    ├── data<span class="sc">/</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    │   ├── raw<span class="sc">/</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    │   └── clean<span class="sc">/</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    ├── figures<span class="sc">/</span>            </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    │   ├── exploratory       </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    │   └── final  </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    └── text<span class="sc">/</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        ├── final</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        └── notes</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>&nbsp;</p>
+<p>The main folders include:</p>
+<ul>
+<li><p><em>code</em>: contains all R scripts (or other languages); raw ones go in “./code/raw” and processed ones in “./processed/clean”</p></li>
+<li><p><em>data</em>: any type of data, raw ones go in “./data/raw” and processed ones in “./data/clean”</p></li>
+<li><p><em>figures</em>: exploratory figures go in “./figures/exploratory” and final ones in “./figures/final”</p></li>
+</ul>
+<p>This format can be copied (or cloned) from <a href="https://github.com/lenwood/analysis-project">its GitHub repository</a>.</p>
+<p>The proposed structure is similar to others found on the web. Variations depend somewhat on the type of data and the format of the obtained results (i.e., images vs.&nbsp;phylogenetic trees).</p>
+<p>&nbsp;</p>
+</section>
+<section id="moldach-format" class="level3" data-number="0.1.3">
+<h3 data-number="0.1.3" class="anchored" data-anchor-id="moldach-format"><span class="header-section-number">0.1.3</span> “Moldach” format</h3>
+<p>This format is very similar to the previous one, and it is mainly included to highlight the common factors among the different proposed formats:</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>project_name</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="sc">|--</span>data</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="sc">|--</span>raw</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="sc">|--</span>file_001.xlsx</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="sc">|--</span>file_002.gen</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="sc">|--</span>file_002.sample</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="sc">|--</span>tidy</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="sc">|--</span>file_001<span class="sc">-</span>cleaned.csv</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="sc">|--</span>refs</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="sc">|--</span>Oldach_2018.pdf</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="sc">|--</span>analysis</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="sc">|--</span><span class="dv">01</span><span class="sc">-</span>analysis.Rmd</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="sc">|--</span>figures</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="sc">|--</span><span class="dv">01</span><span class="sc">-</span>scatterplot.jpg</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="sc">|--</span><span class="dv">01</span><span class="sc">-</span>correlation.png</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="sc">|--</span>R</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="sc">|--</span>exploratory_analysis.R</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="sc">|--</span>pdf_scraper.R</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="sc">|--</span>name_of_project.Rproj</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="sc">|--</span>run_all.R</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>&nbsp;</p>
+<p>The main differences with the “r-dir” format are the use of a references folder and the code to compile the compendium in the root directory.</p>
+<p>The format is described in detail in <a href="https://towardsdatascience.com/the-gold-standard-of-data-science-project-management-13d68c9e85d6">this blog</a> and can be cloned from its <a href="https://github.com/moldach/project-directory">GitHub repository</a>.</p>
+<p>&nbsp;</p>
+</section>
+</section>
+<section id="r-packages-as-templates-for-compendiums" class="level2 alert alert-success" data-number="0.2">
+<h2 data-number="0.2" class="anchored" data-anchor-id="r-packages-as-templates-for-compendiums"><span class="header-section-number">0.2</span> R packages as templates for compendiums</h2>
+<p><br></p>
+<p>Some of these tools available in R packages use the folder structure and continuous integration of these packages (Marwick et al.&nbsp;2018; Vourre &amp; Crump 2020). One of these is the <code>vertical</code> package (Vourre &amp; Crump 2020). Its authors propose several advantages of using this format to share research products (from experiment scripts to articles, presentations, and posters):</p>
+<p><br></p>
+<ul>
+<li><p>R packages have a standardized and well-organized file structure that is useful for organizational purposes</p></li>
+<li><p>Researchers often develop custom functions for analysis, and putting them in an R package makes it easier to share the functions</p></li>
+<li><p>R packages can include project data and provide a natural way to document the data using the same schemas for documenting R functions</p></li>
+<li><p>R packages include various documents through the vignettes folder, which could in principle include various formats for communicating research, such as a manuscript or a set of slides written in R Markdown</p></li>
+<li><p>R packages can be automatically converted into websites via <code>pkgdown</code>, providing an attractive format for sharing research-related materials</p></li>
+</ul>
+<p><br></p>
+<p>However, using this format can generate more problems than it helps to solve. Here I list some of the inconsistencies:</p>
+<p><br></p>
+<ul>
+<li><p>Functions should be used once or in a single point in the analysis flow, so why compile and document them in such detail?</p></li>
+<li><p>Documenting packages and the functions within them is complex</p></li>
+<li><p>DESCRIPTION duplicates effort and information from README and demands greater knowledge of package-specific format and conventions</p></li>
+<li><p>Making data available when loading the environment does not provide advantages and makes the data less accessible outside of R (i.e., there is no gain from using <code>data("database")</code> instead of <code>read.csv("database.csv")</code>)</p></li>
+<li><p>Packages are for sharing tools that are used repeatedly. Data analysis reproduction occurs once or a few times</p></li>
+<li><p>R packages have folders that have no functionality in data analysis (“man”, “vignettes”, “inst”)</p></li>
+<li><p>Integrating the components of a package (necessary to be able to use continuous integration) requires other files with complex structures and conventions that imply an unnecessarily steep learning curve</p></li>
+</ul>
+<p>For a more detailed discussion of the problems associated with using packages as templates, we recommend reading <a href="https://milesmcbain.xyz/posts/an-okay-idea">this post (McBrain 2020)</a>.</p>
+</section>
+<p>&nbsp;</p>
+<hr>
+<section id="r-packages-for-compendium-generation" class="level2" data-number="0.3">
+<h2 data-number="0.3" class="anchored" data-anchor-id="r-packages-for-compendium-generation"><span class="header-section-number">0.3</span> R Packages for Compendium Generation</h2>
+<section id="vertical" class="level3" data-number="0.3.1">
+<h3 data-number="0.3.1" class="anchored" data-anchor-id="vertical"><span class="header-section-number">0.3.1</span> vertical</h3>
+<p>The <code>vertical</code> package provides a structured workflow based on the folder structure and continuous integration of R packages for creating and sharing research materials and resources as an R package (Matthew et al.&nbsp;2020). The package can be installed and/or loaded from GitHub like this (it is not yet on CRAN(?)):</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages('devtools')</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"CrumpLab/vertical"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vertical)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>&nbsp;</p>
+<p>You will also need other packages if you want to make use of functionalities like writing articles and generating presentations:</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install papaja</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"crsh/papaja"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tinytex"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>tinytex<span class="sc">::</span><span class="fu">tlmgr_update</span>()</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># if unable to generate articles try this as a last resort</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># update.packages(ask = FALSE, checkBuilt = TRUE)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>&nbsp;</p>
+<section id="vertical-workflow" class="level4" data-number="0.3.1.1">
+<h4 data-number="0.3.1.1" class="anchored" data-anchor-id="vertical-workflow"><span class="header-section-number">0.3.1.1</span> ‘vertical’ workflow</h4>
+<p>Installing the <code>vertical</code> package adds a new project template to RStudio (RStudio must be restarted after installing <code>vertical</code> for it to recognize the template). Users can start a new “vertical” project from RStudio by choosing the option when creating a new project. By default, a “vertical” project is structured as follows:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/vertical-project.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>The new project contains a more complex skeleton than that of an R package:</p>
+<ul>
+<li>Folders for raw data, data, and vignettes</li>
+<li>A <code>_pkgdown.yml</code> file to control the parameters of the website when processed with <code>pkgdown</code></li>
+<li>Additional folders for project research products like “experiments”, “manuscript”, “model”, “posters”, and “slides”.</li>
+</ul>
+<p>By default, <code>vertical</code> includes R Markdown templates from other packages within each folder to create each type of content. As a result, <code>vertical</code> suggests using R as a single-source solution for creating research products.</p>
+</section>
+<section id="creating-a-vertical-project" class="level4" data-number="0.3.1.2">
+<h4 data-number="0.3.1.2" class="anchored" data-anchor-id="creating-a-vertical-project"><span class="header-section-number">0.3.1.2</span> Creating a ‘vertical’ project</h4>
+<p>After installing <code>vertical</code>, restart RStudio, then follow these steps to start a new <code>vertical</code> project. When choosing a name, it must be <a href="http://r-pkgs.had.co.nz/package.html#naming">a valid R package name</a>. For example, the name must contain letters, numbers, or periods (e.g., my.name), but not periods at the end. This means no spaces, hyphens, or underscores.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/vertical-new.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>You can also create a ‘vertical’ project from the console, see the documentation of <code>vertical_project()</code> for more options. This brings up the R project templates window from the console:</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>vertical<span class="sc">::</span><span class="fu">vertical_project</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>&nbsp;</p>
+<p>This is the folder structure it generates:</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>  vertical_comp<span class="sc">/</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="er">|</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    ├── data_raw<span class="sc">/</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    ├── manuscripts<span class="sc">/</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    │   ├── manuscript.Rmd       </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    │   └── r<span class="sc">-</span>references.bib  </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    ├── posters<span class="sc">/</span>            </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    ├── R<span class="sc">/</span>            </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    ├── slides<span class="sc">/</span>            </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    └── vignettes<span class="sc">/</span>            </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>&nbsp;</p>
+<p><br></p>
+<div class="alert alert-success">
+<p><br></p>
+<p><font size="5">Exercise 1</font></p>
+<p>1.1 Create a compendium using <code>vertical</code></p>
+<p><br></p>
+<p>1.2 Modify the R markdown file in ‘./manuscripts/’ and generate the HTML again</p>
+<p><br></p>
+</div>
+<p>&nbsp;</p>
+</section>
+</section>
+<section id="rrtools" class="level3" data-number="0.3.2">
+<h3 data-number="0.3.2" class="anchored" data-anchor-id="rrtools"><span class="header-section-number">0.3.2</span> rrtools</h3>
+<p>The goal of <code>rrtools</code> is “to provide instructions, templates, and functions for creating a basic compendium suitable for writing reproducible articles or reports in R” (Marwick 2019). This package documents key steps and provides useful functions to quickly create a new research compendium.</p>
+<p><code>rrtools</code> provides a template for academic writing using R Markdown and <code>bookdown</code>. It also allows for the isolation of your computational environment using <code>Docker</code>, version control of packages using `MR</p>
+<p>AN<code>, and continuous integration using</code>Travis`:</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"benmarwick/rrtools"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rrtools)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>&nbsp;</p>
+<p>We can start a compendium with <code>rrtools</code> like this (do not run it if you are within an Rstudio project):</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>rrtools<span class="sc">::</span><span class="fu">use_compendium</span>(<span class="st">"package_name"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>&nbsp;</p>
+<p>You need to update the DESCRIPTION file (located in the compendium directory) to include accurate metadata. For example, the ‘imports’ section should have the names of the packages used in the code in our compendium (‘Imports: warbleR, baRulho, NatureSounds’).</p>
+<p>We can add a license to the compendium like this:</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>rrtools<span class="sc">::</span><span class="fu">create_compendium</span>(<span class="st">"package_name"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>&nbsp;</p>
+<p>This adds the license to DESCRIPTION and generates a LICENSE file with license details. It defaults to using the MIT license although other licenses can be defined.</p>
+<p>Unlike <code>vertical</code>, <code>rrtools</code> does not generate all the basic folders necessary for a compendium. We can create these folders like this:</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>rrtools<span class="sc">::</span><span class="fu">use_analysis</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>&nbsp;</p>
+<p>This generates the “./analysis” folder with the following structure:</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>  analysis<span class="sc">/</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="er">|</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    ├── paper<span class="sc">/</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    │   ├── paper.Rmd       <span class="co"># document to generate the article</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    │   └── references.bib  <span class="co"># references in bibtex format</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    ├── figures<span class="sc">/</span>            <span class="co"># figures produced by rmarkdown</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="er">|</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    ├── data<span class="sc">/</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    │   ├── raw_data<span class="sc">/</span>       <span class="co"># raw (original) data</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    │   └── derived_data<span class="sc">/</span>   <span class="co"># processed data</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    <span class="er">|</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    └── templates</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>        ├── journal<span class="sc">-</span>of<span class="sc">-</span>archaeological<span class="sc">-</span>science.csl <span class="co"># citation style</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>        <span class="sc">|</span>                   </span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>        ├── template.docx   <span class="co"># generated article template</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>        └── template.Rmd    <span class="co"># article rmd template</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>&nbsp;</p>
+<p>The README.Rmd file can be created like this:</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>rrtools<span class="sc">::</span><span class="fu">use_readme_rmd</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>&nbsp;</p>
+<p>The generated README includes a template that shows how to cite your project (it should be edited to include the correct title and DOI). It also contains license, figures, code, and data information for your compendium.</p>
+<p>This function also adds two other Rmd files: a code of conduct for users (CONDUCT.md) and one with basic instructions for people who want to contribute to your project (CONTRIBUTING.md).</p>
+<p>It also offers functions like <code>rrtools::use_dockerfile()</code> and <code>rrtools::use_travis()</code> to facilitate continuous integration. Visit <a href="https://github.com/benmarwick/rrtools">the package’s github repository</a> for more detail.</p>
+<p>&nbsp;</p>
+</section>
+<section id="workflowr" class="level3" data-number="0.3.3">
+<h3 data-number="0.3.3" class="anchored" data-anchor-id="workflowr"><span class="header-section-number">0.3.3</span> workflowr</h3>
+<p>The <code>workflowr</code> package aims to help researchers “organize their analyses in a way that promotes effective project management, reproducibility, collaboration, and sharing of results” (Blischak et al.&nbsp;2019). <code>workflowr</code> combines literate programming (<code>knitr</code> and <code>rmarkdown</code>) and version control (Git, via <code>git2r</code>) to generate a website containing documented and versioned results.</p>
+<p>Unlike <code>rrtools</code> and <code>vertical</code>, <code>workflowr</code> does not emulate the folder structure of R packages, which simplifies its use and makes its structure more intuitive from the researcher’s point of view.</p>
+<p>These are some of the features of the package detailed on its <a href="https://jdblischak.github.io/workflowr">github site</a>:</p>
+<ul>
+<li><strong>Organized</strong>
+<ul>
+<li>Provides a project template with organized subdirectories</li>
+<li>Mixes code and results with R Markdown</li>
+<li>Uses Git to version both source code and results</li>
+</ul></li>
+<li><strong>Reproducible</strong>
+<ul>
+<li>Displays the version of the code used to create each result</li>
+<li>Runs each analysis in an isolated R session</li>
+<li>Records the session information for each analysis</li>
+<li>Sets the same seed for generating random numbers for each analysis</li>
+</ul></li>
+<li><strong>Shareable</strong>
+<ul>
+<li>Creates a website to present the results of your research</li>
+<li>Documents how to host your website for free via GitHub Pages or GitLab Pages</li>
+<li>Creates links to previous versions of results</li>
+</ul></li>
+</ul>
+<p>&nbsp;</p>
+<p>You can install the package like this:</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"workflowr"</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(workflowr)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>&nbsp;</p>
+<p>To create a project with <code>workflowr</code>, first you must set up git with the <code>wflow_git_config()</code> function and then start it with <code>wflow_start()</code>:</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up Git</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wflow_git_config</span>(<span class="at">user.name =</span> <span class="st">"full name"</span>, <span class="at">user.email =</span> <span class="st">"email@domain"</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Start a project</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">wflow_start</span>(<span class="st">"my_compendium"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>&nbsp;</p>
+<p>This is the folder structure of the ‘workflowr’ compendium:</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>my_compendium<span class="sc">/</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>├── .gitignore</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>├── .Rprofile</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>├── _workflowr.yml</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>├── analysis<span class="sc">/</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>│   ├── about.Rmd</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>│   ├── index.Rmd</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>│   ├── license.Rmd</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>│   └── _site.yml</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>├── code<span class="sc">/</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>│   ├── README.md</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>├── data<span class="sc">/</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>│   └── README.md</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>├── docs<span class="sc">/</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>├── myproject.Rproj</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>├── output<span class="sc">/</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>│   └── README.md</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>└── README.md</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>&nbsp;</p>
+<p>And with this code we can compile the compendium site:</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wflow_build</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>This command ‘knits’ all R Markdown files in the ‘./analysis’ folder and saves the corresponding HTML files in ‘./docs’. Each file is created in its own external R session to avoid potential conflicts between analyses (this is the default behavior of Rmd files). It also opens the local copy of the compendium site in the internet browser. We can also take a look at the local copy of the site like this:</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># view compendium site</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wflow_view</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>&nbsp;</p>
+<p><code>workflowr</code> distinguishes between R Markdown files that are published and those that are not published. A published file is included on the online website; while the HTML file of an unpublished R Markdown file can only be viewed on the local computer. Since the project was just initiated, there are no published files. To see the project status of <code>workflowr</code>, we should use <code>wflow_status()</code>:</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check current status</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wflow_status</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>&nbsp;</p>
+<p>If we want to make the HTMLs public, we should use the <code>wflow_publish()</code> function and provide the names of the R markdowns that generate them with the <code>files</code> argument. Additionally, we need to add a message for the ‘commit’ accompanying the changes generated when synchronized with the remote copy:</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># publish rmds</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wflow_publish</span>(<span class="at">files =</span> <span class="fu">c</span>(<span class="st">"analysis/index.Rmd"</span>, <span class="st">"analysis/about.Rmd"</span>,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"analysis/license.Rmd"</span>), <span class="at">message =</span> <span class="st">"my first commit of the compendium"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>&nbsp;</p>
+<p>At this point, we have created a versioned website locally</p>
+<p>. The next step is to put it in an online repository (i.e., GitHub or GitLab). To upload and/or synchronize the compendium (including the website) to GitHub, we use the <code>wflow_use_github()</code> function. The only argument it requires is the username:</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wflow_use_github</span>(<span class="st">"my_compendium"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>&nbsp;</p>
+<p>The <a href="https://jdblischak.github.io/workflowr/articles/wflow-01-getting-started.html#the-workflow">“getting started”</a> tutorial of <code>workflowr</code> provides more details for each of the steps to generate compendia with this package. The documentation is quite comprehensive, including several other tutorials for customizing the compendia and their websites. <a href="https://jdblischak.github.io/workflowr/articles/index.html">Here you can find the list of tutorials</a>.</p>
+<p><br></p>
+<div class="alert alert-info">
+<p><font size="5">Exercise 2</font></p>
+<p><br></p>
+<p>2.1 Create a compendium using <code>workflowr</code></p>
+<p><br></p>
+<p>2.2 Build the compendium site</p>
+<p><br></p>
+</div>
+<p>&nbsp;</p>
+</section>
+<section id="sketchy" class="level3" data-number="0.3.4">
+<h3 data-number="0.3.4" class="anchored" data-anchor-id="sketchy"><span class="header-section-number">0.3.4</span> sketchy</h3>
+<p>This is a package we are currently developing. At the moment, it only allows creating folder structures and generating an Rmarkdown to write the article. It also allows visualizing the compendium structure in the console. The main difference from the other packages is that it does not adhere to a single structure; it provides several alternative structures and also allows the user to generate their own formats.</p>
+<p>To use it, you must first install it from <a href="github.com/">github</a> like this:</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># From github</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"maRce10/sketchy"</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># load package</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sketchy)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>The package comes with 13 folder structures. You can use them with the <code>compendium_skeleton()</code> function. The function creates the folders/subfolders and prints a diagram of the compendium in the console:</p>
+</section>
+<section id="basic-compendium" class="level3" data-number="0.3.5">
+<h3 data-number="0.3.5" class="anchored" data-anchor-id="basic-compendium"><span class="header-section-number">0.3.5</span> Basic Compendium</h3>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>path <span class="ot">=</span> <span class="fu">tempdir</span>()</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">make_compendium</span>(<span class="at">name =</span> <span class="st">"project_x"</span>, <span class="at">path =</span> path, <span class="at">format =</span> <span class="st">"basic"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="./images/compendium_1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:55.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>(<em>in the example, a temporary directory is used but this should be changed to the directory where you want to create the compendium</em>)</p>
+</section>
+<section id="alternative-formats" class="level3" data-number="0.3.6">
+<h3 data-number="0.3.6" class="anchored" data-anchor-id="alternative-formats"><span class="header-section-number">0.3.6</span> Alternative Formats</h3>
+<p>You can use formats from other sources. In this case, we use the one from Wilson <em>et al.</em> (2017):</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make_compendium</span>(<span class="at">name =</span> <span class="st">"project_y"</span>, <span class="at">path =</span> path, <span class="at">format =</span> <span class="st">"wilson"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="./images/compendium_2.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:55.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>You can also add comments to each folder to explain its contents:</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make_compendium</span>(<span class="at">name =</span> <span class="st">"project_z"</span>, <span class="at">path =</span> path, <span class="at">format =</span> <span class="st">"large_compendium"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="./images/compendium_3.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:55.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>When you create a compendium that includes a folder called “manuscript,” the package automatically adds the “manuscript_template.Rmd” file that can be used to write the project’s article.</p>
+<p>The idea is to include functions to identify large files that cannot be uploaded to <a href="www.github.com/">github</a> and be able to upload them to other repositories (i.e., figshare or zenodo).</p>
+<p><br></p>
+<div class="alert alert-info">
+<p><font size="5">Exercise 3</font></p>
+<ul>
+<li><p>Create a compendium with <code>sketchy</code> using the ‘basic’ format</p></li>
+<li><p>Create a compendium with <code>sketchy</code> using the ‘sketchy’ format</p></li>
+</ul>
+</div>
+<p>&nbsp;</p>
+<hr>
+</section>
+</section>
+<section id="references" class="level2" data-number="0.4">
+<h2 data-number="0.4" class="anchored" data-anchor-id="references"><span class="header-section-number">0.4</span> References</h2>
+<ul>
+<li>Araya-Salas, M., Willink, B., Arriaga, A. (2020), <em>sketchy: research compendiums for data analysis in R</em>. R package version 1.0.0.</li>
+<li>Aust, F. &amp; Barth, M. (2020). papaja: Prepare reproducible APA journal articles with R Markdown. R package version 0.1.0.9997. https://github.com/crsh/papaja</li>
+<li>Blischak JD, Carbonetto P and Stephens M. Creating and sharing reproducible research code the workflowr way [version 1; peer review: 3 approved]. F1000Research 2019, 8:1749. (https://doi.org/10.12688/f1000research.20843.1)</li>
+<li>McBain (2020). Before I Sleep: Project as an R package: An okay idea. <a href="https://milesmcbain.com/posts/an-okay-idea/" class="uri">https://milesmcbain.com/posts/an-okay-idea/</a></li>
+<li>Ben Marwick (2019). rrtools: Creates a Reproducible Research Compendium. R package version 0.1.0. https://github.com/benmarwick/rrtools</li>
+<li>Noble WS (2009) A Quick Guide to Organizing Computational Biology Projects. PLoS Comput Biol 5(7): e1000424. https://doi.org/10.1371/journal.pcbi.1000424</li>
+<li>Marwick, B., Boettiger, C., &amp; Mullen, L. (2018). Packaging Data Analytical Work Reproducibly Using R (and Friends). American Statistician, 72(1), 80–88.</li>
+<li>Matthew J. C. Crump and Matti Vuorre (2020). vertical: Reproducible worfklow for psychological science research asset creation and communication. R package version 0.1.0.0000. https://github.com/CrumpLab/vertical</li>
+<li>Vuorre, M., &amp; Crump, M. J. C. (2020). Sharing and organizing research products as R packages. Behavior Research Methods, 1–11.</li>
+<li>Wilson G, Bryan J, Cranston K, Kitzes J, Nederbragt L, et al.&nbsp;(2017) Good enough practices in scientific computing. PLOS Computational Biology 13(6): e1005510.</li>
+</ul>
+<hr>
+<p><font size="4">Session information</font></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.3.2 (2023-10-31)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 22.04.2 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.10.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.10.0
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+time zone: America/Costa_Rica
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] xaringanExtra_0.8.0 emo_0.0.0.9000      sketchy_1.0.3      
+[4] papaja_0.1.2        tinylabels_0.2.4    rrtools_0.1.6      
+[7] vertical_0.1.0.0000 workflowr_1.7.1     knitr_1.48         
+
+loaded via a namespace (and not attached):
+ [1] tidyselect_1.2.1   dplyr_1.1.4        fastmap_1.2.0      TH.data_1.1-2     
+ [5] bayestestR_0.13.1  promises_1.2.1     digest_0.6.37      timechange_0.2.0  
+ [9] estimability_1.4.1 mime_0.12          lifecycle_1.0.4    ellipsis_0.3.2    
+[13] survival_3.2-13    processx_3.8.4     magrittr_2.0.3     compiler_4.3.2    
+[17] rlang_1.1.4        tools_4.3.2        utf8_1.2.4         yaml_2.3.10       
+[21] htmlwidgets_1.6.4  pkgbuild_1.4.4     here_1.0.1         pkgload_1.4.0     
+[25] multcomp_1.4-25    miniUI_0.1.1.1     purrr_1.0.2        grid_4.3.2        
+[29] datawizard_0.10.0  fansi_1.0.6        urlchecker_1.0.1   git2r_0.33.0      
+[33] profvis_0.3.8      xtable_1.8-4       colorspace_2.1-1   ggplot2_3.5.1     
+[37] emmeans_1.9.0      scales_1.3.0       MASS_7.3-55        insight_0.19.11   
+[41] cli_3.6.3          mvtnorm_1.2-5      rmarkdown_2.28     crayon_1.5.3      
+[45] generics_0.1.3     remotes_2.5.0      rstudioapi_0.16.0  httr_1.4.7        
+[49] parameters_0.21.3  sessioninfo_1.2.2  cachem_1.1.0       stringr_1.5.1     
+[53] splines_4.3.2      assertthat_0.2.1   effectsize_0.8.6   formatR_1.14      
+[57] vctrs_0.6.5        devtools_2.4.5     Matrix_1.6-5       sandwich_3.1-0    
+[61] jsonlite_1.8.8     callr_3.7.6        packrat_0.9.2      glue_1.7.0        
+[65] codetools_0.2-18   ps_1.7.7           lubridate_1.9.3    stringi_1.8.4     
+[69] gtable_0.3.5       later_1.3.2        munsell_0.5.1      tibble_3.2.1      
+[73] pillar_1.9.0       clisymbols_1.2.0   htmltools_0.5.8.1  R6_2.5.1          
+[77] rprojroot_2.0.4    evaluate_0.24.0    shiny_1.8.0        lattice_0.20-45   
+[81] memoise_2.0.1      httpuv_1.6.13      Rcpp_1.0.13        coda_0.19-4.1     
+[85] whisker_0.4.1      xfun_0.47          fs_1.6.4           zoo_1.8-12        
+[89] usethis_2.2.2      getPass_0.2-4      pkgconfig_2.0.3   </code></pre>
+</div>
+</div>
+<!-- -->
+
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/marce10\.github\.io\/OTS_TBCP_2024\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Ejecutar el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb26" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> Research compendiums (in R)</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, warning=FALSE, message=FALSE}</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="in">library(knitr)</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="in">opts_chunk$set(warning = FALSE, message = FALSE, tidy = TRUE, fig.align = "center")</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="in"># install.packages("workflowr")</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="in"># remotes::install_github("benmarwick/rrtools")</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="in"># remotes::install_github("CrumpLab/vertical")</span></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="in"># remotes::install_github("crsh/papaja")</span></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a><span class="in">library(workflowr)</span></span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a><span class="in">library(vertical)</span></span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a><span class="in">library(rrtools)</span></span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a><span class="in">library(papaja)</span></span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a><span class="in">library(sketchy)</span></span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a><span class="in"># devtools::install_github("hadley/emo")</span></span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a><span class="in">library("emo")</span></span>
+<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a><span class="in">library("xaringanExtra")</span></span>
+<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a><span class="in">library("knitr")</span></span>
+<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a><span class="in"># options to customize chunk outputs</span></span>
+<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::opts_chunk$set(</span></span>
+<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a><span class="in">  tidy.opts = list(width.cutoff = 65), </span></span>
+<span id="cb26-30"><a href="#cb26-30" aria-hidden="true" tabindex="-1"></a><span class="in">  tidy = TRUE,</span></span>
+<span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a><span class="in">  message = FALSE</span></span>
+<span id="cb26-32"><a href="#cb26-32" aria-hidden="true" tabindex="-1"></a><span class="in"> )</span></span>
+<span id="cb26-33"><a href="#cb26-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-34"><a href="#cb26-34" aria-hidden="true" tabindex="-1"></a><span class="in"># this is a customized printing style for data frames </span></span>
+<span id="cb26-35"><a href="#cb26-35" aria-hidden="true" tabindex="-1"></a><span class="in"># screws up tibble function</span></span>
+<span id="cb26-36"><a href="#cb26-36" aria-hidden="true" tabindex="-1"></a><span class="in">tibble &lt;- function(x, ...) { </span></span>
+<span id="cb26-37"><a href="#cb26-37" aria-hidden="true" tabindex="-1"></a><span class="in">  x &lt;- kbl(x, digits=4, align= 'c', row.names = FALSE) </span></span>
+<span id="cb26-38"><a href="#cb26-38" aria-hidden="true" tabindex="-1"></a><span class="in">   x &lt;- kable_styling(x, position ="center", full_width = FALSE,  bootstrap_options = c("striped", "hover", "condensed", "responsive")) </span></span>
+<span id="cb26-39"><a href="#cb26-39" aria-hidden="true" tabindex="-1"></a><span class="in">   asis_output(x)</span></span>
+<span id="cb26-40"><a href="#cb26-40" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb26-41"><a href="#cb26-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-42"><a href="#cb26-42" aria-hidden="true" tabindex="-1"></a><span class="in">registerS3method("knit_print", "data.frame", tibble)</span></span>
+<span id="cb26-43"><a href="#cb26-43" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-44"><a href="#cb26-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-45"><a href="#cb26-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-46"><a href="#cb26-46" aria-hidden="true" tabindex="-1"></a>::: {.alert .alert-info}</span>
+<span id="cb26-47"><a href="#cb26-47" aria-hidden="true" tabindex="-1"></a><span class="fu"># Objectives {.unnumbered .unlisted}</span></span>
+<span id="cb26-48"><a href="#cb26-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-49"><a href="#cb26-49" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Get familiar with tools for organizing project directories and data</span>
+<span id="cb26-50"><a href="#cb26-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-51"><a href="#cb26-51" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Get experience on using compendiums for research data analysis</span>
+<span id="cb26-52"><a href="#cb26-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-53"><a href="#cb26-53" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb26-54"><a href="#cb26-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-55"><a href="#cb26-55" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-56"><a href="#cb26-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-57"><a href="#cb26-57" aria-hidden="true" tabindex="-1"></a>As data scientific analyses increase in complexity, so do the challenges of ensuring reproducibility in these analyses. Several proposals have emerged to try to solve reproducibility issues in computational data analysis.</span>
+<span id="cb26-58"><a href="#cb26-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-59"><a href="#cb26-59" aria-hidden="true" tabindex="-1"></a>Unfortunately, this is further complicated by the lack of formal instruction in data handling and structuring for analysis that scientists (we) suffer from. This makes it almost inevitable that there is little consistency and even chaos in our data organization for research projects. This is an example of a "poorly structured" project (to use a euphemism):</span>
+<span id="cb26-60"><a href="#cb26-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-61"><a href="#cb26-61" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, out.width="100%", echo=FALSE}</span></span>
+<span id="cb26-62"><a href="#cb26-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-63"><a href="#cb26-63" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::include_graphics("images/proy_desorden.png")</span></span>
+<span id="cb26-64"><a href="#cb26-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-65"><a href="#cb26-65" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-66"><a href="#cb26-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-67"><a href="#cb26-67" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-68"><a href="#cb26-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-69"><a href="#cb26-69" aria-hidden="true" tabindex="-1"></a>This (lack of) "structure" is impractical. Unfortunately, it is likely not an isolated case.</span>
+<span id="cb26-70"><a href="#cb26-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-71"><a href="#cb26-71" aria-hidden="true" tabindex="-1"></a>In this tutorial, we will discuss some of the tools that have been developed to address these problems that have been developed in R.</span>
+<span id="cb26-72"><a href="#cb26-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-73"><a href="#cb26-73" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-74"><a href="#cb26-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-75"><a href="#cb26-75" aria-hidden="true" tabindex="-1"></a><span class="fu">## Folder structure formats</span></span>
+<span id="cb26-76"><a href="#cb26-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-77"><a href="#cb26-77" aria-hidden="true" tabindex="-1"></a>Here you will find a short and by no means exhaustive list of examples of folder structures for data analysis projects.</span>
+<span id="cb26-78"><a href="#cb26-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-79"><a href="#cb26-79" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-80"><a href="#cb26-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-81"><a href="#cb26-81" aria-hidden="true" tabindex="-1"></a><span class="fu">### "Noble" format</span></span>
+<span id="cb26-82"><a href="#cb26-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-83"><a href="#cb26-83" aria-hidden="true" tabindex="-1"></a>Noble (2009) proposes a specific data structure for bioinformatics data (although it could be adapted to other needs):</span>
+<span id="cb26-84"><a href="#cb26-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-85"><a href="#cb26-85" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, out.width="100%", echo=FALSE}</span></span>
+<span id="cb26-86"><a href="#cb26-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-87"><a href="#cb26-87" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::include_graphics("images/noble2009.png")</span></span>
+<span id="cb26-88"><a href="#cb26-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-89"><a href="#cb26-89" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-90"><a href="#cb26-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-91"><a href="#cb26-91" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-92"><a href="#cb26-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-93"><a href="#cb26-93" aria-hidden="true" tabindex="-1"></a>This structure, however, uses folders with dates to keep the chronological order of the analysis, something that should be documented with a version control system (i.e., Git). Therefore, it is not very functional.</span>
+<span id="cb26-94"><a href="#cb26-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-95"><a href="#cb26-95" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-96"><a href="#cb26-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-97"><a href="#cb26-97" aria-hidden="true" tabindex="-1"></a><span class="fu">### "R-dir" format</span></span>
+<span id="cb26-98"><a href="#cb26-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-99"><a href="#cb26-99" aria-hidden="true" tabindex="-1"></a>In <span class="co">[</span><span class="ot">this blog</span><span class="co">](https://r-dir.com/blog/2013/11/folder-structure-for-data-analysis.html)</span> the following format is proposed:</span>
+<span id="cb26-100"><a href="#cb26-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-101"><a href="#cb26-101" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
+<span id="cb26-102"><a href="#cb26-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-103"><a href="#cb26-103" aria-hidden="true" tabindex="-1"></a><span class="in">  analysis_r-dir/</span></span>
+<span id="cb26-104"><a href="#cb26-104" aria-hidden="true" tabindex="-1"></a><span class="in">    |</span></span>
+<span id="cb26-105"><a href="#cb26-105" aria-hidden="true" tabindex="-1"></a><span class="in">    ├── code/</span></span>
+<span id="cb26-106"><a href="#cb26-106" aria-hidden="true" tabindex="-1"></a><span class="in">    │   ├── processed       </span></span>
+<span id="cb26-107"><a href="#cb26-107" aria-hidden="true" tabindex="-1"></a><span class="in">    │   └── raw  </span></span>
+<span id="cb26-108"><a href="#cb26-108" aria-hidden="true" tabindex="-1"></a><span class="in">    ├── data/</span></span>
+<span id="cb26-109"><a href="#cb26-109" aria-hidden="true" tabindex="-1"></a><span class="in">    │   ├── raw/</span></span>
+<span id="cb26-110"><a href="#cb26-110" aria-hidden="true" tabindex="-1"></a><span class="in">    │   └── clean/</span></span>
+<span id="cb26-111"><a href="#cb26-111" aria-hidden="true" tabindex="-1"></a><span class="in">    ├── figures/            </span></span>
+<span id="cb26-112"><a href="#cb26-112" aria-hidden="true" tabindex="-1"></a><span class="in">    │   ├── exploratory       </span></span>
+<span id="cb26-113"><a href="#cb26-113" aria-hidden="true" tabindex="-1"></a><span class="in">    │   └── final  </span></span>
+<span id="cb26-114"><a href="#cb26-114" aria-hidden="true" tabindex="-1"></a><span class="in">    └── text/</span></span>
+<span id="cb26-115"><a href="#cb26-115" aria-hidden="true" tabindex="-1"></a><span class="in">        ├── final</span></span>
+<span id="cb26-116"><a href="#cb26-116" aria-hidden="true" tabindex="-1"></a><span class="in">        └── notes</span></span>
+<span id="cb26-117"><a href="#cb26-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-118"><a href="#cb26-118" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-119"><a href="#cb26-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-120"><a href="#cb26-120" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-121"><a href="#cb26-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-122"><a href="#cb26-122" aria-hidden="true" tabindex="-1"></a>The main folders include:</span>
+<span id="cb26-123"><a href="#cb26-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-124"><a href="#cb26-124" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>*code*: contains all R scripts (or other languages); raw ones go in "./code/raw" and processed ones in "./processed/clean"</span>
+<span id="cb26-125"><a href="#cb26-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-126"><a href="#cb26-126" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>*data*: any type of data, raw ones go in "./data/raw" and processed ones in "./data/clean"</span>
+<span id="cb26-127"><a href="#cb26-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-128"><a href="#cb26-128" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>*figures*: exploratory figures go in "./figures/exploratory" and final ones in "./figures/final"</span>
+<span id="cb26-129"><a href="#cb26-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-130"><a href="#cb26-130" aria-hidden="true" tabindex="-1"></a>This format can be copied (or cloned) from <span class="co">[</span><span class="ot">its GitHub repository</span><span class="co">](https://github.com/lenwood/analysis-project)</span>.</span>
+<span id="cb26-131"><a href="#cb26-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-132"><a href="#cb26-132" aria-hidden="true" tabindex="-1"></a>The proposed structure is similar to others found on the web. Variations depend somewhat on the type of data and the format of the obtained results (i.e., images vs. phylogenetic trees).</span>
+<span id="cb26-133"><a href="#cb26-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-134"><a href="#cb26-134" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-135"><a href="#cb26-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-136"><a href="#cb26-136" aria-hidden="true" tabindex="-1"></a><span class="fu">### "Moldach" format</span></span>
+<span id="cb26-137"><a href="#cb26-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-138"><a href="#cb26-138" aria-hidden="true" tabindex="-1"></a>This format is very similar to the previous one, and it is mainly included to highlight the common factors among the different proposed formats:</span>
+<span id="cb26-139"><a href="#cb26-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-140"><a href="#cb26-140" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
+<span id="cb26-141"><a href="#cb26-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-142"><a href="#cb26-142" aria-hidden="true" tabindex="-1"></a><span class="in">project_name</span></span>
+<span id="cb26-143"><a href="#cb26-143" aria-hidden="true" tabindex="-1"></a><span class="in">|--data</span></span>
+<span id="cb26-144"><a href="#cb26-144" aria-hidden="true" tabindex="-1"></a><span class="in">    |--raw</span></span>
+<span id="cb26-145"><a href="#cb26-145" aria-hidden="true" tabindex="-1"></a><span class="in">        |--file_001.xlsx</span></span>
+<span id="cb26-146"><a href="#cb26-146" aria-hidden="true" tabindex="-1"></a><span class="in">        |--file_002.gen</span></span>
+<span id="cb26-147"><a href="#cb26-147" aria-hidden="true" tabindex="-1"></a><span class="in">        |--file_002.sample</span></span>
+<span id="cb26-148"><a href="#cb26-148" aria-hidden="true" tabindex="-1"></a><span class="in">    |--tidy</span></span>
+<span id="cb26-149"><a href="#cb26-149" aria-hidden="true" tabindex="-1"></a><span class="in">        |--file_001-cleaned.csv</span></span>
+<span id="cb26-150"><a href="#cb26-150" aria-hidden="true" tabindex="-1"></a><span class="in">|--refs</span></span>
+<span id="cb26-151"><a href="#cb26-151" aria-hidden="true" tabindex="-1"></a><span class="in">    |--Oldach_2018.pdf</span></span>
+<span id="cb26-152"><a href="#cb26-152" aria-hidden="true" tabindex="-1"></a><span class="in">|--analysis</span></span>
+<span id="cb26-153"><a href="#cb26-153" aria-hidden="true" tabindex="-1"></a><span class="in">    |--01-analysis.Rmd</span></span>
+<span id="cb26-154"><a href="#cb26-154" aria-hidden="true" tabindex="-1"></a><span class="in">|--figures</span></span>
+<span id="cb26-155"><a href="#cb26-155" aria-hidden="true" tabindex="-1"></a><span class="in">    |--01-scatterplot.jpg</span></span>
+<span id="cb26-156"><a href="#cb26-156" aria-hidden="true" tabindex="-1"></a><span class="in">    |--01-correlation.png</span></span>
+<span id="cb26-157"><a href="#cb26-157" aria-hidden="true" tabindex="-1"></a><span class="in">|--R</span></span>
+<span id="cb26-158"><a href="#cb26-158" aria-hidden="true" tabindex="-1"></a><span class="in">    |--exploratory_analysis.R</span></span>
+<span id="cb26-159"><a href="#cb26-159" aria-hidden="true" tabindex="-1"></a><span class="in">    |--pdf_scraper.R</span></span>
+<span id="cb26-160"><a href="#cb26-160" aria-hidden="true" tabindex="-1"></a><span class="in">|--name_of_project.Rproj</span></span>
+<span id="cb26-161"><a href="#cb26-161" aria-hidden="true" tabindex="-1"></a><span class="in">|--run_all.R</span></span>
+<span id="cb26-162"><a href="#cb26-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-163"><a href="#cb26-163" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-164"><a href="#cb26-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-165"><a href="#cb26-165" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-166"><a href="#cb26-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-167"><a href="#cb26-167" aria-hidden="true" tabindex="-1"></a>The main differences with the "r-dir" format are the use of a references folder and the code to compile the compendium in the root directory.</span>
+<span id="cb26-168"><a href="#cb26-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-169"><a href="#cb26-169" aria-hidden="true" tabindex="-1"></a>The format is described in detail in <span class="co">[</span><span class="ot">this blog</span><span class="co">](https://towardsdatascience.com/the-gold-standard-of-data-science-project-management-13d68c9e85d6)</span> and can be cloned from its <span class="co">[</span><span class="ot">GitHub repository</span><span class="co">](https://github.com/moldach/project-directory)</span>.</span>
+<span id="cb26-170"><a href="#cb26-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-171"><a href="#cb26-171" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-172"><a href="#cb26-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-173"><a href="#cb26-173" aria-hidden="true" tabindex="-1"></a>::: {.alert .alert-success}</span>
+<span id="cb26-174"><a href="#cb26-174" aria-hidden="true" tabindex="-1"></a><span class="fu">## R packages as templates for compendiums</span></span>
+<span id="cb26-175"><a href="#cb26-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-176"><a href="#cb26-176" aria-hidden="true" tabindex="-1"></a>&lt;/br&gt;</span>
+<span id="cb26-177"><a href="#cb26-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-178"><a href="#cb26-178" aria-hidden="true" tabindex="-1"></a>Some of these tools available in R packages use the folder structure and continuous integration of these packages (Marwick et al. 2018; Vourre &amp; Crump 2020). One of these is the <span class="in">`vertical`</span> package (Vourre &amp; Crump 2020). Its authors propose several advantages of using this format to share research products (from experiment scripts to articles, presentations, and posters):</span>
+<span id="cb26-179"><a href="#cb26-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-180"><a href="#cb26-180" aria-hidden="true" tabindex="-1"></a>&lt;/br&gt;</span>
+<span id="cb26-181"><a href="#cb26-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-182"><a href="#cb26-182" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>R packages have a standardized and well-organized file structure that is useful for organizational purposes</span>
+<span id="cb26-183"><a href="#cb26-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-184"><a href="#cb26-184" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Researchers often develop custom functions for analysis, and putting them in an R package makes it easier to share the functions</span>
+<span id="cb26-185"><a href="#cb26-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-186"><a href="#cb26-186" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>R packages can include project data and provide a natural way to document the data using the same schemas for documenting R functions</span>
+<span id="cb26-187"><a href="#cb26-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-188"><a href="#cb26-188" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>R packages include various documents through the vignettes folder, which could in principle include various formats for communicating research, such as a manuscript or a set of slides written in R Markdown</span>
+<span id="cb26-189"><a href="#cb26-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-190"><a href="#cb26-190" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>R packages can be automatically converted into websites via <span class="in">`pkgdown`</span>, providing an attractive format for sharing research-related materials</span>
+<span id="cb26-191"><a href="#cb26-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-192"><a href="#cb26-192" aria-hidden="true" tabindex="-1"></a>&lt;/br&gt;</span>
+<span id="cb26-193"><a href="#cb26-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-194"><a href="#cb26-194" aria-hidden="true" tabindex="-1"></a>However, using this format can generate more problems than it helps to solve. Here I list some of the inconsistencies:</span>
+<span id="cb26-195"><a href="#cb26-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-196"><a href="#cb26-196" aria-hidden="true" tabindex="-1"></a>&lt;/br&gt;</span>
+<span id="cb26-197"><a href="#cb26-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-198"><a href="#cb26-198" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Functions should be used once or in a single point in the analysis flow, so why compile and document them in such detail?</span>
+<span id="cb26-199"><a href="#cb26-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-200"><a href="#cb26-200" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Documenting packages and the functions within them is complex</span>
+<span id="cb26-201"><a href="#cb26-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-202"><a href="#cb26-202" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>DESCRIPTION duplicates effort and information from README and demands greater knowledge of package-specific format and conventions</span>
+<span id="cb26-203"><a href="#cb26-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-204"><a href="#cb26-204" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Making data available when loading the environment does not provide advantages and makes the data less accessible outside of R (i.e., there is no gain from using <span class="in">`data("database")`</span> instead of <span class="in">`read.csv("database.csv")`</span>)</span>
+<span id="cb26-205"><a href="#cb26-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-206"><a href="#cb26-206" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Packages are for sharing tools that are used repeatedly. Data analysis reproduction occurs once or a few times</span>
+<span id="cb26-207"><a href="#cb26-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-208"><a href="#cb26-208" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>R packages have folders that have no functionality in data analysis ("man", "vignettes", "inst")</span>
+<span id="cb26-209"><a href="#cb26-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-210"><a href="#cb26-210" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Integrating the components of a package (necessary to be able to use continuous integration) requires other files with complex structures and conventions that imply an unnecessarily steep learning curve</span>
+<span id="cb26-211"><a href="#cb26-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-212"><a href="#cb26-212" aria-hidden="true" tabindex="-1"></a>For a more detailed discussion of the problems associated with using packages as templates, we recommend reading <span class="co">[</span><span class="ot">this post (McBrain 2020)</span><span class="co">](https://milesmcbain.xyz/posts/an-okay-idea)</span>.</span>
+<span id="cb26-213"><a href="#cb26-213" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb26-214"><a href="#cb26-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-215"><a href="#cb26-215" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-216"><a href="#cb26-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-217"><a href="#cb26-217" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb26-218"><a href="#cb26-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-219"><a href="#cb26-219" aria-hidden="true" tabindex="-1"></a><span class="fu">## R Packages for Compendium Generation</span></span>
+<span id="cb26-220"><a href="#cb26-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-221"><a href="#cb26-221" aria-hidden="true" tabindex="-1"></a><span class="fu">### vertical</span></span>
+<span id="cb26-222"><a href="#cb26-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-223"><a href="#cb26-223" aria-hidden="true" tabindex="-1"></a>The <span class="in">`vertical`</span> package provides a structured workflow based on the folder structure and continuous integration of R packages for creating and sharing research materials and resources as an R package (Matthew et al. 2020). The package can be installed and/or loaded from GitHub like this (it is not yet on CRAN(?)):</span>
+<span id="cb26-224"><a href="#cb26-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-225"><a href="#cb26-225" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
+<span id="cb26-226"><a href="#cb26-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-227"><a href="#cb26-227" aria-hidden="true" tabindex="-1"></a><span class="in"># install.packages("devtools")</span></span>
+<span id="cb26-228"><a href="#cb26-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-229"><a href="#cb26-229" aria-hidden="true" tabindex="-1"></a><span class="in">remotes::install_github("CrumpLab/vertical")</span></span>
+<span id="cb26-230"><a href="#cb26-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-231"><a href="#cb26-231" aria-hidden="true" tabindex="-1"></a><span class="in">library(vertical)</span></span>
+<span id="cb26-232"><a href="#cb26-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-233"><a href="#cb26-233" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-234"><a href="#cb26-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-235"><a href="#cb26-235" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-236"><a href="#cb26-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-237"><a href="#cb26-237" aria-hidden="true" tabindex="-1"></a>You will also need other packages if you want to make use of functionalities like writing articles and generating presentations:</span>
+<span id="cb26-238"><a href="#cb26-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-239"><a href="#cb26-239" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
+<span id="cb26-240"><a href="#cb26-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-241"><a href="#cb26-241" aria-hidden="true" tabindex="-1"></a><span class="in"># install papaja</span></span>
+<span id="cb26-242"><a href="#cb26-242" aria-hidden="true" tabindex="-1"></a><span class="in">devtools::install_github("crsh/papaja")</span></span>
+<span id="cb26-243"><a href="#cb26-243" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
+<span id="cb26-244"><a href="#cb26-244" aria-hidden="true" tabindex="-1"></a><span class="in">install.packages("tinytex")</span></span>
+<span id="cb26-245"><a href="#cb26-245" aria-hidden="true" tabindex="-1"></a><span class="in">tinytex::tlmgr_update()</span></span>
+<span id="cb26-246"><a href="#cb26-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-247"><a href="#cb26-247" aria-hidden="true" tabindex="-1"></a><span class="in"># if unable to generate articles try this as a last resort</span></span>
+<span id="cb26-248"><a href="#cb26-248" aria-hidden="true" tabindex="-1"></a><span class="in"># update.packages(ask = FALSE, checkBuilt = TRUE)</span></span>
+<span id="cb26-249"><a href="#cb26-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-250"><a href="#cb26-250" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-251"><a href="#cb26-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-252"><a href="#cb26-252" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-253"><a href="#cb26-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-254"><a href="#cb26-254" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 'vertical' workflow</span></span>
+<span id="cb26-255"><a href="#cb26-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-256"><a href="#cb26-256" aria-hidden="true" tabindex="-1"></a>Installing the <span class="in">`vertical`</span> package adds a new project template to RStudio (RStudio must be restarted after installing <span class="in">`vertical`</span> for it to recognize the template). Users can start a new "vertical" project from RStudio by choosing the option when creating a new project. By default, a "vertical" project is structured as follows:</span>
+<span id="cb26-257"><a href="#cb26-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-258"><a href="#cb26-258" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, out.width="100%", echo=FALSE}</span></span>
+<span id="cb26-259"><a href="#cb26-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-260"><a href="#cb26-260" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::include_graphics("images/vertical-project.png")</span></span>
+<span id="cb26-261"><a href="#cb26-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-262"><a href="#cb26-262" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-263"><a href="#cb26-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-264"><a href="#cb26-264" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-265"><a href="#cb26-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-266"><a href="#cb26-266" aria-hidden="true" tabindex="-1"></a>The new project contains a more complex skeleton than that of an R package:</span>
+<span id="cb26-267"><a href="#cb26-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-268"><a href="#cb26-268" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Folders for raw data, data, and vignettes</span>
+<span id="cb26-269"><a href="#cb26-269" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>A <span class="in">`_pkgdown.yml`</span> file to control the parameters of the website when processed with <span class="in">`pkgdown`</span></span>
+<span id="cb26-270"><a href="#cb26-270" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Additional folders for project research products like "experiments", "manuscript", "model", "posters", and "slides".</span>
+<span id="cb26-271"><a href="#cb26-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-272"><a href="#cb26-272" aria-hidden="true" tabindex="-1"></a>By default, <span class="in">`vertical`</span> includes R Markdown templates from other packages within each folder to create each type of content. As a result, <span class="in">`vertical`</span> suggests using R as a single-source solution for creating research products.</span>
+<span id="cb26-273"><a href="#cb26-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-274"><a href="#cb26-274" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Creating a 'vertical' project</span></span>
+<span id="cb26-275"><a href="#cb26-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-276"><a href="#cb26-276" aria-hidden="true" tabindex="-1"></a>After installing <span class="in">`vertical`</span>, restart RStudio, then follow these steps to start a new <span class="in">`vertical`</span> project. When choosing a name, it must be <span class="co">[</span><span class="ot">a valid R package name</span><span class="co">](http://r-pkgs.had.co.nz/package.html#naming)</span>. For example, the name must contain letters, numbers, or periods (e.g., my.name), but not periods at the end. This means no spaces, hyphens, or underscores.</span>
+<span id="cb26-277"><a href="#cb26-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-278"><a href="#cb26-278" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, out.width="50%", echo=FALSE}</span></span>
+<span id="cb26-279"><a href="#cb26-279" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::include_graphics("images/vertical-new.png")</span></span>
+<span id="cb26-280"><a href="#cb26-280" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-281"><a href="#cb26-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-282"><a href="#cb26-282" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-283"><a href="#cb26-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-284"><a href="#cb26-284" aria-hidden="true" tabindex="-1"></a>You can also create a 'vertical' project from the console, see the documentation of <span class="in">`vertical_project()`</span> for more options. This brings up the R project templates window from the console:</span>
+<span id="cb26-285"><a href="#cb26-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-286"><a href="#cb26-286" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb26-287"><a href="#cb26-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-288"><a href="#cb26-288" aria-hidden="true" tabindex="-1"></a><span class="in">vertical::vertical_project()</span></span>
+<span id="cb26-289"><a href="#cb26-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-290"><a href="#cb26-290" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-291"><a href="#cb26-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-292"><a href="#cb26-292" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-293"><a href="#cb26-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-294"><a href="#cb26-294" aria-hidden="true" tabindex="-1"></a>This is the folder structure it generates:</span>
+<span id="cb26-295"><a href="#cb26-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-296"><a href="#cb26-296" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
+<span id="cb26-297"><a href="#cb26-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-298"><a href="#cb26-298" aria-hidden="true" tabindex="-1"></a><span class="in">  vertical_comp/</span></span>
+<span id="cb26-299"><a href="#cb26-299" aria-hidden="true" tabindex="-1"></a><span class="in">    |</span></span>
+<span id="cb26-300"><a href="#cb26-300" aria-hidden="true" tabindex="-1"></a><span class="in">    ├── data_raw/</span></span>
+<span id="cb26-301"><a href="#cb26-301" aria-hidden="true" tabindex="-1"></a><span class="in">    ├── manuscripts/</span></span>
+<span id="cb26-302"><a href="#cb26-302" aria-hidden="true" tabindex="-1"></a><span class="in">    │   ├── manuscript.Rmd       </span></span>
+<span id="cb26-303"><a href="#cb26-303" aria-hidden="true" tabindex="-1"></a><span class="in">    │   └── r-references.bib  </span></span>
+<span id="cb26-304"><a href="#cb26-304" aria-hidden="true" tabindex="-1"></a><span class="in">    ├── posters/            </span></span>
+<span id="cb26-305"><a href="#cb26-305" aria-hidden="true" tabindex="-1"></a><span class="in">    ├── R/            </span></span>
+<span id="cb26-306"><a href="#cb26-306" aria-hidden="true" tabindex="-1"></a><span class="in">    ├── slides/            </span></span>
+<span id="cb26-307"><a href="#cb26-307" aria-hidden="true" tabindex="-1"></a><span class="in">    └── vignettes/            </span></span>
+<span id="cb26-308"><a href="#cb26-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-309"><a href="#cb26-309" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-310"><a href="#cb26-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-311"><a href="#cb26-311" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-312"><a href="#cb26-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-313"><a href="#cb26-313" aria-hidden="true" tabindex="-1"></a>&lt;/br&gt;</span>
+<span id="cb26-314"><a href="#cb26-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-315"><a href="#cb26-315" aria-hidden="true" tabindex="-1"></a>::: {.alert .alert-success}</span>
+<span id="cb26-316"><a href="#cb26-316" aria-hidden="true" tabindex="-1"></a>&lt;/br&gt;</span>
+<span id="cb26-317"><a href="#cb26-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-318"><a href="#cb26-318" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Exercise 1&lt;/font&gt;</span>
+<span id="cb26-319"><a href="#cb26-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-320"><a href="#cb26-320" aria-hidden="true" tabindex="-1"></a>1.1 Create a compendium using <span class="in">`vertical`</span></span>
+<span id="cb26-321"><a href="#cb26-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-322"><a href="#cb26-322" aria-hidden="true" tabindex="-1"></a>&lt;/br&gt;</span>
+<span id="cb26-323"><a href="#cb26-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-324"><a href="#cb26-324" aria-hidden="true" tabindex="-1"></a>1.2 Modify the R markdown file in './manuscripts/' and generate the HTML again</span>
+<span id="cb26-325"><a href="#cb26-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-326"><a href="#cb26-326" aria-hidden="true" tabindex="-1"></a>&lt;/br&gt;</span>
+<span id="cb26-327"><a href="#cb26-327" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb26-328"><a href="#cb26-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-329"><a href="#cb26-329" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-330"><a href="#cb26-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-331"><a href="#cb26-331" aria-hidden="true" tabindex="-1"></a><span class="fu">### rrtools</span></span>
+<span id="cb26-332"><a href="#cb26-332" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-333"><a href="#cb26-333" aria-hidden="true" tabindex="-1"></a>The goal of <span class="in">`rrtools`</span> is "to provide instructions, templates, and functions for creating a basic compendium suitable for writing reproducible articles or reports in R" (Marwick 2019). This package documents key steps and provides useful functions to quickly create a new research compendium.</span>
+<span id="cb26-334"><a href="#cb26-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-335"><a href="#cb26-335" aria-hidden="true" tabindex="-1"></a><span class="in">`rrtools`</span> provides a template for academic writing using R Markdown and <span class="in">`bookdown`</span>. It also allows for the isolation of your computational environment using <span class="in">`Docker`</span>, version control of packages using <span class="sc">\`</span>MR</span>
+<span id="cb26-336"><a href="#cb26-336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-337"><a href="#cb26-337" aria-hidden="true" tabindex="-1"></a>AN<span class="in">`, and continuous integration using`</span>Travis<span class="sc">\`</span>:</span>
+<span id="cb26-338"><a href="#cb26-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-339"><a href="#cb26-339" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
+<span id="cb26-340"><a href="#cb26-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-341"><a href="#cb26-341" aria-hidden="true" tabindex="-1"></a><span class="in">devtools::install_github("benmarwick/rrtools")</span></span>
+<span id="cb26-342"><a href="#cb26-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-343"><a href="#cb26-343" aria-hidden="true" tabindex="-1"></a><span class="in">library(rrtools)</span></span>
+<span id="cb26-344"><a href="#cb26-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-345"><a href="#cb26-345" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-346"><a href="#cb26-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-347"><a href="#cb26-347" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-348"><a href="#cb26-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-349"><a href="#cb26-349" aria-hidden="true" tabindex="-1"></a>We can start a compendium with <span class="in">`rrtools`</span> like this (do not run it if you are within an Rstudio project):</span>
+<span id="cb26-350"><a href="#cb26-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-351"><a href="#cb26-351" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval= FALSE}</span></span>
+<span id="cb26-352"><a href="#cb26-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-353"><a href="#cb26-353" aria-hidden="true" tabindex="-1"></a><span class="in">rrtools::use_compendium("package_name")</span></span>
+<span id="cb26-354"><a href="#cb26-354" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-355"><a href="#cb26-355" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-356"><a href="#cb26-356" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-357"><a href="#cb26-357" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-358"><a href="#cb26-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-359"><a href="#cb26-359" aria-hidden="true" tabindex="-1"></a>You need to update the DESCRIPTION file (located in the compendium directory) to include accurate metadata. For example, the 'imports' section should have the names of the packages used in the code in our compendium ('Imports: warbleR, baRulho, NatureSounds').</span>
+<span id="cb26-360"><a href="#cb26-360" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-361"><a href="#cb26-361" aria-hidden="true" tabindex="-1"></a>We can add a license to the compendium like this:</span>
+<span id="cb26-362"><a href="#cb26-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-363"><a href="#cb26-363" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval= FALSE}</span></span>
+<span id="cb26-364"><a href="#cb26-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-365"><a href="#cb26-365" aria-hidden="true" tabindex="-1"></a><span class="in">rrtools::create_compendium("package_name")</span></span>
+<span id="cb26-366"><a href="#cb26-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-367"><a href="#cb26-367" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-368"><a href="#cb26-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-369"><a href="#cb26-369" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-370"><a href="#cb26-370" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-371"><a href="#cb26-371" aria-hidden="true" tabindex="-1"></a>This adds the license to DESCRIPTION and generates a LICENSE file with license details. It defaults to using the MIT license although other licenses can be defined.</span>
+<span id="cb26-372"><a href="#cb26-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-373"><a href="#cb26-373" aria-hidden="true" tabindex="-1"></a>Unlike <span class="in">`vertical`</span>, <span class="in">`rrtools`</span> does not generate all the basic folders necessary for a compendium. We can create these folders like this:</span>
+<span id="cb26-374"><a href="#cb26-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-375"><a href="#cb26-375" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
+<span id="cb26-376"><a href="#cb26-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-377"><a href="#cb26-377" aria-hidden="true" tabindex="-1"></a><span class="in">rrtools::use_analysis()</span></span>
+<span id="cb26-378"><a href="#cb26-378" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-379"><a href="#cb26-379" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-380"><a href="#cb26-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-381"><a href="#cb26-381" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-382"><a href="#cb26-382" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-383"><a href="#cb26-383" aria-hidden="true" tabindex="-1"></a>This generates the "./analysis" folder with the following structure:</span>
+<span id="cb26-384"><a href="#cb26-384" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-385"><a href="#cb26-385" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
+<span id="cb26-386"><a href="#cb26-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-387"><a href="#cb26-387" aria-hidden="true" tabindex="-1"></a><span class="in">  analysis/</span></span>
+<span id="cb26-388"><a href="#cb26-388" aria-hidden="true" tabindex="-1"></a><span class="in">    |</span></span>
+<span id="cb26-389"><a href="#cb26-389" aria-hidden="true" tabindex="-1"></a><span class="in">    ├── paper/</span></span>
+<span id="cb26-390"><a href="#cb26-390" aria-hidden="true" tabindex="-1"></a><span class="in">    │   ├── paper.Rmd       # document to generate the article</span></span>
+<span id="cb26-391"><a href="#cb26-391" aria-hidden="true" tabindex="-1"></a><span class="in">    │   └── references.bib  # references in bibtex format</span></span>
+<span id="cb26-392"><a href="#cb26-392" aria-hidden="true" tabindex="-1"></a><span class="in">    ├── figures/            # figures produced by rmarkdown</span></span>
+<span id="cb26-393"><a href="#cb26-393" aria-hidden="true" tabindex="-1"></a><span class="in">    |</span></span>
+<span id="cb26-394"><a href="#cb26-394" aria-hidden="true" tabindex="-1"></a><span class="in">    ├── data/</span></span>
+<span id="cb26-395"><a href="#cb26-395" aria-hidden="true" tabindex="-1"></a><span class="in">    │   ├── raw_data/       # raw (original) data</span></span>
+<span id="cb26-396"><a href="#cb26-396" aria-hidden="true" tabindex="-1"></a><span class="in">    │   └── derived_data/   # processed data</span></span>
+<span id="cb26-397"><a href="#cb26-397" aria-hidden="true" tabindex="-1"></a><span class="in">    |</span></span>
+<span id="cb26-398"><a href="#cb26-398" aria-hidden="true" tabindex="-1"></a><span class="in">    └── templates</span></span>
+<span id="cb26-399"><a href="#cb26-399" aria-hidden="true" tabindex="-1"></a><span class="in">        ├── journal-of-archaeological-science.csl # citation style</span></span>
+<span id="cb26-400"><a href="#cb26-400" aria-hidden="true" tabindex="-1"></a><span class="in">        |                   </span></span>
+<span id="cb26-401"><a href="#cb26-401" aria-hidden="true" tabindex="-1"></a><span class="in">        ├── template.docx   # generated article template</span></span>
+<span id="cb26-402"><a href="#cb26-402" aria-hidden="true" tabindex="-1"></a><span class="in">        └── template.Rmd    # article rmd template</span></span>
+<span id="cb26-403"><a href="#cb26-403" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-404"><a href="#cb26-404" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-405"><a href="#cb26-405" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-406"><a href="#cb26-406" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-407"><a href="#cb26-407" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-408"><a href="#cb26-408" aria-hidden="true" tabindex="-1"></a>The README.Rmd file can be created like this:</span>
+<span id="cb26-409"><a href="#cb26-409" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-410"><a href="#cb26-410" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
+<span id="cb26-411"><a href="#cb26-411" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-412"><a href="#cb26-412" aria-hidden="true" tabindex="-1"></a><span class="in">rrtools::use_readme_rmd()</span></span>
+<span id="cb26-413"><a href="#cb26-413" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-414"><a href="#cb26-414" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-415"><a href="#cb26-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-416"><a href="#cb26-416" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-417"><a href="#cb26-417" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-418"><a href="#cb26-418" aria-hidden="true" tabindex="-1"></a>The generated README includes a template that shows how to cite your project (it should be edited to include the correct title and DOI). It also contains license, figures, code, and data information for your compendium.</span>
+<span id="cb26-419"><a href="#cb26-419" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-420"><a href="#cb26-420" aria-hidden="true" tabindex="-1"></a>This function also adds two other Rmd files: a code of conduct for users (CONDUCT.md) and one with basic instructions for people who want to contribute to your project (CONTRIBUTING.md).</span>
+<span id="cb26-421"><a href="#cb26-421" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-422"><a href="#cb26-422" aria-hidden="true" tabindex="-1"></a>It also offers functions like <span class="in">`rrtools::use_dockerfile()`</span> and <span class="in">`rrtools::use_travis()`</span> to facilitate continuous integration. Visit <span class="co">[</span><span class="ot">the package's github repository</span><span class="co">](https://github.com/benmarwick/rrtools)</span> for more detail.</span>
+<span id="cb26-423"><a href="#cb26-423" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-424"><a href="#cb26-424" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-425"><a href="#cb26-425" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-426"><a href="#cb26-426" aria-hidden="true" tabindex="-1"></a><span class="fu">### workflowr</span></span>
+<span id="cb26-427"><a href="#cb26-427" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-428"><a href="#cb26-428" aria-hidden="true" tabindex="-1"></a>The <span class="in">`workflowr`</span> package aims to help researchers "organize their analyses in a way that promotes effective project management, reproducibility, collaboration, and sharing of results" (Blischak et al. 2019). <span class="in">`workflowr`</span> combines literate programming (<span class="in">`knitr`</span> and <span class="in">`rmarkdown`</span>) and version control (Git, via <span class="in">`git2r`</span>) to generate a website containing documented and versioned results.</span>
+<span id="cb26-429"><a href="#cb26-429" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-430"><a href="#cb26-430" aria-hidden="true" tabindex="-1"></a>Unlike <span class="in">`rrtools`</span> and <span class="in">`vertical`</span>, <span class="in">`workflowr`</span> does not emulate the folder structure of R packages, which simplifies its use and makes its structure more intuitive from the researcher's point of view.</span>
+<span id="cb26-431"><a href="#cb26-431" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-432"><a href="#cb26-432" aria-hidden="true" tabindex="-1"></a>These are some of the features of the package detailed on its <span class="co">[</span><span class="ot">github site</span><span class="co">](https://jdblischak.github.io/workflowr)</span>:</span>
+<span id="cb26-433"><a href="#cb26-433" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-434"><a href="#cb26-434" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Organized**</span>
+<span id="cb26-435"><a href="#cb26-435" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Provides a project template with organized subdirectories</span>
+<span id="cb26-436"><a href="#cb26-436" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Mixes code and results with R Markdown</span>
+<span id="cb26-437"><a href="#cb26-437" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Uses Git to version both source code and results</span>
+<span id="cb26-438"><a href="#cb26-438" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Reproducible**</span>
+<span id="cb26-439"><a href="#cb26-439" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Displays the version of the code used to create each result</span>
+<span id="cb26-440"><a href="#cb26-440" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Runs each analysis in an isolated R session</span>
+<span id="cb26-441"><a href="#cb26-441" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Records the session information for each analysis</span>
+<span id="cb26-442"><a href="#cb26-442" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Sets the same seed for generating random numbers for each analysis</span>
+<span id="cb26-443"><a href="#cb26-443" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Shareable**</span>
+<span id="cb26-444"><a href="#cb26-444" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Creates a website to present the results of your research</span>
+<span id="cb26-445"><a href="#cb26-445" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Documents how to host your website for free via GitHub Pages or GitLab Pages</span>
+<span id="cb26-446"><a href="#cb26-446" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Creates links to previous versions of results</span>
+<span id="cb26-447"><a href="#cb26-447" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-448"><a href="#cb26-448" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-449"><a href="#cb26-449" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-450"><a href="#cb26-450" aria-hidden="true" tabindex="-1"></a>You can install the package like this:</span>
+<span id="cb26-451"><a href="#cb26-451" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-452"><a href="#cb26-452" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
+<span id="cb26-453"><a href="#cb26-453" aria-hidden="true" tabindex="-1"></a><span class="in">install.packages("workflowr")</span></span>
+<span id="cb26-454"><a href="#cb26-454" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-455"><a href="#cb26-455" aria-hidden="true" tabindex="-1"></a><span class="in">library(workflowr)</span></span>
+<span id="cb26-456"><a href="#cb26-456" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-457"><a href="#cb26-457" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-458"><a href="#cb26-458" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-459"><a href="#cb26-459" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-460"><a href="#cb26-460" aria-hidden="true" tabindex="-1"></a>To create a project with <span class="in">`workflowr`</span>, first you must set up git with the <span class="in">`wflow_git_config()`</span> function and then start it with <span class="in">`wflow_start()`</span>:</span>
+<span id="cb26-461"><a href="#cb26-461" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-462"><a href="#cb26-462" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
+<span id="cb26-463"><a href="#cb26-463" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-464"><a href="#cb26-464" aria-hidden="true" tabindex="-1"></a><span class="in"># Set up Git</span></span>
+<span id="cb26-465"><a href="#cb26-465" aria-hidden="true" tabindex="-1"></a><span class="in">wflow_git_config(user.name = "full name", user.email = "email@domain")</span></span>
+<span id="cb26-466"><a href="#cb26-466" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-467"><a href="#cb26-467" aria-hidden="true" tabindex="-1"></a><span class="in"># Start a project</span></span>
+<span id="cb26-468"><a href="#cb26-468" aria-hidden="true" tabindex="-1"></a><span class="in">wflow_start("my_compendium")</span></span>
+<span id="cb26-469"><a href="#cb26-469" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-470"><a href="#cb26-470" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-471"><a href="#cb26-471" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-472"><a href="#cb26-472" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-473"><a href="#cb26-473" aria-hidden="true" tabindex="-1"></a>This is the folder structure of the 'workflowr' compendium:</span>
+<span id="cb26-474"><a href="#cb26-474" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-475"><a href="#cb26-475" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
+<span id="cb26-476"><a href="#cb26-476" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-477"><a href="#cb26-477" aria-hidden="true" tabindex="-1"></a><span class="in">my_compendium/</span></span>
+<span id="cb26-478"><a href="#cb26-478" aria-hidden="true" tabindex="-1"></a><span class="in">├── .gitignore</span></span>
+<span id="cb26-479"><a href="#cb26-479" aria-hidden="true" tabindex="-1"></a><span class="in">├── .Rprofile</span></span>
+<span id="cb26-480"><a href="#cb26-480" aria-hidden="true" tabindex="-1"></a><span class="in">├── _workflowr.yml</span></span>
+<span id="cb26-481"><a href="#cb26-481" aria-hidden="true" tabindex="-1"></a><span class="in">├── analysis/</span></span>
+<span id="cb26-482"><a href="#cb26-482" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── about.Rmd</span></span>
+<span id="cb26-483"><a href="#cb26-483" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── index.Rmd</span></span>
+<span id="cb26-484"><a href="#cb26-484" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── license.Rmd</span></span>
+<span id="cb26-485"><a href="#cb26-485" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── _site.yml</span></span>
+<span id="cb26-486"><a href="#cb26-486" aria-hidden="true" tabindex="-1"></a><span class="in">├── code/</span></span>
+<span id="cb26-487"><a href="#cb26-487" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── README.md</span></span>
+<span id="cb26-488"><a href="#cb26-488" aria-hidden="true" tabindex="-1"></a><span class="in">├── data/</span></span>
+<span id="cb26-489"><a href="#cb26-489" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── README.md</span></span>
+<span id="cb26-490"><a href="#cb26-490" aria-hidden="true" tabindex="-1"></a><span class="in">├── docs/</span></span>
+<span id="cb26-491"><a href="#cb26-491" aria-hidden="true" tabindex="-1"></a><span class="in">├── myproject.Rproj</span></span>
+<span id="cb26-492"><a href="#cb26-492" aria-hidden="true" tabindex="-1"></a><span class="in">├── output/</span></span>
+<span id="cb26-493"><a href="#cb26-493" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── README.md</span></span>
+<span id="cb26-494"><a href="#cb26-494" aria-hidden="true" tabindex="-1"></a><span class="in">└── README.md</span></span>
+<span id="cb26-495"><a href="#cb26-495" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-496"><a href="#cb26-496" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-497"><a href="#cb26-497" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-498"><a href="#cb26-498" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-499"><a href="#cb26-499" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-500"><a href="#cb26-500" aria-hidden="true" tabindex="-1"></a>And with this code we can compile the compendium site:</span>
+<span id="cb26-501"><a href="#cb26-501" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-502"><a href="#cb26-502" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
+<span id="cb26-503"><a href="#cb26-503" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-504"><a href="#cb26-504" aria-hidden="true" tabindex="-1"></a><span class="in">wflow_build()</span></span>
+<span id="cb26-505"><a href="#cb26-505" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-506"><a href="#cb26-506" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-507"><a href="#cb26-507" aria-hidden="true" tabindex="-1"></a>This command 'knits' all R Markdown files in the './analysis' folder and saves the corresponding HTML files in './docs'. Each file is created in its own external R session to avoid potential conflicts between analyses (this is the default behavior of Rmd files). It also opens the local copy of the compendium site in the internet browser. We can also take a look at the local copy of the site like this:</span>
+<span id="cb26-508"><a href="#cb26-508" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-509"><a href="#cb26-509" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
+<span id="cb26-510"><a href="#cb26-510" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-511"><a href="#cb26-511" aria-hidden="true" tabindex="-1"></a><span class="in"># view compendium site</span></span>
+<span id="cb26-512"><a href="#cb26-512" aria-hidden="true" tabindex="-1"></a><span class="in">wflow_view()</span></span>
+<span id="cb26-513"><a href="#cb26-513" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-514"><a href="#cb26-514" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-515"><a href="#cb26-515" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-516"><a href="#cb26-516" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-517"><a href="#cb26-517" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-518"><a href="#cb26-518" aria-hidden="true" tabindex="-1"></a><span class="in">`workflowr`</span> distinguishes between R Markdown files that are published and those that are not published. A published file is included on the online website; while the HTML file of an unpublished R Markdown file can only be viewed on the local computer. Since the project was just initiated, there are no published files. To see the project status of <span class="in">`workflowr`</span>, we should use <span class="in">`wflow_status()`</span>:</span>
+<span id="cb26-519"><a href="#cb26-519" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-520"><a href="#cb26-520" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
+<span id="cb26-521"><a href="#cb26-521" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-522"><a href="#cb26-522" aria-hidden="true" tabindex="-1"></a><span class="in"># check current status</span></span>
+<span id="cb26-523"><a href="#cb26-523" aria-hidden="true" tabindex="-1"></a><span class="in">wflow_status()</span></span>
+<span id="cb26-524"><a href="#cb26-524" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-525"><a href="#cb26-525" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-526"><a href="#cb26-526" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-527"><a href="#cb26-527" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-528"><a href="#cb26-528" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-529"><a href="#cb26-529" aria-hidden="true" tabindex="-1"></a>If we want to make the HTMLs public, we should use the <span class="in">`wflow_publish()`</span> function and provide the names of the R markdowns that generate them with the <span class="in">`files`</span> argument. Additionally, we need to add a message for the 'commit' accompanying the changes generated when synchronized with the remote copy:</span>
+<span id="cb26-530"><a href="#cb26-530" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-531"><a href="#cb26-531" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
+<span id="cb26-532"><a href="#cb26-532" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-533"><a href="#cb26-533" aria-hidden="true" tabindex="-1"></a><span class="in"># publish rmds</span></span>
+<span id="cb26-534"><a href="#cb26-534" aria-hidden="true" tabindex="-1"></a><span class="in">wflow_publish(files = c("analysis/index.Rmd", "analysis/about.Rmd", "analysis/license.Rmd"), message =  "my first commit of the compendium")</span></span>
+<span id="cb26-535"><a href="#cb26-535" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-536"><a href="#cb26-536" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-537"><a href="#cb26-537" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-538"><a href="#cb26-538" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-539"><a href="#cb26-539" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-540"><a href="#cb26-540" aria-hidden="true" tabindex="-1"></a>At this point, we have created a versioned website locally</span>
+<span id="cb26-541"><a href="#cb26-541" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-542"><a href="#cb26-542" aria-hidden="true" tabindex="-1"></a>. The next step is to put it in an online repository (i.e., GitHub or GitLab). To upload and/or synchronize the compendium (including the website) to GitHub, we use the <span class="in">`wflow_use_github()`</span> function. The only argument it requires is the username:</span>
+<span id="cb26-543"><a href="#cb26-543" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-544"><a href="#cb26-544" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
+<span id="cb26-545"><a href="#cb26-545" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-546"><a href="#cb26-546" aria-hidden="true" tabindex="-1"></a><span class="in">wflow_use_github("my_compendium")</span></span>
+<span id="cb26-547"><a href="#cb26-547" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-548"><a href="#cb26-548" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-549"><a href="#cb26-549" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-550"><a href="#cb26-550" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-551"><a href="#cb26-551" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-552"><a href="#cb26-552" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-553"><a href="#cb26-553" aria-hidden="true" tabindex="-1"></a>The <span class="co">[</span><span class="ot">"getting started"</span><span class="co">](https://jdblischak.github.io/workflowr/articles/wflow-01-getting-started.html#the-workflow)</span> tutorial of <span class="in">`workflowr`</span> provides more details for each of the steps to generate compendia with this package. The documentation is quite comprehensive, including several other tutorials for customizing the compendia and their websites. <span class="co">[</span><span class="ot">Here you can find the list of tutorials</span><span class="co">](https://jdblischak.github.io/workflowr/articles/index.html)</span>.</span>
+<span id="cb26-554"><a href="#cb26-554" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-555"><a href="#cb26-555" aria-hidden="true" tabindex="-1"></a>&lt;/br&gt;</span>
+<span id="cb26-556"><a href="#cb26-556" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-557"><a href="#cb26-557" aria-hidden="true" tabindex="-1"></a>::: {.alert .alert-info}</span>
+<span id="cb26-558"><a href="#cb26-558" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Exercise 2&lt;/font&gt;</span>
+<span id="cb26-559"><a href="#cb26-559" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-560"><a href="#cb26-560" aria-hidden="true" tabindex="-1"></a>&lt;/br&gt;</span>
+<span id="cb26-561"><a href="#cb26-561" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-562"><a href="#cb26-562" aria-hidden="true" tabindex="-1"></a>2.1 Create a compendium using <span class="in">`workflowr`</span></span>
+<span id="cb26-563"><a href="#cb26-563" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-564"><a href="#cb26-564" aria-hidden="true" tabindex="-1"></a>&lt;/br&gt;</span>
+<span id="cb26-565"><a href="#cb26-565" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-566"><a href="#cb26-566" aria-hidden="true" tabindex="-1"></a>2.2 Build the compendium site</span>
+<span id="cb26-567"><a href="#cb26-567" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-568"><a href="#cb26-568" aria-hidden="true" tabindex="-1"></a>&lt;/br&gt;</span>
+<span id="cb26-569"><a href="#cb26-569" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb26-570"><a href="#cb26-570" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-571"><a href="#cb26-571" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-572"><a href="#cb26-572" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-573"><a href="#cb26-573" aria-hidden="true" tabindex="-1"></a><span class="fu">### sketchy</span></span>
+<span id="cb26-574"><a href="#cb26-574" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-575"><a href="#cb26-575" aria-hidden="true" tabindex="-1"></a>This is a package we are currently developing. At the moment, it only allows creating folder structures and generating an Rmarkdown to write the article. It also allows visualizing the compendium structure in the console. The main difference from the other packages is that it does not adhere to a single structure; it provides several alternative structures and also allows the user to generate their own formats.</span>
+<span id="cb26-576"><a href="#cb26-576" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-577"><a href="#cb26-577" aria-hidden="true" tabindex="-1"></a>To use it, you must first install it from <span class="co">[</span><span class="ot">github</span><span class="co">](github.com/)</span> like this:</span>
+<span id="cb26-578"><a href="#cb26-578" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-579"><a href="#cb26-579" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
+<span id="cb26-580"><a href="#cb26-580" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-581"><a href="#cb26-581" aria-hidden="true" tabindex="-1"></a><span class="in"># From github</span></span>
+<span id="cb26-582"><a href="#cb26-582" aria-hidden="true" tabindex="-1"></a><span class="in">devtools::install_github("maRce10/sketchy")</span></span>
+<span id="cb26-583"><a href="#cb26-583" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-584"><a href="#cb26-584" aria-hidden="true" tabindex="-1"></a><span class="in">#load package</span></span>
+<span id="cb26-585"><a href="#cb26-585" aria-hidden="true" tabindex="-1"></a><span class="in">library(sketchy)</span></span>
+<span id="cb26-586"><a href="#cb26-586" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-587"><a href="#cb26-587" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-588"><a href="#cb26-588" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-589"><a href="#cb26-589" aria-hidden="true" tabindex="-1"></a>The package comes with 13 folder structures. You can use them with the <span class="in">`compendium_skeleton()`</span> function. The function creates the folders/subfolders and prints a diagram of the compendium in the console:</span>
+<span id="cb26-590"><a href="#cb26-590" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-591"><a href="#cb26-591" aria-hidden="true" tabindex="-1"></a><span class="fu">### Basic Compendium</span></span>
+<span id="cb26-592"><a href="#cb26-592" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-593"><a href="#cb26-593" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
+<span id="cb26-594"><a href="#cb26-594" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-595"><a href="#cb26-595" aria-hidden="true" tabindex="-1"></a><span class="in">path = tempdir()</span></span>
+<span id="cb26-596"><a href="#cb26-596" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-597"><a href="#cb26-597" aria-hidden="true" tabindex="-1"></a><span class="in">make_compendium(name = "project_x",</span></span>
+<span id="cb26-598"><a href="#cb26-598" aria-hidden="true" tabindex="-1"></a><span class="in">                path = path,</span></span>
+<span id="cb26-599"><a href="#cb26-599" aria-hidden="true" tabindex="-1"></a><span class="in">                format = "basic")</span></span>
+<span id="cb26-600"><a href="#cb26-600" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-601"><a href="#cb26-601" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-602"><a href="#cb26-602" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-603"><a href="#cb26-603" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo=FALSE, out.width='55%', fig.align='left'}</span></span>
+<span id="cb26-604"><a href="#cb26-604" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::include_graphics('./images/compendium_1.png')</span></span>
+<span id="cb26-605"><a href="#cb26-605" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-606"><a href="#cb26-606" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-607"><a href="#cb26-607" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-608"><a href="#cb26-608" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-609"><a href="#cb26-609" aria-hidden="true" tabindex="-1"></a>(*in the example, a temporary directory is used but this should be changed to the directory where you want to create the compendium*)</span>
+<span id="cb26-610"><a href="#cb26-610" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-611"><a href="#cb26-611" aria-hidden="true" tabindex="-1"></a><span class="fu">### Alternative Formats</span></span>
+<span id="cb26-612"><a href="#cb26-612" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-613"><a href="#cb26-613" aria-hidden="true" tabindex="-1"></a>You can use formats from other sources. In this case, we use the one from Wilson *et al.* (2017):</span>
+<span id="cb26-614"><a href="#cb26-614" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-615"><a href="#cb26-615" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
+<span id="cb26-616"><a href="#cb26-616" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-617"><a href="#cb26-617" aria-hidden="true" tabindex="-1"></a><span class="in">make_compendium(name = "project_y",</span></span>
+<span id="cb26-618"><a href="#cb26-618" aria-hidden="true" tabindex="-1"></a><span class="in">                path = path,</span></span>
+<span id="cb26-619"><a href="#cb26-619" aria-hidden="true" tabindex="-1"></a><span class="in">                format = "wilson")</span></span>
+<span id="cb26-620"><a href="#cb26-620" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-621"><a href="#cb26-621" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-622"><a href="#cb26-622" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-623"><a href="#cb26-623" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo=FALSE, out.width='55%', fig.align='left'}</span></span>
+<span id="cb26-624"><a href="#cb26-624" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::include_graphics('./images/compendium_2.png')</span></span>
+<span id="cb26-625"><a href="#cb26-625" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-626"><a href="#cb26-626" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-627"><a href="#cb26-627" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-628"><a href="#cb26-628" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-629"><a href="#cb26-629" aria-hidden="true" tabindex="-1"></a>You can also add comments to each folder to explain its contents:</span>
+<span id="cb26-630"><a href="#cb26-630" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-631"><a href="#cb26-631" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
+<span id="cb26-632"><a href="#cb26-632" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-633"><a href="#cb26-633" aria-hidden="true" tabindex="-1"></a><span class="in">make_compendium(name = "project_z", path = path, format = "large_compendium")</span></span>
+<span id="cb26-634"><a href="#cb26-634" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-635"><a href="#cb26-635" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-636"><a href="#cb26-636" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-637"><a href="#cb26-637" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo=FALSE, out.width='55%', fig.align='left'}</span></span>
+<span id="cb26-638"><a href="#cb26-638" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::include_graphics('./images/compendium_3.png')</span></span>
+<span id="cb26-639"><a href="#cb26-639" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb26-640"><a href="#cb26-640" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-641"><a href="#cb26-641" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-642"><a href="#cb26-642" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-643"><a href="#cb26-643" aria-hidden="true" tabindex="-1"></a>When you create a compendium that includes a folder called "manuscript," the package automatically adds the "manuscript_template.Rmd" file that can be used to write the project's article.</span>
+<span id="cb26-644"><a href="#cb26-644" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-645"><a href="#cb26-645" aria-hidden="true" tabindex="-1"></a>The idea is to include functions to identify large files that cannot be uploaded to <span class="co">[</span><span class="ot">github</span><span class="co">](www.github.com/)</span> and be able to upload them to other repositories (i.e., figshare or zenodo).</span>
+<span id="cb26-646"><a href="#cb26-646" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-647"><a href="#cb26-647" aria-hidden="true" tabindex="-1"></a>&lt;/br&gt;</span>
+<span id="cb26-648"><a href="#cb26-648" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-649"><a href="#cb26-649" aria-hidden="true" tabindex="-1"></a>::: {.alert .alert-info}</span>
+<span id="cb26-650"><a href="#cb26-650" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Exercise 3&lt;/font&gt;</span>
+<span id="cb26-651"><a href="#cb26-651" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-652"><a href="#cb26-652" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-653"><a href="#cb26-653" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Create a compendium with <span class="in">`sketchy`</span> using the 'basic'</span>
+<span id="cb26-654"><a href="#cb26-654" aria-hidden="true" tabindex="-1"></a>format</span>
+<span id="cb26-655"><a href="#cb26-655" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-656"><a href="#cb26-656" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Create a compendium with <span class="in">`sketchy`</span> using the 'sketchy'</span>
+<span id="cb26-657"><a href="#cb26-657" aria-hidden="true" tabindex="-1"></a>format</span>
+<span id="cb26-658"><a href="#cb26-658" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-659"><a href="#cb26-659" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb26-660"><a href="#cb26-660" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-661"><a href="#cb26-661" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb26-662"><a href="#cb26-662" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-663"><a href="#cb26-663" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb26-664"><a href="#cb26-664" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-665"><a href="#cb26-665" aria-hidden="true" tabindex="-1"></a><span class="fu">## References</span></span>
+<span id="cb26-666"><a href="#cb26-666" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-667"><a href="#cb26-667" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Araya-Salas, M., Willink, B., Arriaga, A. (2020), *sketchy: research compendiums for data analysis in R*. R package version 1.0.0.</span>
+<span id="cb26-668"><a href="#cb26-668" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Aust, F. &amp; Barth, M. (2020). papaja: Prepare reproducible APA journal articles with R Markdown. R package version 0.1.0.9997. https://github.com/crsh/papaja</span>
+<span id="cb26-669"><a href="#cb26-669" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Blischak JD, Carbonetto P and Stephens M. Creating and sharing reproducible research code the workflowr way <span class="sc">\[</span>version 1; peer review: 3 approved<span class="sc">\]</span>. F1000Research 2019, 8:1749. (https://doi.org/10.12688/f1000research.20843.1)</span>
+<span id="cb26-670"><a href="#cb26-670" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>McBain (2020). Before I Sleep: Project as an R package: An okay idea. <span class="ot">&lt;https://milesmcbain.com/posts/an-okay-idea/&gt;</span></span>
+<span id="cb26-671"><a href="#cb26-671" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Ben Marwick (2019). rrtools: Creates a Reproducible Research Compendium. R package version 0.1.0. https://github.com/benmarwick/rrtools</span>
+<span id="cb26-672"><a href="#cb26-672" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Noble WS (2009) A Quick Guide to Organizing Computational Biology Projects. PLoS Comput Biol 5(7): e1000424. https://doi.org/10.1371/journal.pcbi.1000424</span>
+<span id="cb26-673"><a href="#cb26-673" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Marwick, B., Boettiger, C., &amp; Mullen, L. (2018). Packaging Data Analytical Work Reproducibly Using R (and Friends). American Statistician, 72(1), 80--88.</span>
+<span id="cb26-674"><a href="#cb26-674" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Matthew J. C. Crump and Matti Vuorre (2020). vertical: Reproducible worfklow for psychological science research asset creation and communication. R package version 0.1.0.0000. https://github.com/CrumpLab/vertical</span>
+<span id="cb26-675"><a href="#cb26-675" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Vuorre, M., &amp; Crump, M. J. C. (2020). Sharing and organizing research products as R packages. Behavior Research Methods, 1--11.</span>
+<span id="cb26-676"><a href="#cb26-676" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Wilson G, Bryan J, Cranston K, Kitzes J, Nederbragt L, et al. (2017) Good enough practices in scientific computing. PLOS Computational Biology 13(6): e1005510.</span>
+<span id="cb26-677"><a href="#cb26-677" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-678"><a href="#cb26-678" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb26-679"><a href="#cb26-679" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-680"><a href="#cb26-680" aria-hidden="true" tabindex="-1"></a>&lt;font size="4"&gt;Session information&lt;/font&gt;</span>
+<span id="cb26-681"><a href="#cb26-681" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-682"><a href="#cb26-682" aria-hidden="true" tabindex="-1"></a><span class="in">```{r session info, echo=F}</span></span>
+<span id="cb26-683"><a href="#cb26-683" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-684"><a href="#cb26-684" aria-hidden="true" tabindex="-1"></a><span class="in">sessionInfo()</span></span>
+<span id="cb26-685"><a href="#cb26-685" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-686"><a href="#cb26-686" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

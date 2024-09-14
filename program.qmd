@@ -1,0 +1,134 @@
+::: {.alert .alert-success}
+### Before the course starts {.unnumbered .unlisted}
+
+-   Make sure you install all the software we will be using [as detailed in here](course_prep.qmd)
+-   Read/watch the additional materials for day 1
+:::
+
+ 
+
+## Day 1
+
+------------------------------------------------------------------------
+
+### **Refresh basic R concepts** <a href="r_basics.qmd" class="btn btn-warning btn-xs" role="button">Tutorial</a>
+
+-   Object types in R
+-   Subsetting
+-   Style matters
+-   R documentation
+
+::: {.alert .alert-warning}
+### Additional materials
+
+#### Readings
+
+-   Baker, M. (2016). [Reproducibility crisis](https://www.nature.com/articles/533452a). nature, 533(26), 353-66.
+
+#### Videos
+
+-   [Reproducibility crisis](https://www.youtube.com/watch?v=FpCrY7x5nEE&t=54s)
+-   [Reproducibility and open science](https://www.youtube.com/watch?v=c-bemNZ-IqA&t=384s)
+
+#### Optional
+
+-   Alston, J. M., & Rick, J. A. (2021). [A beginner's guide to conducting reproducible research](http://jessicarick.com/s/Alston_ReproducibleResearch_BulletinESA_Rev1.pdf). Bulletin of the Ecological Society of America, 102(2), 1-14.
+-   Culina, A., van den Berg, I., Evans, S., & Sánchez-Tójar, A. (2020). [Low availability of code in ecology: A call for urgent action](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3000763). PLoS Biology, 18(7), e3000763.
+:::
+
+ 
+
+## Day 2
+
+---
+
+### **Research compendiums** <a href="research_compendiums.qmd" class="btn btn-warning btn-xs" role="button">Tutorial</a>
+
+-   Folder structure formats
+-   R packages as templates for compendiums
+-   R Packages for Compendium Generation
+
+### **Coding and reproducible research** <a href="coding_and_reproducibility.qmd" class="btn btn-warning btn-xs" role="button">Tutorial</a>
+
+-   Free software and code
+-   Why R?
+-   Tools for reproducible programming
+
+
+::: {.alert .alert-info}
+### Practice
+
+1. On a scientific journal of your preference pick up 5 open access papers (or just 5 papers if you have access)
+
+2. Skim each paper to check if they have attempted to make it reproducible and which research components have been shared (like data or code). If there are not open research papers in the 10 you pick up keep looking until you find one.
+
+3. Try to access the supplementary materials containing the shared materials
+
+4. If they shared the code, take a look at how  well commented it is
+
+:::
+
+### **Intro to git/gihub** <a href="intro_to_git_and_github.qmd" class="btn btn-warning btn-xs" role="button">Tutorial</a>
+
+-   Git for version control
+-   Setting up a git project
+-   Version control and collaboration with github
+
+::: {.alert .alert-warning}
+### Additional materials
+
+#### Readings
+
+-   Vuorre, M., & Curley, J. P. (2018). [Curating research assets: A tutorial on the Git version control system](https://journals.sagepub.com/doi/full/10.1177/2515245918754826). Advances in Methods and Practices in Psychological Science, 1(2), 219-236.
+
+#### Videos
+
+-   [What is git?](https://www.youtube.com/watch?v=2ReR1YJrNOM)
+
+-   [What is version control?](https://www.youtube.com/watch?v=Yc8sCSeMhi4)
+
+-   [Git vs github](https://www.youtube.com/watch?v=xJXgvr8bPes)
+
+#### Optional
+
+-   Bryan, J. (2018). [Excuse me, do you have a moment to talk about version control?](https://peerj.com/preprints/3159.pdf). The American Statistician, 72(1), 20-27.
+:::
+
+------------------------------------------------------------------------
+
+ 
+
+## Day 3
+
+------------------------------------------------------------------------
+
+### **Dynamic reports** <a href="dynamic_reports.qmd" class="btn btn-warning btn-xs" role="button">Tutorial</a>
+
+-   Sharing analysis with dynamic reports
+-   Rmarkdown and quarto formats
+-   Markdown syntax
+-   Rpubs
+
+### **Reproducible taxonomic information** <a href="reproducible_taxonomy.qmd" class="btn btn-warning btn-xs" role="button">Tutorial</a>
+
+-   Reproducibility taxonomic information
+-   Taxize package
+-   Curating taxonomic information
+
+::: {.alert .alert-warning}
+### Additional materials
+
+#### Readings
+
+-   Chamberlain, S. A., & Szöcs, E. (2013). [taxize: taxonomic search and retrieval in R](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3901538/pdf/f1000research-2-2767.pdf). F1000Research, 2.
+
+- Vink, C. J., Paquin, P., & Cruickshank, R. H. (2012). [Taxonomy and irreproducible biological science](https://d1wqtxts1xzle7.cloudfront.net/50164049/451.full-libre.pdf?1478529284=&response-content-disposition=inline%3B+filename%3DTaxonomy_and_Irreproducible_Biological_S.pdf&Expires=1713851447&Signature=D09umC5375GiyManM137brPKEAhFZBPecSdhwPXLefMUCn1tyK8C4GOJUSqt2TGrAgqSALVbi97PL-mXiELOCHSzUvkrHoZ5ZyFAxz2uFxvszwkTyK5pd8FKgCTQ3g80F8mLgexVJ7XOShDBhXuibW6pNIGMQSjLTd9mdEBKaDkDaQGn6JcxtXZ2K9HO5GzXoKQvJeE6jhDB7ZZVJ7TKCynSfnjpsL1Ewk~-DgVV0xcCaliaFLC1jA1v85VfZpOJ1cSaO5SBNgOamO4Vjyk1JiiXRmpE7C4RsW-IoyW2VDL4XdJREJqs~5p03plAVLyON7eOpJT0wcTBlC~fdoVDOg__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA). BioScience, 62(5), 451-452.
+
+
+#### Optional
+
+- Ince, D. C., Hatton, L., & Graham-Cumming, J. (2012). [The case for open computer programs](https://climate.fas.harvard.edu/files/climate/files/nature10836.pdf). Nature, 482(7386), 485-488.
+
+- Fidler, F., Chee, Y. E., Wintle, B. C., Burgman, M. A., McCarthy, M. A., & Gordon, A. (2017). [Metaresearch for evaluating reproducibility in ecology and evolution](https://watermark.silverchair.com/biw159.pdf?token=AQECAHi208BE49Ooan9kkhW_Ercy7Dm3ZL_9Cf3qfKAc485ysgAAA1cwggNTBgkqhkiG9w0BBwagggNEMIIDQAIBADCCAzkGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMuiQ3frpNY_oz2bZlAgEQgIIDCiU5IOncXj5IaCoXcRoQOuQVHi7t8xCemD5qekr32Oc57ChLc5RoSGKcuhX2l1D2D30cbZm7IpavrmqKL6wrSU8TMD24pTS4BoyEzm54bIsXX_TQOqOIsG-yYQQgTtPr88s60TvRmkHCnMRzXqIKuzMOUIqBiOB0GLFHTujpv8mMHCDLJ-8_1UUjkcC_AiOLptsAeEY4ILrn3T-DcxPNYlHXuZ0LZubD9zVilETwoKMSCG_bDRvit_HR1WamJeyO-W63-L_WQoHitDpH9fOldW5Y-OQm8JOXeYSP-uyDMEALx0cYFE1J8gX-wUbU6kkWZAAJ2Wk6HDW9E8D2BqD15vMLUo01ahWsaDvs0ol1B70qUrmMEQ2YFXrRmkqgUK0foa9NpJoVCv42u4_pBWats2s-yQaXmA-9k5ErDp337uiikEmlNFxvsE6yt7ABgp3lgiZtnoGzBt1R-fYaJn7yTwzPWix3ppyCaH0hayydWBB93uey5qKYfxSXpVCkj_cvrSUKz0CXiZ9nFdOV2Snz2yPJC-aPxkM4dCVqzGUeSy1q1G54sj6kVvsy_RzWEy7gotJz5x9PqbvR-l9Gx2glr4BNI-sAsKK3qhZshmwVyd6hlvN6gFMlYH9IAfm__a98cgfy40cmdJ48QBDfW_xTGiH0dpQuvAVuyiq6wLRGGK-V2w_9ZWjkZwrxtz93xMOWWwouL1Ml4DkmCFXay6jG-wu7hfuDvMR4sDEeSXegzeFEhatxQfNn-Zy14-o1A_eg2rwynpFwwmpsAhMpNND4lh-PGLJu-YRR-QEOnYU3Mf61wsIPqEW9JMVsMQVGL7AlXG_dMdrVahbarecm2wHaDbbxg-2BTUy3TVq0qorGEA18dmuXf-X-IouoxRAt5TO2UzAD8ecgyTOBnS9oo-bqlNC8W8cMD30AQEuoasmvPu5j2cFLgBLmKvrolbvjS3JDltgIrmfTS-R6yZDPvnJy9J93uWTnktGp7nMriYfeYmTUEusWxnKbIzwOiLhrnXq6N5z7kA_ERZDbgtE). BioScience, 67(3), 282-289.
+
+:::
