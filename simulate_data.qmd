@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 
 - Get familiar with the basic random generating functions in R
 
-- Use of simulated data to understand the behavior of statistical tools 
+- Use simulated data to understand the behavior of statistical tools 
 
 :::
 
