@@ -241,8 +241,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="objectives" class="level1 unnumbered unlisted alert alert-info">
 <h1 class="unnumbered unlisted">Objectives</h1>
 <ul>
-<li><p>Get familiar with the basic input data format</p></li>
-<li><p>Know the main functions to import data and format it</p></li>
+<li><p>Get familiar with the basic random generating functions in R</p></li>
+<li><p>Use of simulated data to understand the behavior of statistical tools</p></li>
 </ul>
 </section>
 <p>Please load the following packages:</p>
@@ -1351,456 +1351,457 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb51-17"><a href="#cb51-17" aria-hidden="true" tabindex="-1"></a>::: {.alert .alert-info}</span>
 <span id="cb51-18"><a href="#cb51-18" aria-hidden="true" tabindex="-1"></a><span class="fu"># Objectives {.unnumbered .unlisted}</span></span>
 <span id="cb51-19"><a href="#cb51-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-20"><a href="#cb51-20" aria-hidden="true" tabindex="-1"></a><span class="ss">-  </span>Get familiar with the basic input data format</span>
+<span id="cb51-20"><a href="#cb51-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Get familiar with the basic random generating functions in R</span>
 <span id="cb51-21"><a href="#cb51-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-22"><a href="#cb51-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Know the main functions to import data and format it</span>
-<span id="cb51-23"><a href="#cb51-23" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb51-24"><a href="#cb51-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-25"><a href="#cb51-25" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, message=FALSE}</span></span>
-<span id="cb51-26"><a href="#cb51-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-27"><a href="#cb51-27" aria-hidden="true" tabindex="-1"></a><span class="in">library(kableExtra)</span></span>
-<span id="cb51-28"><a href="#cb51-28" aria-hidden="true" tabindex="-1"></a><span class="in">library(knitr)</span></span>
-<span id="cb51-29"><a href="#cb51-29" aria-hidden="true" tabindex="-1"></a><span class="in">library(ggplot2)</span></span>
-<span id="cb51-30"><a href="#cb51-30" aria-hidden="true" tabindex="-1"></a><span class="in">library(viridis)</span></span>
-<span id="cb51-31"><a href="#cb51-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-32"><a href="#cb51-32" aria-hidden="true" tabindex="-1"></a><span class="in">tibble &lt;- function(x, ...) { </span></span>
-<span id="cb51-33"><a href="#cb51-33" aria-hidden="true" tabindex="-1"></a><span class="in">  x &lt;- kbl(x, digits=4, align= 'c', row.names = FALSE) </span></span>
-<span id="cb51-34"><a href="#cb51-34" aria-hidden="true" tabindex="-1"></a><span class="in">   x &lt;- kable_styling(x, position ="center", full_width = FALSE,  bootstrap_options = c("striped", "hover", "condensed", "responsive")) </span></span>
-<span id="cb51-35"><a href="#cb51-35" aria-hidden="true" tabindex="-1"></a><span class="in">   asis_output(x)</span></span>
-<span id="cb51-36"><a href="#cb51-36" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
-<span id="cb51-37"><a href="#cb51-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-38"><a href="#cb51-38" aria-hidden="true" tabindex="-1"></a><span class="in">registerS3method("knit_print", "data.frame", tibble)</span></span>
-<span id="cb51-39"><a href="#cb51-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-40"><a href="#cb51-40" aria-hidden="true" tabindex="-1"></a><span class="in"># ggplot settings</span></span>
-<span id="cb51-41"><a href="#cb51-41" aria-hidden="true" tabindex="-1"></a><span class="in">geom_histogram &lt;- function(...) ggplot2::geom_histogram(..., fill = viridis(10, alpha = 0.5)[8], show.legend = FALSE, bins = 20, color = "black")</span></span>
-<span id="cb51-42"><a href="#cb51-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-43"><a href="#cb51-43" aria-hidden="true" tabindex="-1"></a><span class="in">geom_smooth &lt;- function(...) ggplot2::geom_smooth(..., color = viridis(10,  alpha = 0.5)[8])</span></span>
-<span id="cb51-44"><a href="#cb51-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-45"><a href="#cb51-45" aria-hidden="true" tabindex="-1"></a><span class="in">geom_boxplot &lt;- function(...) ggplot2::geom_boxplot(..., fill = viridis(10, alpha = 0.5)[7])</span></span>
-<span id="cb51-46"><a href="#cb51-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-47"><a href="#cb51-47" aria-hidden="true" tabindex="-1"></a><span class="in">geom_pointrange &lt;- function(...) ggplot2::geom_pointrange(..., show.legend = FALSE, color = viridis(10, alpha = 0.5)[7], size = 2) </span></span>
-<span id="cb51-48"><a href="#cb51-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-49"><a href="#cb51-49" aria-hidden="true" tabindex="-1"></a><span class="in">plot_model &lt;- function(...) sjPlot::plot_model(xy_mod, type = "diag", colors = viridis(10, alpha = 0.5)[7])</span></span>
-<span id="cb51-50"><a href="#cb51-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-51"><a href="#cb51-51" aria-hidden="true" tabindex="-1"></a><span class="in">theme_set(theme_classic(base_size = 20))</span></span>
-<span id="cb51-52"><a href="#cb51-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-53"><a href="#cb51-53" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-54"><a href="#cb51-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-55"><a href="#cb51-55" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include = FALSE}</span></span>
-<span id="cb51-56"><a href="#cb51-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-57"><a href="#cb51-57" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::opts_chunk$set(</span></span>
-<span id="cb51-58"><a href="#cb51-58" aria-hidden="true" tabindex="-1"></a><span class="in">  tidy.opts = list(width.cutoff = 40), </span></span>
-<span id="cb51-59"><a href="#cb51-59" aria-hidden="true" tabindex="-1"></a><span class="in">  tidy = TRUE,</span></span>
-<span id="cb51-60"><a href="#cb51-60" aria-hidden="true" tabindex="-1"></a><span class="in">  message = FALSE</span></span>
-<span id="cb51-61"><a href="#cb51-61" aria-hidden="true" tabindex="-1"></a><span class="in"> )</span></span>
-<span id="cb51-62"><a href="#cb51-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-63"><a href="#cb51-63" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-64"><a href="#cb51-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-65"><a href="#cb51-65" aria-hidden="true" tabindex="-1"></a>Please load the following packages:</span>
-<span id="cb51-66"><a href="#cb51-66" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
-<span id="cb51-67"><a href="#cb51-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-68"><a href="#cb51-68" aria-hidden="true" tabindex="-1"></a><span class="in">library(ggplot2)</span></span>
-<span id="cb51-69"><a href="#cb51-69" aria-hidden="true" tabindex="-1"></a><span class="in">library(viridis)</span></span>
-<span id="cb51-70"><a href="#cb51-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-71"><a href="#cb51-71" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-72"><a href="#cb51-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-73"><a href="#cb51-73" aria-hidden="true" tabindex="-1"></a><span class="fu"># Generating random numbers in R</span></span>
-<span id="cb51-74"><a href="#cb51-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-75"><a href="#cb51-75" aria-hidden="true" tabindex="-1"></a>Statistics allow us to infer patterns in the data. We tend to use real data sets to teach stats. However, it might get circular to understand the inner working of an statistical tool by testing its ability to infer a pattern that we are not sure its found in the data (and have no idea on the mechanism producing that pattern). **Simulations allow us to create controlled scenarios in which we know for sure the patterns** present in the data and the underlying processes that generated them.</span>
-<span id="cb51-76"><a href="#cb51-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-77"><a href="#cb51-77" aria-hidden="true" tabindex="-1"></a>R offers some basic functions for data simulation. The most used ones are the random number generating functions. The names of these functions all start with *r* (<span class="in">`r____()`</span>). For instance <span class="in">`runif()`</span>:</span>
-<span id="cb51-78"><a href="#cb51-78" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=FALSE}</span></span>
-<span id="cb51-79"><a href="#cb51-79" aria-hidden="true" tabindex="-1"></a><span class="in">set.seed(7)</span></span>
-<span id="cb51-80"><a href="#cb51-80" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-81"><a href="#cb51-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-22"><a href="#cb51-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use of simulated data to understand the behavior of statistical tools </span>
+<span id="cb51-23"><a href="#cb51-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-24"><a href="#cb51-24" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb51-25"><a href="#cb51-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-26"><a href="#cb51-26" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, message=FALSE}</span></span>
+<span id="cb51-27"><a href="#cb51-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-28"><a href="#cb51-28" aria-hidden="true" tabindex="-1"></a><span class="in">library(kableExtra)</span></span>
+<span id="cb51-29"><a href="#cb51-29" aria-hidden="true" tabindex="-1"></a><span class="in">library(knitr)</span></span>
+<span id="cb51-30"><a href="#cb51-30" aria-hidden="true" tabindex="-1"></a><span class="in">library(ggplot2)</span></span>
+<span id="cb51-31"><a href="#cb51-31" aria-hidden="true" tabindex="-1"></a><span class="in">library(viridis)</span></span>
+<span id="cb51-32"><a href="#cb51-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-33"><a href="#cb51-33" aria-hidden="true" tabindex="-1"></a><span class="in">tibble &lt;- function(x, ...) { </span></span>
+<span id="cb51-34"><a href="#cb51-34" aria-hidden="true" tabindex="-1"></a><span class="in">  x &lt;- kbl(x, digits=4, align= 'c', row.names = FALSE) </span></span>
+<span id="cb51-35"><a href="#cb51-35" aria-hidden="true" tabindex="-1"></a><span class="in">   x &lt;- kable_styling(x, position ="center", full_width = FALSE,  bootstrap_options = c("striped", "hover", "condensed", "responsive")) </span></span>
+<span id="cb51-36"><a href="#cb51-36" aria-hidden="true" tabindex="-1"></a><span class="in">   asis_output(x)</span></span>
+<span id="cb51-37"><a href="#cb51-37" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb51-38"><a href="#cb51-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-39"><a href="#cb51-39" aria-hidden="true" tabindex="-1"></a><span class="in">registerS3method("knit_print", "data.frame", tibble)</span></span>
+<span id="cb51-40"><a href="#cb51-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-41"><a href="#cb51-41" aria-hidden="true" tabindex="-1"></a><span class="in"># ggplot settings</span></span>
+<span id="cb51-42"><a href="#cb51-42" aria-hidden="true" tabindex="-1"></a><span class="in">geom_histogram &lt;- function(...) ggplot2::geom_histogram(..., fill = viridis(10, alpha = 0.5)[8], show.legend = FALSE, bins = 20, color = "black")</span></span>
+<span id="cb51-43"><a href="#cb51-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-44"><a href="#cb51-44" aria-hidden="true" tabindex="-1"></a><span class="in">geom_smooth &lt;- function(...) ggplot2::geom_smooth(..., color = viridis(10,  alpha = 0.5)[8])</span></span>
+<span id="cb51-45"><a href="#cb51-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-46"><a href="#cb51-46" aria-hidden="true" tabindex="-1"></a><span class="in">geom_boxplot &lt;- function(...) ggplot2::geom_boxplot(..., fill = viridis(10, alpha = 0.5)[7])</span></span>
+<span id="cb51-47"><a href="#cb51-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-48"><a href="#cb51-48" aria-hidden="true" tabindex="-1"></a><span class="in">geom_pointrange &lt;- function(...) ggplot2::geom_pointrange(..., show.legend = FALSE, color = viridis(10, alpha = 0.5)[7], size = 2) </span></span>
+<span id="cb51-49"><a href="#cb51-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-50"><a href="#cb51-50" aria-hidden="true" tabindex="-1"></a><span class="in">plot_model &lt;- function(...) sjPlot::plot_model(xy_mod, type = "diag", colors = viridis(10, alpha = 0.5)[7])</span></span>
+<span id="cb51-51"><a href="#cb51-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-52"><a href="#cb51-52" aria-hidden="true" tabindex="-1"></a><span class="in">theme_set(theme_classic(base_size = 20))</span></span>
+<span id="cb51-53"><a href="#cb51-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-54"><a href="#cb51-54" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-55"><a href="#cb51-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-56"><a href="#cb51-56" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include = FALSE}</span></span>
+<span id="cb51-57"><a href="#cb51-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-58"><a href="#cb51-58" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::opts_chunk$set(</span></span>
+<span id="cb51-59"><a href="#cb51-59" aria-hidden="true" tabindex="-1"></a><span class="in">  tidy.opts = list(width.cutoff = 40), </span></span>
+<span id="cb51-60"><a href="#cb51-60" aria-hidden="true" tabindex="-1"></a><span class="in">  tidy = TRUE,</span></span>
+<span id="cb51-61"><a href="#cb51-61" aria-hidden="true" tabindex="-1"></a><span class="in">  message = FALSE</span></span>
+<span id="cb51-62"><a href="#cb51-62" aria-hidden="true" tabindex="-1"></a><span class="in"> )</span></span>
+<span id="cb51-63"><a href="#cb51-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-64"><a href="#cb51-64" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-65"><a href="#cb51-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-66"><a href="#cb51-66" aria-hidden="true" tabindex="-1"></a>Please load the following packages:</span>
+<span id="cb51-67"><a href="#cb51-67" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
+<span id="cb51-68"><a href="#cb51-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-69"><a href="#cb51-69" aria-hidden="true" tabindex="-1"></a><span class="in">library(ggplot2)</span></span>
+<span id="cb51-70"><a href="#cb51-70" aria-hidden="true" tabindex="-1"></a><span class="in">library(viridis)</span></span>
+<span id="cb51-71"><a href="#cb51-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-72"><a href="#cb51-72" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-73"><a href="#cb51-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-74"><a href="#cb51-74" aria-hidden="true" tabindex="-1"></a><span class="fu"># Generating random numbers in R</span></span>
+<span id="cb51-75"><a href="#cb51-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-76"><a href="#cb51-76" aria-hidden="true" tabindex="-1"></a>Statistics allow us to infer patterns in the data. We tend to use real data sets to teach stats. However, it might get circular to understand the inner working of an statistical tool by testing its ability to infer a pattern that we are not sure its found in the data (and have no idea on the mechanism producing that pattern). **Simulations allow us to create controlled scenarios in which we know for sure the patterns** present in the data and the underlying processes that generated them.</span>
+<span id="cb51-77"><a href="#cb51-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-78"><a href="#cb51-78" aria-hidden="true" tabindex="-1"></a>R offers some basic functions for data simulation. The most used ones are the random number generating functions. The names of these functions all start with *r* (<span class="in">`r____()`</span>). For instance <span class="in">`runif()`</span>:</span>
+<span id="cb51-79"><a href="#cb51-79" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=FALSE}</span></span>
+<span id="cb51-80"><a href="#cb51-80" aria-hidden="true" tabindex="-1"></a><span class="in">set.seed(7)</span></span>
+<span id="cb51-81"><a href="#cb51-81" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb51-82"><a href="#cb51-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-85"><a href="#cb51-85" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb51-86"><a href="#cb51-86" aria-hidden="true" tabindex="-1"></a>unif_var <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="at">n =</span> <span class="dv">100</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">10</span>)</span>
-<span id="cb51-87"><a href="#cb51-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-88"><a href="#cb51-88" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-89"><a href="#cb51-89" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
-<span id="cb51-90"><a href="#cb51-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-91"><a href="#cb51-91" aria-hidden="true" tabindex="-1"></a>The output is a numeric vector of length 1 thousand (<span class="in">`n = 100`</span>):</span>
-<span id="cb51-92"><a href="#cb51-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-95"><a href="#cb51-95" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb51-96"><a href="#cb51-96" aria-hidden="true" tabindex="-1"></a>unif_var</span>
-<span id="cb51-97"><a href="#cb51-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-98"><a href="#cb51-98" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-99"><a href="#cb51-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-83"><a href="#cb51-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-86"><a href="#cb51-86" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-87"><a href="#cb51-87" aria-hidden="true" tabindex="-1"></a>unif_var <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="at">n =</span> <span class="dv">100</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">10</span>)</span>
+<span id="cb51-88"><a href="#cb51-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-89"><a href="#cb51-89" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-90"><a href="#cb51-90" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
+<span id="cb51-91"><a href="#cb51-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-92"><a href="#cb51-92" aria-hidden="true" tabindex="-1"></a>The output is a numeric vector of length 1 thousand (<span class="in">`n = 100`</span>):</span>
+<span id="cb51-93"><a href="#cb51-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-96"><a href="#cb51-96" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-97"><a href="#cb51-97" aria-hidden="true" tabindex="-1"></a>unif_var</span>
+<span id="cb51-98"><a href="#cb51-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-99"><a href="#cb51-99" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb51-100"><a href="#cb51-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-101"><a href="#cb51-101" aria-hidden="true" tabindex="-1"></a>We can explore the output by plotting a histogram:</span>
-<span id="cb51-102"><a href="#cb51-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-105"><a href="#cb51-105" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb51-106"><a href="#cb51-106" aria-hidden="true" tabindex="-1"></a><span class="co"># create histogram</span></span>
-<span id="cb51-107"><a href="#cb51-107" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">data.frame</span>(unif_var), <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> unif_var)) <span class="sc">+</span> <span class="fu">geom_histogram</span>() </span>
-<span id="cb51-108"><a href="#cb51-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-109"><a href="#cb51-109" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-110"><a href="#cb51-110" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
-<span id="cb51-111"><a href="#cb51-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-112"><a href="#cb51-112" aria-hidden="true" tabindex="-1"></a>It shows a uniform distribution ranging from 0 to 10. </span>
-<span id="cb51-113"><a href="#cb51-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-114"><a href="#cb51-114" aria-hidden="true" tabindex="-1"></a>We can also simulate random numbers coming from a normal distribution using <span class="in">`rnorm()`</span>:</span>
-<span id="cb51-115"><a href="#cb51-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-118"><a href="#cb51-118" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb51-119"><a href="#cb51-119" aria-hidden="true" tabindex="-1"></a><span class="co"># create random variable</span></span>
-<span id="cb51-120"><a href="#cb51-120" aria-hidden="true" tabindex="-1"></a>norm_var <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">2</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
-<span id="cb51-121"><a href="#cb51-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-122"><a href="#cb51-122" aria-hidden="true" tabindex="-1"></a><span class="co"># plot histogram</span></span>
-<span id="cb51-123"><a href="#cb51-123" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">data.frame</span>(norm_var), <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> norm_var)) <span class="sc">+</span> <span class="fu">geom_histogram</span>() </span>
-<span id="cb51-124"><a href="#cb51-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-125"><a href="#cb51-125" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-126"><a href="#cb51-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-127"><a href="#cb51-127" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
-<span id="cb51-128"><a href="#cb51-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-129"><a href="#cb51-129" aria-hidden="true" tabindex="-1"></a>Note that random number generating functions all have the argument 'n', which sets the length of the output vector (i.e. number of random numbers), plus some additional arguments related to specific parameters of the distribution.</span>
-<span id="cb51-130"><a href="#cb51-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-131"><a href="#cb51-131" aria-hidden="true" tabindex="-1"></a>Continuous variables (i.e. numeric vectors) can be converted to discrete variables (i.e. integer numbers) simply by rounding them:</span>
-<span id="cb51-132"><a href="#cb51-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-135"><a href="#cb51-135" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb51-136"><a href="#cb51-136" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">5</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">3</span>)</span>
-<span id="cb51-137"><a href="#cb51-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-138"><a href="#cb51-138" aria-hidden="true" tabindex="-1"></a>v1</span>
-<span id="cb51-139"><a href="#cb51-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-140"><a href="#cb51-140" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="at">x =</span> v1, <span class="at">digits =</span> <span class="dv">0</span>)</span>
-<span id="cb51-141"><a href="#cb51-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-142"><a href="#cb51-142" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-143"><a href="#cb51-143" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
-<span id="cb51-144"><a href="#cb51-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-145"><a href="#cb51-145" aria-hidden="true" tabindex="-1"></a>&lt;div class="alert alert-info"&gt;</span>
-<span id="cb51-146"><a href="#cb51-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-147"><a href="#cb51-147" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Exercise&lt;/font&gt; </span>
-<span id="cb51-148"><a href="#cb51-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-149"><a href="#cb51-149" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What do the functions <span class="in">`rbinom()`</span> and <span class="in">`rexp()`</span> do? (tip: run <span class="in">`?rexp`</span>)</span>
-<span id="cb51-150"><a href="#cb51-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-151"><a href="#cb51-151" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Run them and make histograms of their output</span>
-<span id="cb51-152"><a href="#cb51-152" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb51-153"><a href="#cb51-153" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What do the arguments 'mean' and 'sd' in <span class="in">`rnorm()`</span> do? Play with different values and check the histogram to get a sense of their effect in the simulation</span>
-<span id="cb51-154"><a href="#cb51-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-155"><a href="#cb51-155" aria-hidden="true" tabindex="-1"></a>&lt;/div&gt;</span>
-<span id="cb51-156"><a href="#cb51-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-157"><a href="#cb51-157" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
-<span id="cb51-158"><a href="#cb51-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-159"><a href="#cb51-159" aria-hidden="true" tabindex="-1"></a><span class="fu">## Generating categorical variables</span></span>
-<span id="cb51-160"><a href="#cb51-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-161"><a href="#cb51-161" aria-hidden="true" tabindex="-1"></a>The easiest way to generate categorical variables is to use the 'letters' (or 'LETTERS') example vector to assign category levels. We can do this using the function <span class="in">`rep()`</span>. For instance, the following code creates a categorical (character) vector with two levels, each one with 4 observations:</span>
-<span id="cb51-162"><a href="#cb51-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-165"><a href="#cb51-165" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb51-166"><a href="#cb51-166" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="at">x =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], <span class="at">each =</span> <span class="dv">4</span>)</span>
-<span id="cb51-167"><a href="#cb51-167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-168"><a href="#cb51-168" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-169"><a href="#cb51-169" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
-<span id="cb51-170"><a href="#cb51-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-171"><a href="#cb51-171" aria-hidden="true" tabindex="-1"></a>We can also replicate this pattern using the argument 'times'. This code replicates the previous vector 2 times:</span>
-<span id="cb51-172"><a href="#cb51-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-175"><a href="#cb51-175" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb51-176"><a href="#cb51-176" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="at">x =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], <span class="at">each =</span> <span class="dv">4</span>, <span class="at">times =</span> <span class="dv">2</span>)</span>
-<span id="cb51-177"><a href="#cb51-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-178"><a href="#cb51-178" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-179"><a href="#cb51-179" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
-<span id="cb51-180"><a href="#cb51-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-181"><a href="#cb51-181" aria-hidden="true" tabindex="-1"></a>Another option is to simulate a variable from a binomial distribution and then convert it into a factor:</span>
-<span id="cb51-182"><a href="#cb51-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-185"><a href="#cb51-185" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb51-186"><a href="#cb51-186" aria-hidden="true" tabindex="-1"></a><span class="co"># run rbinom</span></span>
-<span id="cb51-187"><a href="#cb51-187" aria-hidden="true" tabindex="-1"></a>binom_var <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">50</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="fl">0.5</span>)</span>
-<span id="cb51-188"><a href="#cb51-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-189"><a href="#cb51-189" aria-hidden="true" tabindex="-1"></a>binom_var</span>
-<span id="cb51-190"><a href="#cb51-190" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-191"><a href="#cb51-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-101"><a href="#cb51-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-102"><a href="#cb51-102" aria-hidden="true" tabindex="-1"></a>We can explore the output by plotting a histogram:</span>
+<span id="cb51-103"><a href="#cb51-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-106"><a href="#cb51-106" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-107"><a href="#cb51-107" aria-hidden="true" tabindex="-1"></a><span class="co"># create histogram</span></span>
+<span id="cb51-108"><a href="#cb51-108" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">data.frame</span>(unif_var), <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> unif_var)) <span class="sc">+</span> <span class="fu">geom_histogram</span>() </span>
+<span id="cb51-109"><a href="#cb51-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-110"><a href="#cb51-110" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-111"><a href="#cb51-111" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
+<span id="cb51-112"><a href="#cb51-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-113"><a href="#cb51-113" aria-hidden="true" tabindex="-1"></a>It shows a uniform distribution ranging from 0 to 10. </span>
+<span id="cb51-114"><a href="#cb51-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-115"><a href="#cb51-115" aria-hidden="true" tabindex="-1"></a>We can also simulate random numbers coming from a normal distribution using <span class="in">`rnorm()`</span>:</span>
+<span id="cb51-116"><a href="#cb51-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-119"><a href="#cb51-119" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-120"><a href="#cb51-120" aria-hidden="true" tabindex="-1"></a><span class="co"># create random variable</span></span>
+<span id="cb51-121"><a href="#cb51-121" aria-hidden="true" tabindex="-1"></a>norm_var <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">2</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb51-122"><a href="#cb51-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-123"><a href="#cb51-123" aria-hidden="true" tabindex="-1"></a><span class="co"># plot histogram</span></span>
+<span id="cb51-124"><a href="#cb51-124" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">data.frame</span>(norm_var), <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> norm_var)) <span class="sc">+</span> <span class="fu">geom_histogram</span>() </span>
+<span id="cb51-125"><a href="#cb51-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-126"><a href="#cb51-126" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-127"><a href="#cb51-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-128"><a href="#cb51-128" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
+<span id="cb51-129"><a href="#cb51-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-130"><a href="#cb51-130" aria-hidden="true" tabindex="-1"></a>Note that random number generating functions all have the argument 'n', which sets the length of the output vector (i.e. number of random numbers), plus some additional arguments related to specific parameters of the distribution.</span>
+<span id="cb51-131"><a href="#cb51-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-132"><a href="#cb51-132" aria-hidden="true" tabindex="-1"></a>Continuous variables (i.e. numeric vectors) can be converted to discrete variables (i.e. integer numbers) simply by rounding them:</span>
+<span id="cb51-133"><a href="#cb51-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-136"><a href="#cb51-136" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-137"><a href="#cb51-137" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">5</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">3</span>)</span>
+<span id="cb51-138"><a href="#cb51-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-139"><a href="#cb51-139" aria-hidden="true" tabindex="-1"></a>v1</span>
+<span id="cb51-140"><a href="#cb51-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-141"><a href="#cb51-141" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="at">x =</span> v1, <span class="at">digits =</span> <span class="dv">0</span>)</span>
+<span id="cb51-142"><a href="#cb51-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-143"><a href="#cb51-143" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-144"><a href="#cb51-144" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
+<span id="cb51-145"><a href="#cb51-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-146"><a href="#cb51-146" aria-hidden="true" tabindex="-1"></a>&lt;div class="alert alert-info"&gt;</span>
+<span id="cb51-147"><a href="#cb51-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-148"><a href="#cb51-148" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Exercise&lt;/font&gt; </span>
+<span id="cb51-149"><a href="#cb51-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-150"><a href="#cb51-150" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What do the functions <span class="in">`rbinom()`</span> and <span class="in">`rexp()`</span> do? (tip: run <span class="in">`?rexp`</span>)</span>
+<span id="cb51-151"><a href="#cb51-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-152"><a href="#cb51-152" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Run them and make histograms of their output</span>
+<span id="cb51-153"><a href="#cb51-153" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb51-154"><a href="#cb51-154" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What do the arguments 'mean' and 'sd' in <span class="in">`rnorm()`</span> do? Play with different values and check the histogram to get a sense of their effect in the simulation</span>
+<span id="cb51-155"><a href="#cb51-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-156"><a href="#cb51-156" aria-hidden="true" tabindex="-1"></a>&lt;/div&gt;</span>
+<span id="cb51-157"><a href="#cb51-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-158"><a href="#cb51-158" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
+<span id="cb51-159"><a href="#cb51-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-160"><a href="#cb51-160" aria-hidden="true" tabindex="-1"></a><span class="fu">## Generating categorical variables</span></span>
+<span id="cb51-161"><a href="#cb51-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-162"><a href="#cb51-162" aria-hidden="true" tabindex="-1"></a>The easiest way to generate categorical variables is to use the 'letters' (or 'LETTERS') example vector to assign category levels. We can do this using the function <span class="in">`rep()`</span>. For instance, the following code creates a categorical (character) vector with two levels, each one with 4 observations:</span>
+<span id="cb51-163"><a href="#cb51-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-166"><a href="#cb51-166" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-167"><a href="#cb51-167" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="at">x =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], <span class="at">each =</span> <span class="dv">4</span>)</span>
+<span id="cb51-168"><a href="#cb51-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-169"><a href="#cb51-169" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-170"><a href="#cb51-170" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
+<span id="cb51-171"><a href="#cb51-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-172"><a href="#cb51-172" aria-hidden="true" tabindex="-1"></a>We can also replicate this pattern using the argument 'times'. This code replicates the previous vector 2 times:</span>
+<span id="cb51-173"><a href="#cb51-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-176"><a href="#cb51-176" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-177"><a href="#cb51-177" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="at">x =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], <span class="at">each =</span> <span class="dv">4</span>, <span class="at">times =</span> <span class="dv">2</span>)</span>
+<span id="cb51-178"><a href="#cb51-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-179"><a href="#cb51-179" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-180"><a href="#cb51-180" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
+<span id="cb51-181"><a href="#cb51-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-182"><a href="#cb51-182" aria-hidden="true" tabindex="-1"></a>Another option is to simulate a variable from a binomial distribution and then convert it into a factor:</span>
+<span id="cb51-183"><a href="#cb51-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-186"><a href="#cb51-186" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-187"><a href="#cb51-187" aria-hidden="true" tabindex="-1"></a><span class="co"># run rbinom</span></span>
+<span id="cb51-188"><a href="#cb51-188" aria-hidden="true" tabindex="-1"></a>binom_var <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">50</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="fl">0.5</span>)</span>
+<span id="cb51-189"><a href="#cb51-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-190"><a href="#cb51-190" aria-hidden="true" tabindex="-1"></a>binom_var</span>
+<span id="cb51-191"><a href="#cb51-191" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb51-192"><a href="#cb51-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-195"><a href="#cb51-195" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb51-196"><a href="#cb51-196" aria-hidden="true" tabindex="-1"></a>categ_var <span class="ot">&lt;-</span> <span class="fu">factor</span>(binom_var, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>))</span>
-<span id="cb51-197"><a href="#cb51-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-198"><a href="#cb51-198" aria-hidden="true" tabindex="-1"></a>categ_var</span>
-<span id="cb51-199"><a href="#cb51-199" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-200"><a href="#cb51-200" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
-<span id="cb51-201"><a href="#cb51-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-202"><a href="#cb51-202" aria-hidden="true" tabindex="-1"></a><span class="fu">## Random sampling</span></span>
-<span id="cb51-203"><a href="#cb51-203" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-204"><a href="#cb51-204" aria-hidden="true" tabindex="-1"></a>The other important R tool for playing with simulated data is <span class="in">`sample()`</span>. This function allows you to take samples of specific sizes from vectors. For instance, take the example vector <span class="in">`letters`</span>:</span>
-<span id="cb51-205"><a href="#cb51-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-208"><a href="#cb51-208" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb51-209"><a href="#cb51-209" aria-hidden="true" tabindex="-1"></a>letters</span>
-<span id="cb51-210"><a href="#cb51-210" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-211"><a href="#cb51-211" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-212"><a href="#cb51-212" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
-<span id="cb51-213"><a href="#cb51-213" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-214"><a href="#cb51-214" aria-hidden="true" tabindex="-1"></a>We can take a sample of this vector like is:</span>
-<span id="cb51-215"><a href="#cb51-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-218"><a href="#cb51-218" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb51-219"><a href="#cb51-219" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> letters, <span class="at">size =</span> <span class="dv">10</span>)</span>
-<span id="cb51-220"><a href="#cb51-220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-221"><a href="#cb51-221" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-222"><a href="#cb51-222" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
-<span id="cb51-223"><a href="#cb51-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-224"><a href="#cb51-224" aria-hidden="true" tabindex="-1"></a>The argument 'size'  allow us to determine the size of the sample. Note that we get an error if the size is larger than the vector itself:</span>
-<span id="cb51-225"><a href="#cb51-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-226"><a href="#cb51-226" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, error=TRUE}</span></span>
-<span id="cb51-227"><a href="#cb51-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-228"><a href="#cb51-228" aria-hidden="true" tabindex="-1"></a><span class="in">sample(x = letters, size = 30)</span></span>
-<span id="cb51-229"><a href="#cb51-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-230"><a href="#cb51-230" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-231"><a href="#cb51-231" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
-<span id="cb51-232"><a href="#cb51-232" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-233"><a href="#cb51-233" aria-hidden="true" tabindex="-1"></a>This can only be done when sampling with replacement. Sampling with replacement can be applied by setting the argument <span class="in">`replace = TRUE`</span>:</span>
-<span id="cb51-234"><a href="#cb51-234" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-237"><a href="#cb51-237" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb51-238"><a href="#cb51-238" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> letters, <span class="at">size =</span> <span class="dv">30</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb51-239"><a href="#cb51-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-240"><a href="#cb51-240" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-241"><a href="#cb51-241" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
-<span id="cb51-242"><a href="#cb51-242" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-243"><a href="#cb51-243" aria-hidden="true" tabindex="-1"></a><span class="fu">## Iterating a process</span></span>
-<span id="cb51-244"><a href="#cb51-244" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-245"><a href="#cb51-245" aria-hidden="true" tabindex="-1"></a>Often simulations most be repeated several times to rule out spurious results due to chance or just to try different parameters. The functions for simulating data mentioned above can be run several times (e.g. iterated) using the function <span class="in">`replicate()`</span>:</span>
-<span id="cb51-246"><a href="#cb51-246" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-249"><a href="#cb51-249" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb51-250"><a href="#cb51-250" aria-hidden="true" tabindex="-1"></a>repl_rnorm <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="at">n =</span> <span class="dv">3</span>, <span class="at">expr =</span> <span class="fu">rnorm</span>(<span class="dv">2</span>), <span class="at">simplify =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb51-251"><a href="#cb51-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-252"><a href="#cb51-252" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(repl_rnorm)</span>
-<span id="cb51-253"><a href="#cb51-253" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-254"><a href="#cb51-254" aria-hidden="true" tabindex="-1"></a>repl_rnorm</span>
-<span id="cb51-255"><a href="#cb51-255" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-256"><a href="#cb51-256" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
-<span id="cb51-257"><a href="#cb51-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-258"><a href="#cb51-258" aria-hidden="true" tabindex="-1"></a><span class="fu">## Making simulations reproducible</span></span>
-<span id="cb51-259"><a href="#cb51-259" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-260"><a href="#cb51-260" aria-hidden="true" tabindex="-1"></a>The last trick we need to run simulations in R is the ability to reproduce a simulation (i.e. get the exact same simulated data and results). This can be useful for allowing other researchers to run our analyses in the exact same way. This can be easily done with the function <span class="in">`set.seed()`</span>. Try running the following code. You should get the same output:</span>
-<span id="cb51-261"><a href="#cb51-261" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-264"><a href="#cb51-264" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb51-265"><a href="#cb51-265" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
-<span id="cb51-266"><a href="#cb51-266" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-267"><a href="#cb51-267" aria-hidden="true" tabindex="-1"></a><span class="fu">runif</span>(<span class="at">n =</span> <span class="dv">2</span>)</span>
-<span id="cb51-268"><a href="#cb51-268" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-269"><a href="#cb51-269" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-270"><a href="#cb51-270" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-271"><a href="#cb51-271" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb51-272"><a href="#cb51-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-193"><a href="#cb51-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-196"><a href="#cb51-196" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-197"><a href="#cb51-197" aria-hidden="true" tabindex="-1"></a>categ_var <span class="ot">&lt;-</span> <span class="fu">factor</span>(binom_var, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>))</span>
+<span id="cb51-198"><a href="#cb51-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-199"><a href="#cb51-199" aria-hidden="true" tabindex="-1"></a>categ_var</span>
+<span id="cb51-200"><a href="#cb51-200" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-201"><a href="#cb51-201" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
+<span id="cb51-202"><a href="#cb51-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-203"><a href="#cb51-203" aria-hidden="true" tabindex="-1"></a><span class="fu">## Random sampling</span></span>
+<span id="cb51-204"><a href="#cb51-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-205"><a href="#cb51-205" aria-hidden="true" tabindex="-1"></a>The other important R tool for playing with simulated data is <span class="in">`sample()`</span>. This function allows you to take samples of specific sizes from vectors. For instance, take the example vector <span class="in">`letters`</span>:</span>
+<span id="cb51-206"><a href="#cb51-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-209"><a href="#cb51-209" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-210"><a href="#cb51-210" aria-hidden="true" tabindex="-1"></a>letters</span>
+<span id="cb51-211"><a href="#cb51-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-212"><a href="#cb51-212" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-213"><a href="#cb51-213" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
+<span id="cb51-214"><a href="#cb51-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-215"><a href="#cb51-215" aria-hidden="true" tabindex="-1"></a>We can take a sample of this vector like is:</span>
+<span id="cb51-216"><a href="#cb51-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-219"><a href="#cb51-219" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-220"><a href="#cb51-220" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> letters, <span class="at">size =</span> <span class="dv">10</span>)</span>
+<span id="cb51-221"><a href="#cb51-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-222"><a href="#cb51-222" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-223"><a href="#cb51-223" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
+<span id="cb51-224"><a href="#cb51-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-225"><a href="#cb51-225" aria-hidden="true" tabindex="-1"></a>The argument 'size'  allow us to determine the size of the sample. Note that we get an error if the size is larger than the vector itself:</span>
+<span id="cb51-226"><a href="#cb51-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-227"><a href="#cb51-227" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, error=TRUE}</span></span>
+<span id="cb51-228"><a href="#cb51-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-229"><a href="#cb51-229" aria-hidden="true" tabindex="-1"></a><span class="in">sample(x = letters, size = 30)</span></span>
+<span id="cb51-230"><a href="#cb51-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-231"><a href="#cb51-231" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-232"><a href="#cb51-232" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
+<span id="cb51-233"><a href="#cb51-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-234"><a href="#cb51-234" aria-hidden="true" tabindex="-1"></a>This can only be done when sampling with replacement. Sampling with replacement can be applied by setting the argument <span class="in">`replace = TRUE`</span>:</span>
+<span id="cb51-235"><a href="#cb51-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-238"><a href="#cb51-238" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-239"><a href="#cb51-239" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> letters, <span class="at">size =</span> <span class="dv">30</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb51-240"><a href="#cb51-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-241"><a href="#cb51-241" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-242"><a href="#cb51-242" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
+<span id="cb51-243"><a href="#cb51-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-244"><a href="#cb51-244" aria-hidden="true" tabindex="-1"></a><span class="fu">## Iterating a process</span></span>
+<span id="cb51-245"><a href="#cb51-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-246"><a href="#cb51-246" aria-hidden="true" tabindex="-1"></a>Often simulations most be repeated several times to rule out spurious results due to chance or just to try different parameters. The functions for simulating data mentioned above can be run several times (e.g. iterated) using the function <span class="in">`replicate()`</span>:</span>
+<span id="cb51-247"><a href="#cb51-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-250"><a href="#cb51-250" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-251"><a href="#cb51-251" aria-hidden="true" tabindex="-1"></a>repl_rnorm <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="at">n =</span> <span class="dv">3</span>, <span class="at">expr =</span> <span class="fu">rnorm</span>(<span class="dv">2</span>), <span class="at">simplify =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb51-252"><a href="#cb51-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-253"><a href="#cb51-253" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(repl_rnorm)</span>
+<span id="cb51-254"><a href="#cb51-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-255"><a href="#cb51-255" aria-hidden="true" tabindex="-1"></a>repl_rnorm</span>
+<span id="cb51-256"><a href="#cb51-256" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-257"><a href="#cb51-257" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
+<span id="cb51-258"><a href="#cb51-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-259"><a href="#cb51-259" aria-hidden="true" tabindex="-1"></a><span class="fu">## Making simulations reproducible</span></span>
+<span id="cb51-260"><a href="#cb51-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-261"><a href="#cb51-261" aria-hidden="true" tabindex="-1"></a>The last trick we need to run simulations in R is the ability to reproduce a simulation (i.e. get the exact same simulated data and results). This can be useful for allowing other researchers to run our analyses in the exact same way. This can be easily done with the function <span class="in">`set.seed()`</span>. Try running the following code. You should get the same output:</span>
+<span id="cb51-262"><a href="#cb51-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-265"><a href="#cb51-265" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-266"><a href="#cb51-266" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
+<span id="cb51-267"><a href="#cb51-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-268"><a href="#cb51-268" aria-hidden="true" tabindex="-1"></a><span class="fu">runif</span>(<span class="at">n =</span> <span class="dv">2</span>)</span>
+<span id="cb51-269"><a href="#cb51-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-270"><a href="#cb51-270" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-271"><a href="#cb51-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-272"><a href="#cb51-272" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb51-273"><a href="#cb51-273" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-274"><a href="#cb51-274" aria-hidden="true" tabindex="-1"></a><span class="fu"># Creating data sets</span></span>
-<span id="cb51-275"><a href="#cb51-275" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb51-276"><a href="#cb51-276" aria-hidden="true" tabindex="-1"></a><span class="fu">## Datasets with numeric and categorical data</span></span>
-<span id="cb51-277"><a href="#cb51-277" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-278"><a href="#cb51-278" aria-hidden="true" tabindex="-1"></a>Now that we know how to simulate continuous and categorical variable. We can put them together to create simulated data sets. This can be done using the function <span class="in">`data.frame()`</span>:</span>
-<span id="cb51-279"><a href="#cb51-279" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-282"><a href="#cb51-282" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb51-283"><a href="#cb51-283" aria-hidden="true" tabindex="-1"></a><span class="co"># create categorical variable</span></span>
-<span id="cb51-284"><a href="#cb51-284" aria-hidden="true" tabindex="-1"></a>group <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="at">x =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], <span class="at">each =</span> <span class="dv">3</span>)</span>
-<span id="cb51-285"><a href="#cb51-285" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-286"><a href="#cb51-286" aria-hidden="true" tabindex="-1"></a><span class="co"># create continous data</span></span>
-<span id="cb51-287"><a href="#cb51-287" aria-hidden="true" tabindex="-1"></a>size <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">6</span>, <span class="at">mean =</span> <span class="dv">5</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
-<span id="cb51-288"><a href="#cb51-288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-289"><a href="#cb51-289" aria-hidden="true" tabindex="-1"></a><span class="co"># put them together in a data frame</span></span>
-<span id="cb51-290"><a href="#cb51-290" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(group, size)</span>
-<span id="cb51-291"><a href="#cb51-291" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-292"><a href="#cb51-292" aria-hidden="true" tabindex="-1"></a><span class="co"># print</span></span>
-<span id="cb51-293"><a href="#cb51-293" aria-hidden="true" tabindex="-1"></a>df</span>
-<span id="cb51-294"><a href="#cb51-294" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-295"><a href="#cb51-295" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-296"><a href="#cb51-296" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-297"><a href="#cb51-297" aria-hidden="true" tabindex="-1"></a>Of course, we could add more variables to this data frame:</span>
-<span id="cb51-298"><a href="#cb51-298" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-301"><a href="#cb51-301" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb51-302"><a href="#cb51-302" aria-hidden="true" tabindex="-1"></a><span class="co"># create categorical variable</span></span>
-<span id="cb51-303"><a href="#cb51-303" aria-hidden="true" tabindex="-1"></a>group <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="at">x =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], <span class="at">each =</span> <span class="dv">3</span>)</span>
-<span id="cb51-304"><a href="#cb51-304" aria-hidden="true" tabindex="-1"></a>individual <span class="ot">&lt;-</span> LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>]</span>
-<span id="cb51-305"><a href="#cb51-305" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-306"><a href="#cb51-306" aria-hidden="true" tabindex="-1"></a><span class="co"># create continous data</span></span>
-<span id="cb51-307"><a href="#cb51-307" aria-hidden="true" tabindex="-1"></a>size <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">6</span>, <span class="at">mean =</span> <span class="dv">5</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
-<span id="cb51-308"><a href="#cb51-308" aria-hidden="true" tabindex="-1"></a>weight <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">6</span>, <span class="at">mean =</span> <span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span>
-<span id="cb51-309"><a href="#cb51-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-274"><a href="#cb51-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-275"><a href="#cb51-275" aria-hidden="true" tabindex="-1"></a><span class="fu"># Creating data sets</span></span>
+<span id="cb51-276"><a href="#cb51-276" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb51-277"><a href="#cb51-277" aria-hidden="true" tabindex="-1"></a><span class="fu">## Datasets with numeric and categorical data</span></span>
+<span id="cb51-278"><a href="#cb51-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-279"><a href="#cb51-279" aria-hidden="true" tabindex="-1"></a>Now that we know how to simulate continuous and categorical variable. We can put them together to create simulated data sets. This can be done using the function <span class="in">`data.frame()`</span>:</span>
+<span id="cb51-280"><a href="#cb51-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-283"><a href="#cb51-283" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-284"><a href="#cb51-284" aria-hidden="true" tabindex="-1"></a><span class="co"># create categorical variable</span></span>
+<span id="cb51-285"><a href="#cb51-285" aria-hidden="true" tabindex="-1"></a>group <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="at">x =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], <span class="at">each =</span> <span class="dv">3</span>)</span>
+<span id="cb51-286"><a href="#cb51-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-287"><a href="#cb51-287" aria-hidden="true" tabindex="-1"></a><span class="co"># create continous data</span></span>
+<span id="cb51-288"><a href="#cb51-288" aria-hidden="true" tabindex="-1"></a>size <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">6</span>, <span class="at">mean =</span> <span class="dv">5</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb51-289"><a href="#cb51-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-290"><a href="#cb51-290" aria-hidden="true" tabindex="-1"></a><span class="co"># put them together in a data frame</span></span>
+<span id="cb51-291"><a href="#cb51-291" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(group, size)</span>
+<span id="cb51-292"><a href="#cb51-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-293"><a href="#cb51-293" aria-hidden="true" tabindex="-1"></a><span class="co"># print</span></span>
+<span id="cb51-294"><a href="#cb51-294" aria-hidden="true" tabindex="-1"></a>df</span>
+<span id="cb51-295"><a href="#cb51-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-296"><a href="#cb51-296" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-297"><a href="#cb51-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-298"><a href="#cb51-298" aria-hidden="true" tabindex="-1"></a>Of course, we could add more variables to this data frame:</span>
+<span id="cb51-299"><a href="#cb51-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-302"><a href="#cb51-302" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-303"><a href="#cb51-303" aria-hidden="true" tabindex="-1"></a><span class="co"># create categorical variable</span></span>
+<span id="cb51-304"><a href="#cb51-304" aria-hidden="true" tabindex="-1"></a>group <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="at">x =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], <span class="at">each =</span> <span class="dv">3</span>)</span>
+<span id="cb51-305"><a href="#cb51-305" aria-hidden="true" tabindex="-1"></a>individual <span class="ot">&lt;-</span> LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb51-306"><a href="#cb51-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-307"><a href="#cb51-307" aria-hidden="true" tabindex="-1"></a><span class="co"># create continous data</span></span>
+<span id="cb51-308"><a href="#cb51-308" aria-hidden="true" tabindex="-1"></a>size <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">6</span>, <span class="at">mean =</span> <span class="dv">5</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb51-309"><a href="#cb51-309" aria-hidden="true" tabindex="-1"></a>weight <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">6</span>, <span class="at">mean =</span> <span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span>
 <span id="cb51-310"><a href="#cb51-310" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-311"><a href="#cb51-311" aria-hidden="true" tabindex="-1"></a><span class="co"># put them together in a data frame</span></span>
-<span id="cb51-312"><a href="#cb51-312" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(group, individual, size, weight)</span>
-<span id="cb51-313"><a href="#cb51-313" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-314"><a href="#cb51-314" aria-hidden="true" tabindex="-1"></a><span class="co"># print</span></span>
-<span id="cb51-315"><a href="#cb51-315" aria-hidden="true" tabindex="-1"></a>df</span>
-<span id="cb51-316"><a href="#cb51-316" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-317"><a href="#cb51-317" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-318"><a href="#cb51-318" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-319"><a href="#cb51-319" aria-hidden="true" tabindex="-1"></a>And that's a simulated data set in its most basic form. That looks a lot like the kind of data we use to work with in the biological science.</span>
-<span id="cb51-320"><a href="#cb51-320" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-321"><a href="#cb51-321" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb51-322"><a href="#cb51-322" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-323"><a href="#cb51-323" aria-hidden="true" tabindex="-1"></a><span class="fu"># How to use simulated data to understand the behavior of statistical tools</span></span>
-<span id="cb51-324"><a href="#cb51-324" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-325"><a href="#cb51-325" aria-hidden="true" tabindex="-1"></a><span class="fu">## A proof of concept: *the Central Limit Theorem*</span></span>
-<span id="cb51-326"><a href="#cb51-326" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-327"><a href="#cb51-327" aria-hidden="true" tabindex="-1"></a>The <span class="co">[</span><span class="ot">Central Limit Theorem</span><span class="co">](https://en.wikipedia.org/wiki/Central_limit_theorem)</span> states that, if we take repeated random samples of a population, the means of those samples will conform to a normal distribution, even if the population is not normally distributed. In addition, the resulting normal distribution must have a mean close to the population's mean. The theorem is a key concept for inferential statistics as it implies that statistical methods that work for normal distributions can be applicable to many problems involving other types of distributions. Nonetheless, the point here is only to showcase how simulations can be used to understand the behavior statistical methods.  </span>
-<span id="cb51-328"><a href="#cb51-328" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-329"><a href="#cb51-329" aria-hidden="true" tabindex="-1"></a>To check if those basic claims about the Central Limit Theorem hold true we can use simulated data in R. Let's simulate a 1000 observation population with a uniform distribution: </span>
-<span id="cb51-330"><a href="#cb51-330" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-331"><a href="#cb51-331" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
-<span id="cb51-332"><a href="#cb51-332" aria-hidden="true" tabindex="-1"></a><span class="in"># simulate uniform population</span></span>
-<span id="cb51-333"><a href="#cb51-333" aria-hidden="true" tabindex="-1"></a><span class="in">unif_pop &lt;- runif(n = 1000, min = 0, max = 10)</span></span>
-<span id="cb51-334"><a href="#cb51-334" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-335"><a href="#cb51-335" aria-hidden="true" tabindex="-1"></a><span class="in"># check distribution/ plot histogram</span></span>
-<span id="cb51-336"><a href="#cb51-336" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = data.frame(unif_pop), mapping = aes(x = unif_pop)) + geom_histogram() </span></span>
-<span id="cb51-337"><a href="#cb51-337" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-338"><a href="#cb51-338" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-339"><a href="#cb51-339" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-340"><a href="#cb51-340" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=FALSE}</span></span>
-<span id="cb51-341"><a href="#cb51-341" aria-hidden="true" tabindex="-1"></a><span class="in">set.seed(10)</span></span>
-<span id="cb51-342"><a href="#cb51-342" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-343"><a href="#cb51-343" aria-hidden="true" tabindex="-1"></a><span class="in"># simulate uniform population</span></span>
-<span id="cb51-344"><a href="#cb51-344" aria-hidden="true" tabindex="-1"></a><span class="in">unif_pop &lt;- runif(n = 1000, min = 0, max = 10)</span></span>
-<span id="cb51-345"><a href="#cb51-345" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-346"><a href="#cb51-346" aria-hidden="true" tabindex="-1"></a><span class="in"># check distribution/ plot histogram</span></span>
-<span id="cb51-347"><a href="#cb51-347" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = data.frame(unif_pop), mapping = aes(x = unif_pop)) + geom_histogram() </span></span>
-<span id="cb51-348"><a href="#cb51-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-311"><a href="#cb51-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-312"><a href="#cb51-312" aria-hidden="true" tabindex="-1"></a><span class="co"># put them together in a data frame</span></span>
+<span id="cb51-313"><a href="#cb51-313" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(group, individual, size, weight)</span>
+<span id="cb51-314"><a href="#cb51-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-315"><a href="#cb51-315" aria-hidden="true" tabindex="-1"></a><span class="co"># print</span></span>
+<span id="cb51-316"><a href="#cb51-316" aria-hidden="true" tabindex="-1"></a>df</span>
+<span id="cb51-317"><a href="#cb51-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-318"><a href="#cb51-318" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-319"><a href="#cb51-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-320"><a href="#cb51-320" aria-hidden="true" tabindex="-1"></a>And that's a simulated data set in its most basic form. That looks a lot like the kind of data we use to work with in the biological science.</span>
+<span id="cb51-321"><a href="#cb51-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-322"><a href="#cb51-322" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb51-323"><a href="#cb51-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-324"><a href="#cb51-324" aria-hidden="true" tabindex="-1"></a><span class="fu"># How to use simulated data to understand the behavior of statistical tools</span></span>
+<span id="cb51-325"><a href="#cb51-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-326"><a href="#cb51-326" aria-hidden="true" tabindex="-1"></a><span class="fu">## A proof of concept: *the Central Limit Theorem*</span></span>
+<span id="cb51-327"><a href="#cb51-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-328"><a href="#cb51-328" aria-hidden="true" tabindex="-1"></a>The <span class="co">[</span><span class="ot">Central Limit Theorem</span><span class="co">](https://en.wikipedia.org/wiki/Central_limit_theorem)</span> states that, if we take repeated random samples of a population, the means of those samples will conform to a normal distribution, even if the population is not normally distributed. In addition, the resulting normal distribution must have a mean close to the population's mean. The theorem is a key concept for inferential statistics as it implies that statistical methods that work for normal distributions can be applicable to many problems involving other types of distributions. Nonetheless, the point here is only to showcase how simulations can be used to understand the behavior statistical methods.  </span>
+<span id="cb51-329"><a href="#cb51-329" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-330"><a href="#cb51-330" aria-hidden="true" tabindex="-1"></a>To check if those basic claims about the Central Limit Theorem hold true we can use simulated data in R. Let's simulate a 1000 observation population with a uniform distribution: </span>
+<span id="cb51-331"><a href="#cb51-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-332"><a href="#cb51-332" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb51-333"><a href="#cb51-333" aria-hidden="true" tabindex="-1"></a><span class="in"># simulate uniform population</span></span>
+<span id="cb51-334"><a href="#cb51-334" aria-hidden="true" tabindex="-1"></a><span class="in">unif_pop &lt;- runif(n = 1000, min = 0, max = 10)</span></span>
+<span id="cb51-335"><a href="#cb51-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-336"><a href="#cb51-336" aria-hidden="true" tabindex="-1"></a><span class="in"># check distribution/ plot histogram</span></span>
+<span id="cb51-337"><a href="#cb51-337" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = data.frame(unif_pop), mapping = aes(x = unif_pop)) + geom_histogram() </span></span>
+<span id="cb51-338"><a href="#cb51-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-339"><a href="#cb51-339" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-340"><a href="#cb51-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-341"><a href="#cb51-341" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=FALSE}</span></span>
+<span id="cb51-342"><a href="#cb51-342" aria-hidden="true" tabindex="-1"></a><span class="in">set.seed(10)</span></span>
+<span id="cb51-343"><a href="#cb51-343" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-344"><a href="#cb51-344" aria-hidden="true" tabindex="-1"></a><span class="in"># simulate uniform population</span></span>
+<span id="cb51-345"><a href="#cb51-345" aria-hidden="true" tabindex="-1"></a><span class="in">unif_pop &lt;- runif(n = 1000, min = 0, max = 10)</span></span>
+<span id="cb51-346"><a href="#cb51-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-347"><a href="#cb51-347" aria-hidden="true" tabindex="-1"></a><span class="in"># check distribution/ plot histogram</span></span>
+<span id="cb51-348"><a href="#cb51-348" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = data.frame(unif_pop), mapping = aes(x = unif_pop)) + geom_histogram() </span></span>
 <span id="cb51-349"><a href="#cb51-349" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-350"><a href="#cb51-350" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-351"><a href="#cb51-351" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-352"><a href="#cb51-352" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
-<span id="cb51-353"><a href="#cb51-353" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-354"><a href="#cb51-354" aria-hidden="true" tabindex="-1"></a>We can take random samples using <span class="in">`sample()`</span> like this:</span>
-<span id="cb51-355"><a href="#cb51-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-358"><a href="#cb51-358" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb51-359"><a href="#cb51-359" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> unif_pop, <span class="at">size =</span> <span class="dv">30</span>)</span>
-<span id="cb51-360"><a href="#cb51-360" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-361"><a href="#cb51-361" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-362"><a href="#cb51-362" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
-<span id="cb51-363"><a href="#cb51-363" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb51-364"><a href="#cb51-364" aria-hidden="true" tabindex="-1"></a>This process can be replicated several times with <span class="in">`replicate()`</span>: </span>
-<span id="cb51-365"><a href="#cb51-365" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-368"><a href="#cb51-368" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb51-369"><a href="#cb51-369" aria-hidden="true" tabindex="-1"></a>samples <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="at">n =</span> <span class="dv">100</span>, <span class="at">expr =</span> <span class="fu">mean</span>(<span class="fu">sample</span>(<span class="at">x =</span> unif_pop, <span class="at">size =</span> <span class="dv">30</span>)))</span>
-<span id="cb51-370"><a href="#cb51-370" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-371"><a href="#cb51-371" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-372"><a href="#cb51-372" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
-<span id="cb51-373"><a href="#cb51-373" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-374"><a href="#cb51-374" aria-hidden="true" tabindex="-1"></a>The code above takes 100 samples with 30 values each. We can now check the distribution of the samples: </span>
-<span id="cb51-375"><a href="#cb51-375" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-376"><a href="#cb51-376" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
-<span id="cb51-377"><a href="#cb51-377" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-378"><a href="#cb51-378" aria-hidden="true" tabindex="-1"></a><span class="in"># check distribution/ plot histogram</span></span>
-<span id="cb51-379"><a href="#cb51-379" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = data.frame(samples), mapping = aes(x = samples)) + geom_histogram() </span></span>
-<span id="cb51-380"><a href="#cb51-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-350"><a href="#cb51-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-351"><a href="#cb51-351" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-352"><a href="#cb51-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-353"><a href="#cb51-353" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
+<span id="cb51-354"><a href="#cb51-354" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-355"><a href="#cb51-355" aria-hidden="true" tabindex="-1"></a>We can take random samples using <span class="in">`sample()`</span> like this:</span>
+<span id="cb51-356"><a href="#cb51-356" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-359"><a href="#cb51-359" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-360"><a href="#cb51-360" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> unif_pop, <span class="at">size =</span> <span class="dv">30</span>)</span>
+<span id="cb51-361"><a href="#cb51-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-362"><a href="#cb51-362" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-363"><a href="#cb51-363" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
+<span id="cb51-364"><a href="#cb51-364" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb51-365"><a href="#cb51-365" aria-hidden="true" tabindex="-1"></a>This process can be replicated several times with <span class="in">`replicate()`</span>: </span>
+<span id="cb51-366"><a href="#cb51-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-369"><a href="#cb51-369" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-370"><a href="#cb51-370" aria-hidden="true" tabindex="-1"></a>samples <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="at">n =</span> <span class="dv">100</span>, <span class="at">expr =</span> <span class="fu">mean</span>(<span class="fu">sample</span>(<span class="at">x =</span> unif_pop, <span class="at">size =</span> <span class="dv">30</span>)))</span>
+<span id="cb51-371"><a href="#cb51-371" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-372"><a href="#cb51-372" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-373"><a href="#cb51-373" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
+<span id="cb51-374"><a href="#cb51-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-375"><a href="#cb51-375" aria-hidden="true" tabindex="-1"></a>The code above takes 100 samples with 30 values each. We can now check the distribution of the samples: </span>
+<span id="cb51-376"><a href="#cb51-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-377"><a href="#cb51-377" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb51-378"><a href="#cb51-378" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-379"><a href="#cb51-379" aria-hidden="true" tabindex="-1"></a><span class="in"># check distribution/ plot histogram</span></span>
+<span id="cb51-380"><a href="#cb51-380" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = data.frame(samples), mapping = aes(x = samples)) + geom_histogram() </span></span>
 <span id="cb51-381"><a href="#cb51-381" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-382"><a href="#cb51-382" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-383"><a href="#cb51-383" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-384"><a href="#cb51-384" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=FALSE}</span></span>
-<span id="cb51-385"><a href="#cb51-385" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-386"><a href="#cb51-386" aria-hidden="true" tabindex="-1"></a><span class="in"># check distribution/ plot histogram</span></span>
-<span id="cb51-387"><a href="#cb51-387" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = data.frame(samples), mapping = aes(x = samples)) + geom_histogram() </span></span>
-<span id="cb51-388"><a href="#cb51-388" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-389"><a href="#cb51-389" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-390"><a href="#cb51-390" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
-<span id="cb51-391"><a href="#cb51-391" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-392"><a href="#cb51-392" aria-hidden="true" tabindex="-1"></a>... as well as the mean:</span>
-<span id="cb51-393"><a href="#cb51-393" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-396"><a href="#cb51-396" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb51-397"><a href="#cb51-397" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(samples)</span>
-<span id="cb51-398"><a href="#cb51-398" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-399"><a href="#cb51-399" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-400"><a href="#cb51-400" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
-<span id="cb51-401"><a href="#cb51-401" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-402"><a href="#cb51-402" aria-hidden="true" tabindex="-1"></a>As expected, the samples follows a normal distribution with a mean close to the mean of the population, which is:</span>
-<span id="cb51-403"><a href="#cb51-403" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-406"><a href="#cb51-406" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb51-407"><a href="#cb51-407" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(unif_pop)</span>
-<span id="cb51-408"><a href="#cb51-408" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-409"><a href="#cb51-409" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-410"><a href="#cb51-410" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span></span>
-<span id="cb51-411"><a href="#cb51-411" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-412"><a href="#cb51-412" aria-hidden="true" tabindex="-1"></a>Let's try with a more complex distribution. For instance, a bimodal distribution:</span>
-<span id="cb51-413"><a href="#cb51-413" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-414"><a href="#cb51-414" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
-<span id="cb51-415"><a href="#cb51-415" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-416"><a href="#cb51-416" aria-hidden="true" tabindex="-1"></a><span class="in"># set seed</span></span>
-<span id="cb51-417"><a href="#cb51-417" aria-hidden="true" tabindex="-1"></a><span class="in">set.seed(123)</span></span>
-<span id="cb51-418"><a href="#cb51-418" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-419"><a href="#cb51-419" aria-hidden="true" tabindex="-1"></a><span class="in"># simulate variables</span></span>
-<span id="cb51-420"><a href="#cb51-420" aria-hidden="true" tabindex="-1"></a><span class="in">norm1 &lt;- rnorm(n = 1000, mean = 10, sd = 3)</span></span>
-<span id="cb51-421"><a href="#cb51-421" aria-hidden="true" tabindex="-1"></a><span class="in">norm2 &lt;- rnorm(n = 1000, mean = 20, sd = 3)</span></span>
-<span id="cb51-422"><a href="#cb51-422" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-423"><a href="#cb51-423" aria-hidden="true" tabindex="-1"></a><span class="in"># add them in a single one</span></span>
-<span id="cb51-424"><a href="#cb51-424" aria-hidden="true" tabindex="-1"></a><span class="in">bimod_pop &lt;- c(norm1, norm2)</span></span>
-<span id="cb51-425"><a href="#cb51-425" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-426"><a href="#cb51-426" aria-hidden="true" tabindex="-1"></a><span class="in"># check distribution/ plot histogram</span></span>
-<span id="cb51-427"><a href="#cb51-427" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = data.frame(bimod_pop), mapping = aes(x = bimod_pop)) + geom_histogram() </span></span>
-<span id="cb51-428"><a href="#cb51-428" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-429"><a href="#cb51-429" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-430"><a href="#cb51-430" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-431"><a href="#cb51-431" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=FALSE}</span></span>
-<span id="cb51-432"><a href="#cb51-432" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-433"><a href="#cb51-433" aria-hidden="true" tabindex="-1"></a><span class="in"># set seed</span></span>
-<span id="cb51-434"><a href="#cb51-434" aria-hidden="true" tabindex="-1"></a><span class="in">set.seed(123)</span></span>
-<span id="cb51-435"><a href="#cb51-435" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-436"><a href="#cb51-436" aria-hidden="true" tabindex="-1"></a><span class="in">norm1 &lt;- rnorm(n = 1000, mean = 10, sd = 3)</span></span>
-<span id="cb51-437"><a href="#cb51-437" aria-hidden="true" tabindex="-1"></a><span class="in">norm2 &lt;- rnorm(n = 1000, mean = 20, sd = 3)</span></span>
-<span id="cb51-438"><a href="#cb51-438" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-439"><a href="#cb51-439" aria-hidden="true" tabindex="-1"></a><span class="in">bimod_pop &lt;- c(norm1, norm2)</span></span>
-<span id="cb51-440"><a href="#cb51-440" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-441"><a href="#cb51-441" aria-hidden="true" tabindex="-1"></a><span class="in"># check distribution/ plot histogram</span></span>
-<span id="cb51-442"><a href="#cb51-442" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = data.frame(bimod_pop), mapping = aes(x = bimod_pop)) + geom_histogram() </span></span>
-<span id="cb51-443"><a href="#cb51-443" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-444"><a href="#cb51-444" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-445"><a href="#cb51-445" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
-<span id="cb51-446"><a href="#cb51-446" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-447"><a href="#cb51-447" aria-hidden="true" tabindex="-1"></a><span class="in">samples &lt;- replicate(200, mean(sample(bimod_pop, 10)))</span></span>
-<span id="cb51-448"><a href="#cb51-448" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-449"><a href="#cb51-449" aria-hidden="true" tabindex="-1"></a><span class="in"># check distribution/ plot histogram</span></span>
-<span id="cb51-450"><a href="#cb51-450" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = data.frame(samples), mapping = aes(x = samples)) + geom_histogram() </span></span>
-<span id="cb51-451"><a href="#cb51-451" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-452"><a href="#cb51-452" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-453"><a href="#cb51-453" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-454"><a href="#cb51-454" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=FALSE}</span></span>
-<span id="cb51-455"><a href="#cb51-455" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-456"><a href="#cb51-456" aria-hidden="true" tabindex="-1"></a><span class="in">samples &lt;- replicate(200, mean(sample(bimod_pop, 10)))</span></span>
-<span id="cb51-457"><a href="#cb51-457" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-458"><a href="#cb51-458" aria-hidden="true" tabindex="-1"></a><span class="in"># check distribution/ plot histogram</span></span>
-<span id="cb51-459"><a href="#cb51-459" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = data.frame(samples), mapping = aes(x = samples)) + geom_histogram() </span></span>
-<span id="cb51-460"><a href="#cb51-460" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-461"><a href="#cb51-461" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-462"><a href="#cb51-462" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-382"><a href="#cb51-382" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-383"><a href="#cb51-383" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-384"><a href="#cb51-384" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-385"><a href="#cb51-385" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=FALSE}</span></span>
+<span id="cb51-386"><a href="#cb51-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-387"><a href="#cb51-387" aria-hidden="true" tabindex="-1"></a><span class="in"># check distribution/ plot histogram</span></span>
+<span id="cb51-388"><a href="#cb51-388" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = data.frame(samples), mapping = aes(x = samples)) + geom_histogram() </span></span>
+<span id="cb51-389"><a href="#cb51-389" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-390"><a href="#cb51-390" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-391"><a href="#cb51-391" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
+<span id="cb51-392"><a href="#cb51-392" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-393"><a href="#cb51-393" aria-hidden="true" tabindex="-1"></a>... as well as the mean:</span>
+<span id="cb51-394"><a href="#cb51-394" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-397"><a href="#cb51-397" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-398"><a href="#cb51-398" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(samples)</span>
+<span id="cb51-399"><a href="#cb51-399" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-400"><a href="#cb51-400" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-401"><a href="#cb51-401" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
+<span id="cb51-402"><a href="#cb51-402" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-403"><a href="#cb51-403" aria-hidden="true" tabindex="-1"></a>As expected, the samples follows a normal distribution with a mean close to the mean of the population, which is:</span>
+<span id="cb51-404"><a href="#cb51-404" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-407"><a href="#cb51-407" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-408"><a href="#cb51-408" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(unif_pop)</span>
+<span id="cb51-409"><a href="#cb51-409" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-410"><a href="#cb51-410" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-411"><a href="#cb51-411" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span></span>
+<span id="cb51-412"><a href="#cb51-412" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-413"><a href="#cb51-413" aria-hidden="true" tabindex="-1"></a>Let's try with a more complex distribution. For instance, a bimodal distribution:</span>
+<span id="cb51-414"><a href="#cb51-414" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-415"><a href="#cb51-415" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb51-416"><a href="#cb51-416" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-417"><a href="#cb51-417" aria-hidden="true" tabindex="-1"></a><span class="in"># set seed</span></span>
+<span id="cb51-418"><a href="#cb51-418" aria-hidden="true" tabindex="-1"></a><span class="in">set.seed(123)</span></span>
+<span id="cb51-419"><a href="#cb51-419" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-420"><a href="#cb51-420" aria-hidden="true" tabindex="-1"></a><span class="in"># simulate variables</span></span>
+<span id="cb51-421"><a href="#cb51-421" aria-hidden="true" tabindex="-1"></a><span class="in">norm1 &lt;- rnorm(n = 1000, mean = 10, sd = 3)</span></span>
+<span id="cb51-422"><a href="#cb51-422" aria-hidden="true" tabindex="-1"></a><span class="in">norm2 &lt;- rnorm(n = 1000, mean = 20, sd = 3)</span></span>
+<span id="cb51-423"><a href="#cb51-423" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-424"><a href="#cb51-424" aria-hidden="true" tabindex="-1"></a><span class="in"># add them in a single one</span></span>
+<span id="cb51-425"><a href="#cb51-425" aria-hidden="true" tabindex="-1"></a><span class="in">bimod_pop &lt;- c(norm1, norm2)</span></span>
+<span id="cb51-426"><a href="#cb51-426" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-427"><a href="#cb51-427" aria-hidden="true" tabindex="-1"></a><span class="in"># check distribution/ plot histogram</span></span>
+<span id="cb51-428"><a href="#cb51-428" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = data.frame(bimod_pop), mapping = aes(x = bimod_pop)) + geom_histogram() </span></span>
+<span id="cb51-429"><a href="#cb51-429" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-430"><a href="#cb51-430" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-431"><a href="#cb51-431" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-432"><a href="#cb51-432" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=FALSE}</span></span>
+<span id="cb51-433"><a href="#cb51-433" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-434"><a href="#cb51-434" aria-hidden="true" tabindex="-1"></a><span class="in"># set seed</span></span>
+<span id="cb51-435"><a href="#cb51-435" aria-hidden="true" tabindex="-1"></a><span class="in">set.seed(123)</span></span>
+<span id="cb51-436"><a href="#cb51-436" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-437"><a href="#cb51-437" aria-hidden="true" tabindex="-1"></a><span class="in">norm1 &lt;- rnorm(n = 1000, mean = 10, sd = 3)</span></span>
+<span id="cb51-438"><a href="#cb51-438" aria-hidden="true" tabindex="-1"></a><span class="in">norm2 &lt;- rnorm(n = 1000, mean = 20, sd = 3)</span></span>
+<span id="cb51-439"><a href="#cb51-439" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-440"><a href="#cb51-440" aria-hidden="true" tabindex="-1"></a><span class="in">bimod_pop &lt;- c(norm1, norm2)</span></span>
+<span id="cb51-441"><a href="#cb51-441" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-442"><a href="#cb51-442" aria-hidden="true" tabindex="-1"></a><span class="in"># check distribution/ plot histogram</span></span>
+<span id="cb51-443"><a href="#cb51-443" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = data.frame(bimod_pop), mapping = aes(x = bimod_pop)) + geom_histogram() </span></span>
+<span id="cb51-444"><a href="#cb51-444" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-445"><a href="#cb51-445" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-446"><a href="#cb51-446" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb51-447"><a href="#cb51-447" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-448"><a href="#cb51-448" aria-hidden="true" tabindex="-1"></a><span class="in">samples &lt;- replicate(200, mean(sample(bimod_pop, 10)))</span></span>
+<span id="cb51-449"><a href="#cb51-449" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-450"><a href="#cb51-450" aria-hidden="true" tabindex="-1"></a><span class="in"># check distribution/ plot histogram</span></span>
+<span id="cb51-451"><a href="#cb51-451" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = data.frame(samples), mapping = aes(x = samples)) + geom_histogram() </span></span>
+<span id="cb51-452"><a href="#cb51-452" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-453"><a href="#cb51-453" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-454"><a href="#cb51-454" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-455"><a href="#cb51-455" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=FALSE}</span></span>
+<span id="cb51-456"><a href="#cb51-456" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-457"><a href="#cb51-457" aria-hidden="true" tabindex="-1"></a><span class="in">samples &lt;- replicate(200, mean(sample(bimod_pop, 10)))</span></span>
+<span id="cb51-458"><a href="#cb51-458" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-459"><a href="#cb51-459" aria-hidden="true" tabindex="-1"></a><span class="in"># check distribution/ plot histogram</span></span>
+<span id="cb51-460"><a href="#cb51-460" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = data.frame(samples), mapping = aes(x = samples)) + geom_histogram() </span></span>
+<span id="cb51-461"><a href="#cb51-461" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-462"><a href="#cb51-462" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb51-463"><a href="#cb51-463" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-466"><a href="#cb51-466" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb51-467"><a href="#cb51-467" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(samples)</span>
-<span id="cb51-468"><a href="#cb51-468" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-469"><a href="#cb51-469" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(bimod_pop)</span>
-<span id="cb51-470"><a href="#cb51-470" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-471"><a href="#cb51-471" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span></span>
-<span id="cb51-472"><a href="#cb51-472" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-473"><a href="#cb51-473" aria-hidden="true" tabindex="-1"></a>&lt;div class="alert alert-info"&gt;</span>
-<span id="cb51-474"><a href="#cb51-474" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-475"><a href="#cb51-475" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Exercise&lt;/font&gt; </span>
-<span id="cb51-476"><a href="#cb51-476" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-477"><a href="#cb51-477" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span></span>
-<span id="cb51-478"><a href="#cb51-478" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-479"><a href="#cb51-479" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Try exploring the Central Limit Theorem as above but this time using:</span>
-<span id="cb51-480"><a href="#cb51-480" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb51-481"><a href="#cb51-481" aria-hidden="true" tabindex="-1"></a><span class="ss">    1. </span>An exponential distribution (<span class="in">`rexp()`</span>) </span>
-<span id="cb51-482"><a href="#cb51-482" aria-hidden="true" tabindex="-1"></a><span class="ss">    1. </span>A binomial distribution (<span class="in">`rbinom()`</span>) </span>
-<span id="cb51-483"><a href="#cb51-483" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-484"><a href="#cb51-484" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span></span>
-<span id="cb51-485"><a href="#cb51-485" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-486"><a href="#cb51-486" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>For each distribution: plot a histogram and compare the means of the population and the samples</span>
-<span id="cb51-487"><a href="#cb51-487" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-488"><a href="#cb51-488" aria-hidden="true" tabindex="-1"></a>&lt;/div&gt;</span>
-<span id="cb51-489"><a href="#cb51-489" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-490"><a href="#cb51-490" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb51-491"><a href="#cb51-491" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-492"><a href="#cb51-492" aria-hidden="true" tabindex="-1"></a><span class="fu">## References {.unnumbered .unlisted}</span></span>
-<span id="cb51-493"><a href="#cb51-493" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-494"><a href="#cb51-494" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">R's rbinom – Simulate Binomial or Bernoulli trials</span><span class="co">](https://www.programmingr.com/examples/neat-tricks/sample-r-function/r-rbinom/)</span></span>
-<span id="cb51-495"><a href="#cb51-495" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-496"><a href="#cb51-496" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">R's rnorm – selecting values from a normal distribution</span><span class="co">](https://www.programmingr.com/examples/neat-tricks/sample-r-function/r-rnorm/)</span></span>
-<span id="cb51-497"><a href="#cb51-497" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-498"><a href="#cb51-498" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">R's exp – Simulating Exponential Distributions</span><span class="co">](https://www.programmingr.com/examples/neat-tricks/sample-r-function/rexp/)</span></span>
-<span id="cb51-499"><a href="#cb51-499" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-500"><a href="#cb51-500" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Simulating data in R</span><span class="co">](https://aosmith.rbind.io/2018/08/29/getting-started-simulating-data/)</span></span>
-<span id="cb51-501"><a href="#cb51-501" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-464"><a href="#cb51-464" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-467"><a href="#cb51-467" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-468"><a href="#cb51-468" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(samples)</span>
+<span id="cb51-469"><a href="#cb51-469" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-470"><a href="#cb51-470" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(bimod_pop)</span>
+<span id="cb51-471"><a href="#cb51-471" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-472"><a href="#cb51-472" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span></span>
+<span id="cb51-473"><a href="#cb51-473" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-474"><a href="#cb51-474" aria-hidden="true" tabindex="-1"></a>&lt;div class="alert alert-info"&gt;</span>
+<span id="cb51-475"><a href="#cb51-475" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-476"><a href="#cb51-476" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Exercise&lt;/font&gt; </span>
+<span id="cb51-477"><a href="#cb51-477" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-478"><a href="#cb51-478" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span></span>
+<span id="cb51-479"><a href="#cb51-479" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-480"><a href="#cb51-480" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Try exploring the Central Limit Theorem as above but this time using:</span>
+<span id="cb51-481"><a href="#cb51-481" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb51-482"><a href="#cb51-482" aria-hidden="true" tabindex="-1"></a><span class="ss">    1. </span>An exponential distribution (<span class="in">`rexp()`</span>) </span>
+<span id="cb51-483"><a href="#cb51-483" aria-hidden="true" tabindex="-1"></a><span class="ss">    1. </span>A binomial distribution (<span class="in">`rbinom()`</span>) </span>
+<span id="cb51-484"><a href="#cb51-484" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-485"><a href="#cb51-485" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span></span>
+<span id="cb51-486"><a href="#cb51-486" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-487"><a href="#cb51-487" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>For each distribution: plot a histogram and compare the means of the population and the samples</span>
+<span id="cb51-488"><a href="#cb51-488" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-489"><a href="#cb51-489" aria-hidden="true" tabindex="-1"></a>&lt;/div&gt;</span>
+<span id="cb51-490"><a href="#cb51-490" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-491"><a href="#cb51-491" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb51-492"><a href="#cb51-492" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-493"><a href="#cb51-493" aria-hidden="true" tabindex="-1"></a><span class="fu">## References {.unnumbered .unlisted}</span></span>
+<span id="cb51-494"><a href="#cb51-494" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-495"><a href="#cb51-495" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">R's rbinom – Simulate Binomial or Bernoulli trials</span><span class="co">](https://www.programmingr.com/examples/neat-tricks/sample-r-function/r-rbinom/)</span></span>
+<span id="cb51-496"><a href="#cb51-496" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-497"><a href="#cb51-497" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">R's rnorm – selecting values from a normal distribution</span><span class="co">](https://www.programmingr.com/examples/neat-tricks/sample-r-function/r-rnorm/)</span></span>
+<span id="cb51-498"><a href="#cb51-498" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-499"><a href="#cb51-499" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">R's exp – Simulating Exponential Distributions</span><span class="co">](https://www.programmingr.com/examples/neat-tricks/sample-r-function/rexp/)</span></span>
+<span id="cb51-500"><a href="#cb51-500" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-501"><a href="#cb51-501" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Simulating data in R</span><span class="co">](https://aosmith.rbind.io/2018/08/29/getting-started-simulating-data/)</span></span>
 <span id="cb51-502"><a href="#cb51-502" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-503"><a href="#cb51-503" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb51-504"><a href="#cb51-504" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-505"><a href="#cb51-505" aria-hidden="true" tabindex="-1"></a><span class="fu"># Session information {.unnumbered .unlisted}</span></span>
-<span id="cb51-506"><a href="#cb51-506" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-507"><a href="#cb51-507" aria-hidden="true" tabindex="-1"></a><span class="in">```{r session info, echo=F}</span></span>
-<span id="cb51-508"><a href="#cb51-508" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-509"><a href="#cb51-509" aria-hidden="true" tabindex="-1"></a><span class="in">sessionInfo()</span></span>
-<span id="cb51-510"><a href="#cb51-510" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-511"><a href="#cb51-511" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-503"><a href="#cb51-503" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-504"><a href="#cb51-504" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb51-505"><a href="#cb51-505" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-506"><a href="#cb51-506" aria-hidden="true" tabindex="-1"></a><span class="fu"># Session information {.unnumbered .unlisted}</span></span>
+<span id="cb51-507"><a href="#cb51-507" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-508"><a href="#cb51-508" aria-hidden="true" tabindex="-1"></a><span class="in">```{r session info, echo=F}</span></span>
+<span id="cb51-509"><a href="#cb51-509" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-510"><a href="#cb51-510" aria-hidden="true" tabindex="-1"></a><span class="in">sessionInfo()</span></span>
+<span id="cb51-511"><a href="#cb51-511" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-512"><a href="#cb51-512" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

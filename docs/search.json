@@ -221,7 +221,7 @@
     "href": "simulate_data.html",
     "title": "Simulating data in R",
     "section": "",
-    "text": "Get familiar with the basic input data format\nKnow the main functions to import data and format it\nPlease load the following packages:\nCode\nlibrary(ggplot2)\nlibrary(viridis)"
+    "text": "Get familiar with the basic random generating functions in R\nUse of simulated data to understand the behavior of statistical tools\nPlease load the following packages:\nCode\nlibrary(ggplot2)\nlibrary(viridis)"
   },
   {
     "objectID": "simulate_data.html#generating-categorical-variables",

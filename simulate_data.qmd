@@ -17,9 +17,10 @@ knitr::opts_chunk$set(
 ::: {.alert .alert-info}
 # Objectives {.unnumbered .unlisted}
 
--  Get familiar with the basic input data format
+- Get familiar with the basic random generating functions in R
 
-- Know the main functions to import data and format it
+- Use of simulated data to understand the behavior of statistical tools 
+
 :::
 
 ```{r, echo = FALSE, message=FALSE}
