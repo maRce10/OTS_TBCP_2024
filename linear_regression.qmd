@@ -339,13 +339,9 @@ mean(y_data$y)
 
 </div>
 
+::: {.alert .alert-warning}
 
-
-<div class="alert alert-warning">
-
-<center><font size="5"><b>Case study</b></font></center>
-
-
+### Case study {.unnumbered .unlisted}
 
 - Ruhs, E. C., Martin, L. B., & Downs, C. J. (2020). [**The impacts of body mass on immune cell concentrations in birds**](https://royalsocietypublishing.org/doi/pdf/10.1098/rspb.2020.0655?download=true). *Proceedings of the Royal Society B*, 287(1934), 20200655.
 
@@ -358,12 +354,8 @@ mean(y_data$y)
 knitr::include_graphics("./images/leukocytes.png")
 
 ```
- 
 
-</div>
-
-
-
+::: 
 
 <div class="alert alert-info">
 
@@ -590,13 +582,9 @@ summ_xy_mod2$coefficients
 
 </div>
 
+::: {.alert .alert-warning}
 
-
-<div class="alert alert-warning">
-
-<center><font size="5"><b>Case study</b></font></center>
-
-
+### Case study {.unnumbered .unlisted}
 
 - Keenan EL, Odom  KJ, Araya-Salas M, Horton KG, Strimas-Mackey M, Meatte MA, Mann NI, Slater PJ, Price JJ, and Templeton  CN. 2020. [**Breeding season length predicts duet coordination and consistency in Neotropical wrens (Troglodytidae)**](https://royalsocietypublishing.org/doi/pdf/10.1098/rspb.2020.2482). *Proceeding of the Royal Society B*. 20202482
 
@@ -616,9 +604,8 @@ knitr::include_graphics("./images/duet_reg.png")
 
 ```
 
-</div>
+:::
 
- 
 
 <div class="alert alert-info">
 
@@ -735,13 +722,9 @@ summ_xy_mod_multp$coefficients
 
 </div>
 
+::: {.alert .alert-warning}
 
-
-<div class="alert alert-warning">
-
-<center><font size="5"><b>Case study</b></font></center>
-
-
+### Case study {.unnumbered .unlisted}
 
 - Araya-Salas M, P González-Gómez, K Wojczulanis-Jakubas, V López III & T Wright. 2018. [**Spatial memory is as important as weapon and body size for territorial ownership in a lekking hummingbird**](https://www.nature.com/articles/s41598-018-20441-x). *Scientific Reports*. 13, e0189969
 
@@ -753,9 +736,7 @@ knitr::include_graphics("./images/lbh_cognition.png")
 
 ```
 
-</div>
-
-
+:::
 
 <div class="alert alert-info">
 
@@ -768,7 +749,7 @@ knitr::include_graphics("./images/lbh_cognition.png")
 
 - How did the p-value change?
 
-- Simulate a scenario with two predictors in which only one of them is associated with the response
+- Simulate a scenario with three predictors in which only one of them is associated with the response
 
 </div>
 
@@ -966,13 +947,9 @@ mean(xy_data_cat$y[xy_data_cat$x1 == "a"])
 
 </div>
 
+::: {.alert .alert-warning}
 
-
-<div class="alert alert-warning">
-
-<center><font size="5"><b>Caso de estudio</b></font></center>
-
-
+### Case study {.unnumbered .unlisted}
 
 - Rico-Guevara A, & M Araya-Salas. 2015. [**Bills as daggers? A test for sexually dimorphic weapons in a lekking hummingbird species**](https://academic.oup.com/beheco/article/26/1/21/2262689). *Behavioral Ecology*. 26 (1): 21-29. 
 
@@ -985,10 +962,7 @@ knitr::include_graphics("./images/daggers_lbh.png")
 
 ```
  
-
-</div>
-
-
+:::
 
 <div class="alert alert-info">
 
@@ -1002,9 +976,10 @@ knitr::include_graphics("./images/daggers_lbh.png")
 
 ---
 
-<div class="alert alert-warning">
+::: {.alert .alert-warning}
 
-<font size = 6>Dummy coding</font>
+### Dummy coding {.unnumbered .unlisted}
+
 
 In a regression model categorical predictors are also represented as numeric vectors. More precisely, categorical predictors are coded as 0s and 1s, in which 1 means 'belongs to the same category' and 0 'belongs to a different category'. We kept the original numeric vector ('x1_num') when simulating the data set with the categorical predictor:
 
@@ -1033,10 +1008,7 @@ summary(xy_mod_num)$coefficients
 
 Things get a bit more complicated when dummy coding a categorical predictor with more than two levels. But the logic is the same.
 
-</div>
-
-
-
+:::
 
 ```{r, eval = FALSE, echo = FALSE}
 This approach can be extended to simulate categorical variables with more than 2 levels:
@@ -1202,13 +1174,9 @@ xy_summ_intr$coefficients
 
 ---
 
+::: {.alert .alert-warning}
 
-
-<div class="alert alert-warning">
-
-<center><font size="5"><b>Caso de estudio</b></font></center>
-
-
+### Case study {.unnumbered .unlisted}
 
 - Chirino F, B Wilink, Araya-Salas M. In prep. **Climatic factors affecting vocal activity in lemur leaf frogs**. 
 
@@ -1221,8 +1189,7 @@ knitr::include_graphics("./images/lemur.png")
 
 ```
  
-
-</div>
+:::
 
 
 

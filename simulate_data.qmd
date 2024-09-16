@@ -308,7 +308,12 @@ And that's a simulated data set in its most basic form. That looks a lot like th
 
 ## A proof of concept: *the Central Limit Theorem*
 
-The [Central Limit Theorem](https://en.wikipedia.org/wiki/Central_limit_theorem) states that, if we take repeated random samples of a population, the means of those samples will conform to a normal distribution, even if the population is not normally distributed. In addition, the resulting normal distribution must have a mean close to the population's mean. The theorem is a key concept for inferential statistics as it implies that statistical methods that work for normal distributions can be applicable to many problems involving other types of distributions. Nonetheless, the point here is only to showcase how simulations can be used to understand the behavior statistical methods.  
+The [Central Limit Theorem](https://en.wikipedia.org/wiki/Central_limit_theorem) states that, if we take repeated random samples of a population:
+
+- The means of those samples will conform to a normal distribution, even if the population is not normally distributed 
+- The resulting normal distribution must have a mean close to the population's mean
+
+The theorem is a key concept for inferential statistics as it implies that statistical methods that work for normal distributions can be applicable to many other scenarios in which the original population follow other types of distributions. Nonetheless, the point here is only to showcase how simulations can be used to understand the behavior statistical methods.  
 
 To check if those basic claims about the Central Limit Theorem hold true we can use simulated data in R. Let's simulate a 1000 observation population with a uniform distribution: 
 
