@@ -193,11 +193,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#scatter-plots" id="toc-scatter-plots" class="nav-link" data-scroll-target="#scatter-plots"><span class="header-section-number">3</span> Scatter plots</a>
   <ul class="collapse">
   <li><a href="#aesthetic-attributes" id="toc-aesthetic-attributes" class="nav-link" data-scroll-target="#aesthetic-attributes"><span class="header-section-number">3.1</span> Aesthetic attributes</a></li>
-  <li><a href="#multipanel-plots-facetting" id="toc-multipanel-plots-facetting" class="nav-link" data-scroll-target="#multipanel-plots-facetting"><span class="header-section-number">3.2</span> Multipanel plots (Facetting)</a></li>
-  <li><a href="#additional-geoms" id="toc-additional-geoms" class="nav-link" data-scroll-target="#additional-geoms"><span class="header-section-number">3.3</span> Additional “geoms”</a></li>
-  <li><a href="#customizing-ggplots" id="toc-customizing-ggplots" class="nav-link" data-scroll-target="#customizing-ggplots"><span class="header-section-number">3.4</span> Customizing ggplots</a></li>
-  <li><a href="#other-r-graphing-packages" id="toc-other-r-graphing-packages" class="nav-link" data-scroll-target="#other-r-graphing-packages"><span class="header-section-number">3.5</span> Other R graphing packages</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">3.6</span> References</a></li>
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1"><span class="header-section-number">3.2</span> Exercise 1</a></li>
+  <li><a href="#multipanel-plots-facetting" id="toc-multipanel-plots-facetting" class="nav-link" data-scroll-target="#multipanel-plots-facetting"><span class="header-section-number">3.3</span> Multipanel plots (Facetting)</a></li>
+  <li><a href="#additional-geoms" id="toc-additional-geoms" class="nav-link" data-scroll-target="#additional-geoms"><span class="header-section-number">3.4</span> Additional “geoms”</a></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2"><span class="header-section-number">3.5</span> Exercise 2</a></li>
+  <li><a href="#customizing-ggplots" id="toc-customizing-ggplots" class="nav-link" data-scroll-target="#customizing-ggplots"><span class="header-section-number">3.6</span> Customizing ggplots</a></li>
+  <li><a href="#other-r-graphing-packages" id="toc-other-r-graphing-packages" class="nav-link" data-scroll-target="#other-r-graphing-packages"><span class="header-section-number">3.7</span> Other R graphing packages</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">3.8</span> References</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -374,10 +376,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Color and shape: categorical variables</li>
 <li>Size: continuous variables</li>
 </ul>
-<p>&nbsp;</p>
-<p><br></p>
-<div class="alert alert-info">
-<p><font size="5">Exercise 1</font></p>
+</section>
+<section id="exercise-1" class="level2 alert alert-info" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="exercise-1"><span class="header-section-number">3.2</span> Exercise 1</h2>
 <p>Using the “hylaeformis” data set (<a href="https://raw.githubusercontent.com/maRce10/OTS_Tropical_Biology_2023/master/data/hylaeformis_data.csv">it can also be downloaded here</a>):</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -393,15 +394,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(hylaeformis_data, <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p><br></p>
 <p>1.1 Create a scatter plot of “duration” vs “meanfreq” (mean frequency)</p>
 <p>1.2 Add a aesthetic attribute to show a different color for each locality</p>
 <p>1.3 Add another aesthetic attribute to show “dfrange” (dominant frequency range) as the shape size</p>
-</div>
-<p>&nbsp;</p>
 </section>
-<section id="multipanel-plots-facetting" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="multipanel-plots-facetting"><span class="header-section-number">3.2</span> Multipanel plots (Facetting)</h2>
+<section id="multipanel-plots-facetting" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="multipanel-plots-facetting"><span class="header-section-number">3.3</span> Multipanel plots (Facetting)</h2>
 <ul>
 <li>Another way to visualize categorical variables</li>
 <li>Allows to create multipanel plots for each level of the variable</li>
@@ -498,8 +496,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="additional-geoms" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="additional-geoms"><span class="header-section-number">3.3</span> Additional “geoms”</h2>
+<section id="additional-geoms" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="additional-geoms"><span class="header-section-number">3.4</span> Additional “geoms”</h2>
 <ul>
 <li><code>geom_smooth()</code> - adds best fit lines (including CI)</li>
 <li><code>geom_boxplot()</code></li>
@@ -508,8 +506,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>geom_path()</code> &amp; <code>geom_line()</code> - add lines to scatter plots</li>
 </ul>
 <p>&nbsp;</p>
-<section id="geom_smooth" class="level3" data-number="3.3.1">
-<h3 data-number="3.3.1" class="anchored" data-anchor-id="geom_smooth"><span class="header-section-number">3.3.1</span> geom_smooth()</h3>
+<section id="geom_smooth" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="geom_smooth"><span class="header-section-number">3.4.1</span> geom_smooth()</h3>
 <p>Best fit regression lines can be added with <code>geom_smooth()</code>:</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -540,24 +538,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>&nbsp;</p>
-<div class="alert alert-info">
-<p><font size="5">Exercise 2</font></p>
-<p>Using the “msleep” example data set:</p>
-<p><br></p>
-<p>2.1 Create a scatter plot of “bodywt”(body weight) vs “brainwt” (brain weight)</p>
-<p><br></p>
-<p>2.2 Add “order” as a color aesthetic</p>
-<p><br></p>
-<p>2.3 Add a “facet” component to split plots by order using free scales</p>
-<p><br></p>
-<p>2.4 Remove the orders with less than 4 species in the data set and make a plot similar to 2.3</p>
-<p><br></p>
-<p>2.5 Add a smooth line to each plot in the panel</p>
-<p><br></p>
-</div>
 </section>
-<section id="boxplots" class="level3" data-number="3.3.2">
-<h3 data-number="3.3.2" class="anchored" data-anchor-id="boxplots"><span class="header-section-number">3.3.2</span> Boxplots</h3>
+</section>
+<section id="exercise-2" class="level2 alert alert-info" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="exercise-2"><span class="header-section-number">3.5</span> Exercise 2</h2>
+<p>Using the “msleep” example data set:</p>
+<p>2.1 Create a scatter plot of “bodywt”(body weight) vs “brainwt” (brain weight)</p>
+<p>2.2 Add “order” as a color aesthetic</p>
+<p>2.3 Add a “facet” component to split plots by order using free scales</p>
+<p>2.4 Remove the orders with less than 4 species in the data set and make a plot similar to 2.3</p>
+<p>2.5 Add a smooth line to each plot in the panel</p>
+</section>
+<section id="boxplots" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="boxplots"><span class="header-section-number">3.5.1</span> Boxplots</h3>
 <p>Again, it only takes a new “geom” component to create a boxplot:</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -586,10 +579,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>&nbsp;</p>
 </section>
-<section id="histograms" class="level3" data-number="3.3.3">
-<h3 data-number="3.3.3" class="anchored" data-anchor-id="histograms"><span class="header-section-number">3.3.3</span> Histograms</h3>
+<section id="histograms" class="level3" data-number="3.5.2">
+<h3 data-number="3.5.2" class="anchored" data-anchor-id="histograms"><span class="header-section-number">3.5.2</span> Histograms</h3>
 <p>Same thing with histrograms and frequency plots:</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -626,7 +618,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>&nbsp;</p>
 <p>We can control the width of the bars:</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -645,7 +636,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>&nbsp;</p>
 <p>And compare the distribution of different groups within the same histogram:</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -660,10 +650,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>&nbsp;</p>
 </section>
-<section id="bar-plots" class="level3" data-number="3.3.4">
-<h3 data-number="3.3.4" class="anchored" data-anchor-id="bar-plots"><span class="header-section-number">3.3.4</span> Bar plots</h3>
+<section id="bar-plots" class="level3" data-number="3.5.3">
+<h3 data-number="3.5.3" class="anchored" data-anchor-id="bar-plots"><span class="header-section-number">3.5.3</span> Bar plots</h3>
 <p>Show the distribution of discrete (categorical) variables:</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -685,13 +674,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>&nbsp;</p>
 </section>
-</section>
-<section id="customizing-ggplots" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="customizing-ggplots"><span class="header-section-number">3.4</span> Customizing ggplots</h2>
+<section id="customizing-ggplots" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="customizing-ggplots"><span class="header-section-number">3.6</span> Customizing ggplots</h2>
 <p>Besides the basic functions (e.g.&nbsp;components) described above, ggplot has many other tools (both arguments and additional functions) to further customize plots. Pretty much every thing can be modified. Here we see some of the most common tools.</p>
 <p>&nbsp;</p>
-<section id="themes" class="level3" data-number="3.4.1">
-<h3 data-number="3.4.1" class="anchored" data-anchor-id="themes"><span class="header-section-number">3.4.1</span> Themes</h3>
+<section id="themes" class="level3" data-number="3.6.1">
+<h3 data-number="3.6.1" class="anchored" data-anchor-id="themes"><span class="header-section-number">3.6.1</span> Themes</h3>
 <p>ggplot2 comes with some default themes that can be easily applied to modified the look of our plots:</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -730,12 +718,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>&nbsp;</p>
 <p>Most themes differ in the use of grids, border lines and axis labeling patterns.</p>
-<p>&nbsp;</p>
 </section>
-<section id="axis-customization" class="level3" data-number="3.4.2">
-<h3 data-number="3.4.2" class="anchored" data-anchor-id="axis-customization"><span class="header-section-number">3.4.2</span> Axis customization</h3>
+<section id="axis-customization" class="level3" data-number="3.6.2">
+<h3 data-number="3.6.2" class="anchored" data-anchor-id="axis-customization"><span class="header-section-number">3.6.2</span> Axis customization</h3>
 <p>Axis limits can be modified as follows:</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -779,7 +765,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>&nbsp;</p>
 <p>or reversed:</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -796,8 +781,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="saving-ggplots" class="level3" data-number="3.4.3">
-<h3 data-number="3.4.3" class="anchored" data-anchor-id="saving-ggplots"><span class="header-section-number">3.4.3</span> Saving ggplots</h3>
+<section id="saving-ggplots" class="level3" data-number="3.6.3">
+<h3 data-number="3.6.3" class="anchored" data-anchor-id="saving-ggplots"><span class="header-section-number">3.6.3</span> Saving ggplots</h3>
 <p>ggplots can be exported as image files using the <code>ggsave</code> function:</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -826,9 +811,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 (`geom_point()`).</code></pre>
 </div>
 </div>
-<p>&nbsp;</p>
-<p>The image file type will be identify by the extension in the file name</p>
-<p>&nbsp;</p>
+<p>The image file type will be identify by the extension in the file name.</p>
 <p>Additional axis customizing:</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -957,10 +940,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>&nbsp;</p>
 </section>
-<section id="other-graphs" class="level3" data-number="3.4.4">
-<h3 data-number="3.4.4" class="anchored" data-anchor-id="other-graphs"><span class="header-section-number">3.4.4</span> Other graphs</h3>
+<section id="other-graphs" class="level3" data-number="3.6.4">
+<h3 data-number="3.6.4" class="anchored" data-anchor-id="other-graphs"><span class="header-section-number">3.6.4</span> Other graphs</h3>
 <p>Many other types of graphs can be generated. Here I show a single example of cool contour and “heatmap” graphs:</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -1036,8 +1018,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>&nbsp;</p>
 </section>
 </section>
-<section id="other-r-graphing-packages" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="other-r-graphing-packages"><span class="header-section-number">3.5</span> Other R graphing packages</h2>
+<section id="other-r-graphing-packages" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="other-r-graphing-packages"><span class="header-section-number">3.7</span> Other R graphing packages</h2>
 <ul>
 <li><strong>ggvis</strong> (interactive ggplots)</li>
 <li><strong>vcd</strong> (Warnes 2015)</li>
@@ -1046,10 +1028,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Check the <a href="http://cran.r-project.org/web/views/Graphics.html">CRAN Graphics Task View</a> for a more comprehensive list of graphical tools in <strong>R</strong>.</p>
 <hr>
-<p>&nbsp;</p>
 </section>
-<section id="references" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="references"><span class="header-section-number">3.6</span> References</h2>
+<section id="references" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="references"><span class="header-section-number">3.8</span> References</h2>
 <ul>
 <li>Lemon J (2006) Plotrix: a package in the red light district of R. R-News 6(4):8–12</li>
 <li>Warnes GR, Bolker B, Bonebakker L, Gentleman R, Liaw WHA, Lumley T, Maechler M, Magnusson A, Moeller S, Schwartz M, Venables B (2015) gplots: various R programming tools for plotting data. R package version 2.17.0. https://CRAN.R-project.org/package=gplots</li>
@@ -1057,7 +1038,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Wilkinson L (2005) The grammar of graphics. Statistics and computing, 2nd edn. Springer, New York</li>
 </ul>
 <hr>
-<p><font size="4">Session information</font></p>
+</section>
+</section>
+<section id="session-information" class="level1 unnumbered unlisted">
+<h1 class="unnumbered unlisted">Session information</h1>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>R version 4.3.2 (2023-10-31)
@@ -1106,7 +1090,6 @@ loaded via a namespace (and not attached):
 
 <!-- -->
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -1739,686 +1722,644 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb50-179"><a href="#cb50-179" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Color and shape: categorical variables</span>
 <span id="cb50-180"><a href="#cb50-180" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Size: continuous variables</span>
 <span id="cb50-181"><a href="#cb50-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-182"><a href="#cb50-182" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
+<span id="cb50-182"><a href="#cb50-182" aria-hidden="true" tabindex="-1"></a>::: {.alert .alert-info}</span>
 <span id="cb50-183"><a href="#cb50-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-184"><a href="#cb50-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-185"><a href="#cb50-185" aria-hidden="true" tabindex="-1"></a>&lt;/br&gt;</span>
-<span id="cb50-186"><a href="#cb50-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-187"><a href="#cb50-187" aria-hidden="true" tabindex="-1"></a>&lt;div class="alert alert-info"&gt;</span>
-<span id="cb50-188"><a href="#cb50-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-189"><a href="#cb50-189" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Exercise 1&lt;/font&gt; </span>
-<span id="cb50-190"><a href="#cb50-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-191"><a href="#cb50-191" aria-hidden="true" tabindex="-1"></a>Using the "hylaeformis" data set (<span class="co">[</span><span class="ot">it can also be downloaded here</span><span class="co">](https://raw.githubusercontent.com/maRce10/OTS_Tropical_Biology_2023/master/data/hylaeformis_data.csv)</span>):</span>
+<span id="cb50-184"><a href="#cb50-184" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 1</span></span>
+<span id="cb50-185"><a href="#cb50-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-186"><a href="#cb50-186" aria-hidden="true" tabindex="-1"></a>Using the "hylaeformis" data set (<span class="co">[</span><span class="ot">it can also be downloaded here</span><span class="co">](https://raw.githubusercontent.com/maRce10/OTS_Tropical_Biology_2023/master/data/hylaeformis_data.csv)</span>):</span>
+<span id="cb50-187"><a href="#cb50-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-188"><a href="#cb50-188" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,  eval=F, echo=T}</span></span>
+<span id="cb50-189"><a href="#cb50-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-190"><a href="#cb50-190" aria-hidden="true" tabindex="-1"></a><span class="in">#read from website</span></span>
+<span id="cb50-191"><a href="#cb50-191" aria-hidden="true" tabindex="-1"></a><span class="in">hylaeformis_data &lt;- read.csv("https://raw.githubusercontent.com/maRce10/OTS_Tropical_Biology_2023/master/data/hylaeformis_data.csv", stringsAsFactors = FALSE)</span></span>
 <span id="cb50-192"><a href="#cb50-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-193"><a href="#cb50-193" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,  eval=F, echo=T}</span></span>
-<span id="cb50-194"><a href="#cb50-194" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-195"><a href="#cb50-195" aria-hidden="true" tabindex="-1"></a><span class="in">#read from website</span></span>
-<span id="cb50-196"><a href="#cb50-196" aria-hidden="true" tabindex="-1"></a><span class="in">hylaeformis_data &lt;- read.csv("https://raw.githubusercontent.com/maRce10/OTS_Tropical_Biology_2023/master/data/hylaeformis_data.csv", stringsAsFactors = FALSE)</span></span>
+<span id="cb50-193"><a href="#cb50-193" aria-hidden="true" tabindex="-1"></a><span class="in"># if download manually read it from the local file</span></span>
+<span id="cb50-194"><a href="#cb50-194" aria-hidden="true" tabindex="-1"></a><span class="in"># hylaeformis_data &lt;- read.csv("hylaeformis_data.csv", stringsAsFactors = FALSE)</span></span>
+<span id="cb50-195"><a href="#cb50-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-196"><a href="#cb50-196" aria-hidden="true" tabindex="-1"></a><span class="in">head(hylaeformis_data, 20)</span></span>
 <span id="cb50-197"><a href="#cb50-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-198"><a href="#cb50-198" aria-hidden="true" tabindex="-1"></a><span class="in"># if download manually read it from the local file</span></span>
-<span id="cb50-199"><a href="#cb50-199" aria-hidden="true" tabindex="-1"></a><span class="in"># hylaeformis_data &lt;- read.csv("hylaeformis_data.csv", stringsAsFactors = FALSE)</span></span>
-<span id="cb50-200"><a href="#cb50-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-201"><a href="#cb50-201" aria-hidden="true" tabindex="-1"></a><span class="in">head(hylaeformis_data, 20)</span></span>
-<span id="cb50-202"><a href="#cb50-202" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-203"><a href="#cb50-203" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-204"><a href="#cb50-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-205"><a href="#cb50-205" aria-hidden="true" tabindex="-1"></a>&lt;/br&gt;</span>
-<span id="cb50-206"><a href="#cb50-206" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-207"><a href="#cb50-207" aria-hidden="true" tabindex="-1"></a>1.1 Create a scatter plot of "duration" vs "meanfreq" (mean frequency)</span>
-<span id="cb50-208"><a href="#cb50-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-209"><a href="#cb50-209" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE, echo = FALSE}</span></span>
-<span id="cb50-210"><a href="#cb50-210" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-211"><a href="#cb50-211" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = hylaeformis_data, mapping = aes(x = duration, y = meanfreq)) + geom_point()</span></span>
-<span id="cb50-212"><a href="#cb50-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-213"><a href="#cb50-213" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-214"><a href="#cb50-214" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-215"><a href="#cb50-215" aria-hidden="true" tabindex="-1"></a>1.2 Add a aesthetic attribute to show a different color for each locality</span>
-<span id="cb50-216"><a href="#cb50-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-217"><a href="#cb50-217" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE, echo = FALSE}</span></span>
-<span id="cb50-218"><a href="#cb50-218" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-219"><a href="#cb50-219" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = hylaeformis_data, mapping = aes(x = duration, y = meanfreq)) + geom_point(aes(color = Locality))</span></span>
-<span id="cb50-220"><a href="#cb50-220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-221"><a href="#cb50-221" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-222"><a href="#cb50-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-198"><a href="#cb50-198" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-199"><a href="#cb50-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-200"><a href="#cb50-200" aria-hidden="true" tabindex="-1"></a>1.1 Create a scatter plot of "duration" vs "meanfreq" (mean frequency)</span>
+<span id="cb50-201"><a href="#cb50-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-202"><a href="#cb50-202" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE, echo = FALSE}</span></span>
+<span id="cb50-203"><a href="#cb50-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-204"><a href="#cb50-204" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = hylaeformis_data, mapping = aes(x = duration, y = meanfreq)) + geom_point()</span></span>
+<span id="cb50-205"><a href="#cb50-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-206"><a href="#cb50-206" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-207"><a href="#cb50-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-208"><a href="#cb50-208" aria-hidden="true" tabindex="-1"></a>1.2 Add a aesthetic attribute to show a different color for each locality</span>
+<span id="cb50-209"><a href="#cb50-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-210"><a href="#cb50-210" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE, echo = FALSE}</span></span>
+<span id="cb50-211"><a href="#cb50-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-212"><a href="#cb50-212" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = hylaeformis_data, mapping = aes(x = duration, y = meanfreq)) + geom_point(aes(color = Locality))</span></span>
+<span id="cb50-213"><a href="#cb50-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-214"><a href="#cb50-214" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-215"><a href="#cb50-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-216"><a href="#cb50-216" aria-hidden="true" tabindex="-1"></a>1.3 Add another aesthetic attribute to show "dfrange" (dominant frequency range) as the shape size</span>
+<span id="cb50-217"><a href="#cb50-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-218"><a href="#cb50-218" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE, echo = FALSE}</span></span>
+<span id="cb50-219"><a href="#cb50-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-220"><a href="#cb50-220" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = hylaeformis_data, mapping = aes(x = duration, y = meanfreq)) + geom_point(aes(color = Locality, size = dfrange))</span></span>
+<span id="cb50-221"><a href="#cb50-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-222"><a href="#cb50-222" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb50-223"><a href="#cb50-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-224"><a href="#cb50-224" aria-hidden="true" tabindex="-1"></a>1.3 Add another aesthetic attribute to show "dfrange" (dominant frequency range) as the shape size</span>
+<span id="cb50-224"><a href="#cb50-224" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb50-225"><a href="#cb50-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-226"><a href="#cb50-226" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE, echo = FALSE}</span></span>
-<span id="cb50-227"><a href="#cb50-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-228"><a href="#cb50-228" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = hylaeformis_data, mapping = aes(x = duration, y = meanfreq)) + geom_point(aes(color = Locality, size = dfrange))</span></span>
-<span id="cb50-229"><a href="#cb50-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-230"><a href="#cb50-230" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-231"><a href="#cb50-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-232"><a href="#cb50-232" aria-hidden="true" tabindex="-1"></a>&lt;/div&gt;</span>
-<span id="cb50-233"><a href="#cb50-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-234"><a href="#cb50-234" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span></span>
-<span id="cb50-235"><a href="#cb50-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-236"><a href="#cb50-236" aria-hidden="true" tabindex="-1"></a><span class="fu">## Multipanel plots (Facetting)</span></span>
-<span id="cb50-237"><a href="#cb50-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-238"><a href="#cb50-238" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Another way to visualize categorical variables</span>
-<span id="cb50-239"><a href="#cb50-239" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Allows to create multipanel plots for each level of the variable</span>
-<span id="cb50-240"><a href="#cb50-240" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>2 types: "grid" &amp; "wrap"</span>
-<span id="cb50-241"><a href="#cb50-241" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb50-244"><a href="#cb50-244" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb50-245"><a href="#cb50-245" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Sepal.Length, Petal.Length)) <span class="sc">+</span> </span>
-<span id="cb50-246"><a href="#cb50-246" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb50-247"><a href="#cb50-247" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Species)</span>
+<span id="cb50-226"><a href="#cb50-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-227"><a href="#cb50-227" aria-hidden="true" tabindex="-1"></a><span class="fu">## Multipanel plots (Facetting)</span></span>
+<span id="cb50-228"><a href="#cb50-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-229"><a href="#cb50-229" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Another way to visualize categorical variables</span>
+<span id="cb50-230"><a href="#cb50-230" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Allows to create multipanel plots for each level of the variable</span>
+<span id="cb50-231"><a href="#cb50-231" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>2 types: "grid" &amp; "wrap"</span>
+<span id="cb50-232"><a href="#cb50-232" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb50-235"><a href="#cb50-235" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb50-236"><a href="#cb50-236" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Sepal.Length, Petal.Length)) <span class="sc">+</span> </span>
+<span id="cb50-237"><a href="#cb50-237" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb50-238"><a href="#cb50-238" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Species)</span>
+<span id="cb50-239"><a href="#cb50-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-240"><a href="#cb50-240" aria-hidden="true" tabindex="-1"></a><span class="co"># or</span></span>
+<span id="cb50-241"><a href="#cb50-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-242"><a href="#cb50-242" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Sepal.Length, Petal.Length)) <span class="sc">+</span> </span>
+<span id="cb50-243"><a href="#cb50-243" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb50-244"><a href="#cb50-244" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="sc">~</span>Species)</span>
+<span id="cb50-245"><a href="#cb50-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-246"><a href="#cb50-246" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-247"><a href="#cb50-247" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
 <span id="cb50-248"><a href="#cb50-248" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-249"><a href="#cb50-249" aria-hidden="true" tabindex="-1"></a><span class="co"># or</span></span>
-<span id="cb50-250"><a href="#cb50-250" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-251"><a href="#cb50-251" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Sepal.Length, Petal.Length)) <span class="sc">+</span> </span>
-<span id="cb50-252"><a href="#cb50-252" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb50-253"><a href="#cb50-253" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="sc">~</span>Species)</span>
-<span id="cb50-254"><a href="#cb50-254" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-255"><a href="#cb50-255" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-256"><a href="#cb50-256" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
-<span id="cb50-257"><a href="#cb50-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-258"><a href="#cb50-258" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-259"><a href="#cb50-259" aria-hidden="true" tabindex="-1"></a>The scale can be fixed or free for the x and y axis, and the number of columns and rows can be modified:</span>
+<span id="cb50-249"><a href="#cb50-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-250"><a href="#cb50-250" aria-hidden="true" tabindex="-1"></a>The scale can be fixed or free for the x and y axis, and the number of columns and rows can be modified:</span>
+<span id="cb50-251"><a href="#cb50-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-254"><a href="#cb50-254" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb50-255"><a href="#cb50-255" aria-hidden="true" tabindex="-1"></a><span class="co"># free x</span></span>
+<span id="cb50-256"><a href="#cb50-256" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Sepal.Length, Petal.Length)) <span class="sc">+</span> </span>
+<span id="cb50-257"><a href="#cb50-257" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb50-258"><a href="#cb50-258" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Species, <span class="at">scales =</span> <span class="st">"free_x"</span>)</span>
+<span id="cb50-259"><a href="#cb50-259" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb50-260"><a href="#cb50-260" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-263"><a href="#cb50-263" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb50-264"><a href="#cb50-264" aria-hidden="true" tabindex="-1"></a><span class="co"># free x</span></span>
-<span id="cb50-265"><a href="#cb50-265" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Sepal.Length, Petal.Length)) <span class="sc">+</span> </span>
-<span id="cb50-266"><a href="#cb50-266" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb50-267"><a href="#cb50-267" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Species, <span class="at">scales =</span> <span class="st">"free_x"</span>)</span>
-<span id="cb50-268"><a href="#cb50-268" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-261"><a href="#cb50-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-262"><a href="#cb50-262" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, fig.height=8}</span></span>
+<span id="cb50-263"><a href="#cb50-263" aria-hidden="true" tabindex="-1"></a><span class="in"># free x and 3 rows</span></span>
+<span id="cb50-264"><a href="#cb50-264" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(iris, aes(Sepal.Length, Petal.Length)) + </span></span>
+<span id="cb50-265"><a href="#cb50-265" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() + </span></span>
+<span id="cb50-266"><a href="#cb50-266" aria-hidden="true" tabindex="-1"></a><span class="in">  facet_wrap(~Species, scales = "free_y", nrow = 3)</span></span>
+<span id="cb50-267"><a href="#cb50-267" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-268"><a href="#cb50-268" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb50-269"><a href="#cb50-269" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-270"><a href="#cb50-270" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-271"><a href="#cb50-271" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, fig.height=8}</span></span>
-<span id="cb50-272"><a href="#cb50-272" aria-hidden="true" tabindex="-1"></a><span class="in"># free x and 3 rows</span></span>
-<span id="cb50-273"><a href="#cb50-273" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(iris, aes(Sepal.Length, Petal.Length)) + </span></span>
-<span id="cb50-274"><a href="#cb50-274" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() + </span></span>
-<span id="cb50-275"><a href="#cb50-275" aria-hidden="true" tabindex="-1"></a><span class="in">  facet_wrap(~Species, scales = "free_y", nrow = 3)</span></span>
+<span id="cb50-270"><a href="#cb50-270" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, fig.height=6}</span></span>
+<span id="cb50-271"><a href="#cb50-271" aria-hidden="true" tabindex="-1"></a><span class="in"># both free and 2 rows</span></span>
+<span id="cb50-272"><a href="#cb50-272" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(iris, aes(Sepal.Length, Petal.Length)) + </span></span>
+<span id="cb50-273"><a href="#cb50-273" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() + </span></span>
+<span id="cb50-274"><a href="#cb50-274" aria-hidden="true" tabindex="-1"></a><span class="in">  facet_wrap(~Species, scales = "free", nrow = 2)</span></span>
+<span id="cb50-275"><a href="#cb50-275" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb50-276"><a href="#cb50-276" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-277"><a href="#cb50-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-277"><a href="#cb50-277" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
 <span id="cb50-278"><a href="#cb50-278" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-279"><a href="#cb50-279" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, fig.height=6}</span></span>
-<span id="cb50-280"><a href="#cb50-280" aria-hidden="true" tabindex="-1"></a><span class="in"># both free and 2 rows</span></span>
-<span id="cb50-281"><a href="#cb50-281" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(iris, aes(Sepal.Length, Petal.Length)) + </span></span>
-<span id="cb50-282"><a href="#cb50-282" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() + </span></span>
-<span id="cb50-283"><a href="#cb50-283" aria-hidden="true" tabindex="-1"></a><span class="in">  facet_wrap(~Species, scales = "free", nrow = 2)</span></span>
-<span id="cb50-284"><a href="#cb50-284" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-285"><a href="#cb50-285" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-286"><a href="#cb50-286" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
+<span id="cb50-279"><a href="#cb50-279" aria-hidden="true" tabindex="-1"></a>Note that we can also saved the basic component as an **R** object and add other components later in the code:</span>
+<span id="cb50-280"><a href="#cb50-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-281"><a href="#cb50-281" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, fig.height=8}</span></span>
+<span id="cb50-282"><a href="#cb50-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-283"><a href="#cb50-283" aria-hidden="true" tabindex="-1"></a><span class="in">p &lt;- ggplot(iris, aes(Sepal.Length, Petal.Length)) + </span></span>
+<span id="cb50-284"><a href="#cb50-284" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() </span></span>
+<span id="cb50-285"><a href="#cb50-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-286"><a href="#cb50-286" aria-hidden="true" tabindex="-1"></a><span class="in">p + facet_wrap(~Species, scales = "free_x", nrow = 3)</span></span>
 <span id="cb50-287"><a href="#cb50-287" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-288"><a href="#cb50-288" aria-hidden="true" tabindex="-1"></a>Note that we can also saved the basic component as an **R** object and add other components later in the code:</span>
+<span id="cb50-288"><a href="#cb50-288" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb50-289"><a href="#cb50-289" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-290"><a href="#cb50-290" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, fig.height=8}</span></span>
-<span id="cb50-291"><a href="#cb50-291" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-292"><a href="#cb50-292" aria-hidden="true" tabindex="-1"></a><span class="in">p &lt;- ggplot(iris, aes(Sepal.Length, Petal.Length)) + </span></span>
-<span id="cb50-293"><a href="#cb50-293" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() </span></span>
-<span id="cb50-294"><a href="#cb50-294" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-295"><a href="#cb50-295" aria-hidden="true" tabindex="-1"></a><span class="in">p + facet_wrap(~Species, scales = "free_x", nrow = 3)</span></span>
-<span id="cb50-296"><a href="#cb50-296" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-297"><a href="#cb50-297" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-290"><a href="#cb50-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-291"><a href="#cb50-291" aria-hidden="true" tabindex="-1"></a><span class="fu">## Additional "geoms"</span></span>
+<span id="cb50-292"><a href="#cb50-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-293"><a href="#cb50-293" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`geom_smooth()`</span> - adds best fit lines (including CI)</span>
+<span id="cb50-294"><a href="#cb50-294" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`geom_boxplot()`</span> </span>
+<span id="cb50-295"><a href="#cb50-295" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`geom_histogram()`</span> &amp; <span class="in">`geom_freqpoly()`</span> - frequency distributions</span>
+<span id="cb50-296"><a href="#cb50-296" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`geom_bar()`</span> - frequency distribution of categorical variables</span>
+<span id="cb50-297"><a href="#cb50-297" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`geom_path()`</span> &amp; <span class="in">`geom_line()`</span> - add lines to scatter plots</span>
 <span id="cb50-298"><a href="#cb50-298" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-299"><a href="#cb50-299" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-300"><a href="#cb50-300" aria-hidden="true" tabindex="-1"></a><span class="fu">## Additional "geoms"</span></span>
-<span id="cb50-301"><a href="#cb50-301" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-302"><a href="#cb50-302" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`geom_smooth()`</span> - adds best fit lines (including CI)</span>
-<span id="cb50-303"><a href="#cb50-303" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`geom_boxplot()`</span> </span>
-<span id="cb50-304"><a href="#cb50-304" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`geom_histogram()`</span> &amp; <span class="in">`geom_freqpoly()`</span> - frequency distributions</span>
-<span id="cb50-305"><a href="#cb50-305" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`geom_bar()`</span> - frequency distribution of categorical variables</span>
-<span id="cb50-306"><a href="#cb50-306" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`geom_path()`</span> &amp; <span class="in">`geom_line()`</span> - add lines to scatter plots</span>
-<span id="cb50-307"><a href="#cb50-307" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-308"><a href="#cb50-308" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
-<span id="cb50-309"><a href="#cb50-309" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-310"><a href="#cb50-310" aria-hidden="true" tabindex="-1"></a><span class="fu">### geom_smooth()</span></span>
-<span id="cb50-311"><a href="#cb50-311" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-312"><a href="#cb50-312" aria-hidden="true" tabindex="-1"></a>Best fit regression lines can be added with <span class="in">`geom_smooth()`</span>:</span>
-<span id="cb50-313"><a href="#cb50-313" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-314"><a href="#cb50-314" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, fig.height=8}</span></span>
-<span id="cb50-315"><a href="#cb50-315" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-316"><a href="#cb50-316" aria-hidden="true" tabindex="-1"></a><span class="in"># smoother and CI</span></span>
-<span id="cb50-317"><a href="#cb50-317" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(iris, aes(Sepal.Length, Petal.Length)) + </span></span>
-<span id="cb50-318"><a href="#cb50-318" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() + </span></span>
-<span id="cb50-319"><a href="#cb50-319" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_smooth(method = "lm") +</span></span>
-<span id="cb50-320"><a href="#cb50-320" aria-hidden="true" tabindex="-1"></a><span class="in">  facet_wrap(~Species, scales = "free", nrow = 3)</span></span>
-<span id="cb50-321"><a href="#cb50-321" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-322"><a href="#cb50-322" aria-hidden="true" tabindex="-1"></a><span class="in"># without CI</span></span>
-<span id="cb50-323"><a href="#cb50-323" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(iris, aes(Sepal.Length, Petal.Length)) + </span></span>
-<span id="cb50-324"><a href="#cb50-324" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() + </span></span>
-<span id="cb50-325"><a href="#cb50-325" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_smooth(method = "lm", se = FALSE) +</span></span>
-<span id="cb50-326"><a href="#cb50-326" aria-hidden="true" tabindex="-1"></a><span class="in">  facet_wrap(~Species, scales = "free", nrow = 3)</span></span>
-<span id="cb50-327"><a href="#cb50-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-299"><a href="#cb50-299" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
+<span id="cb50-300"><a href="#cb50-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-301"><a href="#cb50-301" aria-hidden="true" tabindex="-1"></a><span class="fu">### geom_smooth()</span></span>
+<span id="cb50-302"><a href="#cb50-302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-303"><a href="#cb50-303" aria-hidden="true" tabindex="-1"></a>Best fit regression lines can be added with <span class="in">`geom_smooth()`</span>:</span>
+<span id="cb50-304"><a href="#cb50-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-305"><a href="#cb50-305" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, fig.height=8}</span></span>
+<span id="cb50-306"><a href="#cb50-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-307"><a href="#cb50-307" aria-hidden="true" tabindex="-1"></a><span class="in"># smoother and CI</span></span>
+<span id="cb50-308"><a href="#cb50-308" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(iris, aes(Sepal.Length, Petal.Length)) + </span></span>
+<span id="cb50-309"><a href="#cb50-309" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() + </span></span>
+<span id="cb50-310"><a href="#cb50-310" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_smooth(method = "lm") +</span></span>
+<span id="cb50-311"><a href="#cb50-311" aria-hidden="true" tabindex="-1"></a><span class="in">  facet_wrap(~Species, scales = "free", nrow = 3)</span></span>
+<span id="cb50-312"><a href="#cb50-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-313"><a href="#cb50-313" aria-hidden="true" tabindex="-1"></a><span class="in"># without CI</span></span>
+<span id="cb50-314"><a href="#cb50-314" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(iris, aes(Sepal.Length, Petal.Length)) + </span></span>
+<span id="cb50-315"><a href="#cb50-315" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() + </span></span>
+<span id="cb50-316"><a href="#cb50-316" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_smooth(method = "lm", se = FALSE) +</span></span>
+<span id="cb50-317"><a href="#cb50-317" aria-hidden="true" tabindex="-1"></a><span class="in">  facet_wrap(~Species, scales = "free", nrow = 3)</span></span>
+<span id="cb50-318"><a href="#cb50-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-319"><a href="#cb50-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-320"><a href="#cb50-320" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-321"><a href="#cb50-321" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
+<span id="cb50-322"><a href="#cb50-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-323"><a href="#cb50-323" aria-hidden="true" tabindex="-1"></a>::: {.alert .alert-info}</span>
+<span id="cb50-324"><a href="#cb50-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-325"><a href="#cb50-325" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 2</span></span>
+<span id="cb50-326"><a href="#cb50-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-327"><a href="#cb50-327" aria-hidden="true" tabindex="-1"></a>Using the "msleep" example data set:</span>
 <span id="cb50-328"><a href="#cb50-328" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-329"><a href="#cb50-329" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-330"><a href="#cb50-330" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
-<span id="cb50-331"><a href="#cb50-331" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-332"><a href="#cb50-332" aria-hidden="true" tabindex="-1"></a>&lt;div class="alert alert-info"&gt;</span>
-<span id="cb50-333"><a href="#cb50-333" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-334"><a href="#cb50-334" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Exercise 2&lt;/font&gt; </span>
+<span id="cb50-329"><a href="#cb50-329" aria-hidden="true" tabindex="-1"></a>2.1 Create a scatter plot of "bodywt"(body weight)  vs "brainwt" (brain weight)</span>
+<span id="cb50-330"><a href="#cb50-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-331"><a href="#cb50-331" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE, echo = FALSE}</span></span>
+<span id="cb50-332"><a href="#cb50-332" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-333"><a href="#cb50-333" aria-hidden="true" tabindex="-1"></a><span class="in">data(msleep)</span></span>
+<span id="cb50-334"><a href="#cb50-334" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = msleep, mapping = aes(x = bodywt, y = brainwt)) + geom_point()</span></span>
 <span id="cb50-335"><a href="#cb50-335" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-336"><a href="#cb50-336" aria-hidden="true" tabindex="-1"></a>Using the "msleep" example data set:</span>
+<span id="cb50-336"><a href="#cb50-336" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb50-337"><a href="#cb50-337" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-338"><a href="#cb50-338" aria-hidden="true" tabindex="-1"></a>&lt;/br&gt;</span>
+<span id="cb50-338"><a href="#cb50-338" aria-hidden="true" tabindex="-1"></a>2.2 Add "order" as a color aesthetic</span>
 <span id="cb50-339"><a href="#cb50-339" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-340"><a href="#cb50-340" aria-hidden="true" tabindex="-1"></a>2.1 Create a scatter plot of "bodywt"(body weight)  vs "brainwt" (brain weight)</span>
+<span id="cb50-340"><a href="#cb50-340" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE, echo = FALSE}</span></span>
 <span id="cb50-341"><a href="#cb50-341" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-342"><a href="#cb50-342" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE, echo = FALSE}</span></span>
-<span id="cb50-343"><a href="#cb50-343" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-344"><a href="#cb50-344" aria-hidden="true" tabindex="-1"></a><span class="in">data(msleep)</span></span>
-<span id="cb50-345"><a href="#cb50-345" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = msleep, mapping = aes(x = bodywt, y = brainwt)) + geom_point()</span></span>
+<span id="cb50-342"><a href="#cb50-342" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = msleep, mapping = aes(x = bodywt, y = brainwt, color = order)) + </span></span>
+<span id="cb50-343"><a href="#cb50-343" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point()</span></span>
+<span id="cb50-344"><a href="#cb50-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-345"><a href="#cb50-345" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb50-346"><a href="#cb50-346" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-347"><a href="#cb50-347" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-347"><a href="#cb50-347" aria-hidden="true" tabindex="-1"></a>2.3 Add a "facet" component to split plots by order using free scales</span>
 <span id="cb50-348"><a href="#cb50-348" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-349"><a href="#cb50-349" aria-hidden="true" tabindex="-1"></a>&lt;/br&gt;</span>
+<span id="cb50-349"><a href="#cb50-349" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE, echo = FALSE}</span></span>
 <span id="cb50-350"><a href="#cb50-350" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-351"><a href="#cb50-351" aria-hidden="true" tabindex="-1"></a>2.2 Add "order" as a color aesthetic</span>
-<span id="cb50-352"><a href="#cb50-352" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-353"><a href="#cb50-353" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE, echo = FALSE}</span></span>
+<span id="cb50-351"><a href="#cb50-351" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = msleep, mapping = aes(x = bodywt, y = brainwt)) + </span></span>
+<span id="cb50-352"><a href="#cb50-352" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() +</span></span>
+<span id="cb50-353"><a href="#cb50-353" aria-hidden="true" tabindex="-1"></a><span class="in">  facet_wrap(~order, scales = "free")</span></span>
 <span id="cb50-354"><a href="#cb50-354" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-355"><a href="#cb50-355" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = msleep, mapping = aes(x = bodywt, y = brainwt, color = order)) + </span></span>
-<span id="cb50-356"><a href="#cb50-356" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point()</span></span>
-<span id="cb50-357"><a href="#cb50-357" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-358"><a href="#cb50-358" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-359"><a href="#cb50-359" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-360"><a href="#cb50-360" aria-hidden="true" tabindex="-1"></a>&lt;/br&gt;</span>
-<span id="cb50-361"><a href="#cb50-361" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-362"><a href="#cb50-362" aria-hidden="true" tabindex="-1"></a>2.3 Add a "facet" component to split plots by order using free scales</span>
-<span id="cb50-363"><a href="#cb50-363" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-364"><a href="#cb50-364" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE, echo = FALSE}</span></span>
-<span id="cb50-365"><a href="#cb50-365" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-366"><a href="#cb50-366" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = msleep, mapping = aes(x = bodywt, y = brainwt)) + </span></span>
-<span id="cb50-367"><a href="#cb50-367" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() +</span></span>
+<span id="cb50-355"><a href="#cb50-355" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-356"><a href="#cb50-356" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-357"><a href="#cb50-357" aria-hidden="true" tabindex="-1"></a>2.4 Remove the orders with less than 4 species in the data set and make a plot similar to 2.3</span>
+<span id="cb50-358"><a href="#cb50-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-359"><a href="#cb50-359" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE, echo = FALSE}</span></span>
+<span id="cb50-360"><a href="#cb50-360" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-361"><a href="#cb50-361" aria-hidden="true" tabindex="-1"></a><span class="in">tab &lt;- table(msleep$order)</span></span>
+<span id="cb50-362"><a href="#cb50-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-363"><a href="#cb50-363" aria-hidden="true" tabindex="-1"></a><span class="in">ms2 &lt;- msleep[msleep$order %in% names(tab)[tab &gt;= 5], ]</span></span>
+<span id="cb50-364"><a href="#cb50-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-365"><a href="#cb50-365" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = ms2, mapping = aes(x = bodywt, y = brainwt)) + </span></span>
+<span id="cb50-366"><a href="#cb50-366" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() +</span></span>
+<span id="cb50-367"><a href="#cb50-367" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_smooth(method = "lm") +</span></span>
 <span id="cb50-368"><a href="#cb50-368" aria-hidden="true" tabindex="-1"></a><span class="in">  facet_wrap(~order, scales = "free")</span></span>
 <span id="cb50-369"><a href="#cb50-369" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb50-370"><a href="#cb50-370" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb50-371"><a href="#cb50-371" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-372"><a href="#cb50-372" aria-hidden="true" tabindex="-1"></a>&lt;/br&gt;</span>
+<span id="cb50-372"><a href="#cb50-372" aria-hidden="true" tabindex="-1"></a>2.5 Add a smooth line to each plot in the panel</span>
 <span id="cb50-373"><a href="#cb50-373" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-374"><a href="#cb50-374" aria-hidden="true" tabindex="-1"></a>2.4 Remove the orders with less than 4 species in the data set and make a plot similar to 2.3</span>
+<span id="cb50-374"><a href="#cb50-374" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE, echo = FALSE}</span></span>
 <span id="cb50-375"><a href="#cb50-375" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-376"><a href="#cb50-376" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE, echo = FALSE}</span></span>
-<span id="cb50-377"><a href="#cb50-377" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-378"><a href="#cb50-378" aria-hidden="true" tabindex="-1"></a><span class="in">tab &lt;- table(msleep$order)</span></span>
-<span id="cb50-379"><a href="#cb50-379" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-380"><a href="#cb50-380" aria-hidden="true" tabindex="-1"></a><span class="in">ms2 &lt;- msleep[msleep$order %in% names(tab)[tab &gt;= 5], ]</span></span>
-<span id="cb50-381"><a href="#cb50-381" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-382"><a href="#cb50-382" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = ms2, mapping = aes(x = bodywt, y = brainwt)) + </span></span>
-<span id="cb50-383"><a href="#cb50-383" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() +</span></span>
-<span id="cb50-384"><a href="#cb50-384" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_smooth(method = "lm") +</span></span>
-<span id="cb50-385"><a href="#cb50-385" aria-hidden="true" tabindex="-1"></a><span class="in">  facet_wrap(~order, scales = "free")</span></span>
+<span id="cb50-376"><a href="#cb50-376" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = msleep[msleep$order %in% names(tab)[tab &gt; 3], ], mapping = aes(x = bodywt, y = brainwt)) + </span></span>
+<span id="cb50-377"><a href="#cb50-377" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() +</span></span>
+<span id="cb50-378"><a href="#cb50-378" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_smooth() +</span></span>
+<span id="cb50-379"><a href="#cb50-379" aria-hidden="true" tabindex="-1"></a><span class="in">  facet_wrap(~order, scales = "free")</span></span>
+<span id="cb50-380"><a href="#cb50-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-381"><a href="#cb50-381" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-382"><a href="#cb50-382" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-383"><a href="#cb50-383" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb50-384"><a href="#cb50-384" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-385"><a href="#cb50-385" aria-hidden="true" tabindex="-1"></a><span class="fu">### Boxplots</span></span>
 <span id="cb50-386"><a href="#cb50-386" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-387"><a href="#cb50-387" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-387"><a href="#cb50-387" aria-hidden="true" tabindex="-1"></a>Again, it only takes a new "geom" component to create a boxplot:</span>
 <span id="cb50-388"><a href="#cb50-388" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-389"><a href="#cb50-389" aria-hidden="true" tabindex="-1"></a>&lt;/br&gt;</span>
-<span id="cb50-390"><a href="#cb50-390" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-391"><a href="#cb50-391" aria-hidden="true" tabindex="-1"></a>2.5 Add a smooth line to each plot in the panel</span>
-<span id="cb50-392"><a href="#cb50-392" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-393"><a href="#cb50-393" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE, echo = FALSE}</span></span>
-<span id="cb50-394"><a href="#cb50-394" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-395"><a href="#cb50-395" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = msleep[msleep$order %in% names(tab)[tab &gt; 3], ], mapping = aes(x = bodywt, y = brainwt)) + </span></span>
-<span id="cb50-396"><a href="#cb50-396" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() +</span></span>
-<span id="cb50-397"><a href="#cb50-397" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_smooth() +</span></span>
-<span id="cb50-398"><a href="#cb50-398" aria-hidden="true" tabindex="-1"></a><span class="in">  facet_wrap(~order, scales = "free")</span></span>
-<span id="cb50-399"><a href="#cb50-399" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-400"><a href="#cb50-400" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-401"><a href="#cb50-401" aria-hidden="true" tabindex="-1"></a>&lt;/br&gt;</span>
-<span id="cb50-402"><a href="#cb50-402" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-403"><a href="#cb50-403" aria-hidden="true" tabindex="-1"></a>&lt;/div&gt;</span>
-<span id="cb50-404"><a href="#cb50-404" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-391"><a href="#cb50-391" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb50-392"><a href="#cb50-392" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Species, Petal.Length)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span>
+<span id="cb50-393"><a href="#cb50-393" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-394"><a href="#cb50-394" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-395"><a href="#cb50-395" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-396"><a href="#cb50-396" aria-hidden="true" tabindex="-1"></a>An interesting alternative are the violin plots:</span>
+<span id="cb50-399"><a href="#cb50-399" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb50-400"><a href="#cb50-400" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Species, Petal.Length)) <span class="sc">+</span> <span class="fu">geom_violin</span>()</span>
+<span id="cb50-401"><a href="#cb50-401" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-402"><a href="#cb50-402" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-403"><a href="#cb50-403" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-404"><a href="#cb50-404" aria-hidden="true" tabindex="-1"></a><span class="fu">### Histograms</span></span>
 <span id="cb50-405"><a href="#cb50-405" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-406"><a href="#cb50-406" aria-hidden="true" tabindex="-1"></a><span class="fu">### Boxplots</span></span>
+<span id="cb50-406"><a href="#cb50-406" aria-hidden="true" tabindex="-1"></a>Same thing with histrograms and frequency plots:</span>
 <span id="cb50-407"><a href="#cb50-407" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-408"><a href="#cb50-408" aria-hidden="true" tabindex="-1"></a>Again, it only takes a new "geom" component to create a boxplot:</span>
-<span id="cb50-409"><a href="#cb50-409" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-412"><a href="#cb50-412" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb50-413"><a href="#cb50-413" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Species, Petal.Length)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span>
+<span id="cb50-410"><a href="#cb50-410" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb50-411"><a href="#cb50-411" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Petal.Length)) <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span>
+<span id="cb50-412"><a href="#cb50-412" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-413"><a href="#cb50-413" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Petal.Length)) <span class="sc">+</span> <span class="fu">geom_freqpoly</span>()</span>
 <span id="cb50-414"><a href="#cb50-414" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-415"><a href="#cb50-415" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-415"><a href="#cb50-415" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Petal.Length)) <span class="sc">+</span> <span class="fu">geom_histogram</span>()  <span class="sc">+</span> <span class="fu">geom_freqpoly</span>()</span>
 <span id="cb50-416"><a href="#cb50-416" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-417"><a href="#cb50-417" aria-hidden="true" tabindex="-1"></a>An interesting alternative are the violin plots:</span>
-<span id="cb50-420"><a href="#cb50-420" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb50-421"><a href="#cb50-421" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Species, Petal.Length)) <span class="sc">+</span> <span class="fu">geom_violin</span>()</span>
-<span id="cb50-422"><a href="#cb50-422" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-423"><a href="#cb50-423" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-424"><a href="#cb50-424" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
+<span id="cb50-417"><a href="#cb50-417" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-418"><a href="#cb50-418" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-419"><a href="#cb50-419" aria-hidden="true" tabindex="-1"></a>We can control the width of the bars:</span>
+<span id="cb50-422"><a href="#cb50-422" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb50-423"><a href="#cb50-423" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Petal.Length)) <span class="sc">+</span> </span>
+<span id="cb50-424"><a href="#cb50-424" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">fill =</span> <span class="fu">adjustcolor</span>(<span class="st">"red2"</span>, <span class="at">alpha.f =</span> <span class="fl">0.3</span>))</span>
 <span id="cb50-425"><a href="#cb50-425" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-426"><a href="#cb50-426" aria-hidden="true" tabindex="-1"></a><span class="fu">### Histograms</span></span>
+<span id="cb50-426"><a href="#cb50-426" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb50-427"><a href="#cb50-427" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-428"><a href="#cb50-428" aria-hidden="true" tabindex="-1"></a>Same thing with histrograms and frequency plots:</span>
-<span id="cb50-429"><a href="#cb50-429" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-432"><a href="#cb50-432" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb50-433"><a href="#cb50-433" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Petal.Length)) <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span>
-<span id="cb50-434"><a href="#cb50-434" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-435"><a href="#cb50-435" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Petal.Length)) <span class="sc">+</span> <span class="fu">geom_freqpoly</span>()</span>
-<span id="cb50-436"><a href="#cb50-436" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-437"><a href="#cb50-437" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Petal.Length)) <span class="sc">+</span> <span class="fu">geom_histogram</span>()  <span class="sc">+</span> <span class="fu">geom_freqpoly</span>()</span>
-<span id="cb50-438"><a href="#cb50-438" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-439"><a href="#cb50-439" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-440"><a href="#cb50-440" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
-<span id="cb50-441"><a href="#cb50-441" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-442"><a href="#cb50-442" aria-hidden="true" tabindex="-1"></a>We can control the width of the bars:</span>
-<span id="cb50-445"><a href="#cb50-445" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb50-446"><a href="#cb50-446" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Petal.Length)) <span class="sc">+</span> </span>
-<span id="cb50-447"><a href="#cb50-447" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">fill =</span> <span class="fu">adjustcolor</span>(<span class="st">"red2"</span>, <span class="at">alpha.f =</span> <span class="fl">0.3</span>))</span>
+<span id="cb50-428"><a href="#cb50-428" aria-hidden="true" tabindex="-1"></a>And compare the distribution of different groups within the same histogram:</span>
+<span id="cb50-431"><a href="#cb50-431" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb50-432"><a href="#cb50-432" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Petal.Length, <span class="at">fill =</span> Species)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.4</span>)</span>
+<span id="cb50-433"><a href="#cb50-433" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-434"><a href="#cb50-434" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-435"><a href="#cb50-435" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-436"><a href="#cb50-436" aria-hidden="true" tabindex="-1"></a><span class="fu">### Bar plots</span></span>
+<span id="cb50-437"><a href="#cb50-437" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-438"><a href="#cb50-438" aria-hidden="true" tabindex="-1"></a>Show the distribution of discrete (categorical) variables:</span>
+<span id="cb50-439"><a href="#cb50-439" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-442"><a href="#cb50-442" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb50-443"><a href="#cb50-443" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">table</span>(msleep<span class="sc">$</span>order)</span>
+<span id="cb50-444"><a href="#cb50-444" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-445"><a href="#cb50-445" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">table</span>(msleep<span class="sc">$</span>order[msleep<span class="sc">$</span>order <span class="sc">%in%</span> <span class="fu">names</span>(tab)[tab <span class="sc">&gt;</span> <span class="dv">3</span>]]))</span>
+<span id="cb50-446"><a href="#cb50-446" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-447"><a href="#cb50-447" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(Var1, Freq)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>)</span>
 <span id="cb50-448"><a href="#cb50-448" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb50-449"><a href="#cb50-449" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb50-450"><a href="#cb50-450" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
 <span id="cb50-451"><a href="#cb50-451" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-452"><a href="#cb50-452" aria-hidden="true" tabindex="-1"></a>And compare the distribution of different groups within the same histogram:</span>
-<span id="cb50-455"><a href="#cb50-455" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb50-456"><a href="#cb50-456" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Petal.Length, <span class="at">fill =</span> Species)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.4</span>)</span>
-<span id="cb50-457"><a href="#cb50-457" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-458"><a href="#cb50-458" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-459"><a href="#cb50-459" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
-<span id="cb50-460"><a href="#cb50-460" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-461"><a href="#cb50-461" aria-hidden="true" tabindex="-1"></a><span class="fu">### Bar plots</span></span>
-<span id="cb50-462"><a href="#cb50-462" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-463"><a href="#cb50-463" aria-hidden="true" tabindex="-1"></a>Show the distribution of discrete (categorical) variables:</span>
-<span id="cb50-464"><a href="#cb50-464" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-467"><a href="#cb50-467" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb50-468"><a href="#cb50-468" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">table</span>(msleep<span class="sc">$</span>order)</span>
-<span id="cb50-469"><a href="#cb50-469" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-470"><a href="#cb50-470" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">table</span>(msleep<span class="sc">$</span>order[msleep<span class="sc">$</span>order <span class="sc">%in%</span> <span class="fu">names</span>(tab)[tab <span class="sc">&gt;</span> <span class="dv">3</span>]]))</span>
-<span id="cb50-471"><a href="#cb50-471" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-472"><a href="#cb50-472" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(Var1, Freq)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>)</span>
-<span id="cb50-473"><a href="#cb50-473" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-474"><a href="#cb50-474" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-475"><a href="#cb50-475" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
-<span id="cb50-476"><a href="#cb50-476" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-477"><a href="#cb50-477" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-478"><a href="#cb50-478" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=F, echo=F}</span></span>
+<span id="cb50-452"><a href="#cb50-452" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-453"><a href="#cb50-453" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=F, echo=F}</span></span>
+<span id="cb50-454"><a href="#cb50-454" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-455"><a href="#cb50-455" aria-hidden="true" tabindex="-1"></a><span class="in"># Calcular el promedio del # de reclutas por estación</span></span>
+<span id="cb50-456"><a href="#cb50-456" aria-hidden="true" tabindex="-1"></a><span class="in">df2 &lt;- aggregate(RECRUITS ~ SEASON, df, mean)</span></span>
+<span id="cb50-457"><a href="#cb50-457" aria-hidden="true" tabindex="-1"></a><span class="in">names(df2) &lt;- c("season", "rec")  </span></span>
+<span id="cb50-458"><a href="#cb50-458" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-459"><a href="#cb50-459" aria-hidden="true" tabindex="-1"></a><span class="in"># Gráfico de barras</span></span>
+<span id="cb50-460"><a href="#cb50-460" aria-hidden="true" tabindex="-1"></a><span class="in">p &lt;- ggplot(df2, aes(season, rec)) +</span></span>
+<span id="cb50-461"><a href="#cb50-461" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_bar(stat="identity")</span></span>
+<span id="cb50-462"><a href="#cb50-462" aria-hidden="true" tabindex="-1"></a><span class="in">p</span></span>
+<span id="cb50-463"><a href="#cb50-463" aria-hidden="true" tabindex="-1"></a><span class="in">   </span></span>
+<span id="cb50-464"><a href="#cb50-464" aria-hidden="true" tabindex="-1"></a><span class="in"># Cambiar la orientación</span></span>
+<span id="cb50-465"><a href="#cb50-465" aria-hidden="true" tabindex="-1"></a><span class="in">p + coord_flip()</span></span>
+<span id="cb50-466"><a href="#cb50-466" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-467"><a href="#cb50-467" aria-hidden="true" tabindex="-1"></a><span class="in">### Cambiar el ancho y colores de las barras ###</span></span>
+<span id="cb50-468"><a href="#cb50-468" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-469"><a href="#cb50-469" aria-hidden="true" tabindex="-1"></a><span class="in"># Cambiar el ancho de las barras</span></span>
+<span id="cb50-470"><a href="#cb50-470" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(df2, aes(season, rec)) +</span></span>
+<span id="cb50-471"><a href="#cb50-471" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_bar(stat="identity", width = 0.5)</span></span>
+<span id="cb50-472"><a href="#cb50-472" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-473"><a href="#cb50-473" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(df2, aes(season, rec)) +</span></span>
+<span id="cb50-474"><a href="#cb50-474" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_bar(stat="identity", width = 0.2)</span></span>
+<span id="cb50-475"><a href="#cb50-475" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-476"><a href="#cb50-476" aria-hidden="true" tabindex="-1"></a><span class="in"># Cambiar colores</span></span>
+<span id="cb50-477"><a href="#cb50-477" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(df2, aes(season, rec)) +</span></span>
+<span id="cb50-478"><a href="#cb50-478" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_bar(stat="identity", color = "blue", fill="white")</span></span>
 <span id="cb50-479"><a href="#cb50-479" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-480"><a href="#cb50-480" aria-hidden="true" tabindex="-1"></a><span class="in"># Calcular el promedio del # de reclutas por estación</span></span>
-<span id="cb50-481"><a href="#cb50-481" aria-hidden="true" tabindex="-1"></a><span class="in">df2 &lt;- aggregate(RECRUITS ~ SEASON, df, mean)</span></span>
-<span id="cb50-482"><a href="#cb50-482" aria-hidden="true" tabindex="-1"></a><span class="in">names(df2) &lt;- c("season", "rec")  </span></span>
-<span id="cb50-483"><a href="#cb50-483" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-484"><a href="#cb50-484" aria-hidden="true" tabindex="-1"></a><span class="in"># Gráfico de barras</span></span>
-<span id="cb50-485"><a href="#cb50-485" aria-hidden="true" tabindex="-1"></a><span class="in">p &lt;- ggplot(df2, aes(season, rec)) +</span></span>
-<span id="cb50-486"><a href="#cb50-486" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_bar(stat="identity")</span></span>
-<span id="cb50-487"><a href="#cb50-487" aria-hidden="true" tabindex="-1"></a><span class="in">p</span></span>
-<span id="cb50-488"><a href="#cb50-488" aria-hidden="true" tabindex="-1"></a><span class="in">   </span></span>
-<span id="cb50-489"><a href="#cb50-489" aria-hidden="true" tabindex="-1"></a><span class="in"># Cambiar la orientación</span></span>
-<span id="cb50-490"><a href="#cb50-490" aria-hidden="true" tabindex="-1"></a><span class="in">p + coord_flip()</span></span>
+<span id="cb50-480"><a href="#cb50-480" aria-hidden="true" tabindex="-1"></a><span class="in"># Remover el tema y agregar barras azules</span></span>
+<span id="cb50-481"><a href="#cb50-481" aria-hidden="true" tabindex="-1"></a><span class="in">p &lt;- ggplot(df2, aes(season, rec)) +</span></span>
+<span id="cb50-482"><a href="#cb50-482" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_bar(stat="identity", fill="steelblue") + theme_minimal()</span></span>
+<span id="cb50-483"><a href="#cb50-483" aria-hidden="true" tabindex="-1"></a><span class="in">p</span></span>
+<span id="cb50-484"><a href="#cb50-484" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-485"><a href="#cb50-485" aria-hidden="true" tabindex="-1"></a><span class="in"># Escoger que barras mostrar</span></span>
+<span id="cb50-486"><a href="#cb50-486" aria-hidden="true" tabindex="-1"></a><span class="in">p + scale_x_discrete(limits = c("Spring", "Winter"))</span></span>
+<span id="cb50-487"><a href="#cb50-487" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-488"><a href="#cb50-488" aria-hidden="true" tabindex="-1"></a><span class="in">### Agregar anotaciones ###</span></span>
+<span id="cb50-489"><a href="#cb50-489" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-490"><a href="#cb50-490" aria-hidden="true" tabindex="-1"></a><span class="in">df2$rec &lt;- round(df2$rec, 1)</span></span>
 <span id="cb50-491"><a href="#cb50-491" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-492"><a href="#cb50-492" aria-hidden="true" tabindex="-1"></a><span class="in">### Cambiar el ancho y colores de las barras ###</span></span>
-<span id="cb50-493"><a href="#cb50-493" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-494"><a href="#cb50-494" aria-hidden="true" tabindex="-1"></a><span class="in"># Cambiar el ancho de las barras</span></span>
-<span id="cb50-495"><a href="#cb50-495" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(df2, aes(season, rec)) +</span></span>
-<span id="cb50-496"><a href="#cb50-496" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_bar(stat="identity", width = 0.5)</span></span>
+<span id="cb50-492"><a href="#cb50-492" aria-hidden="true" tabindex="-1"></a><span class="in"># Fuera de las barras</span></span>
+<span id="cb50-493"><a href="#cb50-493" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(df2, aes(season, rec)) +</span></span>
+<span id="cb50-494"><a href="#cb50-494" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_bar(stat = "identity", fill = "steelblue") +</span></span>
+<span id="cb50-495"><a href="#cb50-495" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_text(aes(label = rec), vjust = -0.3, size = 3.5) +</span></span>
+<span id="cb50-496"><a href="#cb50-496" aria-hidden="true" tabindex="-1"></a><span class="in">  theme_minimal()</span></span>
 <span id="cb50-497"><a href="#cb50-497" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-498"><a href="#cb50-498" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(df2, aes(season, rec)) +</span></span>
-<span id="cb50-499"><a href="#cb50-499" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_bar(stat="identity", width = 0.2)</span></span>
-<span id="cb50-500"><a href="#cb50-500" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-501"><a href="#cb50-501" aria-hidden="true" tabindex="-1"></a><span class="in"># Cambiar colores</span></span>
-<span id="cb50-502"><a href="#cb50-502" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(df2, aes(season, rec)) +</span></span>
-<span id="cb50-503"><a href="#cb50-503" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_bar(stat="identity", color = "blue", fill="white")</span></span>
-<span id="cb50-504"><a href="#cb50-504" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-505"><a href="#cb50-505" aria-hidden="true" tabindex="-1"></a><span class="in"># Remover el tema y agregar barras azules</span></span>
-<span id="cb50-506"><a href="#cb50-506" aria-hidden="true" tabindex="-1"></a><span class="in">p &lt;- ggplot(df2, aes(season, rec)) +</span></span>
-<span id="cb50-507"><a href="#cb50-507" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_bar(stat="identity", fill="steelblue") + theme_minimal()</span></span>
-<span id="cb50-508"><a href="#cb50-508" aria-hidden="true" tabindex="-1"></a><span class="in">p</span></span>
-<span id="cb50-509"><a href="#cb50-509" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-510"><a href="#cb50-510" aria-hidden="true" tabindex="-1"></a><span class="in"># Escoger que barras mostrar</span></span>
-<span id="cb50-511"><a href="#cb50-511" aria-hidden="true" tabindex="-1"></a><span class="in">p + scale_x_discrete(limits = c("Spring", "Winter"))</span></span>
+<span id="cb50-498"><a href="#cb50-498" aria-hidden="true" tabindex="-1"></a><span class="in"># Dentro de las barras</span></span>
+<span id="cb50-499"><a href="#cb50-499" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(df2, aes(season, rec)) +</span></span>
+<span id="cb50-500"><a href="#cb50-500" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_bar(stat = "identity", fill = "yellow") +</span></span>
+<span id="cb50-501"><a href="#cb50-501" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_text(aes(label = rec), vjust = 1.6, size = 3.5) +</span></span>
+<span id="cb50-502"><a href="#cb50-502" aria-hidden="true" tabindex="-1"></a><span class="in">  theme_minimal()</span></span>
+<span id="cb50-503"><a href="#cb50-503" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-504"><a href="#cb50-504" aria-hidden="true" tabindex="-1"></a><span class="in">### Cambiar colores de barras por grupo ###</span></span>
+<span id="cb50-505"><a href="#cb50-505" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-506"><a href="#cb50-506" aria-hidden="true" tabindex="-1"></a><span class="in"># Cambiar el color de las líneas externas por grupo</span></span>
+<span id="cb50-507"><a href="#cb50-507" aria-hidden="true" tabindex="-1"></a><span class="in">p &lt;- ggplot(df2, aes(season, rec, color = season)) +</span></span>
+<span id="cb50-508"><a href="#cb50-508" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_bar(stat = "identity", fill = "white")</span></span>
+<span id="cb50-509"><a href="#cb50-509" aria-hidden="true" tabindex="-1"></a><span class="in">p</span></span>
+<span id="cb50-510"><a href="#cb50-510" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-511"><a href="#cb50-511" aria-hidden="true" tabindex="-1"></a><span class="in">### Cambiar el color manualmente ###</span></span>
 <span id="cb50-512"><a href="#cb50-512" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-513"><a href="#cb50-513" aria-hidden="true" tabindex="-1"></a><span class="in">### Agregar anotaciones ###</span></span>
-<span id="cb50-514"><a href="#cb50-514" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-515"><a href="#cb50-515" aria-hidden="true" tabindex="-1"></a><span class="in">df2$rec &lt;- round(df2$rec, 1)</span></span>
-<span id="cb50-516"><a href="#cb50-516" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-517"><a href="#cb50-517" aria-hidden="true" tabindex="-1"></a><span class="in"># Fuera de las barras</span></span>
-<span id="cb50-518"><a href="#cb50-518" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(df2, aes(season, rec)) +</span></span>
-<span id="cb50-519"><a href="#cb50-519" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_bar(stat = "identity", fill = "steelblue") +</span></span>
-<span id="cb50-520"><a href="#cb50-520" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_text(aes(label = rec), vjust = -0.3, size = 3.5) +</span></span>
-<span id="cb50-521"><a href="#cb50-521" aria-hidden="true" tabindex="-1"></a><span class="in">  theme_minimal()</span></span>
-<span id="cb50-522"><a href="#cb50-522" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-523"><a href="#cb50-523" aria-hidden="true" tabindex="-1"></a><span class="in"># Dentro de las barras</span></span>
-<span id="cb50-524"><a href="#cb50-524" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(df2, aes(season, rec)) +</span></span>
-<span id="cb50-525"><a href="#cb50-525" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_bar(stat = "identity", fill = "yellow") +</span></span>
-<span id="cb50-526"><a href="#cb50-526" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_text(aes(label = rec), vjust = 1.6, size = 3.5) +</span></span>
-<span id="cb50-527"><a href="#cb50-527" aria-hidden="true" tabindex="-1"></a><span class="in">  theme_minimal()</span></span>
-<span id="cb50-528"><a href="#cb50-528" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-529"><a href="#cb50-529" aria-hidden="true" tabindex="-1"></a><span class="in">### Cambiar colores de barras por grupo ###</span></span>
+<span id="cb50-513"><a href="#cb50-513" aria-hidden="true" tabindex="-1"></a><span class="in"># Usar "palette" predefinido de colores</span></span>
+<span id="cb50-514"><a href="#cb50-514" aria-hidden="true" tabindex="-1"></a><span class="in">p + scale_color_manual(values = c("red", "blue", "green", "yellow"))</span></span>
+<span id="cb50-515"><a href="#cb50-515" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-516"><a href="#cb50-516" aria-hidden="true" tabindex="-1"></a><span class="in"># Usar "palette brewer"</span></span>
+<span id="cb50-517"><a href="#cb50-517" aria-hidden="true" tabindex="-1"></a><span class="in">p + scale_color_brewer(palette = "Dark2")</span></span>
+<span id="cb50-518"><a href="#cb50-518" aria-hidden="true" tabindex="-1"></a><span class="in">p + scale_color_brewer(palette = 1)</span></span>
+<span id="cb50-519"><a href="#cb50-519" aria-hidden="true" tabindex="-1"></a><span class="in">p + scale_color_brewer(palette = 2)</span></span>
+<span id="cb50-520"><a href="#cb50-520" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-521"><a href="#cb50-521" aria-hidden="true" tabindex="-1"></a><span class="in"># Usar escala de grises</span></span>
+<span id="cb50-522"><a href="#cb50-522" aria-hidden="true" tabindex="-1"></a><span class="in">p + scale_color_grey() + theme_classic()</span></span>
+<span id="cb50-523"><a href="#cb50-523" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-524"><a href="#cb50-524" aria-hidden="true" tabindex="-1"></a><span class="in">### Cambiar colores de relleno de las barras ###</span></span>
+<span id="cb50-525"><a href="#cb50-525" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-526"><a href="#cb50-526" aria-hidden="true" tabindex="-1"></a><span class="in"># Color de relleno</span></span>
+<span id="cb50-527"><a href="#cb50-527" aria-hidden="true" tabindex="-1"></a><span class="in">p &lt;- ggplot(df2, aes(season, rec, fill = season)) +</span></span>
+<span id="cb50-528"><a href="#cb50-528" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_bar(stat = "identity") + theme_minimal()</span></span>
+<span id="cb50-529"><a href="#cb50-529" aria-hidden="true" tabindex="-1"></a><span class="in">p</span></span>
 <span id="cb50-530"><a href="#cb50-530" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-531"><a href="#cb50-531" aria-hidden="true" tabindex="-1"></a><span class="in"># Cambiar el color de las líneas externas por grupo</span></span>
-<span id="cb50-532"><a href="#cb50-532" aria-hidden="true" tabindex="-1"></a><span class="in">p &lt;- ggplot(df2, aes(season, rec, color = season)) +</span></span>
-<span id="cb50-533"><a href="#cb50-533" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_bar(stat = "identity", fill = "white")</span></span>
-<span id="cb50-534"><a href="#cb50-534" aria-hidden="true" tabindex="-1"></a><span class="in">p</span></span>
+<span id="cb50-531"><a href="#cb50-531" aria-hidden="true" tabindex="-1"></a><span class="in">### Cambiar el color de relleno manualmente ###</span></span>
+<span id="cb50-532"><a href="#cb50-532" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-533"><a href="#cb50-533" aria-hidden="true" tabindex="-1"></a><span class="in"># Usar "palette" predefinido de colores</span></span>
+<span id="cb50-534"><a href="#cb50-534" aria-hidden="true" tabindex="-1"></a><span class="in">p + scale_fill_manual(values = c("red", "blue", "green", "yellow"))</span></span>
 <span id="cb50-535"><a href="#cb50-535" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-536"><a href="#cb50-536" aria-hidden="true" tabindex="-1"></a><span class="in">### Cambiar el color manualmente ###</span></span>
-<span id="cb50-537"><a href="#cb50-537" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-538"><a href="#cb50-538" aria-hidden="true" tabindex="-1"></a><span class="in"># Usar "palette" predefinido de colores</span></span>
-<span id="cb50-539"><a href="#cb50-539" aria-hidden="true" tabindex="-1"></a><span class="in">p + scale_color_manual(values = c("red", "blue", "green", "yellow"))</span></span>
+<span id="cb50-536"><a href="#cb50-536" aria-hidden="true" tabindex="-1"></a><span class="in"># Usar "palette brewer"</span></span>
+<span id="cb50-537"><a href="#cb50-537" aria-hidden="true" tabindex="-1"></a><span class="in">p + scale_fill_brewer(palette = "Dark2")</span></span>
+<span id="cb50-538"><a href="#cb50-538" aria-hidden="true" tabindex="-1"></a><span class="in">p + scale_fill_brewer(palette = 1)</span></span>
+<span id="cb50-539"><a href="#cb50-539" aria-hidden="true" tabindex="-1"></a><span class="in">p + scale_fill_brewer(palette = 2)</span></span>
 <span id="cb50-540"><a href="#cb50-540" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-541"><a href="#cb50-541" aria-hidden="true" tabindex="-1"></a><span class="in"># Usar "palette brewer"</span></span>
-<span id="cb50-542"><a href="#cb50-542" aria-hidden="true" tabindex="-1"></a><span class="in">p + scale_color_brewer(palette = "Dark2")</span></span>
-<span id="cb50-543"><a href="#cb50-543" aria-hidden="true" tabindex="-1"></a><span class="in">p + scale_color_brewer(palette = 1)</span></span>
-<span id="cb50-544"><a href="#cb50-544" aria-hidden="true" tabindex="-1"></a><span class="in">p + scale_color_brewer(palette = 2)</span></span>
-<span id="cb50-545"><a href="#cb50-545" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-546"><a href="#cb50-546" aria-hidden="true" tabindex="-1"></a><span class="in"># Usar escala de grises</span></span>
-<span id="cb50-547"><a href="#cb50-547" aria-hidden="true" tabindex="-1"></a><span class="in">p + scale_color_grey() + theme_classic()</span></span>
-<span id="cb50-548"><a href="#cb50-548" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-549"><a href="#cb50-549" aria-hidden="true" tabindex="-1"></a><span class="in">### Cambiar colores de relleno de las barras ###</span></span>
-<span id="cb50-550"><a href="#cb50-550" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-551"><a href="#cb50-551" aria-hidden="true" tabindex="-1"></a><span class="in"># Color de relleno</span></span>
-<span id="cb50-552"><a href="#cb50-552" aria-hidden="true" tabindex="-1"></a><span class="in">p &lt;- ggplot(df2, aes(season, rec, fill = season)) +</span></span>
-<span id="cb50-553"><a href="#cb50-553" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_bar(stat = "identity") + theme_minimal()</span></span>
-<span id="cb50-554"><a href="#cb50-554" aria-hidden="true" tabindex="-1"></a><span class="in">p</span></span>
+<span id="cb50-541"><a href="#cb50-541" aria-hidden="true" tabindex="-1"></a><span class="in"># Usar escala de grises</span></span>
+<span id="cb50-542"><a href="#cb50-542" aria-hidden="true" tabindex="-1"></a><span class="in">p + scale_fill_grey() + theme_classic()</span></span>
+<span id="cb50-543"><a href="#cb50-543" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-544"><a href="#cb50-544" aria-hidden="true" tabindex="-1"></a><span class="in"># Usar color negro del borde y relleno</span></span>
+<span id="cb50-545"><a href="#cb50-545" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(df2, aes(season, rec, fill = season)) +</span></span>
+<span id="cb50-546"><a href="#cb50-546" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_bar(stat = "identity", color = "black") + </span></span>
+<span id="cb50-547"><a href="#cb50-547" aria-hidden="true" tabindex="-1"></a><span class="in">  scale_fill_manual(values = c("red", "blue", "green", "yellow")) +</span></span>
+<span id="cb50-548"><a href="#cb50-548" aria-hidden="true" tabindex="-1"></a><span class="in">  theme_classic()</span></span>
+<span id="cb50-549"><a href="#cb50-549" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-550"><a href="#cb50-550" aria-hidden="true" tabindex="-1"></a><span class="in">### Cambiar la posición de la leyenda ###</span></span>
+<span id="cb50-551"><a href="#cb50-551" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-552"><a href="#cb50-552" aria-hidden="true" tabindex="-1"></a><span class="in"># Cambiar el color de las barras a tonos de azúl</span></span>
+<span id="cb50-553"><a href="#cb50-553" aria-hidden="true" tabindex="-1"></a><span class="in">p &lt;- ggplot(df2, aes(season, rec, fill = season)) +</span></span>
+<span id="cb50-554"><a href="#cb50-554" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_bar(stat = "identity") + theme_minimal()</span></span>
 <span id="cb50-555"><a href="#cb50-555" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-556"><a href="#cb50-556" aria-hidden="true" tabindex="-1"></a><span class="in">### Cambiar el color de relleno manualmente ###</span></span>
-<span id="cb50-557"><a href="#cb50-557" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-558"><a href="#cb50-558" aria-hidden="true" tabindex="-1"></a><span class="in"># Usar "palette" predefinido de colores</span></span>
-<span id="cb50-559"><a href="#cb50-559" aria-hidden="true" tabindex="-1"></a><span class="in">p + scale_fill_manual(values = c("red", "blue", "green", "yellow"))</span></span>
-<span id="cb50-560"><a href="#cb50-560" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-561"><a href="#cb50-561" aria-hidden="true" tabindex="-1"></a><span class="in"># Usar "palette brewer"</span></span>
-<span id="cb50-562"><a href="#cb50-562" aria-hidden="true" tabindex="-1"></a><span class="in">p + scale_fill_brewer(palette = "Dark2")</span></span>
-<span id="cb50-563"><a href="#cb50-563" aria-hidden="true" tabindex="-1"></a><span class="in">p + scale_fill_brewer(palette = 1)</span></span>
-<span id="cb50-564"><a href="#cb50-564" aria-hidden="true" tabindex="-1"></a><span class="in">p + scale_fill_brewer(palette = 2)</span></span>
-<span id="cb50-565"><a href="#cb50-565" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-566"><a href="#cb50-566" aria-hidden="true" tabindex="-1"></a><span class="in"># Usar escala de grises</span></span>
-<span id="cb50-567"><a href="#cb50-567" aria-hidden="true" tabindex="-1"></a><span class="in">p + scale_fill_grey() + theme_classic()</span></span>
-<span id="cb50-568"><a href="#cb50-568" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-569"><a href="#cb50-569" aria-hidden="true" tabindex="-1"></a><span class="in"># Usar color negro del borde y relleno</span></span>
-<span id="cb50-570"><a href="#cb50-570" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(df2, aes(season, rec, fill = season)) +</span></span>
-<span id="cb50-571"><a href="#cb50-571" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_bar(stat = "identity", color = "black") + </span></span>
-<span id="cb50-572"><a href="#cb50-572" aria-hidden="true" tabindex="-1"></a><span class="in">  scale_fill_manual(values = c("red", "blue", "green", "yellow")) +</span></span>
-<span id="cb50-573"><a href="#cb50-573" aria-hidden="true" tabindex="-1"></a><span class="in">  theme_classic()</span></span>
-<span id="cb50-574"><a href="#cb50-574" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-575"><a href="#cb50-575" aria-hidden="true" tabindex="-1"></a><span class="in">### Cambiar la posición de la leyenda ###</span></span>
-<span id="cb50-576"><a href="#cb50-576" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-577"><a href="#cb50-577" aria-hidden="true" tabindex="-1"></a><span class="in"># Cambiar el color de las barras a tonos de azúl</span></span>
-<span id="cb50-578"><a href="#cb50-578" aria-hidden="true" tabindex="-1"></a><span class="in">p &lt;- ggplot(df2, aes(season, rec, fill = season)) +</span></span>
-<span id="cb50-579"><a href="#cb50-579" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_bar(stat = "identity") + theme_minimal()</span></span>
-<span id="cb50-580"><a href="#cb50-580" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-581"><a href="#cb50-581" aria-hidden="true" tabindex="-1"></a><span class="in">p1 &lt;- p + scale_fill_brewer(palette = "Blues")</span></span>
-<span id="cb50-582"><a href="#cb50-582" aria-hidden="true" tabindex="-1"></a><span class="in">p1 + theme(legend.position = "top")</span></span>
-<span id="cb50-583"><a href="#cb50-583" aria-hidden="true" tabindex="-1"></a><span class="in">p1 + theme(legend.position = "bottom")</span></span>
+<span id="cb50-556"><a href="#cb50-556" aria-hidden="true" tabindex="-1"></a><span class="in">p1 &lt;- p + scale_fill_brewer(palette = "Blues")</span></span>
+<span id="cb50-557"><a href="#cb50-557" aria-hidden="true" tabindex="-1"></a><span class="in">p1 + theme(legend.position = "top")</span></span>
+<span id="cb50-558"><a href="#cb50-558" aria-hidden="true" tabindex="-1"></a><span class="in">p1 + theme(legend.position = "bottom")</span></span>
+<span id="cb50-559"><a href="#cb50-559" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-560"><a href="#cb50-560" aria-hidden="true" tabindex="-1"></a><span class="in"># Remover la leyenda</span></span>
+<span id="cb50-561"><a href="#cb50-561" aria-hidden="true" tabindex="-1"></a><span class="in">p1 + theme(legend.position = "none") </span></span>
+<span id="cb50-562"><a href="#cb50-562" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-563"><a href="#cb50-563" aria-hidden="true" tabindex="-1"></a><span class="in">### Cambiar el órden de los items en una leyenda ###</span></span>
+<span id="cb50-564"><a href="#cb50-564" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-565"><a href="#cb50-565" aria-hidden="true" tabindex="-1"></a><span class="in"># Cambiar órden de grupos</span></span>
+<span id="cb50-566"><a href="#cb50-566" aria-hidden="true" tabindex="-1"></a><span class="in">p1 + scale_x_discrete(limits = c("Summer", "Autumn", "Winter", "Spring"))</span></span>
+<span id="cb50-567"><a href="#cb50-567" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-568"><a href="#cb50-568" aria-hidden="true" tabindex="-1"></a><span class="in">### Editar aún más los elementos de la leyenda ###</span></span>
+<span id="cb50-569"><a href="#cb50-569" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-570"><a href="#cb50-570" aria-hidden="true" tabindex="-1"></a><span class="in"># Cambiar el título de la leyenda y la fuente</span></span>
+<span id="cb50-571"><a href="#cb50-571" aria-hidden="true" tabindex="-1"></a><span class="in">p1 &lt;- ggplot(df2, aes(season, rec, fill = season)) +</span></span>
+<span id="cb50-572"><a href="#cb50-572" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_bar(stat = "identity", color = "black")</span></span>
+<span id="cb50-573"><a href="#cb50-573" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-574"><a href="#cb50-574" aria-hidden="true" tabindex="-1"></a><span class="in">titulo &lt;- "Estación"</span></span>
+<span id="cb50-575"><a href="#cb50-575" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-576"><a href="#cb50-576" aria-hidden="true" tabindex="-1"></a><span class="in">p2 &lt;- p1 + scale_fill_manual(titulo, values = c("red", "blue", "green", "yellow")) +</span></span>
+<span id="cb50-577"><a href="#cb50-577" aria-hidden="true" tabindex="-1"></a><span class="in">  theme_classic()</span></span>
+<span id="cb50-578"><a href="#cb50-578" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-579"><a href="#cb50-579" aria-hidden="true" tabindex="-1"></a><span class="in">p2 + theme(legend.title = element_text(colour = "blue", size = 10,</span></span>
+<span id="cb50-580"><a href="#cb50-580" aria-hidden="true" tabindex="-1"></a><span class="in">                                       face = "bold"))</span></span>
+<span id="cb50-581"><a href="#cb50-581" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-582"><a href="#cb50-582" aria-hidden="true" tabindex="-1"></a><span class="in">p2 + theme(legend.text = element_text(colour = "blue", size = 10,</span></span>
+<span id="cb50-583"><a href="#cb50-583" aria-hidden="true" tabindex="-1"></a><span class="in">                                       face = "bold"))</span></span>
 <span id="cb50-584"><a href="#cb50-584" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-585"><a href="#cb50-585" aria-hidden="true" tabindex="-1"></a><span class="in"># Remover la leyenda</span></span>
-<span id="cb50-586"><a href="#cb50-586" aria-hidden="true" tabindex="-1"></a><span class="in">p1 + theme(legend.position = "none") </span></span>
-<span id="cb50-587"><a href="#cb50-587" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-588"><a href="#cb50-588" aria-hidden="true" tabindex="-1"></a><span class="in">### Cambiar el órden de los items en una leyenda ###</span></span>
-<span id="cb50-589"><a href="#cb50-589" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-590"><a href="#cb50-590" aria-hidden="true" tabindex="-1"></a><span class="in"># Cambiar órden de grupos</span></span>
-<span id="cb50-591"><a href="#cb50-591" aria-hidden="true" tabindex="-1"></a><span class="in">p1 + scale_x_discrete(limits = c("Summer", "Autumn", "Winter", "Spring"))</span></span>
-<span id="cb50-592"><a href="#cb50-592" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-593"><a href="#cb50-593" aria-hidden="true" tabindex="-1"></a><span class="in">### Editar aún más los elementos de la leyenda ###</span></span>
+<span id="cb50-585"><a href="#cb50-585" aria-hidden="true" tabindex="-1"></a><span class="in"># Cambiar el color del fondo de la leyenda</span></span>
+<span id="cb50-586"><a href="#cb50-586" aria-hidden="true" tabindex="-1"></a><span class="in">p2 + theme(legend.background = element_rect(fill = "lightblue",</span></span>
+<span id="cb50-587"><a href="#cb50-587" aria-hidden="true" tabindex="-1"></a><span class="in">                                            size = 0.5, linetype = "solid"))</span></span>
+<span id="cb50-588"><a href="#cb50-588" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-589"><a href="#cb50-589" aria-hidden="true" tabindex="-1"></a><span class="in">p2 + theme(legend.background = element_rect(fill = "lightblue",</span></span>
+<span id="cb50-590"><a href="#cb50-590" aria-hidden="true" tabindex="-1"></a><span class="in">                                            size = 0.5, linetype = "solid"))</span></span>
+<span id="cb50-591"><a href="#cb50-591" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-592"><a href="#cb50-592" aria-hidden="true" tabindex="-1"></a><span class="in">### Gráfico de barras con múltiples grupos ###</span></span>
+<span id="cb50-593"><a href="#cb50-593" aria-hidden="true" tabindex="-1"></a><span class="in">head(df)</span></span>
 <span id="cb50-594"><a href="#cb50-594" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-595"><a href="#cb50-595" aria-hidden="true" tabindex="-1"></a><span class="in"># Cambiar el título de la leyenda y la fuente</span></span>
-<span id="cb50-596"><a href="#cb50-596" aria-hidden="true" tabindex="-1"></a><span class="in">p1 &lt;- ggplot(df2, aes(season, rec, fill = season)) +</span></span>
-<span id="cb50-597"><a href="#cb50-597" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_bar(stat = "identity", color = "black")</span></span>
-<span id="cb50-598"><a href="#cb50-598" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-599"><a href="#cb50-599" aria-hidden="true" tabindex="-1"></a><span class="in">titulo &lt;- "Estación"</span></span>
-<span id="cb50-600"><a href="#cb50-600" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-601"><a href="#cb50-601" aria-hidden="true" tabindex="-1"></a><span class="in">p2 &lt;- p1 + scale_fill_manual(titulo, values = c("red", "blue", "green", "yellow")) +</span></span>
-<span id="cb50-602"><a href="#cb50-602" aria-hidden="true" tabindex="-1"></a><span class="in">  theme_classic()</span></span>
-<span id="cb50-603"><a href="#cb50-603" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-604"><a href="#cb50-604" aria-hidden="true" tabindex="-1"></a><span class="in">p2 + theme(legend.title = element_text(colour = "blue", size = 10,</span></span>
-<span id="cb50-605"><a href="#cb50-605" aria-hidden="true" tabindex="-1"></a><span class="in">                                       face = "bold"))</span></span>
-<span id="cb50-606"><a href="#cb50-606" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-607"><a href="#cb50-607" aria-hidden="true" tabindex="-1"></a><span class="in">p2 + theme(legend.text = element_text(colour = "blue", size = 10,</span></span>
-<span id="cb50-608"><a href="#cb50-608" aria-hidden="true" tabindex="-1"></a><span class="in">                                       face = "bold"))</span></span>
-<span id="cb50-609"><a href="#cb50-609" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-610"><a href="#cb50-610" aria-hidden="true" tabindex="-1"></a><span class="in"># Cambiar el color del fondo de la leyenda</span></span>
-<span id="cb50-611"><a href="#cb50-611" aria-hidden="true" tabindex="-1"></a><span class="in">p2 + theme(legend.background = element_rect(fill = "lightblue",</span></span>
-<span id="cb50-612"><a href="#cb50-612" aria-hidden="true" tabindex="-1"></a><span class="in">                                            size = 0.5, linetype = "solid"))</span></span>
-<span id="cb50-613"><a href="#cb50-613" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-614"><a href="#cb50-614" aria-hidden="true" tabindex="-1"></a><span class="in">p2 + theme(legend.background = element_rect(fill = "lightblue",</span></span>
-<span id="cb50-615"><a href="#cb50-615" aria-hidden="true" tabindex="-1"></a><span class="in">                                            size = 0.5, linetype = "solid"))</span></span>
-<span id="cb50-616"><a href="#cb50-616" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-617"><a href="#cb50-617" aria-hidden="true" tabindex="-1"></a><span class="in">### Gráfico de barras con múltiples grupos ###</span></span>
-<span id="cb50-618"><a href="#cb50-618" aria-hidden="true" tabindex="-1"></a><span class="in">head(df)</span></span>
-<span id="cb50-619"><a href="#cb50-619" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-620"><a href="#cb50-620" aria-hidden="true" tabindex="-1"></a><span class="in">df.n &lt;- aggregate(RECRUITS ~ SEASON + DENSITY, df, mean)</span></span>
-<span id="cb50-621"><a href="#cb50-621" aria-hidden="true" tabindex="-1"></a><span class="in">names(df.n) &lt;- c("season", "density", "rec")</span></span>
-<span id="cb50-622"><a href="#cb50-622" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-623"><a href="#cb50-623" aria-hidden="true" tabindex="-1"></a><span class="in"># Gráfico 1</span></span>
-<span id="cb50-624"><a href="#cb50-624" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(df.n, aes(season, rec, fill = density)) +</span></span>
-<span id="cb50-625"><a href="#cb50-625" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_bar(stat="identity")</span></span>
+<span id="cb50-595"><a href="#cb50-595" aria-hidden="true" tabindex="-1"></a><span class="in">df.n &lt;- aggregate(RECRUITS ~ SEASON + DENSITY, df, mean)</span></span>
+<span id="cb50-596"><a href="#cb50-596" aria-hidden="true" tabindex="-1"></a><span class="in">names(df.n) &lt;- c("season", "density", "rec")</span></span>
+<span id="cb50-597"><a href="#cb50-597" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-598"><a href="#cb50-598" aria-hidden="true" tabindex="-1"></a><span class="in"># Gráfico 1</span></span>
+<span id="cb50-599"><a href="#cb50-599" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(df.n, aes(season, rec, fill = density)) +</span></span>
+<span id="cb50-600"><a href="#cb50-600" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_bar(stat="identity")</span></span>
+<span id="cb50-601"><a href="#cb50-601" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-602"><a href="#cb50-602" aria-hidden="true" tabindex="-1"></a><span class="in"># Gráfico 2</span></span>
+<span id="cb50-603"><a href="#cb50-603" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(df.n, aes(season, rec, fill = density)) +</span></span>
+<span id="cb50-604"><a href="#cb50-604" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_bar(stat="identity", position=position_dodge())</span></span>
+<span id="cb50-605"><a href="#cb50-605" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-606"><a href="#cb50-606" aria-hidden="true" tabindex="-1"></a><span class="in"># Cambiar el color manualmente</span></span>
+<span id="cb50-607"><a href="#cb50-607" aria-hidden="true" tabindex="-1"></a><span class="in">p &lt;- ggplot(df.n, aes(season, rec, fill = density)) +</span></span>
+<span id="cb50-608"><a href="#cb50-608" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_bar(stat="identity", color = "black", position=position_dodge()) +</span></span>
+<span id="cb50-609"><a href="#cb50-609" aria-hidden="true" tabindex="-1"></a><span class="in">  theme_minimal()</span></span>
+<span id="cb50-610"><a href="#cb50-610" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-611"><a href="#cb50-611" aria-hidden="true" tabindex="-1"></a><span class="in">p + theme_classic()</span></span>
+<span id="cb50-612"><a href="#cb50-612" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-613"><a href="#cb50-613" aria-hidden="true" tabindex="-1"></a><span class="in"># Colores manuales</span></span>
+<span id="cb50-614"><a href="#cb50-614" aria-hidden="true" tabindex="-1"></a><span class="in">p + scale_fill_manual(values = c('#999999','#E69F00')) + theme_classic()</span></span>
+<span id="cb50-615"><a href="#cb50-615" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-616"><a href="#cb50-616" aria-hidden="true" tabindex="-1"></a><span class="in"># Palette de colores</span></span>
+<span id="cb50-617"><a href="#cb50-617" aria-hidden="true" tabindex="-1"></a><span class="in">p + scale_fill_brewer(palette = "Blues") + theme_classic()</span></span>
+<span id="cb50-618"><a href="#cb50-618" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-619"><a href="#cb50-619" aria-hidden="true" tabindex="-1"></a><span class="in">### Gráficos de barras con error ###</span></span>
+<span id="cb50-620"><a href="#cb50-620" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-621"><a href="#cb50-621" aria-hidden="true" tabindex="-1"></a><span class="in"># Calcular promedio +/- SD</span></span>
+<span id="cb50-622"><a href="#cb50-622" aria-hidden="true" tabindex="-1"></a><span class="in">head(df)</span></span>
+<span id="cb50-623"><a href="#cb50-623" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-624"><a href="#cb50-624" aria-hidden="true" tabindex="-1"></a><span class="in">df3 &lt;- aggregate(RECRUITS ~ SEASON + DENSITY, df, FUN = function(x) c(mean = mean(x), sd = sd(x)))</span></span>
+<span id="cb50-625"><a href="#cb50-625" aria-hidden="true" tabindex="-1"></a><span class="in">df4 &lt;- cbind(data.frame(df3[,c(1:2)]), df3$RECRUITS[,1], df3$RECRUITS[,2])</span></span>
 <span id="cb50-626"><a href="#cb50-626" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-627"><a href="#cb50-627" aria-hidden="true" tabindex="-1"></a><span class="in"># Gráfico 2</span></span>
-<span id="cb50-628"><a href="#cb50-628" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(df.n, aes(season, rec, fill = density)) +</span></span>
-<span id="cb50-629"><a href="#cb50-629" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_bar(stat="identity", position=position_dodge())</span></span>
-<span id="cb50-630"><a href="#cb50-630" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-631"><a href="#cb50-631" aria-hidden="true" tabindex="-1"></a><span class="in"># Cambiar el color manualmente</span></span>
-<span id="cb50-632"><a href="#cb50-632" aria-hidden="true" tabindex="-1"></a><span class="in">p &lt;- ggplot(df.n, aes(season, rec, fill = density)) +</span></span>
-<span id="cb50-633"><a href="#cb50-633" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_bar(stat="identity", color = "black", position=position_dodge()) +</span></span>
-<span id="cb50-634"><a href="#cb50-634" aria-hidden="true" tabindex="-1"></a><span class="in">  theme_minimal()</span></span>
-<span id="cb50-635"><a href="#cb50-635" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-636"><a href="#cb50-636" aria-hidden="true" tabindex="-1"></a><span class="in">p + theme_classic()</span></span>
-<span id="cb50-637"><a href="#cb50-637" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-638"><a href="#cb50-638" aria-hidden="true" tabindex="-1"></a><span class="in"># Colores manuales</span></span>
-<span id="cb50-639"><a href="#cb50-639" aria-hidden="true" tabindex="-1"></a><span class="in">p + scale_fill_manual(values = c('#999999','#E69F00')) + theme_classic()</span></span>
+<span id="cb50-627"><a href="#cb50-627" aria-hidden="true" tabindex="-1"></a><span class="in">names(df4) &lt;- c("season", "density", "mean", "sd")</span></span>
+<span id="cb50-628"><a href="#cb50-628" aria-hidden="true" tabindex="-1"></a><span class="in">str(df4)</span></span>
+<span id="cb50-629"><a href="#cb50-629" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-630"><a href="#cb50-630" aria-hidden="true" tabindex="-1"></a><span class="in"># Grafico de barras y desviación estándar</span></span>
+<span id="cb50-631"><a href="#cb50-631" aria-hidden="true" tabindex="-1"></a><span class="in">p &lt;- ggplot(df4, aes(season, mean, fill = density)) + </span></span>
+<span id="cb50-632"><a href="#cb50-632" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_bar(stat="identity", position=position_dodge(), color = "black") +</span></span>
+<span id="cb50-633"><a href="#cb50-633" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_errorbar(aes(ymin = mean, ymax = mean + sd), width = 0.2,</span></span>
+<span id="cb50-634"><a href="#cb50-634" aria-hidden="true" tabindex="-1"></a><span class="in">                position = position_dodge(0.9))</span></span>
+<span id="cb50-635"><a href="#cb50-635" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
+<span id="cb50-636"><a href="#cb50-636" aria-hidden="true" tabindex="-1"></a><span class="in">p + scale_fill_brewer(palette="Paired") + theme_minimal()</span></span>
+<span id="cb50-637"><a href="#cb50-637" aria-hidden="true" tabindex="-1"></a><span class="in">p + scale_fill_brewer(palette="Paired") + theme_classic()</span></span>
+<span id="cb50-638"><a href="#cb50-638" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-639"><a href="#cb50-639" aria-hidden="true" tabindex="-1"></a><span class="in">### Personalizar aún más los gráficos ###</span></span>
 <span id="cb50-640"><a href="#cb50-640" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-641"><a href="#cb50-641" aria-hidden="true" tabindex="-1"></a><span class="in"># Palette de colores</span></span>
-<span id="cb50-642"><a href="#cb50-642" aria-hidden="true" tabindex="-1"></a><span class="in">p + scale_fill_brewer(palette = "Blues") + theme_classic()</span></span>
-<span id="cb50-643"><a href="#cb50-643" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-644"><a href="#cb50-644" aria-hidden="true" tabindex="-1"></a><span class="in">### Gráficos de barras con error ###</span></span>
+<span id="cb50-641"><a href="#cb50-641" aria-hidden="true" tabindex="-1"></a><span class="in"># Poner títulos de ejes</span></span>
+<span id="cb50-642"><a href="#cb50-642" aria-hidden="true" tabindex="-1"></a><span class="in">p + xlab("Estación") + </span></span>
+<span id="cb50-643"><a href="#cb50-643" aria-hidden="true" tabindex="-1"></a><span class="in">  ylab("Número de reclutas") +</span></span>
+<span id="cb50-644"><a href="#cb50-644" aria-hidden="true" tabindex="-1"></a><span class="in">  theme_classic()</span></span>
 <span id="cb50-645"><a href="#cb50-645" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-646"><a href="#cb50-646" aria-hidden="true" tabindex="-1"></a><span class="in"># Calcular promedio +/- SD</span></span>
-<span id="cb50-647"><a href="#cb50-647" aria-hidden="true" tabindex="-1"></a><span class="in">head(df)</span></span>
-<span id="cb50-648"><a href="#cb50-648" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-649"><a href="#cb50-649" aria-hidden="true" tabindex="-1"></a><span class="in">df3 &lt;- aggregate(RECRUITS ~ SEASON + DENSITY, df, FUN = function(x) c(mean = mean(x), sd = sd(x)))</span></span>
-<span id="cb50-650"><a href="#cb50-650" aria-hidden="true" tabindex="-1"></a><span class="in">df4 &lt;- cbind(data.frame(df3[,c(1:2)]), df3$RECRUITS[,1], df3$RECRUITS[,2])</span></span>
-<span id="cb50-651"><a href="#cb50-651" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-652"><a href="#cb50-652" aria-hidden="true" tabindex="-1"></a><span class="in">names(df4) &lt;- c("season", "density", "mean", "sd")</span></span>
-<span id="cb50-653"><a href="#cb50-653" aria-hidden="true" tabindex="-1"></a><span class="in">str(df4)</span></span>
-<span id="cb50-654"><a href="#cb50-654" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-655"><a href="#cb50-655" aria-hidden="true" tabindex="-1"></a><span class="in"># Grafico de barras y desviación estándar</span></span>
-<span id="cb50-656"><a href="#cb50-656" aria-hidden="true" tabindex="-1"></a><span class="in">p &lt;- ggplot(df4, aes(season, mean, fill = density)) + </span></span>
-<span id="cb50-657"><a href="#cb50-657" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_bar(stat="identity", position=position_dodge(), color = "black") +</span></span>
-<span id="cb50-658"><a href="#cb50-658" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_errorbar(aes(ymin = mean, ymax = mean + sd), width = 0.2,</span></span>
-<span id="cb50-659"><a href="#cb50-659" aria-hidden="true" tabindex="-1"></a><span class="in">                position = position_dodge(0.9))</span></span>
-<span id="cb50-660"><a href="#cb50-660" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
-<span id="cb50-661"><a href="#cb50-661" aria-hidden="true" tabindex="-1"></a><span class="in">p + scale_fill_brewer(palette="Paired") + theme_minimal()</span></span>
-<span id="cb50-662"><a href="#cb50-662" aria-hidden="true" tabindex="-1"></a><span class="in">p + scale_fill_brewer(palette="Paired") + theme_classic()</span></span>
-<span id="cb50-663"><a href="#cb50-663" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-664"><a href="#cb50-664" aria-hidden="true" tabindex="-1"></a><span class="in">### Personalizar aún más los gráficos ###</span></span>
-<span id="cb50-665"><a href="#cb50-665" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-666"><a href="#cb50-666" aria-hidden="true" tabindex="-1"></a><span class="in"># Poner títulos de ejes</span></span>
-<span id="cb50-667"><a href="#cb50-667" aria-hidden="true" tabindex="-1"></a><span class="in">p + xlab("Estación") + </span></span>
-<span id="cb50-668"><a href="#cb50-668" aria-hidden="true" tabindex="-1"></a><span class="in">  ylab("Número de reclutas") +</span></span>
-<span id="cb50-669"><a href="#cb50-669" aria-hidden="true" tabindex="-1"></a><span class="in">  theme_classic()</span></span>
+<span id="cb50-646"><a href="#cb50-646" aria-hidden="true" tabindex="-1"></a><span class="in"># Remover títulos de ejes</span></span>
+<span id="cb50-647"><a href="#cb50-647" aria-hidden="true" tabindex="-1"></a><span class="in">p + xlab(NULL) + </span></span>
+<span id="cb50-648"><a href="#cb50-648" aria-hidden="true" tabindex="-1"></a><span class="in">  ylab(NULL) +</span></span>
+<span id="cb50-649"><a href="#cb50-649" aria-hidden="true" tabindex="-1"></a><span class="in">  theme_classic()</span></span>
+<span id="cb50-650"><a href="#cb50-650" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-651"><a href="#cb50-651" aria-hidden="true" tabindex="-1"></a><span class="in"># Otros cambios</span></span>
+<span id="cb50-652"><a href="#cb50-652" aria-hidden="true" tabindex="-1"></a><span class="in">p2 &lt;- p + labs(x = "Estación", y = "Número de reclutas") + </span></span>
+<span id="cb50-653"><a href="#cb50-653" aria-hidden="true" tabindex="-1"></a><span class="in">  scale_fill_manual(values = c("black", "grey50")) +</span></span>
+<span id="cb50-654"><a href="#cb50-654" aria-hidden="true" tabindex="-1"></a><span class="in">  theme_classic()</span></span>
+<span id="cb50-655"><a href="#cb50-655" aria-hidden="true" tabindex="-1"></a><span class="in">p2</span></span>
+<span id="cb50-656"><a href="#cb50-656" aria-hidden="true" tabindex="-1"></a><span class="in"> </span></span>
+<span id="cb50-657"><a href="#cb50-657" aria-hidden="true" tabindex="-1"></a><span class="in"># Cambiar los límites X y Y</span></span>
+<span id="cb50-658"><a href="#cb50-658" aria-hidden="true" tabindex="-1"></a><span class="in">p2 + ylim(0,100)</span></span>
+<span id="cb50-659"><a href="#cb50-659" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-660"><a href="#cb50-660" aria-hidden="true" tabindex="-1"></a><span class="in"># Cambiar límites con expand_limits</span></span>
+<span id="cb50-661"><a href="#cb50-661" aria-hidden="true" tabindex="-1"></a><span class="in">p2 + expand_limits(x = c(0, 6), y = c(0, 80))</span></span>
+<span id="cb50-662"><a href="#cb50-662" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-663"><a href="#cb50-663" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-664"><a href="#cb50-664" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-665"><a href="#cb50-665" aria-hidden="true" tabindex="-1"></a><span class="fu">## Customizing ggplots</span></span>
+<span id="cb50-666"><a href="#cb50-666" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-667"><a href="#cb50-667" aria-hidden="true" tabindex="-1"></a>Besides the basic functions (e.g. components) described above, ggplot has many other tools (both arguments and additional functions) to further customize plots. Pretty much every thing can be modified. Here we see some of the most common tools.</span>
+<span id="cb50-668"><a href="#cb50-668" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-669"><a href="#cb50-669" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
 <span id="cb50-670"><a href="#cb50-670" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-671"><a href="#cb50-671" aria-hidden="true" tabindex="-1"></a><span class="in"># Remover títulos de ejes</span></span>
-<span id="cb50-672"><a href="#cb50-672" aria-hidden="true" tabindex="-1"></a><span class="in">p + xlab(NULL) + </span></span>
-<span id="cb50-673"><a href="#cb50-673" aria-hidden="true" tabindex="-1"></a><span class="in">  ylab(NULL) +</span></span>
-<span id="cb50-674"><a href="#cb50-674" aria-hidden="true" tabindex="-1"></a><span class="in">  theme_classic()</span></span>
-<span id="cb50-675"><a href="#cb50-675" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-676"><a href="#cb50-676" aria-hidden="true" tabindex="-1"></a><span class="in"># Otros cambios</span></span>
-<span id="cb50-677"><a href="#cb50-677" aria-hidden="true" tabindex="-1"></a><span class="in">p2 &lt;- p + labs(x = "Estación", y = "Número de reclutas") + </span></span>
-<span id="cb50-678"><a href="#cb50-678" aria-hidden="true" tabindex="-1"></a><span class="in">  scale_fill_manual(values = c("black", "grey50")) +</span></span>
-<span id="cb50-679"><a href="#cb50-679" aria-hidden="true" tabindex="-1"></a><span class="in">  theme_classic()</span></span>
-<span id="cb50-680"><a href="#cb50-680" aria-hidden="true" tabindex="-1"></a><span class="in">p2</span></span>
-<span id="cb50-681"><a href="#cb50-681" aria-hidden="true" tabindex="-1"></a><span class="in"> </span></span>
-<span id="cb50-682"><a href="#cb50-682" aria-hidden="true" tabindex="-1"></a><span class="in"># Cambiar los límites X y Y</span></span>
-<span id="cb50-683"><a href="#cb50-683" aria-hidden="true" tabindex="-1"></a><span class="in">p2 + ylim(0,100)</span></span>
+<span id="cb50-671"><a href="#cb50-671" aria-hidden="true" tabindex="-1"></a><span class="fu">### Themes</span></span>
+<span id="cb50-672"><a href="#cb50-672" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-673"><a href="#cb50-673" aria-hidden="true" tabindex="-1"></a>ggplot2 comes with some default themes that can be easily applied to modified the look of our plots:</span>
+<span id="cb50-674"><a href="#cb50-674" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-677"><a href="#cb50-677" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb50-678"><a href="#cb50-678" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Sepal.Length, Petal.Length)) <span class="sc">+</span> </span>
+<span id="cb50-679"><a href="#cb50-679" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() </span>
+<span id="cb50-680"><a href="#cb50-680" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-681"><a href="#cb50-681" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">theme_classic</span>()</span>
+<span id="cb50-682"><a href="#cb50-682" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-683"><a href="#cb50-683" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">theme_bw</span>()</span>
 <span id="cb50-684"><a href="#cb50-684" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-685"><a href="#cb50-685" aria-hidden="true" tabindex="-1"></a><span class="in"># Cambiar límites con expand_limits</span></span>
-<span id="cb50-686"><a href="#cb50-686" aria-hidden="true" tabindex="-1"></a><span class="in">p2 + expand_limits(x = c(0, 6), y = c(0, 80))</span></span>
+<span id="cb50-685"><a href="#cb50-685" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span>
+<span id="cb50-686"><a href="#cb50-686" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb50-687"><a href="#cb50-687" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-688"><a href="#cb50-688" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-688"><a href="#cb50-688" aria-hidden="true" tabindex="-1"></a>Most themes differ in the use of grids, border lines and axis labeling patterns.</span>
 <span id="cb50-689"><a href="#cb50-689" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-690"><a href="#cb50-690" aria-hidden="true" tabindex="-1"></a><span class="fu">## Customizing ggplots</span></span>
+<span id="cb50-690"><a href="#cb50-690" aria-hidden="true" tabindex="-1"></a><span class="fu">### Axis customization</span></span>
 <span id="cb50-691"><a href="#cb50-691" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-692"><a href="#cb50-692" aria-hidden="true" tabindex="-1"></a>Besides the basic functions (e.g. components) described above, ggplot has many other tools (both arguments and additional functions) to further customize plots. Pretty much every thing can be modified. Here we see some of the most common tools.</span>
+<span id="cb50-692"><a href="#cb50-692" aria-hidden="true" tabindex="-1"></a>Axis limits can be modified as follows:</span>
 <span id="cb50-693"><a href="#cb50-693" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-694"><a href="#cb50-694" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
-<span id="cb50-695"><a href="#cb50-695" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-696"><a href="#cb50-696" aria-hidden="true" tabindex="-1"></a><span class="fu">### Themes</span></span>
-<span id="cb50-697"><a href="#cb50-697" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-698"><a href="#cb50-698" aria-hidden="true" tabindex="-1"></a>ggplot2 comes with some default themes that can be easily applied to modified the look of our plots:</span>
-<span id="cb50-699"><a href="#cb50-699" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-702"><a href="#cb50-702" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb50-703"><a href="#cb50-703" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Sepal.Length, Petal.Length)) <span class="sc">+</span> </span>
-<span id="cb50-704"><a href="#cb50-704" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() </span>
+<span id="cb50-696"><a href="#cb50-696" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb50-697"><a href="#cb50-697" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Sepal.Length, Petal.Length)) <span class="sc">+</span> </span>
+<span id="cb50-698"><a href="#cb50-698" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()  <span class="sc">+</span> </span>
+<span id="cb50-699"><a href="#cb50-699" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>))</span>
+<span id="cb50-700"><a href="#cb50-700" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-701"><a href="#cb50-701" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Sepal.Length, Petal.Length, <span class="at">col =</span> Species)) <span class="sc">+</span> </span>
+<span id="cb50-702"><a href="#cb50-702" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()  <span class="sc">+</span> </span>
+<span id="cb50-703"><a href="#cb50-703" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>)) <span class="sc">+</span> </span>
+<span id="cb50-704"><a href="#cb50-704" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">9</span>))</span>
 <span id="cb50-705"><a href="#cb50-705" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-706"><a href="#cb50-706" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">theme_classic</span>()</span>
-<span id="cb50-707"><a href="#cb50-707" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-708"><a href="#cb50-708" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">theme_bw</span>()</span>
-<span id="cb50-709"><a href="#cb50-709" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-710"><a href="#cb50-710" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span>
-<span id="cb50-711"><a href="#cb50-711" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-712"><a href="#cb50-712" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
-<span id="cb50-713"><a href="#cb50-713" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-714"><a href="#cb50-714" aria-hidden="true" tabindex="-1"></a>Most themes differ in the use of grids, border lines and axis labeling patterns.</span>
-<span id="cb50-715"><a href="#cb50-715" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-716"><a href="#cb50-716" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
-<span id="cb50-717"><a href="#cb50-717" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-718"><a href="#cb50-718" aria-hidden="true" tabindex="-1"></a><span class="fu">### Axis customization</span></span>
-<span id="cb50-719"><a href="#cb50-719" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-720"><a href="#cb50-720" aria-hidden="true" tabindex="-1"></a>Axis limits can be modified as follows:</span>
-<span id="cb50-721"><a href="#cb50-721" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-724"><a href="#cb50-724" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb50-725"><a href="#cb50-725" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Sepal.Length, Petal.Length)) <span class="sc">+</span> </span>
-<span id="cb50-726"><a href="#cb50-726" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()  <span class="sc">+</span> </span>
-<span id="cb50-727"><a href="#cb50-727" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>))</span>
-<span id="cb50-728"><a href="#cb50-728" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-729"><a href="#cb50-729" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Sepal.Length, Petal.Length, <span class="at">col =</span> Species)) <span class="sc">+</span> </span>
-<span id="cb50-730"><a href="#cb50-730" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()  <span class="sc">+</span> </span>
-<span id="cb50-731"><a href="#cb50-731" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>)) <span class="sc">+</span> </span>
-<span id="cb50-732"><a href="#cb50-732" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">9</span>))</span>
+<span id="cb50-706"><a href="#cb50-706" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-707"><a href="#cb50-707" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
+<span id="cb50-708"><a href="#cb50-708" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-709"><a href="#cb50-709" aria-hidden="true" tabindex="-1"></a>Axis can also be transformed:</span>
+<span id="cb50-710"><a href="#cb50-710" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-713"><a href="#cb50-713" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb50-714"><a href="#cb50-714" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Sepal.Length, Petal.Length, <span class="at">col =</span> Species)) <span class="sc">+</span> </span>
+<span id="cb50-715"><a href="#cb50-715" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()  <span class="sc">+</span> </span>
+<span id="cb50-716"><a href="#cb50-716" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_x_continuous</span>(<span class="at">trans =</span> <span class="st">"log"</span>) <span class="sc">+</span> </span>
+<span id="cb50-717"><a href="#cb50-717" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans =</span> <span class="st">"log2"</span>)</span>
+<span id="cb50-718"><a href="#cb50-718" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-719"><a href="#cb50-719" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-720"><a href="#cb50-720" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-721"><a href="#cb50-721" aria-hidden="true" tabindex="-1"></a>or reversed:</span>
+<span id="cb50-722"><a href="#cb50-722" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-725"><a href="#cb50-725" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb50-726"><a href="#cb50-726" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Sepal.Length, Petal.Length, <span class="at">col =</span> Species)) <span class="sc">+</span> </span>
+<span id="cb50-727"><a href="#cb50-727" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()  <span class="sc">+</span> </span>
+<span id="cb50-728"><a href="#cb50-728" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_y_reverse</span>() </span>
+<span id="cb50-729"><a href="#cb50-729" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-730"><a href="#cb50-730" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-731"><a href="#cb50-731" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-732"><a href="#cb50-732" aria-hidden="true" tabindex="-1"></a><span class="fu">### Saving ggplots</span></span>
 <span id="cb50-733"><a href="#cb50-733" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-734"><a href="#cb50-734" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-735"><a href="#cb50-735" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
-<span id="cb50-736"><a href="#cb50-736" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-737"><a href="#cb50-737" aria-hidden="true" tabindex="-1"></a>Axis can also be transformed:</span>
-<span id="cb50-738"><a href="#cb50-738" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-741"><a href="#cb50-741" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb50-742"><a href="#cb50-742" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Sepal.Length, Petal.Length, <span class="at">col =</span> Species)) <span class="sc">+</span> </span>
-<span id="cb50-743"><a href="#cb50-743" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()  <span class="sc">+</span> </span>
-<span id="cb50-744"><a href="#cb50-744" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_x_continuous</span>(<span class="at">trans =</span> <span class="st">"log"</span>) <span class="sc">+</span> </span>
-<span id="cb50-745"><a href="#cb50-745" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans =</span> <span class="st">"log2"</span>)</span>
-<span id="cb50-746"><a href="#cb50-746" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-747"><a href="#cb50-747" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-748"><a href="#cb50-748" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-749"><a href="#cb50-749" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
-<span id="cb50-750"><a href="#cb50-750" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-751"><a href="#cb50-751" aria-hidden="true" tabindex="-1"></a>or reversed:</span>
-<span id="cb50-752"><a href="#cb50-752" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-755"><a href="#cb50-755" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb50-756"><a href="#cb50-756" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Sepal.Length, Petal.Length, <span class="at">col =</span> Species)) <span class="sc">+</span> </span>
-<span id="cb50-757"><a href="#cb50-757" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()  <span class="sc">+</span> </span>
-<span id="cb50-758"><a href="#cb50-758" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_y_reverse</span>() </span>
+<span id="cb50-734"><a href="#cb50-734" aria-hidden="true" tabindex="-1"></a>ggplots can be exported as image files using the <span class="in">`ggsave`</span> function:</span>
+<span id="cb50-735"><a href="#cb50-735" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-738"><a href="#cb50-738" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb50-739"><a href="#cb50-739" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> msleep[msleep<span class="sc">$</span>order <span class="sc">%in%</span> <span class="fu">names</span>(tab)[tab <span class="sc">&gt;</span> <span class="dv">5</span>], ], <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bodywt, <span class="at">y =</span> brainwt)) <span class="sc">+</span> </span>
+<span id="cb50-740"><a href="#cb50-740" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb50-741"><a href="#cb50-741" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>order, <span class="at">scales =</span> <span class="st">"free"</span>)</span>
+<span id="cb50-742"><a href="#cb50-742" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-743"><a href="#cb50-743" aria-hidden="true" tabindex="-1"></a><span class="co"># Export</span></span>
+<span id="cb50-744"><a href="#cb50-744" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"plot.png"</span>, <span class="at">width =</span> <span class="dv">5</span>, <span class="at">height =</span> <span class="dv">5</span>)</span>
+<span id="cb50-745"><a href="#cb50-745" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-746"><a href="#cb50-746" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-747"><a href="#cb50-747" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-748"><a href="#cb50-748" aria-hidden="true" tabindex="-1"></a>The image file type will be identify by the extension in the file name.</span>
+<span id="cb50-749"><a href="#cb50-749" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-750"><a href="#cb50-750" aria-hidden="true" tabindex="-1"></a>Additional axis customizing:</span>
+<span id="cb50-751"><a href="#cb50-751" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-754"><a href="#cb50-754" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb50-755"><a href="#cb50-755" aria-hidden="true" tabindex="-1"></a><span class="co"># Log2 scaling of the y axis (with visually-equal spacing)</span></span>
+<span id="cb50-756"><a href="#cb50-756" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(scales)</span>
+<span id="cb50-757"><a href="#cb50-757" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-758"><a href="#cb50-758" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">trans =</span> <span class="fu">log2_trans</span>())</span>
 <span id="cb50-759"><a href="#cb50-759" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-760"><a href="#cb50-760" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-761"><a href="#cb50-761" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-762"><a href="#cb50-762" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-763"><a href="#cb50-763" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-764"><a href="#cb50-764" aria-hidden="true" tabindex="-1"></a><span class="fu">### Saving ggplots</span></span>
-<span id="cb50-765"><a href="#cb50-765" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-766"><a href="#cb50-766" aria-hidden="true" tabindex="-1"></a>ggplots can be exported as image files using the <span class="in">`ggsave`</span> function:</span>
+<span id="cb50-760"><a href="#cb50-760" aria-hidden="true" tabindex="-1"></a><span class="co"># show exponents</span></span>
+<span id="cb50-761"><a href="#cb50-761" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">trans =</span> <span class="fu">log2_trans</span>(),</span>
+<span id="cb50-762"><a href="#cb50-762" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">trans_breaks</span>(<span class="st">"log2"</span>, <span class="cf">function</span>(x) <span class="dv">2</span><span class="sc">^</span>x),</span>
+<span id="cb50-763"><a href="#cb50-763" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">trans_format</span>(<span class="st">"log2"</span>, <span class="fu">math_format</span>(<span class="dv">2</span><span class="sc">^</span>.x)))</span>
+<span id="cb50-764"><a href="#cb50-764" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-765"><a href="#cb50-765" aria-hidden="true" tabindex="-1"></a><span class="co"># Percent</span></span>
+<span id="cb50-766"><a href="#cb50-766" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> percent)</span>
 <span id="cb50-767"><a href="#cb50-767" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-770"><a href="#cb50-770" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb50-771"><a href="#cb50-771" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> msleep[msleep<span class="sc">$</span>order <span class="sc">%in%</span> <span class="fu">names</span>(tab)[tab <span class="sc">&gt;</span> <span class="dv">5</span>], ], <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bodywt, <span class="at">y =</span> brainwt)) <span class="sc">+</span> </span>
-<span id="cb50-772"><a href="#cb50-772" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb50-773"><a href="#cb50-773" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>order, <span class="at">scales =</span> <span class="st">"free"</span>)</span>
-<span id="cb50-774"><a href="#cb50-774" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-775"><a href="#cb50-775" aria-hidden="true" tabindex="-1"></a><span class="co"># Export</span></span>
-<span id="cb50-776"><a href="#cb50-776" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"plot.png"</span>, <span class="at">width =</span> <span class="dv">5</span>, <span class="at">height =</span> <span class="dv">5</span>)</span>
-<span id="cb50-777"><a href="#cb50-777" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-778"><a href="#cb50-778" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-779"><a href="#cb50-779" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
+<span id="cb50-768"><a href="#cb50-768" aria-hidden="true" tabindex="-1"></a><span class="co"># dollar</span></span>
+<span id="cb50-769"><a href="#cb50-769" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> dollar)</span>
+<span id="cb50-770"><a href="#cb50-770" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-771"><a href="#cb50-771" aria-hidden="true" tabindex="-1"></a><span class="co"># scientific</span></span>
+<span id="cb50-772"><a href="#cb50-772" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scientific)</span>
+<span id="cb50-773"><a href="#cb50-773" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-774"><a href="#cb50-774" aria-hidden="true" tabindex="-1"></a><span class="do">### Agregar "tick marks" </span><span class="al">###</span></span>
+<span id="cb50-775"><a href="#cb50-775" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-776"><a href="#cb50-776" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar librerías</span></span>
+<span id="cb50-777"><a href="#cb50-777" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
+<span id="cb50-778"><a href="#cb50-778" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-779"><a href="#cb50-779" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(Animals)</span>
 <span id="cb50-780"><a href="#cb50-780" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-781"><a href="#cb50-781" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-782"><a href="#cb50-782" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-783"><a href="#cb50-783" aria-hidden="true" tabindex="-1"></a>The image file type will be identify by the extension in the file name</span>
-<span id="cb50-784"><a href="#cb50-784" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-785"><a href="#cb50-785" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
-<span id="cb50-786"><a href="#cb50-786" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-787"><a href="#cb50-787" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-788"><a href="#cb50-788" aria-hidden="true" tabindex="-1"></a>Additional axis customizing:</span>
-<span id="cb50-789"><a href="#cb50-789" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-792"><a href="#cb50-792" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb50-793"><a href="#cb50-793" aria-hidden="true" tabindex="-1"></a><span class="co"># Log2 scaling of the y axis (with visually-equal spacing)</span></span>
-<span id="cb50-794"><a href="#cb50-794" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(scales)</span>
-<span id="cb50-795"><a href="#cb50-795" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-796"><a href="#cb50-796" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">trans =</span> <span class="fu">log2_trans</span>())</span>
+<span id="cb50-781"><a href="#cb50-781" aria-hidden="true" tabindex="-1"></a><span class="co"># x and y axis are transformed and formatted</span></span>
+<span id="cb50-782"><a href="#cb50-782" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(Animals, <span class="fu">aes</span>(<span class="at">x =</span> body, <span class="at">y =</span> brain)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb50-783"><a href="#cb50-783" aria-hidden="true" tabindex="-1"></a>     <span class="fu">scale_x_log10</span>(<span class="at">breaks =</span> <span class="fu">trans_breaks</span>(<span class="st">"log10"</span>, <span class="cf">function</span>(x) <span class="dv">10</span><span class="sc">^</span>x),</span>
+<span id="cb50-784"><a href="#cb50-784" aria-hidden="true" tabindex="-1"></a>              <span class="at">labels =</span> <span class="fu">trans_format</span>(<span class="st">"log10"</span>, <span class="fu">math_format</span>(<span class="dv">10</span><span class="sc">^</span>.x))) <span class="sc">+</span></span>
+<span id="cb50-785"><a href="#cb50-785" aria-hidden="true" tabindex="-1"></a>     <span class="fu">scale_y_log10</span>(<span class="at">breaks =</span> <span class="fu">trans_breaks</span>(<span class="st">"log10"</span>, <span class="cf">function</span>(x) <span class="dv">10</span><span class="sc">^</span>x),</span>
+<span id="cb50-786"><a href="#cb50-786" aria-hidden="true" tabindex="-1"></a>              <span class="at">labels =</span> <span class="fu">trans_format</span>(<span class="st">"log10"</span>, <span class="fu">math_format</span>(<span class="dv">10</span><span class="sc">^</span>.x))) <span class="sc">+</span></span>
+<span id="cb50-787"><a href="#cb50-787" aria-hidden="true" tabindex="-1"></a>     <span class="fu">theme_bw</span>()</span>
+<span id="cb50-788"><a href="#cb50-788" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-789"><a href="#cb50-789" aria-hidden="true" tabindex="-1"></a><span class="co"># log-log plot without log tick marks</span></span>
+<span id="cb50-790"><a href="#cb50-790" aria-hidden="true" tabindex="-1"></a>p2</span>
+<span id="cb50-791"><a href="#cb50-791" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-792"><a href="#cb50-792" aria-hidden="true" tabindex="-1"></a><span class="co"># Show log tick marks</span></span>
+<span id="cb50-793"><a href="#cb50-793" aria-hidden="true" tabindex="-1"></a>p2 <span class="sc">+</span> <span class="fu">annotation_logticks</span>() </span>
+<span id="cb50-794"><a href="#cb50-794" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-795"><a href="#cb50-795" aria-hidden="true" tabindex="-1"></a><span class="co"># # Log ticks on left and right</span></span>
+<span id="cb50-796"><a href="#cb50-796" aria-hidden="true" tabindex="-1"></a>p2 <span class="sc">+</span> <span class="fu">annotation_logticks</span>(<span class="at">sides =</span> <span class="st">"lr"</span>)</span>
 <span id="cb50-797"><a href="#cb50-797" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-798"><a href="#cb50-798" aria-hidden="true" tabindex="-1"></a><span class="co"># show exponents</span></span>
-<span id="cb50-799"><a href="#cb50-799" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">trans =</span> <span class="fu">log2_trans</span>(),</span>
-<span id="cb50-800"><a href="#cb50-800" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">trans_breaks</span>(<span class="st">"log2"</span>, <span class="cf">function</span>(x) <span class="dv">2</span><span class="sc">^</span>x),</span>
-<span id="cb50-801"><a href="#cb50-801" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">trans_format</span>(<span class="st">"log2"</span>, <span class="fu">math_format</span>(<span class="dv">2</span><span class="sc">^</span>.x)))</span>
+<span id="cb50-798"><a href="#cb50-798" aria-hidden="true" tabindex="-1"></a><span class="co"># All sides</span></span>
+<span id="cb50-799"><a href="#cb50-799" aria-hidden="true" tabindex="-1"></a>p2 <span class="sc">+</span> <span class="fu">annotation_logticks</span>(<span class="at">sides =</span> <span class="st">"trbl"</span>)</span>
+<span id="cb50-800"><a href="#cb50-800" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-801"><a href="#cb50-801" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb50-802"><a href="#cb50-802" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-803"><a href="#cb50-803" aria-hidden="true" tabindex="-1"></a><span class="co"># Percent</span></span>
-<span id="cb50-804"><a href="#cb50-804" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> percent)</span>
-<span id="cb50-805"><a href="#cb50-805" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-806"><a href="#cb50-806" aria-hidden="true" tabindex="-1"></a><span class="co"># dollar</span></span>
-<span id="cb50-807"><a href="#cb50-807" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> dollar)</span>
-<span id="cb50-808"><a href="#cb50-808" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-809"><a href="#cb50-809" aria-hidden="true" tabindex="-1"></a><span class="co"># scientific</span></span>
-<span id="cb50-810"><a href="#cb50-810" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scientific)</span>
+<span id="cb50-803"><a href="#cb50-803" aria-hidden="true" tabindex="-1"></a><span class="fu">### Other graphs </span></span>
+<span id="cb50-804"><a href="#cb50-804" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-805"><a href="#cb50-805" aria-hidden="true" tabindex="-1"></a>Many other types of graphs can be generated. Here I show a single example of cool contour and "heatmap" graphs:</span>
+<span id="cb50-806"><a href="#cb50-806" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-809"><a href="#cb50-809" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb50-810"><a href="#cb50-810" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(faithful)</span>
 <span id="cb50-811"><a href="#cb50-811" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-812"><a href="#cb50-812" aria-hidden="true" tabindex="-1"></a><span class="do">### Agregar "tick marks" </span><span class="al">###</span></span>
+<span id="cb50-812"><a href="#cb50-812" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(faithfuld, <span class="fu">aes</span>(eruptions, waiting)) <span class="sc">+</span> <span class="fu">geom_contour</span>(<span class="fu">aes</span>(<span class="at">z =</span> density, <span class="at">colour =</span> ..level..))</span>
 <span id="cb50-813"><a href="#cb50-813" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-814"><a href="#cb50-814" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar librerías</span></span>
-<span id="cb50-815"><a href="#cb50-815" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
-<span id="cb50-816"><a href="#cb50-816" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-817"><a href="#cb50-817" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(Animals)</span>
+<span id="cb50-814"><a href="#cb50-814" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(faithfuld, <span class="fu">aes</span>(eruptions, waiting)) <span class="sc">+</span> <span class="fu">geom_raster</span>(<span class="fu">aes</span>(<span class="at">fill =</span> density))</span>
+<span id="cb50-815"><a href="#cb50-815" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-816"><a href="#cb50-816" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-817"><a href="#cb50-817" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
 <span id="cb50-818"><a href="#cb50-818" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-819"><a href="#cb50-819" aria-hidden="true" tabindex="-1"></a><span class="co"># x and y axis are transformed and formatted</span></span>
-<span id="cb50-820"><a href="#cb50-820" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(Animals, <span class="fu">aes</span>(<span class="at">x =</span> body, <span class="at">y =</span> brain)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb50-821"><a href="#cb50-821" aria-hidden="true" tabindex="-1"></a>     <span class="fu">scale_x_log10</span>(<span class="at">breaks =</span> <span class="fu">trans_breaks</span>(<span class="st">"log10"</span>, <span class="cf">function</span>(x) <span class="dv">10</span><span class="sc">^</span>x),</span>
-<span id="cb50-822"><a href="#cb50-822" aria-hidden="true" tabindex="-1"></a>              <span class="at">labels =</span> <span class="fu">trans_format</span>(<span class="st">"log10"</span>, <span class="fu">math_format</span>(<span class="dv">10</span><span class="sc">^</span>.x))) <span class="sc">+</span></span>
-<span id="cb50-823"><a href="#cb50-823" aria-hidden="true" tabindex="-1"></a>     <span class="fu">scale_y_log10</span>(<span class="at">breaks =</span> <span class="fu">trans_breaks</span>(<span class="st">"log10"</span>, <span class="cf">function</span>(x) <span class="dv">10</span><span class="sc">^</span>x),</span>
-<span id="cb50-824"><a href="#cb50-824" aria-hidden="true" tabindex="-1"></a>              <span class="at">labels =</span> <span class="fu">trans_format</span>(<span class="st">"log10"</span>, <span class="fu">math_format</span>(<span class="dv">10</span><span class="sc">^</span>.x))) <span class="sc">+</span></span>
-<span id="cb50-825"><a href="#cb50-825" aria-hidden="true" tabindex="-1"></a>     <span class="fu">theme_bw</span>()</span>
+<span id="cb50-819"><a href="#cb50-819" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-820"><a href="#cb50-820" aria-hidden="true" tabindex="-1"></a><span class="fu">## Other R graphing packages</span></span>
+<span id="cb50-821"><a href="#cb50-821" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-822"><a href="#cb50-822" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**ggvis** (interactive ggplots)</span>
+<span id="cb50-823"><a href="#cb50-823" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**vcd** (Warnes 2015)</span>
+<span id="cb50-824"><a href="#cb50-824" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**plotrix** (Lemon et al. 2006)</span>
+<span id="cb50-825"><a href="#cb50-825" aria-hidden="true" tabindex="-1"></a><span class="ss">-    </span>**gplots** (Warnes 2015)</span>
 <span id="cb50-826"><a href="#cb50-826" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-827"><a href="#cb50-827" aria-hidden="true" tabindex="-1"></a><span class="co"># log-log plot without log tick marks</span></span>
-<span id="cb50-828"><a href="#cb50-828" aria-hidden="true" tabindex="-1"></a>p2</span>
-<span id="cb50-829"><a href="#cb50-829" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-830"><a href="#cb50-830" aria-hidden="true" tabindex="-1"></a><span class="co"># Show log tick marks</span></span>
-<span id="cb50-831"><a href="#cb50-831" aria-hidden="true" tabindex="-1"></a>p2 <span class="sc">+</span> <span class="fu">annotation_logticks</span>() </span>
+<span id="cb50-827"><a href="#cb50-827" aria-hidden="true" tabindex="-1"></a>Check the <span class="co">[</span><span class="ot">CRAN Graphics Task View</span><span class="co">](http://cran.r-project.org/web/views/Graphics.html)</span> for a more comprehensive list of graphical tools in **R**.</span>
+<span id="cb50-828"><a href="#cb50-828" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-829"><a href="#cb50-829" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb50-830"><a href="#cb50-830" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-831"><a href="#cb50-831" aria-hidden="true" tabindex="-1"></a><span class="fu">## References </span></span>
 <span id="cb50-832"><a href="#cb50-832" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-833"><a href="#cb50-833" aria-hidden="true" tabindex="-1"></a><span class="co"># # Log ticks on left and right</span></span>
-<span id="cb50-834"><a href="#cb50-834" aria-hidden="true" tabindex="-1"></a>p2 <span class="sc">+</span> <span class="fu">annotation_logticks</span>(<span class="at">sides =</span> <span class="st">"lr"</span>)</span>
-<span id="cb50-835"><a href="#cb50-835" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-836"><a href="#cb50-836" aria-hidden="true" tabindex="-1"></a><span class="co"># All sides</span></span>
-<span id="cb50-837"><a href="#cb50-837" aria-hidden="true" tabindex="-1"></a>p2 <span class="sc">+</span> <span class="fu">annotation_logticks</span>(<span class="at">sides =</span> <span class="st">"trbl"</span>)</span>
-<span id="cb50-838"><a href="#cb50-838" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-839"><a href="#cb50-839" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-833"><a href="#cb50-833" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Lemon J (2006) Plotrix: a package in the red light district of R. R-News</span>
+<span id="cb50-834"><a href="#cb50-834" aria-hidden="true" tabindex="-1"></a>6(4):8–12</span>
+<span id="cb50-835"><a href="#cb50-835" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Warnes GR, Bolker B, Bonebakker L, Gentleman R, Liaw WHA, Lumley</span>
+<span id="cb50-836"><a href="#cb50-836" aria-hidden="true" tabindex="-1"></a>T, Maechler M, Magnusson A, Moeller S, Schwartz M, Venables B (2015) gplots: various R programming tools for plotting data. R package version 2.17.0. https://CRAN.R-project.org/package=gplots</span>
+<span id="cb50-837"><a href="#cb50-837" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Wickham H (2010) A layered grammar of graphics. J Comput Graph Stat 19(1):3–28</span>
+<span id="cb50-838"><a href="#cb50-838" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Wilkinson L (2005) The grammar of graphics. Statistics and computing, 2nd edn. Springer, New York</span>
+<span id="cb50-839"><a href="#cb50-839" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb50-840"><a href="#cb50-840" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-841"><a href="#cb50-841" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
+<span id="cb50-841"><a href="#cb50-841" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb50-842"><a href="#cb50-842" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-843"><a href="#cb50-843" aria-hidden="true" tabindex="-1"></a><span class="fu">### Other graphs </span></span>
+<span id="cb50-843"><a href="#cb50-843" aria-hidden="true" tabindex="-1"></a><span class="fu"># Session information {.unnumbered .unlisted}</span></span>
 <span id="cb50-844"><a href="#cb50-844" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-845"><a href="#cb50-845" aria-hidden="true" tabindex="-1"></a>Many other types of graphs can be generated. Here I show a single example of cool contour and "heatmap" graphs:</span>
+<span id="cb50-845"><a href="#cb50-845" aria-hidden="true" tabindex="-1"></a><span class="in">```{r session info, echo=F}</span></span>
 <span id="cb50-846"><a href="#cb50-846" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-849"><a href="#cb50-849" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb50-850"><a href="#cb50-850" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(faithful)</span>
-<span id="cb50-851"><a href="#cb50-851" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-852"><a href="#cb50-852" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(faithfuld, <span class="fu">aes</span>(eruptions, waiting)) <span class="sc">+</span> <span class="fu">geom_contour</span>(<span class="fu">aes</span>(<span class="at">z =</span> density, <span class="at">colour =</span> ..level..))</span>
-<span id="cb50-853"><a href="#cb50-853" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-854"><a href="#cb50-854" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(faithfuld, <span class="fu">aes</span>(eruptions, waiting)) <span class="sc">+</span> <span class="fu">geom_raster</span>(<span class="fu">aes</span>(<span class="at">fill =</span> density))</span>
-<span id="cb50-855"><a href="#cb50-855" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-856"><a href="#cb50-856" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-857"><a href="#cb50-857" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
-<span id="cb50-858"><a href="#cb50-858" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-859"><a href="#cb50-859" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-860"><a href="#cb50-860" aria-hidden="true" tabindex="-1"></a><span class="fu">## Other R graphing packages</span></span>
-<span id="cb50-861"><a href="#cb50-861" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-862"><a href="#cb50-862" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**ggvis** (interactive ggplots)</span>
-<span id="cb50-863"><a href="#cb50-863" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**vcd** (Warnes 2015)</span>
-<span id="cb50-864"><a href="#cb50-864" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**plotrix** (Lemon et al. 2006)</span>
-<span id="cb50-865"><a href="#cb50-865" aria-hidden="true" tabindex="-1"></a><span class="ss">-    </span>**gplots** (Warnes 2015)</span>
-<span id="cb50-866"><a href="#cb50-866" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-867"><a href="#cb50-867" aria-hidden="true" tabindex="-1"></a>Check the <span class="co">[</span><span class="ot">CRAN Graphics Task View</span><span class="co">](http://cran.r-project.org/web/views/Graphics.html)</span> for a more comprehensive list of graphical tools in **R**.</span>
-<span id="cb50-868"><a href="#cb50-868" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-869"><a href="#cb50-869" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb50-870"><a href="#cb50-870" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-871"><a href="#cb50-871" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;nbsp;</span> </span>
-<span id="cb50-872"><a href="#cb50-872" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-873"><a href="#cb50-873" aria-hidden="true" tabindex="-1"></a><span class="fu">## References </span></span>
-<span id="cb50-874"><a href="#cb50-874" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-875"><a href="#cb50-875" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Lemon J (2006) Plotrix: a package in the red light district of R. R-News</span>
-<span id="cb50-876"><a href="#cb50-876" aria-hidden="true" tabindex="-1"></a>6(4):8–12</span>
-<span id="cb50-877"><a href="#cb50-877" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Warnes GR, Bolker B, Bonebakker L, Gentleman R, Liaw WHA, Lumley</span>
-<span id="cb50-878"><a href="#cb50-878" aria-hidden="true" tabindex="-1"></a>T, Maechler M, Magnusson A, Moeller S, Schwartz M, Venables B (2015) gplots: various R programming tools for plotting data. R package version 2.17.0. https://CRAN.R-project.org/package=gplots</span>
-<span id="cb50-879"><a href="#cb50-879" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Wickham H (2010) A layered grammar of graphics. J Comput Graph Stat 19(1):3–28</span>
-<span id="cb50-880"><a href="#cb50-880" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Wilkinson L (2005) The grammar of graphics. Statistics and computing, 2nd edn. Springer, New York</span>
-<span id="cb50-881"><a href="#cb50-881" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-882"><a href="#cb50-882" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-883"><a href="#cb50-883" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb50-884"><a href="#cb50-884" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-885"><a href="#cb50-885" aria-hidden="true" tabindex="-1"></a>&lt;font size="4"&gt;Session information&lt;/font&gt;</span>
-<span id="cb50-886"><a href="#cb50-886" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-887"><a href="#cb50-887" aria-hidden="true" tabindex="-1"></a><span class="in">```{r session info, echo=F}</span></span>
-<span id="cb50-888"><a href="#cb50-888" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-889"><a href="#cb50-889" aria-hidden="true" tabindex="-1"></a><span class="in">sessionInfo()</span></span>
-<span id="cb50-890"><a href="#cb50-890" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-891"><a href="#cb50-891" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb50-847"><a href="#cb50-847" aria-hidden="true" tabindex="-1"></a><span class="in">sessionInfo()</span></span>
+<span id="cb50-848"><a href="#cb50-848" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-849"><a href="#cb50-849" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
