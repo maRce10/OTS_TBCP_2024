@@ -73,7 +73,7 @@ There are a few habits for data entry that will make it easier to import data co
 
 -   Delete any extra comments outside the data set columns
 
--   Indicate missing values with NA (or at least empty spaces)
+-   Indicate missing values with empty spaces
 
 -   Don't even think about color-coding your data in excel
 :::
@@ -106,15 +106,13 @@ setwd("/home/m/Desktop/")
 
 Some basic tips for setting the working directory:
 
--   Make sure the location is quoted
+-   The path to the folder should be quoted ("")
 
--   Make sure you have forward-slash (/) between folder names (although double backward-slashes seem to work in windows)
+-   Make sure you have forward-slash (/) between folder names (although double backward-slashes seem to work on Windows)
 
 -   Do not include any file name in the folder directory name
 
 -   To find the location you can look at the properties of a file in that folder and copy it
-
--   The path to the folder should be quoted ("")
 
 -   The name matches exactly (better to copy/paste)
 
@@ -128,7 +126,7 @@ Some basic tips for setting the working directory:
 
  
 
-<font size="5">Setting the working directory in windows</font>
+### Setting the working directory on Windows
 
 In windows it should be something like this:
 
@@ -150,7 +148,7 @@ setwd(choose.dir())
 
  
 
-<font size="5">Setting the working directory in OSX (mac)</font>
+### Setting the working directory in OSX (mac)
 
 For mac setting the working directory should be something like this:
 
@@ -164,7 +162,7 @@ do not include whatever you have before "users" (like macintosh... )
 
  
 
-<font size="5">Setting the working directory in Linux</font>
+### Setting the working directory in Linux
 
 Similar to the code used in OSX:
 
@@ -214,7 +212,7 @@ The most commonly used function to import data in `R` is `read.table`. The docum
 
  
 
-<font size="5">Reading <i>.txt</i> files</font>
+### Reading *.txt* files
 
 *.txt* files can be read using `read.table`. Let's first download a freely available data set in *.txt* format:
 
@@ -223,11 +221,14 @@ The most commonly used function to import data in `R` is `read.table`. The docum
 # set working directory
 setwd("PUT THE FOLDER LOCATION WHERE YOU WANT TO SAVE THE FILE HERE")
 
-download.file("https://raw.githubusercontent.com/maRce10/OTS_TBCP_2024/master/data/pantheria_mammals_data.txt", destfile = "pantheria_mammals_data.txt")
+download.file(
+  "https://raw.githubusercontent.com/maRce10/OTS_TBCP_2024/master/data/pantheria_mammals_data.txt",
+  destfile = "pantheria_mammals_data.txt"
+)
 
 ```
 
-*You can also manually download the file from [here](http://esapubs.org/archive/ecol/E090/184/PanTHERIA_1-0_WR93_Aug2008.txt)*
+*You can also manually download the file from [here](https://raw.githubusercontent.com/maRce10/OTS_TBCP_2024/master/data/pantheria_mammals_data.txt)*
 
  
 
@@ -236,14 +237,18 @@ The file can be input into `R` as follows:
 ```{r, eval = F, echo= T}
 
 # read file
-pntr_dt <- read.table("pantheria_mammals_data.txt", stringsAsFactors = FALSE, sep = "\t", header = TRUE)
+pntr_dt <- read.table("pantheria_mammals_data.txt",
+                      sep = "\t",
+                      header = TRUE)
 
 ```
 
 ```{r, eval = T, echo= F}
 
 # read file
-pntr_dt <- read.table("./data/pantheria_mammals_data.txt", stringsAsFactors = FALSE, sep = "\t", header = TRUE)
+pntr_dt <- read.table("./data/pantheria_mammals_data.txt",
+                      sep = "\t",
+                      header = TRUE)
 
 
 ```
@@ -258,10 +263,7 @@ head(pntr_dt)
 ```{r, eval = T, echo= F}
 
 # check structure
-knitr::kable(pntr_dt[1:6, 1:6], row.names = F, escape = FALSE) %>%
-  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 14)
-
-knitr::kable(pntr_dt[1:6, 7:10], row.names = F, escape = FALSE) %>%
+knitr::kable(pntr_dt[1:6, ], row.names = F, escape = FALSE) %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 14)
 
 ```
@@ -301,7 +303,7 @@ knitr::kable(pntr_dt[1:6, 7:10], row.names = F, escape = FALSE) %>%
 
  
 
-<font size="5">Reading <i>.csv</i> files</font>
+### Reading *.csv* files
 
 Again, we can download an example file online and read it:
 
@@ -310,7 +312,7 @@ Again, we can download an example file online and read it:
 download.file("https://github.com/maRce10/OTS_TBCP_2024/raw/master/data/clements_bird_list.csv", destfile = "clements_bird_list.csv")
 
 
-clm_lst <- read.csv("clements_bird_list.csv", stringsAsFactors = FALSE)
+clm_lst <- read.csv("clements_bird_list.csv")
 
 head(clm_lst)
 
@@ -318,13 +320,10 @@ head(clm_lst)
 
 ```{r, eval = T, echo= F}
 
-clm_lst <- read.csv("./data/clements_bird_list.csv", stringsAsFactors = FALSE)
+clm_lst <- read.csv("./data/clements_bird_list.csv")
 
 # check structure
-knitr::kable(clm_lst[1:6, 1:5], row.names = F, escape = FALSE) %>%
-  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 14)
-
-knitr::kable(clm_lst[1:6, 6:9], row.names = F, escape = FALSE) %>%
+knitr::kable(clm_lst[1:6, ], row.names = F, escape = FALSE) %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 14)
 
 ```
@@ -335,7 +334,7 @@ As in the previous example, we can tell `R` how to identify empty cells using th
 
 ```{r, eval = F, echo= T}
 
-clm_lst <- read.csv("clements_bird_list.csv", stringsAsFactors = FALSE, na.strings = "")
+clm_lst <- read.csv("clements_bird_list.csv", na.strings = "")
 
 head(clm_lst)
 
@@ -343,7 +342,7 @@ head(clm_lst)
 
 ```{r, eval = T, echo= F}
 
-clm_lst <- read.csv("./data/clements_bird_list.csv", stringsAsFactors = FALSE, na.strings = "")
+clm_lst <- read.csv("./data/clements_bird_list.csv", na.strings = "")
 
 # check structure
 knitr::kable(clm_lst[1:6, ], row.names = F, escape = FALSE) %>%
@@ -351,7 +350,7 @@ knitr::kable(clm_lst[1:6, ], row.names = F, escape = FALSE) %>%
 
 ```
 
-## Reading excel files
+### Reading excel files
 
 Most researchers enter data into excel spreadsheets. So it would be pretty handy to read the data directly from there. To read *xls* and *xlsx* files we need to install the package "readxl" (there are other packages that can be used but they all work similarly):
 
@@ -419,25 +418,26 @@ You need to specify the file name (including extension) and the excel sheet (tab
 
 All default functions to input data into `R` have a counterpart to export the same type of data. The names of these other functions are similar to the ones for reading data, although they typically start with "write" or "save".
 
-1.1 What are the names of the default functions for exporting the data formats we used above? (hint: try `apropos` to check which functions are available)
+1. What are the names of the default functions for exporting the data formats we used above? (hint: try `apropos` to check which functions are available)
 
-1.2 Export the mammals data as a *.csv* file
+1. Export the mammals data as a *.csv* file
 
-1.3 Export the mammals data again, this time excluding the row names
+1. Export the mammals data again, this time excluding the row names
 
-1.4 Read the *.csv* file using `read.table`
+1. Read the *.csv* file using `read.table`
 
-1.5 What other packages can import excel files into `R`?
+1. What other packages can import excel files into `R`?
 
-1.6 Can you export an excel file or add data to an existing excel file from `R`?
+1. Can you export an excel file or add data to an existing excel file from `R`?
 
-1.7 Using the "clements_bird_list.csv" file, how would you tell `R` to read both "Rheiformes" and "Ostriches" as empty cells (while still reading empty cells as empty cells)?
+1. Using the "clements_bird_list.csv" file, how would you tell `R` to read both "Rheiformes" and "Ostriches" as empty cells (while still reading empty cells as empty cells)?
+
 :::
 
 ```{r, eval = F, echo= F}
 
 # 1.4
-clm_lst3 <- read.table("clements_bird_list.csv", stringsAsFactors = FALSE, header = TRUE, sep = ",", fill = T)
+clm_lst3 <- read.table("clements_bird_list.csv", header = TRUE, sep = ",", fill = TRUE)
 
 # 1.7
 clm_lst <- read.csv("clements_bird_list.csv", stringsAsFactors = FALSE, na.strings = c("",  "Rheiformes", "Ostriches"))
@@ -451,7 +451,7 @@ knitr::kable(clm_lst[1:6, 6:9], row.names = F, escape = FALSE) %>%
 
 ```
 
-------------------------------------------------------------------------
+---
 
 # Formatting data
 
@@ -560,9 +560,9 @@ There are three interrelated rules to make a data set tidy:
 
 1.  Each variable must have its own column
 
-2.  Each observation must have its own row
+1.  Each observation must have its own row
 
-3.  Each value must have its own cell
+1.  Each value must have its own cell
 
 This figure shows the rules visually:
 

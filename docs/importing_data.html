@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-09-14">
+<meta name="dcterms.date" content="2024-09-16">
 
 <title>OTS TBCP 2024 - Importing and formatting data</title>
 <style>
@@ -195,7 +195,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#setting-the-working-directory" id="toc-setting-the-working-directory" class="nav-link" data-scroll-target="#setting-the-working-directory"><span class="header-section-number">2.1</span> Setting the working directory</a></li>
   <li><a href="#reading-data" id="toc-reading-data" class="nav-link" data-scroll-target="#reading-data"><span class="header-section-number">2.2</span> Reading data</a></li>
-  <li><a href="#reading-excel-files" id="toc-reading-excel-files" class="nav-link" data-scroll-target="#reading-excel-files"><span class="header-section-number">2.3</span> Reading excel files</a></li>
   </ul></li>
   <li><a href="#formatting-data" id="toc-formatting-data" class="nav-link" data-scroll-target="#formatting-data"><span class="header-section-number">3</span> Formatting data</a>
   <ul class="collapse">
@@ -228,7 +227,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 14, 2024</p>
+      <p class="date">September 16, 2024</p>
     </div>
   </div>
   
@@ -258,7 +257,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Avoid using uncommon symbols such as ?, $,%, ^, &amp;, *, (, ),-,#, ?,,,&lt;,&gt;, /, |, , [ ,] ,{, and }</p></li>
 <li><p>Be consistent when referring to the same things (i.e.&nbsp;write them always in the same way)</p></li>
 <li><p>Delete any extra comments outside the data set columns</p></li>
-<li><p>Indicate missing values with NA (or at least empty spaces)</p></li>
+<li><p>Indicate missing values with empty spaces</p></li>
 <li><p>Don’t even think about color-coding your data in excel</p></li>
 </ul>
 </section>
@@ -284,11 +283,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>&nbsp;</p>
 <p>Some basic tips for setting the working directory:</p>
 <ul>
-<li><p>Make sure the location is quoted</p></li>
-<li><p>Make sure you have forward-slash (/) between folder names (although double backward-slashes seem to work in windows)</p></li>
+<li><p>The path to the folder should be quoted (““)</p></li>
+<li><p>Make sure you have forward-slash (/) between folder names (although double backward-slashes seem to work on Windows)</p></li>
 <li><p>Do not include any file name in the folder directory name</p></li>
 <li><p>To find the location you can look at the properties of a file in that folder and copy it</p></li>
-<li><p>The path to the folder should be quoted (““)</p></li>
 <li><p>The name matches exactly (better to copy/paste)</p></li>
 <li><p>Use <code>list.files()</code> to check which files are in the working directory</p></li>
 <li><p><code>R</code> can suggest and auto-complete the folder names by pressing “tab” when within quotes:</p></li>
@@ -296,7 +294,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>&nbsp;</p>
 <p><img src="./images/suggest_folder.gif" alt="Color spectro" height="150" width="550"></p>
 <p>&nbsp;</p>
-<p><font size="5">Setting the working directory in windows</font></p>
+<section id="setting-the-working-directory-on-windows" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="setting-the-working-directory-on-windows"><span class="header-section-number">2.1.1</span> Setting the working directory on Windows</h3>
 <p>In windows it should be something like this:</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -313,7 +312,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>&nbsp; That should pop-up a window where you can choose the location. However, this should only be used to figure out the correct way to write the directory location, not as part of the script itself.</p>
 <p>&nbsp;</p>
-<p><font size="5">Setting the working directory in OSX (mac)</font></p>
+</section>
+<section id="setting-the-working-directory-in-osx-mac" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="setting-the-working-directory-in-osx-mac"><span class="header-section-number">2.1.2</span> Setting the working directory in OSX (mac)</h3>
 <p>For mac setting the working directory should be something like this:</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -323,7 +324,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>do not include whatever you have before “users” (like macintosh… )</p>
 <p>&nbsp;</p>
-<p><font size="5">Setting the working directory in Linux</font></p>
+</section>
+<section id="setting-the-working-directory-in-linux" class="level3" data-number="2.1.3">
+<h3 data-number="2.1.3" class="anchored" data-anchor-id="setting-the-working-directory-in-linux"><span class="header-section-number">2.1.3</span> Setting the working directory in Linux</h3>
 <p>Similar to the code used in OSX:</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -352,6 +355,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>&nbsp;</p>
 </section>
+</section>
 <section id="reading-data" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="reading-data"><span class="header-section-number">2.2</span> Reading data</h2>
 <p>Any file can be read in <code>R</code>. It’s just a matter of letting <code>R</code> know in which format is the file encoded (e.g.&nbsp;what conventions were followed when generating the file). The most common formats to store/exchange data sets as the ones we usually handle in biological sciences are <em>txt</em>, <em>csv</em> and <em>xls/xlsx</em>.</p>
@@ -366,7 +370,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>&nbsp;</p>
 <p><img src="./images/input_data.png" alt="Color spectro" height="500" width="750"></p>
 <p>&nbsp;</p>
-<p><font size="5">Reading <i>.txt</i> files</font></p>
+<section id="reading-.txt-files" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="reading-.txt-files"><span class="header-section-number">2.2.1</span> Reading <em>.txt</em> files</h3>
 <p><em>.txt</em> files can be read using <code>read.table</code>. Let’s first download a freely available data set in <em>.txt</em> format:</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -374,17 +379,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set working directory</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"PUT THE FOLDER LOCATION WHERE YOU WANT TO SAVE THE FILE HERE"</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="st">"https://raw.githubusercontent.com/maRce10/OTS_TBCP_2024/master/data/pantheria_mammals_data.txt"</span>, <span class="at">destfile =</span> <span class="st">"pantheria_mammals_data.txt"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://raw.githubusercontent.com/maRce10/OTS_TBCP_2024/master/data/pantheria_mammals_data.txt"</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">destfile =</span> <span class="st">"pantheria_mammals_data.txt"</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p><em>You can also manually download the file from <a href="http://esapubs.org/archive/ecol/E090/184/PanTHERIA_1-0_WR93_Aug2008.txt">here</a></em></p>
+<p><em>You can also manually download the file from <a href="https://raw.githubusercontent.com/maRce10/OTS_TBCP_2024/master/data/pantheria_mammals_data.txt">here</a></em></p>
 <p>&nbsp;</p>
 <p>The file can be input into <code>R</code> as follows:</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read file</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>pntr_dt <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"pantheria_mammals_data.txt"</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>pntr_dt <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"pantheria_mammals_data.txt"</span>,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">header =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
@@ -406,6 +416,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <th style="text-align: left;" data-quarto-table-cell-role="th">MSW93_Species</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">MSW93_Binomial</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">X1.1_ActivityCycle</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X5.1_AdultBodyMass_g</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X8.1_AdultForearmLen_mm</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X13.1_AdultHeadBodyLen_mm</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X2.1_AgeatEyeOpening_d</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X3.1_AgeatFirstBirth_d</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X18.1_BasalMetRate_mLO2hr</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X5.2_BasalMetRateMass_g</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X6.1_DietBreadth</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X7.1_DispersalAge_d</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X9.1_GestationLen_d</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X12.1_HabitatBreadth</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X22.1_HomeRange_km2</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X22.2_HomeRange_Indiv_km2</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X14.1_InterBirthInterval_d</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X15.1_LitterSize</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X16.1_LittersPerYear</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X17.1_MaxLongevity_m</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X5.3_NeonateBodyMass_g</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X13.2_NeonateHeadBodyLen_mm</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X21.1_PopulationDensity_n.km2</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X10.1_PopulationGrpSize</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X23.1_SexualMaturityAge_d</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X10.2_SocialGrpSize</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X24.1_TeatNumber</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X12.2_Terrestriality</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X6.2_TrophicLevel</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X25.1_WeaningAge_d</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X5.4_WeaningBodyMass_g</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X13.3_WeaningHeadBodyLen_mm</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">References</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X5.5_AdultBodyMass_g_EXT</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X16.2_LittersPerYear_EXT</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X5.6_NeonateBodyMass_g_EXT</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X5.7_WeaningBodyMass_g_EXT</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X26.1_GR_Area_km2</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X26.2_GR_MaxLat_dd</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X26.3_GR_MinLat_dd</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X26.4_GR_MRLat_dd</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X26.5_GR_MaxLong_dd</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X26.6_GR_MinLong_dd</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X26.7_GR_MRLong_dd</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X27.1_HuPopDen_Min_n.km2</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X27.2_HuPopDen_Mean_n.km2</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X27.3_HuPopDen_5p_n.km2</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X27.4_HuPopDen_Change</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X28.1_Precip_Mean_mm</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X28.2_Temp_Mean_01degC</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X30.1_AET_Mean_mm</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">X30.2_PET_Mean_mm</th>
 </tr>
 </thead>
 <tbody>
@@ -416,6 +475,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">latidens</td>
 <td style="text-align: left;">Abditomys latidens</td>
 <td style="text-align: right;">-999</td>
+<td style="text-align: right;">268</td>
+<td style="text-align: right;">-999.00</td>
+<td style="text-align: right;">223.99</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999.00</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999.00</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999.0</td>
+<td style="text-align: right;">-999.0</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: left;">2152</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">357</td>
+<td style="text-align: right;">16.94</td>
+<td style="text-align: right;">16.74</td>
+<td style="text-align: right;">16.84</td>
+<td style="text-align: right;">120.97</td>
+<td style="text-align: right;">120.78</td>
+<td style="text-align: right;">120.88</td>
+<td style="text-align: right;">93</td>
+<td style="text-align: right;">93.00</td>
+<td style="text-align: right;">93</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">316.00</td>
+<td style="text-align: right;">180.00</td>
+<td style="text-align: right;">1443.00</td>
+<td style="text-align: right;">1557.0</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Rodentia</td>
@@ -424,6 +532,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">ruschii</td>
 <td style="text-align: left;">Abrawayaomys ruschii</td>
 <td style="text-align: right;">-999</td>
+<td style="text-align: right;">63</td>
+<td style="text-align: right;">-999.00</td>
+<td style="text-align: right;">-999.00</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999.00</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999.00</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999.0</td>
+<td style="text-align: right;">-999.0</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: left;">2655</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">126137</td>
+<td style="text-align: right;">-15.09</td>
+<td style="text-align: right;">-19.84</td>
+<td style="text-align: right;">-17.47</td>
+<td style="text-align: right;">-40.52</td>
+<td style="text-align: right;">-43.56</td>
+<td style="text-align: right;">-42.04</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">21.21</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">107.06</td>
+<td style="text-align: right;">209.10</td>
+<td style="text-align: right;">1084.47</td>
+<td style="text-align: right;">1402.4</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Rodentia</td>
@@ -432,6 +589,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">bennettii</td>
 <td style="text-align: left;">Abrocoma bennettii</td>
 <td style="text-align: right;">1</td>
+<td style="text-align: right;">251</td>
+<td style="text-align: right;">-999.00</td>
+<td style="text-align: right;">-999.00</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999.00</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">4.86</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">27.6</td>
+<td style="text-align: right;">-999.0</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">142</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: left;">543;890;1297;1492;2655</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">54616</td>
+<td style="text-align: right;">-27.71</td>
+<td style="text-align: right;">-35.58</td>
+<td style="text-align: right;">-31.64</td>
+<td style="text-align: right;">-69.40</td>
+<td style="text-align: right;">-71.70</td>
+<td style="text-align: right;">-70.55</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">63.15</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">20.44</td>
+<td style="text-align: right;">17.66</td>
+<td style="text-align: right;">213.09</td>
+<td style="text-align: right;">1073.8</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Rodentia</td>
@@ -440,6 +646,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">boliviensis</td>
 <td style="text-align: left;">Abrocoma boliviensis</td>
 <td style="text-align: right;">-999</td>
+<td style="text-align: right;">158</td>
+<td style="text-align: right;">-999.00</td>
+<td style="text-align: right;">-999.00</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999.00</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999.00</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999.0</td>
+<td style="text-align: right;">-999.0</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: left;">2655</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">5774</td>
+<td style="text-align: right;">-17.44</td>
+<td style="text-align: right;">-18.05</td>
+<td style="text-align: right;">-17.75</td>
+<td style="text-align: right;">-63.49</td>
+<td style="text-align: right;">-64.51</td>
+<td style="text-align: right;">-64.00</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">29.24</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">82.63</td>
+<td style="text-align: right;">175.55</td>
+<td style="text-align: right;">1171.61</td>
+<td style="text-align: right;">1487.3</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Rodentia</td>
@@ -448,6 +703,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">cinerea</td>
 <td style="text-align: left;">Abrocoma cinerea</td>
 <td style="text-align: right;">-999</td>
+<td style="text-align: right;">194</td>
+<td style="text-align: right;">-999.00</td>
+<td style="text-align: right;">-999.00</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">109.64</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">2.20</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999.0</td>
+<td style="text-align: right;">13.3</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: left;">890;1297;1627;2655</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">381391</td>
+<td style="text-align: right;">-14.43</td>
+<td style="text-align: right;">-24.35</td>
+<td style="text-align: right;">-19.39</td>
+<td style="text-align: right;">-64.27</td>
+<td style="text-align: right;">-70.60</td>
+<td style="text-align: right;">-67.43</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">13.72</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">48.46</td>
+<td style="text-align: right;">35.22</td>
+<td style="text-align: right;">515.10</td>
+<td style="text-align: right;">1257.3</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Chiroptera</td>
@@ -456,60 +760,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">celebensis</td>
 <td style="text-align: left;">Acerodon celebensis</td>
 <td style="text-align: right;">-999</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-
-</div>
-<div class="cell-output-display">
-<div class="table-responsive">
-<table class="table table-striped table-hover table-condensed table-sm small" data-quarto-postprocess="true">
-<thead>
-<tr class="header">
-<th style="text-align: right;" data-quarto-table-cell-role="th">X5.1_AdultBodyMass_g</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">X8.1_AdultForearmLen_mm</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">X13.1_AdultHeadBodyLen_mm</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">X2.1_AgeatEyeOpening_d</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">268</td>
-<td style="text-align: right;">-999.00</td>
-<td style="text-align: right;">223.99</td>
-<td style="text-align: right;">-999</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">63</td>
-<td style="text-align: right;">-999.00</td>
-<td style="text-align: right;">-999.00</td>
-<td style="text-align: right;">-999</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">251</td>
-<td style="text-align: right;">-999.00</td>
-<td style="text-align: right;">-999.00</td>
-<td style="text-align: right;">-999</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">158</td>
-<td style="text-align: right;">-999.00</td>
-<td style="text-align: right;">-999.00</td>
-<td style="text-align: right;">-999</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">194</td>
-<td style="text-align: right;">-999.00</td>
-<td style="text-align: right;">-999.00</td>
-<td style="text-align: right;">-999</td>
-</tr>
-<tr class="even">
 <td style="text-align: right;">382</td>
 <td style="text-align: right;">133.49</td>
 <td style="text-align: right;">201.55</td>
 <td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999.00</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">0.98</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999.0</td>
+<td style="text-align: right;">-999.0</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: left;">978;1297;1658;2151;2655</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">-999</td>
+<td style="text-align: right;">173613</td>
+<td style="text-align: right;">3.74</td>
+<td style="text-align: right;">-6.49</td>
+<td style="text-align: right;">-1.37</td>
+<td style="text-align: right;">126.34</td>
+<td style="text-align: right;">118.75</td>
+<td style="text-align: right;">122.55</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">92.68</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">229.41</td>
+<td style="text-align: right;">215.47</td>
+<td style="text-align: right;">1812.60</td>
+<td style="text-align: right;">1909.2</td>
 </tr>
 </tbody>
 </table>
@@ -657,7 +956,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>&nbsp;</p>
-<p><font size="5">Reading <i>.csv</i> files</font></p>
+</section>
+<section id="reading-.csv-files" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="reading-.csv-files"><span class="header-section-number">2.2.2</span> Reading <em>.csv</em> files</h3>
 <p>Again, we can download an example file online and read it:</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -665,7 +966,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="st">"https://github.com/maRce10/OTS_TBCP_2024/raw/master/data/clements_bird_list.csv"</span>, <span class="at">destfile =</span> <span class="st">"clements_bird_list.csv"</span>)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>clm_lst <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"clements_bird_list.csv"</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>clm_lst <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"clements_bird_list.csv"</span>)</span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(clm_lst)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -681,6 +982,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <th style="text-align: left;" data-quarto-table-cell-role="th">SPECIES_CODE</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">PRIMARY_COM_NAME</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">SCI_NAME</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">ORDER1</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">FAMILY</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">SPECIES_GROUP</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">REPORT_AS</th>
 </tr>
 </thead>
 <tbody>
@@ -690,6 +995,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">ostric2</td>
 <td style="text-align: left;">Common Ostrich</td>
 <td style="text-align: left;">Struthio camelus</td>
+<td style="text-align: left;">Struthioniformes</td>
+<td style="text-align: left;">Struthionidae (Ostriches)</td>
+<td style="text-align: left;">Ostriches</td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">5</td>
@@ -697,6 +1006,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">ostric3</td>
 <td style="text-align: left;">Somali Ostrich</td>
 <td style="text-align: left;">Struthio molybdophanes</td>
+<td style="text-align: left;">Struthioniformes</td>
+<td style="text-align: left;">Struthionidae (Ostriches)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">6</td>
@@ -704,6 +1017,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">y00934</td>
 <td style="text-align: left;">Common/Somali Ostrich</td>
 <td style="text-align: left;">Struthio camelus/molybdophanes</td>
+<td style="text-align: left;">Struthioniformes</td>
+<td style="text-align: left;">Struthionidae (Ostriches)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">7</td>
@@ -711,6 +1028,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">grerhe1</td>
 <td style="text-align: left;">Greater Rhea</td>
 <td style="text-align: left;">Rhea americana</td>
+<td style="text-align: left;">Rheiformes</td>
+<td style="text-align: left;">Rheidae (Rheas)</td>
+<td style="text-align: left;">Rheas</td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">13</td>
@@ -718,6 +1039,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">lesrhe2</td>
 <td style="text-align: left;">Lesser Rhea</td>
 <td style="text-align: left;">Rhea pennata</td>
+<td style="text-align: left;">Rheiformes</td>
+<td style="text-align: left;">Rheidae (Rheas)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">14</td>
@@ -725,56 +1050,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">lesrhe4</td>
 <td style="text-align: left;">Lesser Rhea (Puna)</td>
 <td style="text-align: left;">Rhea pennata tarapacensis/garleppi</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-
-</div>
-<div class="cell-output-display">
-<div class="table-responsive">
-<table class="table table-striped table-hover table-condensed table-sm small" data-quarto-postprocess="true">
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">ORDER1</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">FAMILY</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">SPECIES_GROUP</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">REPORT_AS</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Struthioniformes</td>
-<td style="text-align: left;">Struthionidae (Ostriches)</td>
-<td style="text-align: left;">Ostriches</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Struthioniformes</td>
-<td style="text-align: left;">Struthionidae (Ostriches)</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Struthioniformes</td>
-<td style="text-align: left;">Struthionidae (Ostriches)</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Rheiformes</td>
-<td style="text-align: left;">Rheidae (Rheas)</td>
-<td style="text-align: left;">Rheas</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Rheiformes</td>
-<td style="text-align: left;">Rheidae (Rheas)</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">Rheiformes</td>
 <td style="text-align: left;">Rheidae (Rheas)</td>
 <td style="text-align: left;"></td>
@@ -792,7 +1067,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>clm_lst <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"clements_bird_list.csv"</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>, <span class="at">na.strings =</span> <span class="st">""</span>)</span>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>clm_lst <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"clements_bird_list.csv"</span>, <span class="at">na.strings =</span> <span class="st">""</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(clm_lst)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -889,8 +1164,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="reading-excel-files" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="reading-excel-files"><span class="header-section-number">2.3</span> Reading excel files</h2>
+<section id="reading-excel-files" class="level3" data-number="2.2.3">
+<h3 data-number="2.2.3" class="anchored" data-anchor-id="reading-excel-files"><span class="header-section-number">2.2.3</span> Reading excel files</h3>
 <p>Most researchers enter data into excel spreadsheets. So it would be pretty handy to read the data directly from there. To read <em>xls</em> and <em>xlsx</em> files we need to install the package “readxl” (there are other packages that can be used but they all work similarly):</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -1046,16 +1321,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>&nbsp;</p>
 <p>You need to specify the file name (including extension) and the excel sheet (tab) name. <code>read_excel()</code> auto detects the format from the file extension. The functions <code>read_xls()</code> and <code>read_xlsx()</code> can be used to read files without extension.</p>
 <p>&nbsp;</p>
-<section id="exercise-1" class="level3 alert alert-info" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="exercise-1"><span class="header-section-number">2.3.1</span> Exercise 1</h3>
+</section>
+<section id="exercise-1" class="level3 alert alert-info" data-number="2.2.4">
+<h3 data-number="2.2.4" class="anchored" data-anchor-id="exercise-1"><span class="header-section-number">2.2.4</span> Exercise 1</h3>
 <p>All default functions to input data into <code>R</code> have a counterpart to export the same type of data. The names of these other functions are similar to the ones for reading data, although they typically start with “write” or “save”.</p>
-<p>1.1 What are the names of the default functions for exporting the data formats we used above? (hint: try <code>apropos</code> to check which functions are available)</p>
-<p>1.2 Export the mammals data as a <em>.csv</em> file</p>
-<p>1.3 Export the mammals data again, this time excluding the row names</p>
-<p>1.4 Read the <em>.csv</em> file using <code>read.table</code></p>
-<p>1.5 What other packages can import excel files into <code>R</code>?</p>
-<p>1.6 Can you export an excel file or add data to an existing excel file from <code>R</code>?</p>
-<p>1.7 Using the “clements_bird_list.csv” file, how would you tell <code>R</code> to read both “Rheiformes” and “Ostriches” as empty cells (while still reading empty cells as empty cells)?</p>
+<ol type="1">
+<li><p>What are the names of the default functions for exporting the data formats we used above? (hint: try <code>apropos</code> to check which functions are available)</p></li>
+<li><p>Export the mammals data as a <em>.csv</em> file</p></li>
+<li><p>Export the mammals data again, this time excluding the row names</p></li>
+<li><p>Read the <em>.csv</em> file using <code>read.table</code></p></li>
+<li><p>What other packages can import excel files into <code>R</code>?</p></li>
+<li><p>Can you export an excel file or add data to an existing excel file from <code>R</code>?</p></li>
+<li><p>Using the “clements_bird_list.csv” file, how would you tell <code>R</code> to read both “Rheiformes” and “Ostriches” as empty cells (while still reading empty cells as empty cells)?</p></li>
+</ol>
 </section>
 <hr>
 </section>
@@ -2924,7 +3202,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb45-73"><a href="#cb45-73" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb45-74"><a href="#cb45-74" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Delete any extra comments outside the data set columns</span>
 <span id="cb45-75"><a href="#cb45-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-76"><a href="#cb45-76" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Indicate missing values with NA (or at least empty spaces)</span>
+<span id="cb45-76"><a href="#cb45-76" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Indicate missing values with empty spaces</span>
 <span id="cb45-77"><a href="#cb45-77" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb45-78"><a href="#cb45-78" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Don't even think about color-coding your data in excel</span>
 <span id="cb45-79"><a href="#cb45-79" aria-hidden="true" tabindex="-1"></a>:::</span>
@@ -2957,338 +3235,338 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb45-106"><a href="#cb45-106" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb45-107"><a href="#cb45-107" aria-hidden="true" tabindex="-1"></a>Some basic tips for setting the working directory:</span>
 <span id="cb45-108"><a href="#cb45-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-109"><a href="#cb45-109" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Make sure the location is quoted</span>
+<span id="cb45-109"><a href="#cb45-109" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>The path to the folder should be quoted ("")</span>
 <span id="cb45-110"><a href="#cb45-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-111"><a href="#cb45-111" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Make sure you have forward-slash (/) between folder names (although double backward-slashes seem to work in windows)</span>
+<span id="cb45-111"><a href="#cb45-111" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Make sure you have forward-slash (/) between folder names (although double backward-slashes seem to work on Windows)</span>
 <span id="cb45-112"><a href="#cb45-112" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb45-113"><a href="#cb45-113" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Do not include any file name in the folder directory name</span>
 <span id="cb45-114"><a href="#cb45-114" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb45-115"><a href="#cb45-115" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>To find the location you can look at the properties of a file in that folder and copy it</span>
 <span id="cb45-116"><a href="#cb45-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-117"><a href="#cb45-117" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>The path to the folder should be quoted ("")</span>
+<span id="cb45-117"><a href="#cb45-117" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>The name matches exactly (better to copy/paste)</span>
 <span id="cb45-118"><a href="#cb45-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-119"><a href="#cb45-119" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>The name matches exactly (better to copy/paste)</span>
+<span id="cb45-119"><a href="#cb45-119" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Use <span class="in">`list.files()`</span> to check which files are in the working directory</span>
 <span id="cb45-120"><a href="#cb45-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-121"><a href="#cb45-121" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Use <span class="in">`list.files()`</span> to check which files are in the working directory</span>
+<span id="cb45-121"><a href="#cb45-121" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`R`</span> can suggest and auto-complete the folder names by pressing "tab" when within quotes:</span>
 <span id="cb45-122"><a href="#cb45-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-123"><a href="#cb45-123" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`R`</span> can suggest and auto-complete the folder names by pressing "tab" when within quotes:</span>
+<span id="cb45-123"><a href="#cb45-123" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb45-124"><a href="#cb45-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-125"><a href="#cb45-125" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb45-125"><a href="#cb45-125" aria-hidden="true" tabindex="-1"></a>&lt;img src="./images/suggest_folder.gif" alt="Color spectro" height="150" width="550"/&gt;</span>
 <span id="cb45-126"><a href="#cb45-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-127"><a href="#cb45-127" aria-hidden="true" tabindex="-1"></a>&lt;img src="./images/suggest_folder.gif" alt="Color spectro" height="150" width="550"/&gt;</span>
+<span id="cb45-127"><a href="#cb45-127" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb45-128"><a href="#cb45-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-129"><a href="#cb45-129" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb45-129"><a href="#cb45-129" aria-hidden="true" tabindex="-1"></a><span class="fu">### Setting the working directory on Windows</span></span>
 <span id="cb45-130"><a href="#cb45-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-131"><a href="#cb45-131" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Setting the working directory in windows&lt;/font&gt;</span>
+<span id="cb45-131"><a href="#cb45-131" aria-hidden="true" tabindex="-1"></a>In windows it should be something like this:</span>
 <span id="cb45-132"><a href="#cb45-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-133"><a href="#cb45-133" aria-hidden="true" tabindex="-1"></a>In windows it should be something like this:</span>
+<span id="cb45-133"><a href="#cb45-133" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,eval=FALSE}</span></span>
 <span id="cb45-134"><a href="#cb45-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-135"><a href="#cb45-135" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,eval=FALSE}</span></span>
+<span id="cb45-135"><a href="#cb45-135" aria-hidden="true" tabindex="-1"></a><span class="in">setwd("C:/location")</span></span>
 <span id="cb45-136"><a href="#cb45-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-137"><a href="#cb45-137" aria-hidden="true" tabindex="-1"></a><span class="in">setwd("C:/location")</span></span>
+<span id="cb45-137"><a href="#cb45-137" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb45-138"><a href="#cb45-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-139"><a href="#cb45-139" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-139"><a href="#cb45-139" aria-hidden="true" tabindex="-1"></a>You can also do this (only on windows!):</span>
 <span id="cb45-140"><a href="#cb45-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-141"><a href="#cb45-141" aria-hidden="true" tabindex="-1"></a>You can also do this (only on windows!):</span>
+<span id="cb45-141"><a href="#cb45-141" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,eval=FALSE}</span></span>
 <span id="cb45-142"><a href="#cb45-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-143"><a href="#cb45-143" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,eval=FALSE}</span></span>
+<span id="cb45-143"><a href="#cb45-143" aria-hidden="true" tabindex="-1"></a><span class="in">setwd(choose.dir())</span></span>
 <span id="cb45-144"><a href="#cb45-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-145"><a href="#cb45-145" aria-hidden="true" tabindex="-1"></a><span class="in">setwd(choose.dir())</span></span>
+<span id="cb45-145"><a href="#cb45-145" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb45-146"><a href="#cb45-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-147"><a href="#cb45-147" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-147"><a href="#cb45-147" aria-hidden="true" tabindex="-1"></a>&nbsp; That should pop-up a window where you can choose the location. However, this should only be used to figure out the correct way to write the directory location, not as part of the script itself.</span>
 <span id="cb45-148"><a href="#cb45-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-149"><a href="#cb45-149" aria-hidden="true" tabindex="-1"></a>&nbsp; That should pop-up a window where you can choose the location. However, this should only be used to figure out the correct way to write the directory location, not as part of the script itself.</span>
+<span id="cb45-149"><a href="#cb45-149" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb45-150"><a href="#cb45-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-151"><a href="#cb45-151" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb45-151"><a href="#cb45-151" aria-hidden="true" tabindex="-1"></a><span class="fu">### Setting the working directory in OSX (mac)</span></span>
 <span id="cb45-152"><a href="#cb45-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-153"><a href="#cb45-153" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Setting the working directory in OSX (mac)&lt;/font&gt;</span>
+<span id="cb45-153"><a href="#cb45-153" aria-hidden="true" tabindex="-1"></a>For mac setting the working directory should be something like this:</span>
 <span id="cb45-154"><a href="#cb45-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-155"><a href="#cb45-155" aria-hidden="true" tabindex="-1"></a>For mac setting the working directory should be something like this:</span>
+<span id="cb45-155"><a href="#cb45-155" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,eval=FALSE}</span></span>
 <span id="cb45-156"><a href="#cb45-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-157"><a href="#cb45-157" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,eval=FALSE}</span></span>
+<span id="cb45-157"><a href="#cb45-157" aria-hidden="true" tabindex="-1"></a><span class="in">setwd("/Users/yourname/..")</span></span>
 <span id="cb45-158"><a href="#cb45-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-159"><a href="#cb45-159" aria-hidden="true" tabindex="-1"></a><span class="in">setwd("/Users/yourname/..")</span></span>
+<span id="cb45-159"><a href="#cb45-159" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb45-160"><a href="#cb45-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-161"><a href="#cb45-161" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-161"><a href="#cb45-161" aria-hidden="true" tabindex="-1"></a>do not include whatever you have before "users" (like macintosh... )</span>
 <span id="cb45-162"><a href="#cb45-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-163"><a href="#cb45-163" aria-hidden="true" tabindex="-1"></a>do not include whatever you have before "users" (like macintosh... )</span>
+<span id="cb45-163"><a href="#cb45-163" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb45-164"><a href="#cb45-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-165"><a href="#cb45-165" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb45-165"><a href="#cb45-165" aria-hidden="true" tabindex="-1"></a><span class="fu">### Setting the working directory in Linux</span></span>
 <span id="cb45-166"><a href="#cb45-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-167"><a href="#cb45-167" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Setting the working directory in Linux&lt;/font&gt;</span>
+<span id="cb45-167"><a href="#cb45-167" aria-hidden="true" tabindex="-1"></a>Similar to the code used in OSX:</span>
 <span id="cb45-168"><a href="#cb45-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-169"><a href="#cb45-169" aria-hidden="true" tabindex="-1"></a>Similar to the code used in OSX:</span>
+<span id="cb45-169"><a href="#cb45-169" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = F}</span></span>
 <span id="cb45-170"><a href="#cb45-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-171"><a href="#cb45-171" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = F}</span></span>
+<span id="cb45-171"><a href="#cb45-171" aria-hidden="true" tabindex="-1"></a><span class="in">setwd("/home/m/Desktop/")</span></span>
 <span id="cb45-172"><a href="#cb45-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-173"><a href="#cb45-173" aria-hidden="true" tabindex="-1"></a><span class="in">setwd("/home/m/Desktop/")</span></span>
+<span id="cb45-173"><a href="#cb45-173" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb45-174"><a href="#cb45-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-175"><a href="#cb45-175" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-175"><a href="#cb45-175" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb45-176"><a href="#cb45-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-177"><a href="#cb45-177" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb45-177"><a href="#cb45-177" aria-hidden="true" tabindex="-1"></a>The "\~" (tilde) can also be used to skip the "home" and "user" folder in Linux:</span>
 <span id="cb45-178"><a href="#cb45-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-179"><a href="#cb45-179" aria-hidden="true" tabindex="-1"></a>The "\~" (tilde) can also be used to skip the "home" and "user" folder in Linux:</span>
+<span id="cb45-179"><a href="#cb45-179" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = F}</span></span>
 <span id="cb45-180"><a href="#cb45-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-181"><a href="#cb45-181" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = F}</span></span>
+<span id="cb45-181"><a href="#cb45-181" aria-hidden="true" tabindex="-1"></a><span class="in">setwd("~/Desktop/")</span></span>
 <span id="cb45-182"><a href="#cb45-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-183"><a href="#cb45-183" aria-hidden="true" tabindex="-1"></a><span class="in">setwd("~/Desktop/")</span></span>
+<span id="cb45-183"><a href="#cb45-183" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb45-184"><a href="#cb45-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-185"><a href="#cb45-185" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-185"><a href="#cb45-185" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb45-186"><a href="#cb45-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-187"><a href="#cb45-187" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb45-187"><a href="#cb45-187" aria-hidden="true" tabindex="-1"></a>The current working directory can be checked as follows:</span>
 <span id="cb45-188"><a href="#cb45-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-189"><a href="#cb45-189" aria-hidden="true" tabindex="-1"></a>The current working directory can be checked as follows:</span>
+<span id="cb45-189"><a href="#cb45-189" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = T}</span></span>
 <span id="cb45-190"><a href="#cb45-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-191"><a href="#cb45-191" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = T}</span></span>
+<span id="cb45-191"><a href="#cb45-191" aria-hidden="true" tabindex="-1"></a><span class="in">getwd()</span></span>
 <span id="cb45-192"><a href="#cb45-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-193"><a href="#cb45-193" aria-hidden="true" tabindex="-1"></a><span class="in">getwd()</span></span>
+<span id="cb45-193"><a href="#cb45-193" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb45-194"><a href="#cb45-194" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-195"><a href="#cb45-195" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-195"><a href="#cb45-195" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb45-196"><a href="#cb45-196" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-197"><a href="#cb45-197" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb45-197"><a href="#cb45-197" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reading data</span></span>
 <span id="cb45-198"><a href="#cb45-198" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-199"><a href="#cb45-199" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reading data</span></span>
+<span id="cb45-199"><a href="#cb45-199" aria-hidden="true" tabindex="-1"></a>Any file can be read in <span class="in">`R`</span>. It's just a matter of letting <span class="in">`R`</span> know in which format is the file encoded (e.g. what conventions were followed when generating the file). The most common formats to store/exchange data sets as the ones we usually handle in biological sciences are *txt*, *csv* and *xls/xlsx*.</span>
 <span id="cb45-200"><a href="#cb45-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-201"><a href="#cb45-201" aria-hidden="true" tabindex="-1"></a>Any file can be read in <span class="in">`R`</span>. It's just a matter of letting <span class="in">`R`</span> know in which format is the file encoded (e.g. what conventions were followed when generating the file). The most common formats to store/exchange data sets as the ones we usually handle in biological sciences are *txt*, *csv* and *xls/xlsx*.</span>
+<span id="cb45-201"><a href="#cb45-201" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb45-202"><a href="#cb45-202" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-203"><a href="#cb45-203" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb45-203"><a href="#cb45-203" aria-hidden="true" tabindex="-1"></a>The most commonly used function to import data in <span class="in">`R`</span> is <span class="in">`read.table`</span>. The documentation of this function actually includes all the default functions for inputting data:</span>
 <span id="cb45-204"><a href="#cb45-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-205"><a href="#cb45-205" aria-hidden="true" tabindex="-1"></a>The most commonly used function to import data in <span class="in">`R`</span> is <span class="in">`read.table`</span>. The documentation of this function actually includes all the default functions for inputting data:</span>
-<span id="cb45-206"><a href="#cb45-206" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-209"><a href="#cb45-209" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb45-210"><a href="#cb45-210" aria-hidden="true" tabindex="-1"></a>?read.table</span>
-<span id="cb45-211"><a href="#cb45-211" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-207"><a href="#cb45-207" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb45-208"><a href="#cb45-208" aria-hidden="true" tabindex="-1"></a>?read.table</span>
+<span id="cb45-209"><a href="#cb45-209" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-210"><a href="#cb45-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-211"><a href="#cb45-211" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb45-212"><a href="#cb45-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-213"><a href="#cb45-213" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb45-213"><a href="#cb45-213" aria-hidden="true" tabindex="-1"></a>&lt;img src="./images/input_data.png" alt="Color spectro" height="500" width="750"/&gt;</span>
 <span id="cb45-214"><a href="#cb45-214" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-215"><a href="#cb45-215" aria-hidden="true" tabindex="-1"></a>&lt;img src="./images/input_data.png" alt="Color spectro" height="500" width="750"/&gt;</span>
+<span id="cb45-215"><a href="#cb45-215" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb45-216"><a href="#cb45-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-217"><a href="#cb45-217" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb45-217"><a href="#cb45-217" aria-hidden="true" tabindex="-1"></a><span class="fu">### Reading *.txt* files</span></span>
 <span id="cb45-218"><a href="#cb45-218" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-219"><a href="#cb45-219" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Reading &lt;i&gt;.txt&lt;/i&gt; files&lt;/font&gt;</span>
+<span id="cb45-219"><a href="#cb45-219" aria-hidden="true" tabindex="-1"></a>*.txt* files can be read using `read.table`. Let's first download a freely available data set in *.txt* format:</span>
 <span id="cb45-220"><a href="#cb45-220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-221"><a href="#cb45-221" aria-hidden="true" tabindex="-1"></a>*.txt* files can be read using `read.table`. Let's first download a freely available data set in *.txt* format:</span>
+<span id="cb45-221"><a href="#cb45-221" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = F, echo= T}</span></span>
 <span id="cb45-222"><a href="#cb45-222" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-223"><a href="#cb45-223" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = F, echo= T}</span></span>
-<span id="cb45-224"><a href="#cb45-224" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-225"><a href="#cb45-225" aria-hidden="true" tabindex="-1"></a><span class="in"># set working directory</span></span>
-<span id="cb45-226"><a href="#cb45-226" aria-hidden="true" tabindex="-1"></a><span class="in">setwd("PUT THE FOLDER LOCATION WHERE YOU WANT TO SAVE THE FILE HERE")</span></span>
-<span id="cb45-227"><a href="#cb45-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-228"><a href="#cb45-228" aria-hidden="true" tabindex="-1"></a><span class="in">download.file("https://raw.githubusercontent.com/maRce10/OTS_TBCP_2024/master/data/pantheria_mammals_data.txt", destfile = "pantheria_mammals_data.txt")</span></span>
-<span id="cb45-229"><a href="#cb45-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-230"><a href="#cb45-230" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-231"><a href="#cb45-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-232"><a href="#cb45-232" aria-hidden="true" tabindex="-1"></a>*You can also manually download the file from [here](http://esapubs.org/archive/ecol/E090/184/PanTHERIA_1-0_WR93_Aug2008.txt)*</span>
-<span id="cb45-233"><a href="#cb45-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-234"><a href="#cb45-234" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
-<span id="cb45-235"><a href="#cb45-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-236"><a href="#cb45-236" aria-hidden="true" tabindex="-1"></a>The file can be input into <span class="in">`R`</span> as follows:</span>
-<span id="cb45-237"><a href="#cb45-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-238"><a href="#cb45-238" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = F, echo= T}</span></span>
-<span id="cb45-239"><a href="#cb45-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-240"><a href="#cb45-240" aria-hidden="true" tabindex="-1"></a><span class="in"># read file</span></span>
-<span id="cb45-241"><a href="#cb45-241" aria-hidden="true" tabindex="-1"></a><span class="in">pntr_dt &lt;- read.table("pantheria_mammals_data.txt", stringsAsFactors = FALSE, sep = "\t", header = TRUE)</span></span>
-<span id="cb45-242"><a href="#cb45-242" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-243"><a href="#cb45-243" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-244"><a href="#cb45-244" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-245"><a href="#cb45-245" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = T, echo= F}</span></span>
-<span id="cb45-246"><a href="#cb45-246" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-247"><a href="#cb45-247" aria-hidden="true" tabindex="-1"></a><span class="in"># read file</span></span>
-<span id="cb45-248"><a href="#cb45-248" aria-hidden="true" tabindex="-1"></a><span class="in">pntr_dt &lt;- read.table("./data/pantheria_mammals_data.txt", stringsAsFactors = FALSE, sep = "\t", header = TRUE)</span></span>
+<span id="cb45-223"><a href="#cb45-223" aria-hidden="true" tabindex="-1"></a><span class="in"># set working directory</span></span>
+<span id="cb45-224"><a href="#cb45-224" aria-hidden="true" tabindex="-1"></a><span class="in">setwd("PUT THE FOLDER LOCATION WHERE YOU WANT TO SAVE THE FILE HERE")</span></span>
+<span id="cb45-225"><a href="#cb45-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-226"><a href="#cb45-226" aria-hidden="true" tabindex="-1"></a><span class="in">download.file(</span></span>
+<span id="cb45-227"><a href="#cb45-227" aria-hidden="true" tabindex="-1"></a><span class="in">  "https://raw.githubusercontent.com/maRce10/OTS_TBCP_2024/master/data/pantheria_mammals_data.txt",</span></span>
+<span id="cb45-228"><a href="#cb45-228" aria-hidden="true" tabindex="-1"></a><span class="in">  destfile = "pantheria_mammals_data.txt"</span></span>
+<span id="cb45-229"><a href="#cb45-229" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
+<span id="cb45-230"><a href="#cb45-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-231"><a href="#cb45-231" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-232"><a href="#cb45-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-233"><a href="#cb45-233" aria-hidden="true" tabindex="-1"></a>*You can also manually download the file from [here](https://raw.githubusercontent.com/maRce10/OTS_TBCP_2024/master/data/pantheria_mammals_data.txt)*</span>
+<span id="cb45-234"><a href="#cb45-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-235"><a href="#cb45-235" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb45-236"><a href="#cb45-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-237"><a href="#cb45-237" aria-hidden="true" tabindex="-1"></a>The file can be input into <span class="in">`R`</span> as follows:</span>
+<span id="cb45-238"><a href="#cb45-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-239"><a href="#cb45-239" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = F, echo= T}</span></span>
+<span id="cb45-240"><a href="#cb45-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-241"><a href="#cb45-241" aria-hidden="true" tabindex="-1"></a><span class="in"># read file</span></span>
+<span id="cb45-242"><a href="#cb45-242" aria-hidden="true" tabindex="-1"></a><span class="in">pntr_dt &lt;- read.table("pantheria_mammals_data.txt",</span></span>
+<span id="cb45-243"><a href="#cb45-243" aria-hidden="true" tabindex="-1"></a><span class="in">                      sep = "\t",</span></span>
+<span id="cb45-244"><a href="#cb45-244" aria-hidden="true" tabindex="-1"></a><span class="in">                      header = TRUE)</span></span>
+<span id="cb45-245"><a href="#cb45-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-246"><a href="#cb45-246" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-247"><a href="#cb45-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-248"><a href="#cb45-248" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = T, echo= F}</span></span>
 <span id="cb45-249"><a href="#cb45-249" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-250"><a href="#cb45-250" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-251"><a href="#cb45-251" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-252"><a href="#cb45-252" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-253"><a href="#cb45-253" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = F, echo= T}</span></span>
+<span id="cb45-250"><a href="#cb45-250" aria-hidden="true" tabindex="-1"></a><span class="in"># read file</span></span>
+<span id="cb45-251"><a href="#cb45-251" aria-hidden="true" tabindex="-1"></a><span class="in">pntr_dt &lt;- read.table("./data/pantheria_mammals_data.txt",</span></span>
+<span id="cb45-252"><a href="#cb45-252" aria-hidden="true" tabindex="-1"></a><span class="in">                      sep = "\t",</span></span>
+<span id="cb45-253"><a href="#cb45-253" aria-hidden="true" tabindex="-1"></a><span class="in">                      header = TRUE)</span></span>
 <span id="cb45-254"><a href="#cb45-254" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-255"><a href="#cb45-255" aria-hidden="true" tabindex="-1"></a><span class="in"># check structure</span></span>
-<span id="cb45-256"><a href="#cb45-256" aria-hidden="true" tabindex="-1"></a><span class="in">head(pntr_dt)</span></span>
+<span id="cb45-255"><a href="#cb45-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-256"><a href="#cb45-256" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb45-257"><a href="#cb45-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-258"><a href="#cb45-258" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-258"><a href="#cb45-258" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = F, echo= T}</span></span>
 <span id="cb45-259"><a href="#cb45-259" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-260"><a href="#cb45-260" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = T, echo= F}</span></span>
-<span id="cb45-261"><a href="#cb45-261" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-262"><a href="#cb45-262" aria-hidden="true" tabindex="-1"></a><span class="in"># check structure</span></span>
-<span id="cb45-263"><a href="#cb45-263" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::kable(pntr_dt[1:6, 1:6], row.names = F, escape = FALSE) %&gt;%</span></span>
-<span id="cb45-264"><a href="#cb45-264" aria-hidden="true" tabindex="-1"></a><span class="in">  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 14)</span></span>
-<span id="cb45-265"><a href="#cb45-265" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-266"><a href="#cb45-266" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::kable(pntr_dt[1:6, 7:10], row.names = F, escape = FALSE) %&gt;%</span></span>
-<span id="cb45-267"><a href="#cb45-267" aria-hidden="true" tabindex="-1"></a><span class="in">  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 14)</span></span>
-<span id="cb45-268"><a href="#cb45-268" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-269"><a href="#cb45-269" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-260"><a href="#cb45-260" aria-hidden="true" tabindex="-1"></a><span class="in"># check structure</span></span>
+<span id="cb45-261"><a href="#cb45-261" aria-hidden="true" tabindex="-1"></a><span class="in">head(pntr_dt)</span></span>
+<span id="cb45-262"><a href="#cb45-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-263"><a href="#cb45-263" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-264"><a href="#cb45-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-265"><a href="#cb45-265" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = T, echo= F}</span></span>
+<span id="cb45-266"><a href="#cb45-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-267"><a href="#cb45-267" aria-hidden="true" tabindex="-1"></a><span class="in"># check structure</span></span>
+<span id="cb45-268"><a href="#cb45-268" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::kable(pntr_dt[1:6, ], row.names = F, escape = FALSE) %&gt;%</span></span>
+<span id="cb45-269"><a href="#cb45-269" aria-hidden="true" tabindex="-1"></a><span class="in">  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 14)</span></span>
 <span id="cb45-270"><a href="#cb45-270" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-271"><a href="#cb45-271" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb45-271"><a href="#cb45-271" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb45-272"><a href="#cb45-272" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-273"><a href="#cb45-273" aria-hidden="true" tabindex="-1"></a>The file name is quoted and contains the file extension.</span>
+<span id="cb45-273"><a href="#cb45-273" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb45-274"><a href="#cb45-274" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-275"><a href="#cb45-275" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb45-275"><a href="#cb45-275" aria-hidden="true" tabindex="-1"></a>The file name is quoted and contains the file extension.</span>
 <span id="cb45-276"><a href="#cb45-276" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-277"><a href="#cb45-277" aria-hidden="true" tabindex="-1"></a>Note that the value -999 is used to define empty cells. We can read this values as *NAs* while importing the data using the 'na.strings' argument:</span>
+<span id="cb45-277"><a href="#cb45-277" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb45-278"><a href="#cb45-278" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-279"><a href="#cb45-279" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = F, echo= T}</span></span>
+<span id="cb45-279"><a href="#cb45-279" aria-hidden="true" tabindex="-1"></a>Note that the value -999 is used to define empty cells. We can read this values as *NAs* while importing the data using the 'na.strings' argument:</span>
 <span id="cb45-280"><a href="#cb45-280" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-281"><a href="#cb45-281" aria-hidden="true" tabindex="-1"></a><span class="in"># read file</span></span>
-<span id="cb45-282"><a href="#cb45-282" aria-hidden="true" tabindex="-1"></a><span class="in">pntr_dt &lt;- read.table("pantheria_mammals_data.txt", sep = "\t", header = TRUE, na.strings = "-999")</span></span>
-<span id="cb45-283"><a href="#cb45-283" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-284"><a href="#cb45-284" aria-hidden="true" tabindex="-1"></a><span class="in"># check structure</span></span>
-<span id="cb45-285"><a href="#cb45-285" aria-hidden="true" tabindex="-1"></a><span class="in">head(pntr_dt)</span></span>
-<span id="cb45-286"><a href="#cb45-286" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-287"><a href="#cb45-287" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-281"><a href="#cb45-281" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = F, echo= T}</span></span>
+<span id="cb45-282"><a href="#cb45-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-283"><a href="#cb45-283" aria-hidden="true" tabindex="-1"></a><span class="in"># read file</span></span>
+<span id="cb45-284"><a href="#cb45-284" aria-hidden="true" tabindex="-1"></a><span class="in">pntr_dt &lt;- read.table("pantheria_mammals_data.txt", sep = "\t", header = TRUE, na.strings = "-999")</span></span>
+<span id="cb45-285"><a href="#cb45-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-286"><a href="#cb45-286" aria-hidden="true" tabindex="-1"></a><span class="in"># check structure</span></span>
+<span id="cb45-287"><a href="#cb45-287" aria-hidden="true" tabindex="-1"></a><span class="in">head(pntr_dt)</span></span>
 <span id="cb45-288"><a href="#cb45-288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-289"><a href="#cb45-289" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = T, echo= F}</span></span>
+<span id="cb45-289"><a href="#cb45-289" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb45-290"><a href="#cb45-290" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-291"><a href="#cb45-291" aria-hidden="true" tabindex="-1"></a><span class="in"># read file</span></span>
-<span id="cb45-292"><a href="#cb45-292" aria-hidden="true" tabindex="-1"></a><span class="in">pntr_dt &lt;- read.table("./data/pantheria_mammals_data.txt", stringsAsFactors = FALSE, sep = "\t", header = TRUE, na.strings = "-999")</span></span>
-<span id="cb45-293"><a href="#cb45-293" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-294"><a href="#cb45-294" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-295"><a href="#cb45-295" aria-hidden="true" tabindex="-1"></a><span class="in"># check structure</span></span>
-<span id="cb45-296"><a href="#cb45-296" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::kable(pntr_dt[1:6, 1:6], row.names = F, escape = FALSE) %&gt;%</span></span>
-<span id="cb45-297"><a href="#cb45-297" aria-hidden="true" tabindex="-1"></a><span class="in">  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 14)</span></span>
-<span id="cb45-298"><a href="#cb45-298" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-299"><a href="#cb45-299" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::kable(pntr_dt[1:6, 7:10], row.names = F, escape = FALSE) %&gt;%</span></span>
-<span id="cb45-300"><a href="#cb45-300" aria-hidden="true" tabindex="-1"></a><span class="in">  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 14)</span></span>
-<span id="cb45-301"><a href="#cb45-301" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-302"><a href="#cb45-302" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-291"><a href="#cb45-291" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = T, echo= F}</span></span>
+<span id="cb45-292"><a href="#cb45-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-293"><a href="#cb45-293" aria-hidden="true" tabindex="-1"></a><span class="in"># read file</span></span>
+<span id="cb45-294"><a href="#cb45-294" aria-hidden="true" tabindex="-1"></a><span class="in">pntr_dt &lt;- read.table("./data/pantheria_mammals_data.txt", stringsAsFactors = FALSE, sep = "\t", header = TRUE, na.strings = "-999")</span></span>
+<span id="cb45-295"><a href="#cb45-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-296"><a href="#cb45-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-297"><a href="#cb45-297" aria-hidden="true" tabindex="-1"></a><span class="in"># check structure</span></span>
+<span id="cb45-298"><a href="#cb45-298" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::kable(pntr_dt[1:6, 1:6], row.names = F, escape = FALSE) %&gt;%</span></span>
+<span id="cb45-299"><a href="#cb45-299" aria-hidden="true" tabindex="-1"></a><span class="in">  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 14)</span></span>
+<span id="cb45-300"><a href="#cb45-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-301"><a href="#cb45-301" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::kable(pntr_dt[1:6, 7:10], row.names = F, escape = FALSE) %&gt;%</span></span>
+<span id="cb45-302"><a href="#cb45-302" aria-hidden="true" tabindex="-1"></a><span class="in">  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 14)</span></span>
 <span id="cb45-303"><a href="#cb45-303" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-304"><a href="#cb45-304" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb45-304"><a href="#cb45-304" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb45-305"><a href="#cb45-305" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-306"><a href="#cb45-306" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Reading &lt;i&gt;.csv&lt;/i&gt; files&lt;/font&gt;</span>
+<span id="cb45-306"><a href="#cb45-306" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb45-307"><a href="#cb45-307" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-308"><a href="#cb45-308" aria-hidden="true" tabindex="-1"></a>Again, we can download an example file online and read it:</span>
+<span id="cb45-308"><a href="#cb45-308" aria-hidden="true" tabindex="-1"></a><span class="fu">### Reading *.csv* files</span></span>
 <span id="cb45-309"><a href="#cb45-309" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-310"><a href="#cb45-310" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = F, echo= T}</span></span>
+<span id="cb45-310"><a href="#cb45-310" aria-hidden="true" tabindex="-1"></a>Again, we can download an example file online and read it:</span>
 <span id="cb45-311"><a href="#cb45-311" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-312"><a href="#cb45-312" aria-hidden="true" tabindex="-1"></a><span class="in">download.file("https://github.com/maRce10/OTS_TBCP_2024/raw/master/data/clements_bird_list.csv", destfile = "clements_bird_list.csv")</span></span>
+<span id="cb45-312"><a href="#cb45-312" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = F, echo= T}</span></span>
 <span id="cb45-313"><a href="#cb45-313" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-314"><a href="#cb45-314" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-315"><a href="#cb45-315" aria-hidden="true" tabindex="-1"></a><span class="in">clm_lst &lt;- read.csv("clements_bird_list.csv", stringsAsFactors = FALSE)</span></span>
+<span id="cb45-314"><a href="#cb45-314" aria-hidden="true" tabindex="-1"></a><span class="in">download.file("https://github.com/maRce10/OTS_TBCP_2024/raw/master/data/clements_bird_list.csv", destfile = "clements_bird_list.csv")</span></span>
+<span id="cb45-315"><a href="#cb45-315" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb45-316"><a href="#cb45-316" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-317"><a href="#cb45-317" aria-hidden="true" tabindex="-1"></a><span class="in">head(clm_lst)</span></span>
+<span id="cb45-317"><a href="#cb45-317" aria-hidden="true" tabindex="-1"></a><span class="in">clm_lst &lt;- read.csv("clements_bird_list.csv")</span></span>
 <span id="cb45-318"><a href="#cb45-318" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-319"><a href="#cb45-319" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-319"><a href="#cb45-319" aria-hidden="true" tabindex="-1"></a><span class="in">head(clm_lst)</span></span>
 <span id="cb45-320"><a href="#cb45-320" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-321"><a href="#cb45-321" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = T, echo= F}</span></span>
+<span id="cb45-321"><a href="#cb45-321" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb45-322"><a href="#cb45-322" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-323"><a href="#cb45-323" aria-hidden="true" tabindex="-1"></a><span class="in">clm_lst &lt;- read.csv("./data/clements_bird_list.csv", stringsAsFactors = FALSE)</span></span>
+<span id="cb45-323"><a href="#cb45-323" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = T, echo= F}</span></span>
 <span id="cb45-324"><a href="#cb45-324" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-325"><a href="#cb45-325" aria-hidden="true" tabindex="-1"></a><span class="in"># check structure</span></span>
-<span id="cb45-326"><a href="#cb45-326" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::kable(clm_lst[1:6, 1:5], row.names = F, escape = FALSE) %&gt;%</span></span>
-<span id="cb45-327"><a href="#cb45-327" aria-hidden="true" tabindex="-1"></a><span class="in">  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 14)</span></span>
-<span id="cb45-328"><a href="#cb45-328" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-329"><a href="#cb45-329" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::kable(clm_lst[1:6, 6:9], row.names = F, escape = FALSE) %&gt;%</span></span>
-<span id="cb45-330"><a href="#cb45-330" aria-hidden="true" tabindex="-1"></a><span class="in">  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 14)</span></span>
-<span id="cb45-331"><a href="#cb45-331" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-332"><a href="#cb45-332" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-333"><a href="#cb45-333" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-334"><a href="#cb45-334" aria-hidden="true" tabindex="-1"></a>You can also manually download the file from <span class="co">[</span><span class="ot">here</span><span class="co">](http://www.birds.cornell.edu/clementschecklist/wp-content/uploads/2013/03/eBird_Taxonomy_v2017_18Aug2017.csv)</span> (Note that the name of the downloaded file might differ to that in this tutorial).</span>
-<span id="cb45-335"><a href="#cb45-335" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-336"><a href="#cb45-336" aria-hidden="true" tabindex="-1"></a>As in the previous example, we can tell <span class="in">`R`</span> how to identify empty cells using the 'na.strings' argument:</span>
-<span id="cb45-337"><a href="#cb45-337" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-338"><a href="#cb45-338" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = F, echo= T}</span></span>
-<span id="cb45-339"><a href="#cb45-339" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-340"><a href="#cb45-340" aria-hidden="true" tabindex="-1"></a><span class="in">clm_lst &lt;- read.csv("clements_bird_list.csv", stringsAsFactors = FALSE, na.strings = "")</span></span>
-<span id="cb45-341"><a href="#cb45-341" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-342"><a href="#cb45-342" aria-hidden="true" tabindex="-1"></a><span class="in">head(clm_lst)</span></span>
-<span id="cb45-343"><a href="#cb45-343" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-344"><a href="#cb45-344" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-345"><a href="#cb45-345" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-346"><a href="#cb45-346" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = T, echo= F}</span></span>
-<span id="cb45-347"><a href="#cb45-347" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-348"><a href="#cb45-348" aria-hidden="true" tabindex="-1"></a><span class="in">clm_lst &lt;- read.csv("./data/clements_bird_list.csv", stringsAsFactors = FALSE, na.strings = "")</span></span>
-<span id="cb45-349"><a href="#cb45-349" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-350"><a href="#cb45-350" aria-hidden="true" tabindex="-1"></a><span class="in"># check structure</span></span>
-<span id="cb45-351"><a href="#cb45-351" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::kable(clm_lst[1:6, ], row.names = F, escape = FALSE) %&gt;%</span></span>
-<span id="cb45-352"><a href="#cb45-352" aria-hidden="true" tabindex="-1"></a><span class="in">  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 14)</span></span>
-<span id="cb45-353"><a href="#cb45-353" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-354"><a href="#cb45-354" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-355"><a href="#cb45-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-356"><a href="#cb45-356" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reading excel files</span></span>
-<span id="cb45-357"><a href="#cb45-357" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-358"><a href="#cb45-358" aria-hidden="true" tabindex="-1"></a>Most researchers enter data into excel spreadsheets. So it would be pretty handy to read the data directly from there. To read *xls* and *xlsx* files we need to install the package "readxl" (there are other packages that can be used but they all work similarly):</span>
-<span id="cb45-359"><a href="#cb45-359" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-360"><a href="#cb45-360" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,eval=FALSE}</span></span>
-<span id="cb45-361"><a href="#cb45-361" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-362"><a href="#cb45-362" aria-hidden="true" tabindex="-1"></a><span class="in">install.packages(pkgs = "readxl")</span></span>
-<span id="cb45-363"><a href="#cb45-363" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-364"><a href="#cb45-364" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-365"><a href="#cb45-365" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-366"><a href="#cb45-366" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
-<span id="cb45-367"><a href="#cb45-367" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-368"><a href="#cb45-368" aria-hidden="true" tabindex="-1"></a>And load it:</span>
-<span id="cb45-369"><a href="#cb45-369" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-370"><a href="#cb45-370" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=F}</span></span>
-<span id="cb45-371"><a href="#cb45-371" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-372"><a href="#cb45-372" aria-hidden="true" tabindex="-1"></a><span class="in">library(readxl)</span></span>
-<span id="cb45-373"><a href="#cb45-373" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-374"><a href="#cb45-374" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-375"><a href="#cb45-375" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-376"><a href="#cb45-376" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
-<span id="cb45-377"><a href="#cb45-377" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-378"><a href="#cb45-378" aria-hidden="true" tabindex="-1"></a>As we did above, download an example file from an online repository. In this case is the same Clements bird taxonomy list in *xlsx* format:</span>
-<span id="cb45-379"><a href="#cb45-379" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-380"><a href="#cb45-380" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = F, echo= T}</span></span>
-<span id="cb45-381"><a href="#cb45-381" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-382"><a href="#cb45-382" aria-hidden="true" tabindex="-1"></a><span class="in">download.file("https://github.com/maRce10/OTS_TBCP_2024/raw/master/data/clements_bird_list.xlsx", destfile = "clements_bird_list.xlsx")</span></span>
-<span id="cb45-383"><a href="#cb45-383" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-384"><a href="#cb45-384" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-385"><a href="#cb45-385" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-386"><a href="#cb45-386" aria-hidden="true" tabindex="-1"></a>You can also manually download the file from <span class="co">[</span><span class="ot">here</span><span class="co">](http://www.birds.cornell.edu/clementschecklist/wp-content/uploads/2017/08/eBird_Taxonomy_v2017_18Aug2017.xlsx)</span></span>
-<span id="cb45-387"><a href="#cb45-387" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-388"><a href="#cb45-388" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
-<span id="cb45-389"><a href="#cb45-389" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-390"><a href="#cb45-390" aria-hidden="true" tabindex="-1"></a>Now we can use the function <span class="in">`read_excel()`</span> to read the file:</span>
-<span id="cb45-391"><a href="#cb45-391" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-392"><a href="#cb45-392" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = F, echo= T}</span></span>
-<span id="cb45-393"><a href="#cb45-393" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-394"><a href="#cb45-394" aria-hidden="true" tabindex="-1"></a><span class="in"># read file</span></span>
-<span id="cb45-395"><a href="#cb45-395" aria-hidden="true" tabindex="-1"></a><span class="in">clm_lst2 &lt;- read_excel("clements_bird_list.xlsx", sheet = 1)</span></span>
-<span id="cb45-396"><a href="#cb45-396" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-397"><a href="#cb45-397" aria-hidden="true" tabindex="-1"></a><span class="in">head(clm_lst2)</span></span>
-<span id="cb45-398"><a href="#cb45-398" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-399"><a href="#cb45-399" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-400"><a href="#cb45-400" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = T, echo= F}</span></span>
-<span id="cb45-401"><a href="#cb45-401" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-402"><a href="#cb45-402" aria-hidden="true" tabindex="-1"></a><span class="in">clm_lst2 &lt;- read_excel("./data/clements_bird_list.xlsx", sheet = 1)</span></span>
-<span id="cb45-403"><a href="#cb45-403" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-404"><a href="#cb45-404" aria-hidden="true" tabindex="-1"></a><span class="in"># check structure</span></span>
-<span id="cb45-405"><a href="#cb45-405" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::kable(clm_lst2[1:6, 1:5], row.names = F, escape = FALSE) %&gt;%</span></span>
-<span id="cb45-406"><a href="#cb45-406" aria-hidden="true" tabindex="-1"></a><span class="in">  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 14)</span></span>
-<span id="cb45-407"><a href="#cb45-407" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-408"><a href="#cb45-408" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::kable(clm_lst2[1:6, 6:9], row.names = F, escape = FALSE) %&gt;%</span></span>
-<span id="cb45-409"><a href="#cb45-409" aria-hidden="true" tabindex="-1"></a><span class="in">  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 14)</span></span>
-<span id="cb45-410"><a href="#cb45-410" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-411"><a href="#cb45-411" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-412"><a href="#cb45-412" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-413"><a href="#cb45-413" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
-<span id="cb45-414"><a href="#cb45-414" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-415"><a href="#cb45-415" aria-hidden="true" tabindex="-1"></a>You need to specify the file name (including extension) and the excel sheet (tab) name. <span class="in">`read_excel()`</span> auto detects the format from the file extension. The functions <span class="in">`read_xls()`</span> and <span class="in">`read_xlsx()`</span> can be used to read files without extension.</span>
-<span id="cb45-416"><a href="#cb45-416" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-417"><a href="#cb45-417" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
-<span id="cb45-418"><a href="#cb45-418" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-419"><a href="#cb45-419" aria-hidden="true" tabindex="-1"></a>::: {.alert .alert-info}</span>
-<span id="cb45-420"><a href="#cb45-420" aria-hidden="true" tabindex="-1"></a><span class="fu">### Exercise 1</span></span>
-<span id="cb45-421"><a href="#cb45-421" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-422"><a href="#cb45-422" aria-hidden="true" tabindex="-1"></a>All default functions to input data into <span class="in">`R`</span> have a counterpart to export the same type of data. The names of these other functions are similar to the ones for reading data, although they typically start with "write" or "save".</span>
-<span id="cb45-423"><a href="#cb45-423" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-424"><a href="#cb45-424" aria-hidden="true" tabindex="-1"></a>1.1 What are the names of the default functions for exporting the data formats we used above? (hint: try <span class="in">`apropos`</span> to check which functions are available)</span>
-<span id="cb45-425"><a href="#cb45-425" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-426"><a href="#cb45-426" aria-hidden="true" tabindex="-1"></a>1.2 Export the mammals data as a *.csv* file</span>
-<span id="cb45-427"><a href="#cb45-427" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-428"><a href="#cb45-428" aria-hidden="true" tabindex="-1"></a>1.3 Export the mammals data again, this time excluding the row names</span>
-<span id="cb45-429"><a href="#cb45-429" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-430"><a href="#cb45-430" aria-hidden="true" tabindex="-1"></a>1.4 Read the *.csv* file using <span class="in">`read.table`</span></span>
-<span id="cb45-431"><a href="#cb45-431" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-432"><a href="#cb45-432" aria-hidden="true" tabindex="-1"></a>1.5 What other packages can import excel files into <span class="in">`R`</span>?</span>
-<span id="cb45-433"><a href="#cb45-433" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-434"><a href="#cb45-434" aria-hidden="true" tabindex="-1"></a>1.6 Can you export an excel file or add data to an existing excel file from <span class="in">`R`</span>?</span>
-<span id="cb45-435"><a href="#cb45-435" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-436"><a href="#cb45-436" aria-hidden="true" tabindex="-1"></a>1.7 Using the "clements_bird_list.csv" file, how would you tell <span class="in">`R`</span> to read both "Rheiformes" and "Ostriches" as empty cells (while still reading empty cells as empty cells)?</span>
+<span id="cb45-325"><a href="#cb45-325" aria-hidden="true" tabindex="-1"></a><span class="in">clm_lst &lt;- read.csv("./data/clements_bird_list.csv")</span></span>
+<span id="cb45-326"><a href="#cb45-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-327"><a href="#cb45-327" aria-hidden="true" tabindex="-1"></a><span class="in"># check structure</span></span>
+<span id="cb45-328"><a href="#cb45-328" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::kable(clm_lst[1:6, ], row.names = F, escape = FALSE) %&gt;%</span></span>
+<span id="cb45-329"><a href="#cb45-329" aria-hidden="true" tabindex="-1"></a><span class="in">  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 14)</span></span>
+<span id="cb45-330"><a href="#cb45-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-331"><a href="#cb45-331" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-332"><a href="#cb45-332" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-333"><a href="#cb45-333" aria-hidden="true" tabindex="-1"></a>You can also manually download the file from <span class="co">[</span><span class="ot">here</span><span class="co">](http://www.birds.cornell.edu/clementschecklist/wp-content/uploads/2013/03/eBird_Taxonomy_v2017_18Aug2017.csv)</span> (Note that the name of the downloaded file might differ to that in this tutorial).</span>
+<span id="cb45-334"><a href="#cb45-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-335"><a href="#cb45-335" aria-hidden="true" tabindex="-1"></a>As in the previous example, we can tell <span class="in">`R`</span> how to identify empty cells using the 'na.strings' argument:</span>
+<span id="cb45-336"><a href="#cb45-336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-337"><a href="#cb45-337" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = F, echo= T}</span></span>
+<span id="cb45-338"><a href="#cb45-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-339"><a href="#cb45-339" aria-hidden="true" tabindex="-1"></a><span class="in">clm_lst &lt;- read.csv("clements_bird_list.csv", na.strings = "")</span></span>
+<span id="cb45-340"><a href="#cb45-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-341"><a href="#cb45-341" aria-hidden="true" tabindex="-1"></a><span class="in">head(clm_lst)</span></span>
+<span id="cb45-342"><a href="#cb45-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-343"><a href="#cb45-343" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-344"><a href="#cb45-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-345"><a href="#cb45-345" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = T, echo= F}</span></span>
+<span id="cb45-346"><a href="#cb45-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-347"><a href="#cb45-347" aria-hidden="true" tabindex="-1"></a><span class="in">clm_lst &lt;- read.csv("./data/clements_bird_list.csv", na.strings = "")</span></span>
+<span id="cb45-348"><a href="#cb45-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-349"><a href="#cb45-349" aria-hidden="true" tabindex="-1"></a><span class="in"># check structure</span></span>
+<span id="cb45-350"><a href="#cb45-350" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::kable(clm_lst[1:6, ], row.names = F, escape = FALSE) %&gt;%</span></span>
+<span id="cb45-351"><a href="#cb45-351" aria-hidden="true" tabindex="-1"></a><span class="in">  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 14)</span></span>
+<span id="cb45-352"><a href="#cb45-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-353"><a href="#cb45-353" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-354"><a href="#cb45-354" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-355"><a href="#cb45-355" aria-hidden="true" tabindex="-1"></a><span class="fu">### Reading excel files</span></span>
+<span id="cb45-356"><a href="#cb45-356" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-357"><a href="#cb45-357" aria-hidden="true" tabindex="-1"></a>Most researchers enter data into excel spreadsheets. So it would be pretty handy to read the data directly from there. To read *xls* and *xlsx* files we need to install the package "readxl" (there are other packages that can be used but they all work similarly):</span>
+<span id="cb45-358"><a href="#cb45-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-359"><a href="#cb45-359" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,eval=FALSE}</span></span>
+<span id="cb45-360"><a href="#cb45-360" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-361"><a href="#cb45-361" aria-hidden="true" tabindex="-1"></a><span class="in">install.packages(pkgs = "readxl")</span></span>
+<span id="cb45-362"><a href="#cb45-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-363"><a href="#cb45-363" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-364"><a href="#cb45-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-365"><a href="#cb45-365" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb45-366"><a href="#cb45-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-367"><a href="#cb45-367" aria-hidden="true" tabindex="-1"></a>And load it:</span>
+<span id="cb45-368"><a href="#cb45-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-369"><a href="#cb45-369" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=F}</span></span>
+<span id="cb45-370"><a href="#cb45-370" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-371"><a href="#cb45-371" aria-hidden="true" tabindex="-1"></a><span class="in">library(readxl)</span></span>
+<span id="cb45-372"><a href="#cb45-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-373"><a href="#cb45-373" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-374"><a href="#cb45-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-375"><a href="#cb45-375" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb45-376"><a href="#cb45-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-377"><a href="#cb45-377" aria-hidden="true" tabindex="-1"></a>As we did above, download an example file from an online repository. In this case is the same Clements bird taxonomy list in *xlsx* format:</span>
+<span id="cb45-378"><a href="#cb45-378" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-379"><a href="#cb45-379" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = F, echo= T}</span></span>
+<span id="cb45-380"><a href="#cb45-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-381"><a href="#cb45-381" aria-hidden="true" tabindex="-1"></a><span class="in">download.file("https://github.com/maRce10/OTS_TBCP_2024/raw/master/data/clements_bird_list.xlsx", destfile = "clements_bird_list.xlsx")</span></span>
+<span id="cb45-382"><a href="#cb45-382" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-383"><a href="#cb45-383" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-384"><a href="#cb45-384" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-385"><a href="#cb45-385" aria-hidden="true" tabindex="-1"></a>You can also manually download the file from <span class="co">[</span><span class="ot">here</span><span class="co">](http://www.birds.cornell.edu/clementschecklist/wp-content/uploads/2017/08/eBird_Taxonomy_v2017_18Aug2017.xlsx)</span></span>
+<span id="cb45-386"><a href="#cb45-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-387"><a href="#cb45-387" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb45-388"><a href="#cb45-388" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-389"><a href="#cb45-389" aria-hidden="true" tabindex="-1"></a>Now we can use the function <span class="in">`read_excel()`</span> to read the file:</span>
+<span id="cb45-390"><a href="#cb45-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-391"><a href="#cb45-391" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = F, echo= T}</span></span>
+<span id="cb45-392"><a href="#cb45-392" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-393"><a href="#cb45-393" aria-hidden="true" tabindex="-1"></a><span class="in"># read file</span></span>
+<span id="cb45-394"><a href="#cb45-394" aria-hidden="true" tabindex="-1"></a><span class="in">clm_lst2 &lt;- read_excel("clements_bird_list.xlsx", sheet = 1)</span></span>
+<span id="cb45-395"><a href="#cb45-395" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-396"><a href="#cb45-396" aria-hidden="true" tabindex="-1"></a><span class="in">head(clm_lst2)</span></span>
+<span id="cb45-397"><a href="#cb45-397" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-398"><a href="#cb45-398" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-399"><a href="#cb45-399" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = T, echo= F}</span></span>
+<span id="cb45-400"><a href="#cb45-400" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-401"><a href="#cb45-401" aria-hidden="true" tabindex="-1"></a><span class="in">clm_lst2 &lt;- read_excel("./data/clements_bird_list.xlsx", sheet = 1)</span></span>
+<span id="cb45-402"><a href="#cb45-402" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-403"><a href="#cb45-403" aria-hidden="true" tabindex="-1"></a><span class="in"># check structure</span></span>
+<span id="cb45-404"><a href="#cb45-404" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::kable(clm_lst2[1:6, 1:5], row.names = F, escape = FALSE) %&gt;%</span></span>
+<span id="cb45-405"><a href="#cb45-405" aria-hidden="true" tabindex="-1"></a><span class="in">  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 14)</span></span>
+<span id="cb45-406"><a href="#cb45-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-407"><a href="#cb45-407" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::kable(clm_lst2[1:6, 6:9], row.names = F, escape = FALSE) %&gt;%</span></span>
+<span id="cb45-408"><a href="#cb45-408" aria-hidden="true" tabindex="-1"></a><span class="in">  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 14)</span></span>
+<span id="cb45-409"><a href="#cb45-409" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-410"><a href="#cb45-410" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-411"><a href="#cb45-411" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-412"><a href="#cb45-412" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb45-413"><a href="#cb45-413" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-414"><a href="#cb45-414" aria-hidden="true" tabindex="-1"></a>You need to specify the file name (including extension) and the excel sheet (tab) name. <span class="in">`read_excel()`</span> auto detects the format from the file extension. The functions <span class="in">`read_xls()`</span> and <span class="in">`read_xlsx()`</span> can be used to read files without extension.</span>
+<span id="cb45-415"><a href="#cb45-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-416"><a href="#cb45-416" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
+<span id="cb45-417"><a href="#cb45-417" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-418"><a href="#cb45-418" aria-hidden="true" tabindex="-1"></a>::: {.alert .alert-info}</span>
+<span id="cb45-419"><a href="#cb45-419" aria-hidden="true" tabindex="-1"></a><span class="fu">### Exercise 1</span></span>
+<span id="cb45-420"><a href="#cb45-420" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-421"><a href="#cb45-421" aria-hidden="true" tabindex="-1"></a>All default functions to input data into <span class="in">`R`</span> have a counterpart to export the same type of data. The names of these other functions are similar to the ones for reading data, although they typically start with "write" or "save".</span>
+<span id="cb45-422"><a href="#cb45-422" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-423"><a href="#cb45-423" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>What are the names of the default functions for exporting the data formats we used above? (hint: try <span class="in">`apropos`</span> to check which functions are available)</span>
+<span id="cb45-424"><a href="#cb45-424" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-425"><a href="#cb45-425" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Export the mammals data as a *.csv* file</span>
+<span id="cb45-426"><a href="#cb45-426" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-427"><a href="#cb45-427" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Export the mammals data again, this time excluding the row names</span>
+<span id="cb45-428"><a href="#cb45-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-429"><a href="#cb45-429" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Read the *.csv* file using <span class="in">`read.table`</span></span>
+<span id="cb45-430"><a href="#cb45-430" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-431"><a href="#cb45-431" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>What other packages can import excel files into <span class="in">`R`</span>?</span>
+<span id="cb45-432"><a href="#cb45-432" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-433"><a href="#cb45-433" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Can you export an excel file or add data to an existing excel file from <span class="in">`R`</span>?</span>
+<span id="cb45-434"><a href="#cb45-434" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-435"><a href="#cb45-435" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Using the "clements_bird_list.csv" file, how would you tell <span class="in">`R`</span> to read both "Rheiformes" and "Ostriches" as empty cells (while still reading empty cells as empty cells)?</span>
+<span id="cb45-436"><a href="#cb45-436" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb45-437"><a href="#cb45-437" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb45-438"><a href="#cb45-438" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb45-439"><a href="#cb45-439" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = F, echo= F}</span></span>
 <span id="cb45-440"><a href="#cb45-440" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb45-441"><a href="#cb45-441" aria-hidden="true" tabindex="-1"></a><span class="in"># 1.4</span></span>
-<span id="cb45-442"><a href="#cb45-442" aria-hidden="true" tabindex="-1"></a><span class="in">clm_lst3 &lt;- read.table("clements_bird_list.csv", stringsAsFactors = FALSE, header = TRUE, sep = ",", fill = T)</span></span>
+<span id="cb45-442"><a href="#cb45-442" aria-hidden="true" tabindex="-1"></a><span class="in">clm_lst3 &lt;- read.table("clements_bird_list.csv", header = TRUE, sep = ",", fill = TRUE)</span></span>
 <span id="cb45-443"><a href="#cb45-443" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb45-444"><a href="#cb45-444" aria-hidden="true" tabindex="-1"></a><span class="in"># 1.7</span></span>
 <span id="cb45-445"><a href="#cb45-445" aria-hidden="true" tabindex="-1"></a><span class="in">clm_lst &lt;- read.csv("clements_bird_list.csv", stringsAsFactors = FALSE, na.strings = c("",  "Rheiformes", "Ostriches"))</span></span>
@@ -3302,7 +3580,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb45-453"><a href="#cb45-453" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb45-454"><a href="#cb45-454" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb45-455"><a href="#cb45-455" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-456"><a href="#cb45-456" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb45-456"><a href="#cb45-456" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb45-457"><a href="#cb45-457" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb45-458"><a href="#cb45-458" aria-hidden="true" tabindex="-1"></a><span class="fu"># Formatting data</span></span>
 <span id="cb45-459"><a href="#cb45-459" aria-hidden="true" tabindex="-1"></a></span>
@@ -3411,9 +3689,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb45-562"><a href="#cb45-562" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb45-563"><a href="#cb45-563" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Each variable must have its own column</span>
 <span id="cb45-564"><a href="#cb45-564" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-565"><a href="#cb45-565" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Each observation must have its own row</span>
+<span id="cb45-565"><a href="#cb45-565" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Each observation must have its own row</span>
 <span id="cb45-566"><a href="#cb45-566" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-567"><a href="#cb45-567" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Each value must have its own cell</span>
+<span id="cb45-567"><a href="#cb45-567" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Each value must have its own cell</span>
 <span id="cb45-568"><a href="#cb45-568" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb45-569"><a href="#cb45-569" aria-hidden="true" tabindex="-1"></a>This figure shows the rules visually:</span>
 <span id="cb45-570"><a href="#cb45-570" aria-hidden="true" tabindex="-1"></a></span>
